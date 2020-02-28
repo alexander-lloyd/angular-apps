@@ -1,0 +1,22 @@
+{
+  "npmScope": "al",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "todo": {
+      "tags": []
+    },
+    "todo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["todo"]
+    }
+  }
+}
