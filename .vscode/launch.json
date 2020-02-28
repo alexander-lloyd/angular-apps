@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Jest",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
+      "args": [
+        "test",
+        "--codeCoverage=false",
+        "--testFile=${relativeFile}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole"
+    },
+    {
+      "name": "Debug Node App",
+      "type": "node",
+      "request": "attach",
+      "port": 7777
+    }
+  ]
+}
