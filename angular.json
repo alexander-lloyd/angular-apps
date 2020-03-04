@@ -74,13 +74,17 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
+            "eslintConfig": "apps/todo/.eslintrc.js",
             "tsConfig": [
               "apps/todo/tsconfig.app.json",
               "apps/todo/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/todo/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/todo/**"
+            ]
           }
         },
         "test": {
@@ -113,10 +117,16 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": ["apps/todo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/todo-e2e/**"]
+            "eslintConfig": "apps/todo/.eslintrc.js",
+            "tsConfig": [
+              "apps/todo-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/todo-e2e/**"
+            ]
           }
         }
       }
