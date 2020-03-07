@@ -2,6 +2,9 @@
 # yarn lockfile v1
 
 
+"@al/eslint-config@file:libs/eslint-config":
+  version "1.0.0"
+
 "@angular-devkit/architect@0.900.6", "@angular-devkit/architect@~0.900.1":
   version "0.900.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.900.6.tgz#f82746975e1aa6593b66b3ceb742bcc0ff90b9a1"
@@ -118,9 +121,9 @@
     rxjs "6.5.3"
 
 "@angular-eslint/builder@^0.0.1-alpha.20":
-  version "0.0.1-alpha.20"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-0.0.1-alpha.20.tgz#aee4a661e5632a1b69f3577881164487de43fbcc"
-  integrity sha512-XsxQp/F7RlHGr16CaltQKoFHETYuL8msPM9pef9wDxuGkCMqEce6aCyu7YqOp1frSbJBf24XDaAPj5n6p8OCaA==
+  version "0.0.1-alpha.22"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-0.0.1-alpha.22.tgz#3e8a103d5ace72d9ee396a6e309d070da659d569"
+  integrity sha512-/aH7lz4ySKXA053CNSMyfxx56dkVk9KPVgBHtk5Azf7kBloB5t9Kv24buiXTj9Rm6dhHnzMU8gw0cuW+wo+feQ==
 
 "@angular/animations@9.0.0":
   version "9.0.0"
@@ -1252,6 +1255,13 @@
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
 
+"@nrwl/eslint-plugin-nx@9.0.4":
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-9.0.4.tgz#967a97e52dc34562d1659e4a1c80a6fd875f8e1d"
+  integrity sha512-OaqYdm7uHhlYBftD1WUbR15Ncjoz+Fn/Ow+kQ7ToOMxDj4Q8ViVhlYoI8q4qlh6PjGjvTfqjgDwlOD/loXPRRg==
+  dependencies:
+    "@typescript-eslint/experimental-utils" "^2.19.2"
+
 "@nrwl/jest@9.0.4":
   version "9.0.4"
   resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-9.0.4.tgz#ffc6b74902b6c270021d26ecd5086de077685107"
@@ -1260,6 +1270,13 @@
     "@angular-devkit/architect" "~0.900.1"
     "@angular-devkit/core" "~9.0.1"
     "@angular-devkit/schematics" "~9.0.1"
+
+"@nrwl/linter@^9.0.4":
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-9.0.4.tgz#15d6c4b920d3a40971fc4bef57dd27577b96ab61"
+  integrity sha512-LeWfVxz8MivYFji3WAOlxqNX3lc0s51FlTAwUPY0sNrH9IgzH7GMgzo2qVcfhDh/KxbZPGJYIt9NphXwx/ypEw==
+  dependencies:
+    "@angular-devkit/architect" "~0.900.1"
 
 "@nrwl/tao@9.0.4":
   version "9.0.4"
@@ -1488,7 +1505,7 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@2.22.0":
+"@typescript-eslint/experimental-utils@2.22.0", "@typescript-eslint/experimental-utils@^2.19.2":
   version "2.22.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.22.0.tgz#4d00c91fbaaa68e56e7869be284999a265707f85"
   integrity sha512-sJt1GYBe6yC0dWOQzXlp+tiuGglNhJC9eXZeC8GBVH98Zv9jtatccuhz0OF5kC/DwChqsNfghHx7OlIDQjNYAQ==

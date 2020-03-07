@@ -1,12 +1,12 @@
+/* eslint-env node */
 module.exports = {
-  root: true,
-  parser: '@typescript-eslint/parser',
   plugins: [
     '@typescript-eslint',
+    '@nrwl/nx'
   ],
-  extends: [
+  'extends': [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended'
   ],
 };
