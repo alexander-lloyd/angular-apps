@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@al/eslint-config": ["libs/eslint-config/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
