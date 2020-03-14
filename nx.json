@@ -17,9 +17,6 @@
     "todo-e2e": {
       "tags": [],
       "implicitDependencies": ["todo"]
-    },
-    "eslint-config": {
-      "tags": []
     }
   }
 }
