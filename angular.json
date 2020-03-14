@@ -77,7 +77,7 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "apps/todo/.eslintrc",
+            "config": "apps/todo/.eslintrc.js",
             "tsConfig": [
               "apps/todo/tsconfig.app.json",
               "apps/todo/tsconfig.spec.json"
@@ -118,26 +118,9 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "apps/todo-e2e/.eslintrc",
+            "config": "apps/todo-e2e/.eslintrc.js",
             "tsConfig": ["apps/todo-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/todo-e2e/**"]
-          }
-        }
-      }
-    },
-    "eslint-config": {
-      "root": "libs/eslint-config",
-      "sourceRoot": "libs/eslint-config/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "config": "libs/eslint-config/.eslintrc",
-            "tsConfig": ["libs/eslint-config/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/eslint-config/**"]
           }
         }
       }
