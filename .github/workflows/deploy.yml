@@ -21,11 +21,8 @@ jobs:
       name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Dependencies
-      run: |
-        yarn install --frozen-lockfile
-      env:
-        CI: true
     - name: Build 🏗️ & Deploy Todo App 🚀
       run: |
         yarn deploy todo --message "Deploying $GITHUB_SHA from $GITHUB_REF"
+      env:
+        GH_TOKEN: ${{ secret.GH_TOKEN }}
