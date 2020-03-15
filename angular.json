@@ -93,6 +93,15 @@
             "passWithNoTests": true,
             "setupFile": "apps/todo/src/test-setup.ts"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/todo/",
+            "configuration": "production",
+            "repo": "https://github.com/alexander-lloyd/todo",
+            "branch": "master"
+          }
         }
       }
     },
