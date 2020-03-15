@@ -13,36 +13,16 @@ const MAX_PARAMETERS = 6;
 
 module.exports = {
   root: true,
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-    project: './tsconfig.json'
-  },
+  reportUnusedDisableDirectives: true,
   plugins: [
-    '@typescript-eslint',
     '@nrwl/nx',
     'jsdoc'
   ],
   extends: [
     'eslint:all',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:import/typescript',
     'plugin:jsdoc/recommended',
   ],
-  reportUnusedDisableDirectives: true,
   rules: {
-    '@typescript-eslint/indent': ['error', INDENT, {
-      ignoredNodes: ['JSXElement *', 'JSXElement']
-    }],
-    '@typescript-eslint/no-empty-interface': 'warn',
-    '@typescript-eslint/no-extra-parens': ['error', 'all', {
-      ignoreJSX: 'multi-line',
-      nestedBinaryExpressions: false
-    }],
-    '@typescript-eslint/no-useless-constructor': 'error',
-    '@typescript-eslint/semi': 'error',
     '@nrwl/nx/enforce-module-boundaries': [
       'error',
       {
@@ -67,8 +47,7 @@ module.exports = {
     }],
     'function-call-argument-newline': 'off',
     'id-length': 'off',
-    // Use @typescript-eslint version instead.
-    'indent': 'off',
+    'indent': 'error',
     'init-declarations': 'off',
     'jsdoc/no-bad-blocks': 'error',
     'jsdoc/no-types': 0,
@@ -102,6 +81,7 @@ module.exports = {
     'no-console': 'warn',
     'no-continue': 'off',
     'no-extra-parens': 'off',
+    'no-fallthrough': 'error',
     'no-magic-numbers': 'warn',
     'no-plusplus': 'off',
     'no-sync': 'off',
@@ -125,11 +105,118 @@ module.exports = {
   },
   overrides: [
     {
-      extends: [
-        'plugin:jest/all'
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: 'module',
+        project: './tsconfig.json'
+      },
+      plugins: [
+        '@typescript-eslint',
+        '@angular-eslint'
       ],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:import/typescript'
+      ],
+      rules: {
+        '@angular-eslint/component-class-suffix': 'error',
+        '@angular-eslint/contextual-lifecycle': 'error',
+        // '@angular-eslint/directive-class-suffix': 'error',
+        '@angular-eslint/component-selector': [
+          'error',
+          { type: 'element', prefix: 'al', style: 'kebab-case' },
+        ],
+        '@angular-eslint/directive-selector': [
+          'error',
+          { type: 'attribute', prefix: 'al', style: 'camelCase' },
+        ],
+        '@angular-eslint/no-conflicting-lifecycle': 'error',
+        '@angular-eslint/no-host-metadata-property': 'error',
+        '@angular-eslint/no-input-rename': 'error',
+        '@angular-eslint/no-inputs-metadata-property': 'error',
+        '@angular-eslint/no-output-native': 'error',
+        '@angular-eslint/no-output-on-prefix': 'error',
+        '@angular-eslint/no-output-rename': 'error',
+        '@angular-eslint/no-outputs-metadata-property': 'error',
+        '@angular-eslint/use-lifecycle-interface': 'warn',
+        '@angular-eslint/use-pipe-transform-interface': 'error',
+        '@typescript-eslint/array-type': ['error', {
+          default: 'array-simple',
+          readonly: 'array-simple'
+        }],
+        '@typescript-eslint/explicit-member-accessibility': 'error',
+        '@typescript-eslint/indent': ['error', INDENT, {
+          ignoredNodes: ['JSXElement *', 'JSXElement']
+        }],
+        '@typescript-eslint/interface-name-prefix': 'off',
+        '@typescript-eslint/member-ordering': [
+          'error',
+          {
+            default: [
+              'static-field',
+              'instance-field',
+              'static-method',
+              'instance-method',
+            ],
+          },
+        ],
+        '@typescript-eslint/no-empty-interface': 'warn',
+        '@typescript-eslint/no-extra-parens': ['error', 'all', {
+          ignoreJSX: 'multi-line',
+          nestedBinaryExpressions: false
+        }],
+        '@typescript-eslint/no-inferrable-types': [
+          'error',
+          {
+            ignoreParameters: true,
+          },
+        ],
+        '@typescript-eslint/no-non-null-assertion': 'error',
+        '@typescript-eslint/no-useless-constructor': 'error',
+        '@typescript-eslint/semi': 'error',
+        // Use @typescript-eslint version instead.
+        'indent': 'off',
+        'no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              {
+                name: 'rxjs/Rx',
+                message: "Please import directly from 'rxjs' instead",
+              },
+            ],
+          },
+        ],
+      }
+    },
+    {
+      files: ['*.component.html'],
+      parser: '@angular-eslint/template-parser',
+      plugins: ['@angular-eslint/template'],
+      rules: {
+        '@angular-eslint/template/banana-in-a-box': 'error',
+        '@angular-eslint/template/no-negated-async': 'error',
+      },
+    },
+    {
+      files: ['*.component.ts'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+      },
+      plugins: ['@angular-eslint/template'],
+      processor: '@angular-eslint/template/extract-inline-html',
+    },
+    {
       files: [
         '*.spec.ts'
+      ],
+      extends: [
+        'plugin:jest/all'
       ],
       rules: {
         'jest/lowercase-name': ['error', {ignore: ['describe']}],
