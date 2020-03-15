@@ -23,6 +23,11 @@ jobs:
         yarn install --frozen-lockfile
       env:
         CI: true
+    - name: Build
+      run: |
+        yarn build
+      env:
+        CI: true
     - name: Run Unit Tests
       run: |
         yarn test
