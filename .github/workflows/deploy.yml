@@ -25,4 +25,4 @@ jobs:
       run: |
         yarn deploy todo --message "Deploying $GITHUB_SHA from $GITHUB_REF"
       env:
-        GH_TOKEN: ${{ secret.GH_TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
