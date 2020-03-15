@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Git Checkout
+      name: Git Checkout
     - uses: actions/setup-node@v1
       name: Use Node.js ${{ matrix.node-version }}
       with:
