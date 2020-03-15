@@ -117,10 +117,20 @@
     ora "4.0.2"
     rxjs "6.5.3"
 
-"@angular-eslint/builder@^0.0.1-alpha.20":
+"@angular-eslint/eslint-plugin-template@0.0.1-alpha.22":
   version "0.0.1-alpha.22"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/builder/-/builder-0.0.1-alpha.22.tgz#3e8a103d5ace72d9ee396a6e309d070da659d569"
-  integrity sha512-/aH7lz4ySKXA053CNSMyfxx56dkVk9KPVgBHtk5Azf7kBloB5t9Kv24buiXTj9Rm6dhHnzMU8gw0cuW+wo+feQ==
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-0.0.1-alpha.22.tgz#678a0b1712df11917b5a7f3cc3ca586c8c22d71a"
+  integrity sha512-Wug2lilX4RPnrIGpmL9qm8uL9KMTn4+QerW3mHWBwGUGVB7wX/RG/j1xwnpa7mVJS5faFOUkSiiDJ4s6+iRqCQ==
+  dependencies:
+    "@typescript-eslint/experimental-utils" "2.19.2"
+    eslint-scope "^4.0.0"
+
+"@angular-eslint/eslint-plugin@0.0.1-alpha.22":
+  version "0.0.1-alpha.22"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-0.0.1-alpha.22.tgz#4f72795c48317043c2c8be4d1808ebfd813be513"
+  integrity sha512-jb2qyGi7GC2vTKTjUjvLe+iUlCRg6RCcuRDSE1fknSxLGKJmfxFtZycoGTU6RUD9n10Ygkg1LZbjtLzii2tRZA==
+  dependencies:
+    "@typescript-eslint/experimental-utils" "2.19.2"
 
 "@angular/animations@9.0.0":
   version "9.0.0"
@@ -1502,6 +1512,15 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
+"@typescript-eslint/experimental-utils@2.19.2":
+  version "2.19.2"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.19.2.tgz#4611d44cf0f0cb460c26aa7676fc0a787281e233"
+  integrity sha512-B88QuwT1wMJR750YvTJBNjMZwmiPpbmKYLm1yI7PCc3x0NariqPwqaPsoJRwU9DmUi0cd9dkhz1IqEnwfD+P1A==
+  dependencies:
+    "@types/json-schema" "^7.0.3"
+    "@typescript-eslint/typescript-estree" "2.19.2"
+    eslint-scope "^5.0.0"
+
 "@typescript-eslint/experimental-utils@2.22.0", "@typescript-eslint/experimental-utils@^2.19.2":
   version "2.22.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.22.0.tgz#4d00c91fbaaa68e56e7869be284999a265707f85"
@@ -1529,6 +1548,19 @@
     "@typescript-eslint/experimental-utils" "2.22.0"
     "@typescript-eslint/typescript-estree" "2.22.0"
     eslint-visitor-keys "^1.1.0"
+
+"@typescript-eslint/typescript-estree@2.19.2":
+  version "2.19.2"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.19.2.tgz#67485b00172f400474d243c6c0be27581a579350"
+  integrity sha512-Xu/qa0MDk6upQWqE4Qy2X16Xg8Vi32tQS2PR0AvnT/ZYS4YGDvtn2MStOh5y8Zy2mg4NuL06KUHlvCh95j9C6Q==
+  dependencies:
+    debug "^4.1.1"
+    eslint-visitor-keys "^1.1.0"
+    glob "^7.1.6"
+    is-glob "^4.0.1"
+    lodash "^4.17.15"
+    semver "^6.3.0"
+    tsutils "^3.17.1"
 
 "@typescript-eslint/typescript-estree@2.22.0":
   version "2.22.0"
@@ -3934,7 +3966,7 @@ eslint-plugin-jsdoc@^22.0.1:
     semver "^6.3.0"
     spdx-expression-parse "^3.0.0"
 
-eslint-scope@^4.0.3:
+eslint-scope@^4.0.0, eslint-scope@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-4.0.3.tgz#ca03833310f6889a3264781aa82e63eb9cfe7848"
   integrity sha512-p7VutNr1O/QrxysMo3E45FjYDTeXBy0iTltPFNSqKAIfjDSXC+4dj+qfyuD8bfAXrW/y6lW3O76VaYNPKfpKrg==
