@@ -26,6 +26,6 @@ jobs:
         yarn install --frozen-lockfile
     - name: Build 🏗️ & Deploy Todo App 🚀
       run: |
-        yarn deploy todo --message "Deploying $GITHUB_SHA from $GITHUB_REF"
+        yarn deploy todo --message "Deploying $GITHUB_SHA from $GITHUB_REF" --no-silent
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
