@@ -100,7 +100,9 @@
             "baseHref": "/todo/",
             "configuration": "production",
             "repo": "https://github.com/alexander-lloyd/todo",
-            "branch": "master"
+            "branch": "master",
+            "name": "Alex Bot",
+            "email": "bot@alexlloyd.xyz"
           }
         }
       }
