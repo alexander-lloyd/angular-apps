@@ -1,4 +1,4 @@
-name: Node CI
+name: Build
 
 on: [push]
 
@@ -13,16 +13,29 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - name: Git Checkout
+    - uses: actions/setup-node@v1
+      name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
-    - name: yarn install, build, and test and lint
+    - name: Install Dependencies
       run: |
         yarn install --frozen-lockfile
+      env:
+        CI: true
+    - name: Run Unit Tests
+      run: |
         yarn test
+      env:
+        CI: true
+    - name: Run Linting
+      run: |
         yarn lint
         yarn format:check
+      env:
+        CI: true
+    - name: Run Integration Tests
+      run: |
         yarn e2e
       env:
         CI: true
