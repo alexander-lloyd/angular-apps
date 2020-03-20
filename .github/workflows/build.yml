@@ -23,9 +23,14 @@ jobs:
         yarn install --frozen-lockfile
       env:
         CI: true
-    - name: Build
+    - name: Build Todo App
       run: |
-        yarn build
+        yarn build todo-app
+      env:
+        CI: true
+    - name: Build Todo App
+      run: |
+        yarn build spotify-player
       env:
         CI: true
     - name: Run Unit Tests
