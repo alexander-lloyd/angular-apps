@@ -135,6 +135,52 @@
           }
         }
       }
+    },
+    "logger": {
+      "projectType": "library",
+      "root": "libs/logger",
+      "sourceRoot": "libs/logger/src",
+      "prefix": "al",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/logger/tsconfig.lib.json",
+            "project": "libs/logger/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/logger/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/todo-e2e/.eslintrc.js",
+            "tsConfig": [
+              "libs/logger/tsconfig.lib.json",
+              "libs/logger/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/logger/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/logger/jest.config.js",
+            "tsConfig": "libs/logger/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/logger/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
