@@ -1,5 +1,5 @@
 import {LoggerImpl} from './logger-impl';
-import {LoggerService} from '../api';
+import {LoggerService, LogLevel} from '../api';
 
 describe('Logger Implementation', () => {
   const loggerName = 'ABC';
@@ -24,7 +24,7 @@ describe('Logger Implementation', () => {
     logger.debug(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: 'DEBUG',
+      level: LogLevel.DEBUG,
       loggerName,
       messages: [message],
       timestamp: nowTime
@@ -39,7 +39,7 @@ describe('Logger Implementation', () => {
     logger.info(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: 'INFO',
+      level: LogLevel.INFO,
       loggerName,
       messages: [message],
       timestamp: nowTime
@@ -54,7 +54,7 @@ describe('Logger Implementation', () => {
     logger.warn(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: 'WARN',
+      level: LogLevel.WARN,
       loggerName,
       messages: [message],
       timestamp: nowTime
@@ -69,7 +69,7 @@ describe('Logger Implementation', () => {
     logger.error(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: 'ERROR',
+      level: LogLevel.ERROR,
       loggerName,
       messages: [message],
       timestamp: nowTime
