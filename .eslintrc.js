@@ -78,7 +78,15 @@ module.exports = {
     'max-params': ['error', MAX_PARAMETERS],
     'max-statements': ['warn', MAX_LINES_PER_FUNCTION],
     'multiline-ternary': ['error', 'always-multiline'],
-    'new-cap': ['error', {capIsNewExceptions: ['Component', 'Directive', 'Injectable', 'NgModule']}],
+    'new-cap': ['error', {
+      capIsNewExceptions: [
+        'Component',
+        'Directive',
+        'Inject',
+        'Injectable',
+        'NgModule'
+      ]
+    }],
     'no-console': 'warn',
     'no-continue': 'off',
     'no-extra-parens': 'off',
