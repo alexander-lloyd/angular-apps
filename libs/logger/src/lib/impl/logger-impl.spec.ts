@@ -3,6 +3,7 @@ import {LoggerService} from '../api';
 
 describe('Logger Implementation', () => {
   const loggerName = 'ABC';
+  const nowTime = 1111111111;
   let logger: LoggerImpl;
   let parentService: LoggerService;
 
@@ -12,6 +13,7 @@ describe('Logger Implementation', () => {
       getLogger: jest.fn()
     };
     logger = new LoggerImpl(loggerName, parentService);
+    jest.spyOn(Date, 'now').mockImplementation(() => nowTime);
   });
 
   it('should pass a debug message to the parent service', () => {
@@ -24,7 +26,8 @@ describe('Logger Implementation', () => {
     expect(parentService._onMessage).toHaveBeenCalledWith({
       level: 'DEBUG',
       loggerName,
-      messages: [message]
+      messages: [message],
+      timestamp: nowTime
     });
   });
 
@@ -38,7 +41,8 @@ describe('Logger Implementation', () => {
     expect(parentService._onMessage).toHaveBeenCalledWith({
       level: 'INFO',
       loggerName,
-      messages: [message]
+      messages: [message],
+      timestamp: nowTime
     });
   });
 
@@ -52,7 +56,8 @@ describe('Logger Implementation', () => {
     expect(parentService._onMessage).toHaveBeenCalledWith({
       level: 'WARN',
       loggerName,
-      messages: [message]
+      messages: [message],
+      timestamp: nowTime
     });
   });
 
@@ -66,7 +71,8 @@ describe('Logger Implementation', () => {
     expect(parentService._onMessage).toHaveBeenCalledWith({
       level: 'ERROR',
       loggerName,
-      messages: [message]
+      messages: [message],
+      timestamp: nowTime
     });
   });
 });

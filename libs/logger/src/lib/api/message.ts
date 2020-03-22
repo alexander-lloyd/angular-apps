@@ -17,4 +17,9 @@ export interface LogMessage {
    * Log messages.
    */
   messages: any[];
+
+  /**
+   * Unix Timestamp.
+   */
+  timestamp: number;
 }

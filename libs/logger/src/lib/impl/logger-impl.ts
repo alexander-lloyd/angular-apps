@@ -28,7 +28,8 @@ export class LoggerImpl implements Logger {
     this.parentService._onMessage({
       level,
       loggerName: this.loggerName,
-      messages
+      messages,
+      timestamp: Date.now()
     });
   }
 }

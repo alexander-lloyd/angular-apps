@@ -2,10 +2,12 @@ import {LoggerService} from './api';
 import {LoggerServiceImpl} from './logger.service';
 
 describe('Logger Service', () => {
+  const nowTime = 1111111111;
   let service: LoggerService;
 
   beforeEach(() => {
     service = new LoggerServiceImpl();
+    jest.spyOn(Date, 'now').mockImplementation(() => nowTime);
   });
 
   it('should get a new logger instance', () => {
@@ -27,7 +29,8 @@ describe('Logger Service', () => {
     expect(serviceSpy).toHaveBeenCalledWith({
       level: 'DEBUG',
       messages: [message],
-      loggerName
+      loggerName,
+      timestamp: nowTime
     });
   });
 });
