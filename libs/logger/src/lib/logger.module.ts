@@ -1,7 +1,7 @@
 import {NgModule, ValueProvider} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {LOG_HANDLERS_TOKEN, LoggerService, LOG_SERVICE_TOKEN} from './api';
+import {LOG_HANDLERS_TOKEN, LOG_SERVICE_TOKEN} from './api';
 import {ConsoleHandler} from './impl';
 import {LoggerServiceImpl} from './logger.service';
 
