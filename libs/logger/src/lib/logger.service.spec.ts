@@ -1,12 +1,29 @@
-import {LoggerService, LogMessage} from './api';
+import {TestBed} from '@angular/core/testing';
+
+import {LoggerService, LogMessage, LOG_HANDLERS_TOKEN, LogHandler} from './api';
 import {LoggerServiceImpl} from './logger.service';
+import {NullLogHandler} from './impl/handler/null-handler';
 
 describe('Logger Service', () => {
   const nowTime = 1111111111;
   let service: LoggerService;
+  let logHandler: LogHandler;
 
   beforeEach(() => {
-    service = new LoggerServiceImpl();
+    logHandler = new NullLogHandler();
+
+    service = TestBed
+      .configureTestingModule({
+        providers: [
+          LoggerServiceImpl,
+          {
+            provide: LOG_HANDLERS_TOKEN,
+            useValue: [logHandler]
+          }
+        ]
+      })
+      .inject(LoggerServiceImpl);
+
     jest.spyOn(Date, 'now').mockImplementation(() => nowTime);
   });
 
@@ -37,11 +54,8 @@ describe('Logger Service', () => {
   it('should call a log handler', () => {
     expect.assertions(1);
 
-    const onMessageHandler = jest.fn();
-
-    (service as any).logHandler = {
-      onMessage: onMessageHandler
-    };
+    const onMessageHandler = jest.spyOn(logHandler, 'onMessage')
+      .mockImplementation(() => {});
 
     const message: LogMessage = {
       level: 'DEBUG',
