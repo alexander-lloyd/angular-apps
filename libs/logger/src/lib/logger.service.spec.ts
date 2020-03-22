@@ -54,8 +54,7 @@ describe('Logger Service', () => {
   it('should call a log handler', () => {
     expect.assertions(1);
 
-    const onMessageHandler = jest.spyOn(logHandler, 'onMessage')
-      .mockImplementation(() => {});
+    const onMessageHandler = jest.spyOn(logHandler, 'onMessage');
 
     const message: LogMessage = {
       level: 'DEBUG',
