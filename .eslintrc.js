@@ -164,7 +164,8 @@ module.exports = {
             ],
           },
         ],
-        '@typescript-eslint/no-empty-interface': 'warn',
+        '@typescript-eslint/no-empty-interface': 'error',
+        '@typescript-eslint/no-empty-function': 'error',
         '@typescript-eslint/no-extra-parens': ['error', 'all', {
           ignoreJSX: 'multi-line',
           nestedBinaryExpressions: false
@@ -220,6 +221,7 @@ module.exports = {
         'plugin:jest/all'
       ],
       rules: {
+        '@typescript-eslint/no-empty-function': 'off',
         'jest/lowercase-name': ['error', {ignore: ['describe']}],
         'jest/no-hooks': ['error', {allow: ['beforeEach', 'afterEach']}],
         'jest/no-truthy-falsy': 'off',

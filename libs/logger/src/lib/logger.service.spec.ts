@@ -16,7 +16,8 @@ describe('Logger Service', () => {
   it('should get called by child logger', () => {
     expect.assertions(1);
 
-    const serviceSpy = jest.spyOn(service, '_onMessage');
+    const serviceSpy = jest.spyOn(service, '_onMessage')
+      .mockImplementation(() => {});
     const loggerName = 'logger';
     const child = service.getLogger(loggerName);
     const message = 'abc';
