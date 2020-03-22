@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
+
+import {LOG_SERVICE_TOKEN, LoggerService, Logger} from '@al/logger';
 
 /**
  * AppComponent.
@@ -10,4 +12,12 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   public title = 'todo';
+  private logger: Logger;
+
+  public constructor(
+    @Inject(LOG_SERVICE_TOKEN) private logService: LoggerService
+  ) {
+    this.logger = this.logService.getLogger('AppComponent');
+    this.logger.debug('Debug Message');
+  }
 }
