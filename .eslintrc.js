@@ -8,7 +8,7 @@ const MAX_CLASSES_PER_FILE = 2;
 const MAX_COMPLEXITY = 10;
 const MAX_LINE_LENGTH = 120;
 const MAX_LINES = 200;
-const MAX_LINES_PER_FUNCTION = 10;
+const MAX_LINES_PER_FUNCTION = 20;
 const MAX_PARAMETERS = 6;
 
 module.exports = {

@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 
-import {Logger, LogMessage, LoggerService} from './api';
+import {Logger, LogMessage, LoggerService, LogHandler} from './api';
 import {LoggerImpl} from './impl';
 import {LoggerModule} from './logger.module';
+import {ConsoleHandler} from './impl/handler/console-handler';
 
 /**
  * Logger Module.
@@ -11,6 +12,15 @@ import {LoggerModule} from './logger.module';
  */
 @Injectable({providedIn: LoggerModule})
 export class LoggerServiceImpl implements LoggerService {
+  private logHandler: LogHandler;
+
+  /**
+   * Constructor.
+   */
+  public constructor() {
+    this.logHandler = new ConsoleHandler();
+  }
+
   /**
    * Get a logger.
    *
@@ -29,6 +39,6 @@ export class LoggerServiceImpl implements LoggerService {
    * @param message Log message.
    */
   public _onMessage(message: LogMessage): void {
-    throw new Error('Not Implemented');
+    this.logHandler.onMessage(message);
   }
 }

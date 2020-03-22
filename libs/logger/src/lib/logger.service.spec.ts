@@ -1,4 +1,4 @@
-import {LoggerService} from './api';
+import {LoggerService, LogMessage} from './api';
 import {LoggerServiceImpl} from './logger.service';
 
 describe('Logger Service', () => {
@@ -32,5 +32,26 @@ describe('Logger Service', () => {
       loggerName,
       timestamp: nowTime
     });
+  });
+
+  it('should call a log handler', () => {
+    expect.assertions(1);
+
+    const onMessageHandler = jest.fn();
+
+    (service as any).logHandler = {
+      onMessage: onMessageHandler
+    };
+
+    const message: LogMessage = {
+      level: 'DEBUG',
+      loggerName: 'loggerName',
+      messages: ['messages'],
+      timestamp: 1
+    };
+
+    service._onMessage(message);
+
+    expect(onMessageHandler).toHaveBeenCalledWith(message);
   });
 });
