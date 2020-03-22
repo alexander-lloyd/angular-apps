@@ -2,14 +2,13 @@ import {Injectable, Inject} from '@angular/core';
 
 import {Logger, LogMessage, LoggerService, LogHandler, LOG_HANDLERS_TOKEN} from './api';
 import {LoggerImpl} from './impl';
-import {LoggerModule} from './logger.module';
 
 /**
  * Logger Module.
  *
  * Get logger instances.
  */
-@Injectable({providedIn: LoggerModule})
+@Injectable()
 export class LoggerServiceImpl implements LoggerService {
   /**
    * Constructor.
