@@ -10,6 +10,7 @@ export interface Logger {
    * configured to display debug output.
    *
    * @param messages A list of JavaScript objects to output.
+   * @param args More arguments.
    */
   debug(messages?: any, ...args: any[]): void;
 
