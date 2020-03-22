@@ -46,6 +46,7 @@ module.exports = {
       'allowArrowFunctions': true
     }],
     'function-call-argument-newline': 'off',
+    'function-paren-newline': ['error', 'consistent'],
     'id-length': 'off',
     'indent': 'error',
     'init-declarations': 'off',
