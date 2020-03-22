@@ -1,8 +1,9 @@
 import {TestBed} from '@angular/core/testing';
 
-import {LoggerService, LogMessage, LOG_HANDLERS_TOKEN, LogHandler} from './api';
+import {LoggerService, LogMessage, LOG_HANDLERS_TOKEN, LogHandler, LogLevel, LOG_SERVICE_CONFIG_TOKEN} from './api';
 import {LoggerServiceImpl} from './logger.service';
 import {NullLogHandler} from './impl/handler/null-handler';
+import {defaultConfig} from './impl';
 
 describe('Logger Service', () => {
   const nowTime = 1111111111;
@@ -18,7 +19,12 @@ describe('Logger Service', () => {
           LoggerServiceImpl,
           {
             provide: LOG_HANDLERS_TOKEN,
-            useValue: [logHandler]
+            useValue: logHandler,
+            multi: true
+          },
+          {
+            provide: LOG_SERVICE_CONFIG_TOKEN,
+            useValue: defaultConfig
           }
         ]
       })
@@ -44,7 +50,7 @@ describe('Logger Service', () => {
     child.debug(message);
 
     expect(serviceSpy).toHaveBeenCalledWith({
-      level: 'DEBUG',
+      level: LogLevel.DEBUG,
       messages: [message],
       loggerName,
       timestamp: nowTime
@@ -57,7 +63,7 @@ describe('Logger Service', () => {
     const onMessageHandler = jest.spyOn(logHandler, 'onMessage');
 
     const message: LogMessage = {
-      level: 'DEBUG',
+      level: LogLevel.DEBUG,
       loggerName: 'loggerName',
       messages: ['messages'],
       timestamp: 1

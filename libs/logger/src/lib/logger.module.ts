@@ -1,8 +1,8 @@
-import {NgModule, ClassProvider} from '@angular/core';
+import {NgModule, ClassProvider, ValueProvider} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {LOG_HANDLERS_TOKEN, LOG_SERVICE_TOKEN} from './api';
-import {ConsoleHandler} from './impl';
+import {LOG_HANDLERS_TOKEN, LOG_SERVICE_TOKEN, LOG_SERVICE_CONFIG_TOKEN} from './api';
+import {ConsoleHandler, defaultConfig} from './impl';
 import {LoggerServiceImpl} from './logger.service';
 
 const logProviders: ClassProvider = {
@@ -11,10 +11,14 @@ const logProviders: ClassProvider = {
   multi: true
 };
 
-
 const logServiceProvider: ClassProvider = {
   provide: LOG_SERVICE_TOKEN,
   useClass: LoggerServiceImpl
+};
+
+const logServiceConfigProvider: ValueProvider = {
+  provide: LOG_SERVICE_CONFIG_TOKEN,
+  useValue: defaultConfig
 };
 
 /**
@@ -24,7 +28,8 @@ const logServiceProvider: ClassProvider = {
   imports: [CommonModule],
   providers: [
     logProviders,
-    logServiceProvider
+    logServiceProvider,
+    logServiceConfigProvider
   ]
 })
 export class LoggerModule {}

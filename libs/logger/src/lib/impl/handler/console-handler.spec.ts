@@ -8,7 +8,7 @@ describe('Console Log Handler', () => {
     const consoleMock = jest.spyOn(console, 'debug').mockImplementation(() => {});
 
     const message: LogMessage = {
-      level: 'DEBUG',
+      level: LogLevel.DEBUG,
       loggerName: 'logger',
       messages: ['message'],
       timestamp: 1
@@ -24,7 +24,7 @@ describe('Console Log Handler', () => {
     const consoleMock = jest.spyOn(console, 'info').mockImplementation(() => {});
 
     const message: LogMessage = {
-      level: 'INFO',
+      level: LogLevel.INFO,
       loggerName: 'logger',
       messages: ['message'],
       timestamp: 1
@@ -40,7 +40,7 @@ describe('Console Log Handler', () => {
     const consoleMock = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
     const message: LogMessage = {
-      level: 'WARN',
+      level: LogLevel.WARN,
       loggerName: 'logger',
       messages: ['message'],
       timestamp: 1
@@ -55,8 +55,9 @@ describe('Console Log Handler', () => {
     expect.assertions(1);
     const consoleMock = jest.spyOn(console, 'error').mockImplementation(() => {});
 
+
     const message: LogMessage = {
-      level: 'ERROR',
+      level: LogLevel.ERROR,
       loggerName: 'logger',
       messages: ['message'],
       timestamp: 1
@@ -70,8 +71,10 @@ describe('Console Log Handler', () => {
   it('should output an error if unexpected log level', () => {
     expect.assertions(1);
 
+    const fakeLevel: LogLevel = new LogLevel('DOES NOT EXIST', -1);
+
     const message: LogMessage = {
-      level: 'DOES NOT EXIST' as LogLevel,
+      level: fakeLevel,
       loggerName: 'logger',
       messages: ['message'],
       timestamp: 1

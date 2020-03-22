@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import {LogHandler, LogMessage} from '../../api';
+import {LogHandler, LogMessage, LogLevel} from '../../api';
 import {buildNotImplementedException} from '../error';
 
 /**
@@ -12,16 +12,16 @@ export class ConsoleHandler implements LogHandler {
    * @param message Log Message.
    */
   public onMessage(message: LogMessage): void {
-    if (message.level === 'DEBUG') {
+    if (message.level === LogLevel.DEBUG) {
       this.onDebug(message);
-    } else if (message.level === 'INFO') {
+    } else if (message.level === LogLevel.INFO) {
       this.onInfo(message);
-    } else if (message.level === 'WARN') {
+    } else if (message.level === LogLevel.WARN) {
       this.onWarn(message);
-    } else if (message.level === 'ERROR') {
+    } else if (message.level === LogLevel.ERROR) {
       this.onError(message);
     } else {
-      throw buildNotImplementedException(`Log Level ${message.level} is not implemented`);
+      throw buildNotImplementedException(`Log Level ${message.level.name} is not implemented`);
     }
   }
 
@@ -31,7 +31,7 @@ export class ConsoleHandler implements LogHandler {
    * @param message Log Message.
    */
   private onDebug({level, loggerName, messages, timestamp}: LogMessage): void {
-    console.debug(level, timestamp, loggerName, ...messages);
+    console.debug(level.name, timestamp, loggerName, ...messages);
   }
 
   /**
@@ -40,7 +40,7 @@ export class ConsoleHandler implements LogHandler {
    * @param message Log Message.
    */
   private onInfo({level, loggerName, messages, timestamp}: LogMessage): void {
-    console.info(level, timestamp, loggerName, ...messages);
+    console.info(level.name, timestamp, loggerName, ...messages);
   }
 
   /**
@@ -49,7 +49,7 @@ export class ConsoleHandler implements LogHandler {
    * @param message Log Message.
    */
   private onWarn({level, loggerName, messages, timestamp}: LogMessage): void {
-    console.warn(level, timestamp, loggerName, ...messages);
+    console.warn(level.name, timestamp, loggerName, ...messages);
   }
 
   /**
@@ -58,6 +58,6 @@ export class ConsoleHandler implements LogHandler {
    * @param message Log Message.
    */
   private onError({level, loggerName, messages, timestamp}: LogMessage): void {
-    console.error(level, timestamp, loggerName, ...messages);
+    console.error(level.name, timestamp, loggerName, ...messages);
   }
 }

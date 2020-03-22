@@ -19,7 +19,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public debug(messages?: any, ...args: any[]): void {
-    this.log('DEBUG', [messages, ...args]);
+    this.log(LogLevel.DEBUG, [messages, ...args]);
   }
 
   /**
@@ -31,7 +31,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public info(messages?: any, ...args: any[]): void {
-    this.log('INFO', [messages, ...args]);
+    this.log(LogLevel.INFO, [messages, ...args]);
   }
 
   /**
@@ -43,7 +43,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public warn(messages?: any, ...args: any[]): void {
-    this.log('WARN', [messages, ...args]);
+    this.log(LogLevel.WARN, [messages, ...args]);
   }
 
   /**
@@ -55,7 +55,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public error(messages?: any, ...args: any[]): void {
-    this.log('ERROR', [messages, ...args]);
+    this.log(LogLevel.ERROR, [messages, ...args]);
   }
 
   /**
