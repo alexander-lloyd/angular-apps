@@ -1,7 +1,7 @@
 import {async, TestBed} from '@angular/core/testing';
 
 import {LoggerModule} from './logger.module';
-import {LogConfigs, LOG_SERVICE_CONFIG_TOKEN} from './api';
+import {LOG_SERVICE_TOKEN} from './api';
 
 describe('LoggerModule', () => {
   beforeEach(async(() => {
@@ -16,21 +16,29 @@ describe('LoggerModule', () => {
     expect(LoggerModule).toBeDefined();
   });
 
-  it('should allow config to be overridden', () => {
+  it('should allow logging in default configuration', () => {
     expect.assertions(1);
 
-    const config: LogConfigs = {
-      'CustomComponent': {
-        level: 'DEBUG',
-        handlers: []
-      }
-    };
+    const loggerName = 'Test Logger';
+    const nowTime = 1;
+    const message = ['Message'];
 
-    const newConfig = TestBed.configureTestingModule({
+    // Mock Console + Date.
+    jest.spyOn(Date, 'now').mockImplementation(() => nowTime);
+    const consoleSpy = jest.spyOn(console, 'debug').mockImplementation(() => {});
+
+    const testService = TestBed.configureTestingModule({
       imports: [LoggerModule]
-    }).overrideProvider(LOG_SERVICE_CONFIG_TOKEN, {useFactory: () => config})
-      .inject(LOG_SERVICE_CONFIG_TOKEN);
+    }).inject(LOG_SERVICE_TOKEN);
 
-    expect(newConfig).toBe(config);
+    const logger = testService.getLogger(loggerName);
+    logger.debug(...message);
+
+    expect(consoleSpy).toHaveBeenCalledWith(
+      'DEBUG',
+      nowTime,
+      loggerName,
+      ...message
+    );
   });
 });
