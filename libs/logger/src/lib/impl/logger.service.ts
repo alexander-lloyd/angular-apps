@@ -6,8 +6,8 @@ import {
   LoggerService,
   LogHandler,
   LOG_HANDLERS_TOKEN
-} from './api';
-import {LoggerImpl} from './impl/';
+} from '../api';
+import {LoggerImpl} from './logger-impl';
 
 /**
  * Logger Module.
