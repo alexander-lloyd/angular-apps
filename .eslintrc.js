@@ -84,7 +84,8 @@ module.exports = {
         'Directive',
         'Inject',
         'Injectable',
-        'NgModule'
+        'NgModule',
+        'Optional'
       ]
     }],
     'no-console': 'warn',
