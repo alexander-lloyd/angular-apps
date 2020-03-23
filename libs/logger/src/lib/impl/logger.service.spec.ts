@@ -7,9 +7,9 @@ import {
   LoggerService,
   LOG_HANDLERS_TOKEN,
   LOG_SERVICE_TOKEN
-} from './api';
+} from '../api';
 import {LoggerServiceImpl} from './logger.service';
-import {NullLogHandler} from './impl/handler/null-handler';
+import {NullLogHandler} from './handler/null-handler';
 
 describe('Logger Service', () => {
   const nowTime = 1111111111;
