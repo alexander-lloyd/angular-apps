@@ -5,11 +5,9 @@ import {
   LogMessage,
   LoggerService,
   LogHandler,
-  LOG_HANDLERS_TOKEN,
-  LOG_SERVICE_CONFIG_TOKEN,
-  LogConfigs
+  LOG_HANDLERS_TOKEN
 } from './api';
-import {LoggerImpl} from './impl';
+import {LoggerImpl} from './impl/';
 
 /**
  * Logger Module.
@@ -22,11 +20,9 @@ export class LoggerServiceImpl implements LoggerService {
    * Constructor.
    *
    * @param logHandlers Log Handlers.
-   * @param logConfig Logger Configuration.
    */
   public constructor(
-    @Inject(LOG_HANDLERS_TOKEN) private logHandlers: LogHandler[],
-    @Inject(LOG_SERVICE_CONFIG_TOKEN) private logConfig: LogConfigs
+    @Inject(LOG_HANDLERS_TOKEN) private logHandlers: LogHandler[]
   ) {}
 
   /**
@@ -47,10 +43,5 @@ export class LoggerServiceImpl implements LoggerService {
    */
   public _onMessage(message: LogMessage): void {
     this.logHandlers.forEach((handler: LogHandler) => handler.onMessage(message));
-  }
-
-
-  private shouldLog(loggerName: string, logLevel: string, handler: string) {
-    const config = this.logConfig[loggerName];
   }
 }

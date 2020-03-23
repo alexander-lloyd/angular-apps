@@ -5,7 +5,7 @@ import {LOG_HANDLERS_TOKEN, LOG_SERVICE_TOKEN, LOG_SERVICE_CONFIG_TOKEN} from '.
 import {ConsoleHandler, defaultConfig} from './impl';
 import {LoggerServiceImpl} from './logger.service';
 
-const logProviders: ClassProvider = {
+const logHandlerProvider: ClassProvider = {
   provide: LOG_HANDLERS_TOKEN,
   useClass: ConsoleHandler,
   multi: true
@@ -27,7 +27,7 @@ const logServiceConfigProvider: ValueProvider = {
 @NgModule({
   imports: [CommonModule],
   providers: [
-    logProviders,
+    logHandlerProvider,
     logServiceProvider,
     logServiceConfigProvider
   ]

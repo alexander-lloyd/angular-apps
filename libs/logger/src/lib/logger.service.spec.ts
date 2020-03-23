@@ -1,9 +1,15 @@
 import {TestBed} from '@angular/core/testing';
 
-import {LoggerService, LogMessage, LOG_HANDLERS_TOKEN, LogHandler, LogLevel, LOG_SERVICE_CONFIG_TOKEN} from './api';
+import {
+  LogHandler,
+  LogLevel,
+  LogMessage,
+  LoggerService,
+  LOG_HANDLERS_TOKEN,
+  LOG_SERVICE_TOKEN
+} from './api';
 import {LoggerServiceImpl} from './logger.service';
 import {NullLogHandler} from './impl/handler/null-handler';
-import {defaultConfig} from './impl';
 
 describe('Logger Service', () => {
   const nowTime = 1111111111;
@@ -16,19 +22,18 @@ describe('Logger Service', () => {
     service = TestBed
       .configureTestingModule({
         providers: [
-          LoggerServiceImpl,
+          {
+            provide: LOG_SERVICE_TOKEN,
+            useClass: LoggerServiceImpl
+          },
           {
             provide: LOG_HANDLERS_TOKEN,
             useValue: logHandler,
             multi: true
-          },
-          {
-            provide: LOG_SERVICE_CONFIG_TOKEN,
-            useValue: defaultConfig
           }
         ]
       })
-      .inject(LoggerServiceImpl);
+      .inject(LOG_SERVICE_TOKEN);
 
     jest.spyOn(Date, 'now').mockImplementation(() => nowTime);
   });
