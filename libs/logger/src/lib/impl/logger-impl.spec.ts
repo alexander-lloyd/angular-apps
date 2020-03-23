@@ -1,5 +1,7 @@
+import {TestBed} from '@angular/core/testing';
+
+import {LogLevel, LoggerService, LOG_SERVICE_TOKEN} from '../api';
 import {LoggerImpl} from './logger-impl';
-import {LoggerService, LogLevel} from '../api';
 
 describe('Logger Implementation', () => {
   const loggerName = 'ABC';
@@ -8,10 +10,20 @@ describe('Logger Implementation', () => {
   let parentService: LoggerService;
 
   beforeEach(() => {
-    parentService = {
+    const mockService = {
       _onMessage: jest.fn(),
       getLogger: jest.fn()
     };
+
+    TestBed.configureTestingModule({
+      providers: [{
+        provide: LOG_SERVICE_TOKEN,
+        useValue: mockService
+      }]
+    });
+
+    parentService = TestBed.inject(LOG_SERVICE_TOKEN);
+
     logger = new LoggerImpl(loggerName, parentService);
     jest.spyOn(Date, 'now').mockImplementation(() => nowTime);
   });
