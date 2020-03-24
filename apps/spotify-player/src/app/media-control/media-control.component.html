@@ -1,6 +1,6 @@
-<div class="flex-container mat-app-background mat-typography">
-  <div class="flex-item"></div>
-  <div class="flex-item">
+<div class="al-media-control-container mat-app-background mat-typography">
+  <div class="al-media-control-element-album"></div>
+  <div class="al-media-control-element-control">
     <div class="al-media-player-buttons-container">
       <div class="al-media-player-button-group">
         <button mat-fab aria-label="Previous Track Button" class="al-media-player-control-button">
@@ -18,12 +18,15 @@
       </div>
     </div>
     <div class="al-media-player-progress-container">
-      <p class="al-media-player-progress-element">0:00</p>
-      <mat-progress-bar class="al-media-player-progress-element"></mat-progress-bar>
+      <p class="al-media-player-progress-element">3:00</p>
+      <mat-progress-bar class="al-media-player-progress-element"
+                        mode="determinate"
+                        value="80">
+      </mat-progress-bar>
       <p class="al-media-player-progress-element">3:52</p>
     </div>
   </div>
-  <div class="flex-item"></div>
+  <div class="al-media-control-element-empty"></div>
 </div>
 
 
