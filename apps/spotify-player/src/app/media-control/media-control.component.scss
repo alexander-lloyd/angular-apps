@@ -1,4 +1,6 @@
-.flex-container {
+$mobile-width: 700px;
+
+.al-media-control-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -7,22 +9,42 @@
   align-items: center;
 }
 
-.flex-item:nth-child(1) {
+.al-media-control-element-album {
   order: 0;
   flex: 1 1 auto;
   align-self: stretch;
 }
 
-.flex-item:nth-child(2) {
+.al-media-control-element-control {
   order: 0;
   flex: 0.5 1 auto;
   align-self: stretch;
 }
 
-.flex-item:nth-child(3) {
+.al-media-control-element-empty {
   order: 0;
   flex: 1 1 auto;
   align-self: stretch;
+}
+
+@media only screen and (max-width: $mobile-width) {
+  .al-media-control-element-album {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: stretch;
+  }
+
+  .al-media-control-element-control {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: stretch;
+  }
+
+  .al-media-control-element-empty {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: stretch;
+  }
 }
 
 .al-media-player-buttons-container {
