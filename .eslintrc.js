@@ -109,6 +109,7 @@ module.exports = {
       'allowTemplateLiterals': true
     }],
     'quote-props': ['error', 'consistent'],
+    'semi': 'error',
     'space-before-function-paren': 'off',
     'sort-imports': 'off',
     'sort-keys': 'off'
@@ -190,6 +191,7 @@ module.exports = {
         '@typescript-eslint/semi': 'error',
         // Use @typescript-eslint version instead.
         'indent': 'off',
+        'semi': 'off',
         'no-restricted-imports': [
           'error',
           {
