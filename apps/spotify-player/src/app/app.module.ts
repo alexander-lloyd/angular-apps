@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
+import {OAuthModule} from 'angular-oauth2-oidc';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+
 
 /**
  * App Module.
@@ -13,8 +13,15 @@ import {AppRoutingModule} from './app-routing.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['https://api.spotify.com/v1'],
+        sendAccessToken: true
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
