@@ -3,23 +3,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {BrowserModule} from '@angular/platform-browser';
-import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
-
-import {MediaControlComponent} from './media-control/media-control.component';
+import {AppRoutingModule} from './app-routing.module';
 
 /**
  * App Module.
  */
 @NgModule({
-  declarations: [AppComponent, MediaControlComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], {initialNavigation: 'enabled'}),
-    MatButtonModule,
-    MatIconModule,
-    MatProgressBarModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
