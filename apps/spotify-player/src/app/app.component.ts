@@ -13,9 +13,7 @@ import {authConfig} from './app.config';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public constructor(
-    private oauthService: OAuthService,
-    private httpClient: HttpClient) {
+  public constructor(private oauthService: OAuthService) {
     this.oauthService.configure(authConfig);
     this.oauthService.tryLogin()
       .then((loggedIn) => {
@@ -23,8 +21,5 @@ export class AppComponent {
           this.oauthService.initImplicitFlow();
         }
       });
-    this.httpClient.put('https://api.spotify.com/v1/me/player/pause', {}).subscribe({
-      next: (content) => console.log(content)
-    });
   }
 }
