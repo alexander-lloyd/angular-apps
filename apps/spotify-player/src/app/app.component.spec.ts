@@ -1,6 +1,6 @@
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TestBed, async} from '@angular/core/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing'
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {OAuthService, AuthConfig} from 'angular-oauth2-oidc';
 
 import {AppComponent} from './app.component';
@@ -13,7 +13,7 @@ class OAuthServiceStub {
     return Promise.resolve(true);
   }
 
-  public initImplicitFlow() {
+  public initImplicitFlow(): void {
   }
 }
 
