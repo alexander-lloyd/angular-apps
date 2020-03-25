@@ -8,7 +8,7 @@ import {CurrentlyPlayingObject, RepeatState} from './types';
 /**
  * Interact with the Spotify Player API.
  *
- * You must use an HTTP intercepor to add the access token.
+ * You must use an HTTP intercepor to add the access token header.
  */
 @Injectable({
   providedIn: MediaControlModule
@@ -48,7 +48,7 @@ export class SpotifyPlayerAPIServiceService {
    *
    * @returns Empty Observable.
    */
-  public resume(): Observable<null> {
+  public resume$(): Observable<null> {
     return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/play`, {});
   }
 
@@ -57,7 +57,7 @@ export class SpotifyPlayerAPIServiceService {
    *
    * @returns Empty Observable.
    */
-  public pause(): Observable<null> {
+  public pause$(): Observable<null> {
     return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/pause`, {});
   }
 
@@ -66,7 +66,7 @@ export class SpotifyPlayerAPIServiceService {
    *
    * @returns Empty Observable.
    */
-  public previousTrack(): Observable<null> {
+  public previousTrack$(): Observable<null> {
     return this.http.post<null>(`${this.spotifyPlayerAPIURL}/player/previous`, {});
   }
 
@@ -75,7 +75,7 @@ export class SpotifyPlayerAPIServiceService {
    *
    * @returns Empty Observable.
    */
-  public skipTrack(): Observable<null> {
+  public skipTrack$(): Observable<null> {
     return this.http.post<null>(`${this.spotifyPlayerAPIURL}/player/next`, {});
   }
 
@@ -85,7 +85,7 @@ export class SpotifyPlayerAPIServiceService {
    * @param positionMs The position in milliseconds to seek to.
    * @returns Empty Observable.
    */
-  public seekPosition(positionMs: number): Observable<null> {
+  public seekPosition$(positionMs: number): Observable<null> {
     return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/seek?position_ms=${positionMs}`, {});
   }
 
@@ -96,7 +96,7 @@ export class SpotifyPlayerAPIServiceService {
    * @param state The repeat type. 'track', 'context', 'off'.
    * @returns Empty Observable.
    */
-  public toggleRepeat(state: RepeatState): Observable<null> {
+  public toggleRepeat$(state: RepeatState): Observable<null> {
     return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/repeat?state=${state}`, {});
   }
 
@@ -106,8 +106,8 @@ export class SpotifyPlayerAPIServiceService {
    * @param shuffle Boolean true to turn on shuffe.
    * @returns Empty Observable.
    */
-  public toggleShuffle(shuffle: boolean): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/repeat?state=${shuffle}`, {});
+  public toggleShuffle$(shuffle: boolean): Observable<null> {
+    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/shuffle?state=${shuffle}`, {});
   }
 
   /**
@@ -117,7 +117,7 @@ export class SpotifyPlayerAPIServiceService {
    * 0 to 100 inclusive.
    * @returns Empty Observable.
    */
-  public setVolume(volume: number): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/repeat?volume_percent=${volume}`, {});
+  public setVolume$(volume: number): Observable<null> {
+    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/volume?volume_percent=${volume}`, {});
   }
 }

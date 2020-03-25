@@ -168,9 +168,9 @@ export interface PlaylistObject {
 
 export interface CurrentlyPlayingObject {
   context: ContextObject;
-  current_playing_type: PlayingType;
+  currently_playing_type: PlayingType;
   is_playing: boolean;
-  item: TrackObject;
+  item: TrackObject | {};
   progress_ms: string;
   timestamp: number;
 }
