@@ -46,7 +46,6 @@ jobs:
         CI: true
     - name: Upload Coverage Reports
       run: |
-        yarn add -D codecov
         yarn codecov
       env:
         CI: true

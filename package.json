@@ -60,6 +60,7 @@
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "angular-cli-ghpages": "^0.6.2",
+    "codecov": "^3.6.5",
     "codelyzer": "~5.2.1",
     "cypress": "^3.8.2",
     "dotenv": "8.2.0",
