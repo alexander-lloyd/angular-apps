@@ -47,7 +47,7 @@ jobs:
     - name: Upload Coverage Reports
       run: |
         yarn add -D codecov
-        codecov
+        yarn codecov
       env:
         CI: true
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
