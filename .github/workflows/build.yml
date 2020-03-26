@@ -44,3 +44,10 @@ jobs:
         yarn e2e
       env:
         CI: true
+    - name: Upload Coverage Reports
+      run: |
+        yarn add -D codecov
+        codecov
+      env:
+        CI: true
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
