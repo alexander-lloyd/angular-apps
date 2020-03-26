@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
-import {LogHandler, LogMessage, LogLevel} from '../../api';
+import {LogHandler, LogMessage} from '../../api';
 import {buildNotImplementedException} from '../error';
+import {LogLevelImpl} from '../log-level-impl';
 
 /**
  * Output messages to the console.
@@ -12,13 +13,13 @@ export class ConsoleHandler implements LogHandler {
    * @param message Log Message.
    */
   public onMessage(message: LogMessage): void {
-    if (message.level === LogLevel.DEBUG) {
+    if (message.level === LogLevelImpl.DEBUG) {
       this.onDebug(message);
-    } else if (message.level === LogLevel.INFO) {
+    } else if (message.level === LogLevelImpl.INFO) {
       this.onInfo(message);
-    } else if (message.level === LogLevel.WARN) {
+    } else if (message.level === LogLevelImpl.WARN) {
       this.onWarn(message);
-    } else if (message.level === LogLevel.ERROR) {
+    } else if (message.level === LogLevelImpl.ERROR) {
       this.onError(message);
     } else {
       throw buildNotImplementedException(`Log Level ${message.level.name} is not implemented`);

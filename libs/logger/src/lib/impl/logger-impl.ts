@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {Logger, LogLevel, LoggerService} from '../api';
+import {Logger, LoggerService} from '../api';
+import {LogLevelImpl} from './log-level-impl';
 
 /**
  * Logger Implementation.
@@ -19,7 +20,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public debug(messages?: any, ...args: any[]): void {
-    this.log(LogLevel.DEBUG, [messages, ...args]);
+    this.log(LogLevelImpl.DEBUG, [messages, ...args]);
   }
 
   /**
@@ -31,7 +32,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public info(messages?: any, ...args: any[]): void {
-    this.log(LogLevel.INFO, [messages, ...args]);
+    this.log(LogLevelImpl.INFO, [messages, ...args]);
   }
 
   /**
@@ -43,7 +44,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public warn(messages?: any, ...args: any[]): void {
-    this.log(LogLevel.WARN, [messages, ...args]);
+    this.log(LogLevelImpl.WARN, [messages, ...args]);
   }
 
   /**
@@ -55,7 +56,7 @@ export class LoggerImpl implements Logger {
    * @param args More arguments.
    */
   public error(messages?: any, ...args: any[]): void {
-    this.log(LogLevel.ERROR, [messages, ...args]);
+    this.log(LogLevelImpl.ERROR, [messages, ...args]);
   }
 
   /**
@@ -67,7 +68,7 @@ export class LoggerImpl implements Logger {
    * @param messages A list of JavaScript objects to output.
    *
    */
-  private log(level: LogLevel, messages: any[]): void {
+  private log(level: LogLevelImpl, messages: any[]): void {
     this.parentService._onMessage({
       level,
       loggerName: this.loggerName,

@@ -1,7 +1,8 @@
 import {TestBed} from '@angular/core/testing';
 
-import {LogLevel, LoggerService, LOG_SERVICE_TOKEN} from '../api';
+import {LoggerService, LOG_SERVICE_TOKEN} from '../api';
 import {LoggerImpl} from './logger-impl';
+import {LogLevelImpl} from './log-level-impl';
 
 describe('Logger Implementation', () => {
   const loggerName = 'ABC';
@@ -36,7 +37,7 @@ describe('Logger Implementation', () => {
     logger.debug(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: LogLevel.DEBUG,
+      level: LogLevelImpl.DEBUG,
       loggerName,
       messages: [message],
       timestamp: nowTime
@@ -51,7 +52,7 @@ describe('Logger Implementation', () => {
     logger.info(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: LogLevel.INFO,
+      level: LogLevelImpl.INFO,
       loggerName,
       messages: [message],
       timestamp: nowTime
@@ -66,7 +67,7 @@ describe('Logger Implementation', () => {
     logger.warn(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: LogLevel.WARN,
+      level: LogLevelImpl.WARN,
       loggerName,
       messages: [message],
       timestamp: nowTime
@@ -81,7 +82,7 @@ describe('Logger Implementation', () => {
     logger.error(message);
 
     expect(parentService._onMessage).toHaveBeenCalledWith({
-      level: LogLevel.ERROR,
+      level: LogLevelImpl.ERROR,
       loggerName,
       messages: [message],
       timestamp: nowTime
