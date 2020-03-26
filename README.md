@@ -1,5 +1,7 @@
 # Al
 
+[![codecov](https://codecov.io/gh/alexander-lloyd/angular-apps/branch/master/graph/badge.svg?token=UAGOdykN63)](https://codecov.io/gh/alexander-lloyd/angular-apps)
+
 This project was generated using [Nx](https://nx.dev).
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
