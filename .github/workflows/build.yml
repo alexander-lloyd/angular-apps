@@ -30,7 +30,7 @@ jobs:
         CI: true
     - name: Run Unit Tests
       run: |
-        yarn test
+        yarn test --code-coverage
       env:
         CI: true
     - name: Run Linting
