@@ -169,7 +169,7 @@ describe('SpotifyPlayerAPIServiceService', () => {
       expect(response).toBeNull();
     });
 
-    const req = httpTestingController.expectOne(`https://api.spotify.com/v1/me/player/volume?state=${volume}`);
+    const req = httpTestingController.expectOne(`https://api.spotify.com/v1/me/player/volume?volume_percent=${volume}`);
     expect(req.request.method).toBe('PUT');
     expect(req.request.body).toStrictEqual({});
     req.flush(mockResponse);
