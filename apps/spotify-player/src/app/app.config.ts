@@ -5,7 +5,7 @@ export const authConfig: AuthConfig = {
   redirectUri: `${window.location.origin}/index.html`,
   clientId: '67ece50079eb4ff5baf9969e6905f022',
   responseType: 'token',
-  scope: 'user-modify-playback-state',
+  scope: 'user-read-playback-state user-modify-playback-state',
   showDebugInformation: true,
   oidc: false
 };
