@@ -11,7 +11,10 @@
         <button mat-fab aria-label="Previous Track Button" class="al-media-player-control-button">
           <mat-icon>skip_previous</mat-icon>
         </button>
-        <button mat-fab aria-label="Pause Track Button" class="al-media-player-control-button">
+        <button aria-label="Pause Track Button"
+                class="al-media-player-control-button"
+                mat-fab
+                (click)="pause()">
           <mat-icon>play_arrow</mat-icon>
         </button>
         <!-- <button mat-fab aria-label="Play Track Button" class="al-media-player-control-button">
