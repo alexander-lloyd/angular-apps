@@ -1,22 +1,22 @@
 import {TestBed} from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
-import {SpotifyPlayerAPIServiceService} from './spotify-player-apiservice.service';
+import {SpotifyPlayerAPIService} from './spotify-player-api.service';
 
 import * as currentlyPlayingObject from './currently-playing-object.response.json';
 import {CurrentlyPlayingObject, RepeatState} from './types';
 
-describe('SpotifyPlayerAPIServiceService', () => {
+describe('SpotifyPlayerAPIService', () => {
   let httpTestingController: HttpTestingController;
-  let service: SpotifyPlayerAPIServiceService;
+  let service: SpotifyPlayerAPIService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [SpotifyPlayerAPIServiceService]
+      providers: [SpotifyPlayerAPIService]
     });
     httpTestingController = TestBed.inject(HttpTestingController);
-    service = TestBed.inject(SpotifyPlayerAPIServiceService);
+    service = TestBed.inject(SpotifyPlayerAPIService);
   });
 
   afterEach(() => {
