@@ -1,6 +1,5 @@
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TestBed, async} from '@angular/core/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {OAuthService, AuthConfig} from 'angular-oauth2-oidc';
 
 import {AppComponent} from './app.component';
@@ -20,9 +19,9 @@ class OAuthServiceStub {
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
+    jest.resetAllMocks();
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [HttpClientTestingModule],
       providers: [{
         provide: OAuthService,
         useClass: OAuthServiceStub
@@ -36,5 +35,19 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
+  });
+
+  it('should try login', async () => {
+    expect.assertions(2);
+    const oAuthService = TestBed.inject(OAuthService);
+    const tryLoginSpy = jest.spyOn(oAuthService, 'tryLogin')
+      .mockImplementation(() => Promise.resolve(false));
+    const initImplicitFlowSpy = jest.spyOn(oAuthService, 'initImplicitFlow');
+
+    const fixture = TestBed.createComponent(AppComponent);
+    await fixture.whenStable();
+
+    expect(tryLoginSpy).toHaveBeenCalledTimes(1);
+    expect(initImplicitFlowSpy).toHaveBeenCalledTimes(1);
   });
 });

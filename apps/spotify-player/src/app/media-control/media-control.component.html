@@ -14,8 +14,9 @@
           <mat-icon>skip_previous</mat-icon>
         </button>
         <button aria-label="Pause Track Button"
-                class="al-media-player-control-button"
+                class="al-media-player-control-button al-media-player-button-pause"
                 mat-fab
+                role="button"
                 *ngIf="isPlaying$ | async; else pauseTemplate"
                 (click)="pause()">
           <mat-icon>pause</mat-icon>
@@ -40,7 +41,7 @@
 
 <ng-template #pauseTemplate>
   <button aria-label="Pause Track Button"
-          class="al-media-player-control-button"
+          class="al-media-player-control-button al-media-player-button-play"
           mat-fab
           (click)="play()">
     <mat-icon>play_arrow</mat-icon>
