@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
+import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {OAuthModule} from 'angular-oauth2-oidc';
@@ -8,7 +9,9 @@ import {OAuthModule} from 'angular-oauth2-oidc';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {spotifyReducer} from './media-control/store/spotify.reducer';
+import {SpotifyPlayerEffects} from './media-control/store/spotify.effects';
 import {environment} from '../environments/environment';
+
 
 /**
  * App Module.
@@ -25,6 +28,9 @@ import {environment} from '../environments/environment';
         sendAccessToken: true
       }
     }),
+    EffectsModule.forRoot([
+      SpotifyPlayerEffects
+    ]),
     StoreModule.forRoot({
       spotify: spotifyReducer
     }),
