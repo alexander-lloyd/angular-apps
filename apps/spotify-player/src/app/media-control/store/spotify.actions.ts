@@ -1,4 +1,7 @@
 import {createAction} from '@ngrx/store';
 
-export const pause = createAction('[Spotify Player] [MediaController] Pause');
-export const play = createAction('[Spotify Player] [MediaController] Play');
+export const PAUSE = '[Spotify Player] [MediaController] Pause';
+export const PLAY = '[Spotify Player] [MediaController] Play';
+
+export const pause = createAction(PAUSE);
+export const play = createAction(PLAY);

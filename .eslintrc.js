@@ -82,6 +82,7 @@ module.exports = {
       capIsNewExceptions: [
         'Component',
         'Directive',
+        'Effect',
         'Inject',
         'Injectable',
         'NgModule',
@@ -192,6 +193,7 @@ module.exports = {
         // Use @typescript-eslint version instead.
         'indent': 'off',
         'semi': 'off',
+        'no-invalid-this': 'off',
         'no-restricted-imports': [
           'error',
           {
