@@ -9,11 +9,11 @@ export const initialState: SpotifyState = {
 export const _spotifyReducer = createReducer(initialState,
   on(pause, (state) => ({
     ...state,
-    playing: true
+    playing: false
   })),
   on(play, (state) => ({
     ...state,
-    playing: false
+    playing: true
   })));
 
 export function spotifyReducer(state: SpotifyState | undefined, action: Action): SpotifyState {

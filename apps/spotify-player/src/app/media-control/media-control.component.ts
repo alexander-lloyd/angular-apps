@@ -1,7 +1,8 @@
 import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
 
-import {actions, SpotifyState} from './store';
+import {SpotifyState, actions, selectors} from './store';
 
 @Component({
   selector: 'al-media-control',
@@ -10,9 +11,13 @@ import {actions, SpotifyState} from './store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MediaControlComponent {
+  public isPlaying$: Observable<boolean>;
+
   public constructor(
-    private store: Store<{spotify: SpotifyState}>
-  ) {}
+    private readonly store: Store<{spotify: SpotifyState}>
+  ) {
+    this.isPlaying$ = this.store.select(selectors.isPlaying);
+  }
 
   public pause(): void {
     this.store.dispatch(actions.pause());
