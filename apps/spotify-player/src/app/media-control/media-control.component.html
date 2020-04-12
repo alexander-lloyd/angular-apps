@@ -8,14 +8,17 @@
   <div class="al-media-control-element-control">
     <div class="al-media-player-buttons-container">
       <div class="al-media-player-button-group">
-        <button mat-fab aria-label="Previous Track Button" class="al-media-player-control-button">
+        <button aria-label="Previous Track Button"
+                class="al-media-player-control-button"
+                mat-fab>
           <mat-icon>skip_previous</mat-icon>
         </button>
         <button aria-label="Pause Track Button"
                 class="al-media-player-control-button"
                 mat-fab
+                *ngIf="isPlaying$ | async; else pauseTemplate"
                 (click)="pause()">
-          <mat-icon>play_arrow</mat-icon>
+          <mat-icon>pause</mat-icon>
         </button>
         <!-- <button mat-fab aria-label="Play Track Button" class="al-media-player-control-button">
           <mat-icon>pause</mat-icon>
@@ -27,15 +30,22 @@
     </div>
     <div class="al-media-player-progress-container">
       <p class="al-media-player-progress-element">3:00</p>
-      <mat-progress-bar class="al-media-player-progress-element"
-                        mode="determinate"
-                        value="80">
+      <mat-progress-bar class="al-media-player-progress-element" mode="determinate" value="80">
       </mat-progress-bar>
       <p class="al-media-player-progress-element">3:52</p>
     </div>
   </div>
   <div class="al-media-control-element-empty"></div>
 </div>
+
+<ng-template #pauseTemplate>
+  <button aria-label="Pause Track Button"
+          class="al-media-player-control-button"
+          mat-fab
+          (click)="play()">
+    <mat-icon>play_arrow</mat-icon>
+  </button>
+</ng-template>
 
 
 <!--
