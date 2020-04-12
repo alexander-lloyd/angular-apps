@@ -13,7 +13,7 @@ import {CurrentlyPlayingObject, RepeatState} from './types';
 @Injectable({
   providedIn: MediaControlModule
 })
-export class SpotifyPlayerAPIServiceService {
+export class SpotifyPlayerAPIService {
   private spotifyPlayerAPIURL = 'https://api.spotify.com/v1/me';
 
   /**
