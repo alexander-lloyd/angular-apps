@@ -1,11 +1,12 @@
 
 import {Injectable} from '@angular/core';
-import {Actions, Effect, ofType} from '@ngrx/effects';
-import {mergeMap} from 'rxjs/operators';
-
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {of} from 'rxjs';
+import {catchError, mergeMap} from 'rxjs/operators';
 
 import {SpotifyPlayerAPIService} from '../services/spotify-player-api.service';
-import {PAUSE, PLAY} from './spotify.actions';
+import {PAUSE, PLAY, pauseErrorAction, playErrorAction} from './spotify.actions';
+
 
 @Injectable()
 export class SpotifyPlayerEffects {
@@ -14,15 +15,21 @@ export class SpotifyPlayerEffects {
     private spotifyAPI: SpotifyPlayerAPIService
   ) {}
 
-  @Effect({dispatch: false})
-  public pause$ = this.actions$.pipe(
-    ofType(PAUSE),
-    mergeMap(() => this.spotifyAPI.pause$())
+  public pause$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(PAUSE),
+      mergeMap(() => this.spotifyAPI.pause$().pipe(
+        catchError(() => of(pauseErrorAction()))
+      ))
+    )
   );
 
-  @Effect({dispatch: false})
-  public play$ = this.actions$.pipe(
-    ofType(PLAY),
-    mergeMap(() => this.spotifyAPI.resume$())
+  public play$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(PLAY),
+      mergeMap(() => this.spotifyAPI.resume$().pipe(
+        catchError(() => of(playErrorAction()))
+      ))
+    )
   );
 }
