@@ -1,13 +1,15 @@
-import {getGreeting} from '../support/app.po';
+import {getApp} from '../support/app.po';
 
 describe('spotify-player', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+  it('should load the app', () => {
+    getApp().should((t) => expect(t).not.equal(null));
+  });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to spotify-player!');
+  it('should get redirected to spotify login page', () => {
+    cy.location().should((location) => {
+      expect(location.host).eq('accounts.spotify.com');
+    });
   });
 });
