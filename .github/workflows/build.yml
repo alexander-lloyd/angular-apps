@@ -25,7 +25,7 @@ jobs:
         CI: true
     - name: Build Todo App
       run: |
-        yarn build todo-app
+        yarn build todo
       env:
         CI: true
     - name: Build Todo App
