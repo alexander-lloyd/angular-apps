@@ -66,7 +66,7 @@
     "@types/jest": "25.2.1",
     "@types/node": "~13.11.1",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
-    "@typescript-eslint/parser": "^2.27.0",
+    "@typescript-eslint/parser": "^2.28.0",
     "angular-cli-ghpages": "^0.6.2",
     "codecov": "^3.6.5",
     "cypress": "^3.8.2",
