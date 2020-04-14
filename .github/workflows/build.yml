@@ -28,7 +28,7 @@ jobs:
         yarn build todo
       env:
         CI: true
-    - name: Build Todo App
+    - name: Build Spotify Player App
       run: |
         yarn build spotify-player
       env:
