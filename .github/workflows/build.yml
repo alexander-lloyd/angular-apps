@@ -46,7 +46,7 @@ jobs:
         CI: true
     - name: Run Integration Tests
       run: |
-        yarn e2e
+        yarn e2e --browser chrome
       env:
         CI: true
     - name: Upload Coverage Reports
