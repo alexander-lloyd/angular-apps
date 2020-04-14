@@ -6,7 +6,11 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/@angular/cli/bin/ng",
-      "args": ["test", "--code-coverage=false", "--test-file='${relativeFile}'"],
+      "args": [
+        "test",
+        "--code-coverage=false",
+        "--test-file='${relativeFile}'"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "internalConsole"
     },
