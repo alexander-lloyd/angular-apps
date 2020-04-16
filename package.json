@@ -56,7 +56,7 @@
     "@angular/cdk": "^9.1.3",
     "@angular/cli": "9.1.1",
     "@angular/compiler-cli": "9.1.0",
-    "@angular/language-service": "9.1.1",
+    "@angular/language-service": "9.1.2",
     "@angular/material": "^9.1.3",
     "@nrwl/cypress": "9.0.4",
     "@nrwl/eslint-plugin-nx": "9.0.4",
