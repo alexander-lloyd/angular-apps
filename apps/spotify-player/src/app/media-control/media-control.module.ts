@@ -13,7 +13,7 @@ import {MediaControlComponent} from './media-control.component';
     MatIconModule,
     MatProgressBarModule
   ],
-  exports: [],
+  exports: [MediaControlComponent],
   declarations: [MediaControlComponent],
   providers: []
 })

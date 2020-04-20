@@ -1,13 +1,16 @@
 import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
+import {MatButtonModule} from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BrowserModule} from '@angular/platform-browser';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {OAuthModule} from 'angular-oauth2-oidc';
 
 import {AppComponent} from './app.component';
-import {AppRoutingModule} from './app-routing.module';
+import {MediaControlModule} from './media-control/media-control.module';
 import {spotifyReducer} from './media-control/store/spotify.reducer';
 import {SpotifyPlayerEffects} from './media-control/store/spotify.effects';
 import {environment} from '../environments/environment';
@@ -19,8 +22,8 @@ import {environment} from '../environments/environment';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    AppRoutingModule,
     BrowserModule,
+    FontAwesomeModule,
     HttpClientModule,
     OAuthModule.forRoot({
       resourceServer: {
@@ -37,7 +40,10 @@ import {environment} from '../environments/environment';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MediaControlModule
   ],
   providers: [],
   bootstrap: [AppComponent]
