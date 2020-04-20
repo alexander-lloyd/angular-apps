@@ -2,9 +2,7 @@ import {getApp, getLoginButton} from '../support/app.po';
 
 describe('spotify-player', () => {
   beforeEach(() => {
-    cy.visit('/')
-      .clearCookies()
-      .clearLocalStorage();
+    cy.visit('/');
   });
 
   it('should load the app', () => {
