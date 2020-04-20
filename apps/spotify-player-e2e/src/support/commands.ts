@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-namespace */
+/* eslint no-magic-numbers: ["error", { "ignore": [5, 60, 1000] }] */
+
 /*
  * This example commands.js shows you how to
  * Create various custom commands and overwrite
@@ -7,29 +10,23 @@
  * Commands please read more here:
  * https://on.cypress.io/custom-commands
  */
-// eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace Cypress {
   interface Chainable<Subject> {
-    login(email: string, password: string): void;
+    login(): Chainable<Subject>;
   }
 }
-/*
- *
- * -- This is a parent command --
- */
-Cypress.Commands.add('login', (email, password) => {
-  console.log('Custom command example: Login', email, password);
+
+Cypress.Commands.add('login', () => {
+  const currentTime = Date.now() * 1000;
+  // The token was got 5 seconds ago
+  const tokenStoredAt = currentTime - (5 * 1000);
+  // The token expires in 1 hour.
+  const tokenExpiry = currentTime + (60 * 60 * 1000);
+
+  localStorage.setItem('access_token_stored_at', tokenStoredAt.toString());
+  localStorage.setItem('nonce', 'nonce');
+  localStorage.setItem('access_token', 'access token');
+  localStorage.setItem('expires_at', tokenExpiry.toString());
+
+  return this;
 });
-/*
- *
- * -- This is a child command --
- * Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
- *
- *
- * -- This is a dual command --
- * Cypress.Commands.add("dismiss", { prevSubject: 'optional'}, (subject, options) => { ... })
- *
- *
- * -- This will overwrite an existing command --
- * Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
- */
