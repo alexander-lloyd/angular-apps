@@ -153,10 +153,10 @@
     ora "4.0.3"
     rxjs "6.5.4"
 
-"@angular-eslint/eslint-plugin-template@0.0.1-alpha.27":
-  version "0.0.1-alpha.27"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-0.0.1-alpha.27.tgz#b62169d5971a723e3b37097ce472f1f9c87da1cd"
-  integrity sha512-hN4dIh3fX0/9emq3jLhtlqcbKJpy8hDR4Lme1cWJh0QAZCnYWrx+d6zsfNjfFaBaiOOO9f8Zek5mTm7Jo/ohRA==
+"@angular-eslint/eslint-plugin-template@0.0.1-alpha.28":
+  version "0.0.1-alpha.28"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-0.0.1-alpha.28.tgz#8ceafd7285ae602424211a94f79caf4aa2a1c4b3"
+  integrity sha512-HsA5yEJiwSoxj5euGHbffJ6UkQkTuFQ+RpA0O8zSA0YVigipghtdq/lfkEz+9eLvJdXdbDql6UYvZ1wUdAwqvQ==
   dependencies:
     "@typescript-eslint/experimental-utils" "2.19.2"
     eslint-scope "^4.0.0"
