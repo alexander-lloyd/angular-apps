@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<div *ngIf="(loading$ | async); else loaded" style="text-align: center;">
+  <mat-spinner [diameter]="65" mode="indeterminate" style="margin: 25px auto"></mat-spinner>
+</div>
+
+<ng-template #loaded>
+  <div *ngIf="authenticated$ | async; else unauthenticated">
+    <al-media-control></al-media-control>
+  </div>
+</ng-template>
+
+<ng-template #unauthenticated>
+  <div style="text-align: center;">
+    <button mat-flat-button color="accent" style="margin: 30px auto" (click)="logIn()">
+      <fa-icon [icon]="faSpotify"></fa-icon>
+      Login in with Spotify
+    </button>
+  </div>
+</ng-template>

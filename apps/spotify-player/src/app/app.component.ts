@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {faSpotify} from '@fortawesome/free-brands-svg-icons';
 import {OAuthService} from 'angular-oauth2-oidc';
+import {BehaviorSubject} from 'rxjs';
 
 import {authConfig} from './app.config';
 
@@ -11,14 +13,26 @@ import {authConfig} from './app.config';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  public constructor(private oauthService: OAuthService) {
+export class AppComponent implements OnInit {
+  public faSpotify = faSpotify;
+
+  public loading$ = new BehaviorSubject(true);
+  public authenticated$ = new BehaviorSubject(false);
+
+  public constructor(
+    private oauthService: OAuthService
+  ) {
     this.oauthService.configure(authConfig);
-    this.oauthService.tryLogin()
-      .then((loggedIn) => {
-        if (!loggedIn) {
-          this.oauthService.initImplicitFlow();
-        }
-      });
+  }
+
+  public ngOnInit(): void {
+    this.oauthService.tryLogin();
+    this.authenticated$.next(this.oauthService.hasValidAccessToken());
+    // No longer loading.
+    this.loading$.next(false);
+  }
+
+  public logIn(): void {
+    this.oauthService.initImplicitFlow();
   }
 }

@@ -234,6 +234,9 @@ module.exports = {
         'plugin:jest/all'
       ],
       rules: {
+        '@angular-eslint/component-class-suffix': ['error', {
+          suffixes: ['Component', 'ComponentStub']
+        }],
         '@typescript-eslint/no-empty-function': 'off',
         'jest/lowercase-name': ['error', {ignore: ['describe']}],
         'jest/no-hooks': ['error', {allow: ['beforeEach', 'afterEach']}],
