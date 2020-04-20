@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {BrowserModule} from '@angular/platform-browser';
@@ -7,6 +7,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {OAuthModule} from 'angular-oauth2-oidc';
 
 import {AppComponent} from './app.component';
@@ -15,6 +17,15 @@ import {spotifyReducer} from './media-control/store/spotify.reducer';
 import {SpotifyPlayerEffects} from './media-control/store/spotify.effects';
 import {environment} from '../environments/environment';
 
+/**
+ * Ngx Translate Loader Factory.
+ *
+ * @param http HttpClient.
+ * @returns Translate Loader.
+ */
+export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
+  return new TranslateHttpLoader(http);
+}
 
 /**
  * App Module.
@@ -43,7 +54,14 @@ import {environment} from '../environments/environment';
     }),
     MatButtonModule,
     MatProgressSpinnerModule,
-    MediaControlModule
+    MediaControlModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

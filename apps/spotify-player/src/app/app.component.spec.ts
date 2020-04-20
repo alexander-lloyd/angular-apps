@@ -7,6 +7,7 @@ import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {OAuthService, AuthConfig} from 'angular-oauth2-oidc';
+import {TranslateTestingModule} from 'ngx-translate-testing';
 
 import {AppComponent} from './app.component';
 
@@ -32,6 +33,10 @@ class OAuthServiceStub {
 })
 class MediaComponentStub {}
 
+const translations = {
+  loginWithSpotify: 'Log In with Spotify'
+};
+
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -48,7 +53,8 @@ describe('AppComponent', () => {
       imports: [
         FontAwesomeModule,
         MatButtonModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        TranslateTestingModule.withTranslations('en', translations)
       ],
       providers: [{
         provide: OAuthService,
@@ -57,8 +63,8 @@ describe('AppComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
     app = fixture.componentInstance;
-    app.ngOnInit();
     loader = TestbedHarnessEnvironment.loader(fixture);
   }));
 
@@ -69,8 +75,9 @@ describe('AppComponent', () => {
 
   it('should show login button', async () => {
     expect.assertions(1);
+
     const button = await loader.getHarness(MatButtonHarness.with({
-      text: 'Login in with Spotify'
+      text: translations.loginWithSpotify
     }));
     expect(button).not.toBeNull();
   });
@@ -81,7 +88,7 @@ describe('AppComponent', () => {
     const initImplicitFlowSpy = jest.spyOn(oAuthService, 'initImplicitFlow');
 
     const button = await loader.getHarness(MatButtonHarness.with({
-      text: 'Login in with Spotify'
+      text: translations.loginWithSpotify
     }));
 
     await button.click();
