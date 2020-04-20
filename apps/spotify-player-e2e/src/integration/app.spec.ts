@@ -1,15 +1,20 @@
-import {getApp} from '../support/app.po';
+import {getApp, getLoginButton} from '../support/app.po';
 
 describe('spotify-player', () => {
-  beforeEach(() => cy.visit('/'));
+  beforeEach(() => {
+    cy.visit('/')
+      .clearCookies()
+      .clearLocalStorage();
+  });
 
   it('should load the app', () => {
     getApp().should((t) => expect(t).not.equal(null));
   });
 
-  it('should get redirected to spotify login page', () => {
-    cy.location().should((location) => {
-      expect(location.host).eq('accounts.spotify.com');
-    });
+  it('should get redirected to spotify login page when login button is pressed', () => {
+    getLoginButton().click()
+      .then(() => cy.location().should((location) => {
+        expect(location.host).eq('accounts.spotify.com');
+      }))
   });
 });
