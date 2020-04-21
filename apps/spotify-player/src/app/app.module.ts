@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+import {APP_BASE_HREF, DOCUMENT} from '@angular/common';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -21,10 +22,12 @@ import {environment} from '../environments/environment';
  * Ngx Translate Loader Factory.
  *
  * @param http HttpClient.
+ * @param baseHref The base url.
  * @returns Translate Loader.
  */
-export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
-  return new TranslateHttpLoader(http);
+export function translateLoaderFactory(http: HttpClient, baseHref: string): TranslateLoader {
+  const url = new URL('assets/i18n/', baseHref);
+  return new TranslateHttpLoader(http, url.href);
 }
 
 /**
@@ -34,6 +37,16 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
  */
 export function oAuthStorageFactory(): OAuthStorage {
   return localStorage;
+}
+
+/**
+ * Get the base url.
+ *
+ * @param document The Document object.
+ * @returns The Base URL.
+ */
+function getBaseUrl(document: Document): string {
+  return document.getElementsByTagName('base')[0].href;
 }
 
 /**
@@ -67,12 +80,17 @@ export function oAuthStorageFactory(): OAuthStorage {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        useFactory: translateLoaderFactory,
+        deps: [HttpClient, APP_BASE_HREF]
       }
     })
   ],
   providers: [
+    {
+      provide: APP_BASE_HREF,
+      useFactory: getBaseUrl,
+      deps: [DOCUMENT]
+    },
     {
       provide: OAuthStorage,
       useFactory: oAuthStorageFactory
