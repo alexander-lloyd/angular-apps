@@ -1,4 +1,4 @@
-name: Build
+name: Integration Tests
 
 on: [push]
 
@@ -23,30 +23,14 @@ jobs:
         yarn install --frozen-lockfile
       env:
         CI: true
-    - name: 🔧 Build Todo App
+    - name: 🤖 Run Integration Tests
       run: |
-        yarn build todo
+        yarn e2e --browser chrome
       env:
         CI: true
-    - name: 🔧 Build Spotify Player App
+ - name: 🔼 Upload Integration Tests Coverage Reports
       run: |
-        yarn build spotify-player
-      env:
-        CI: true
-    - name: 🤖 Run Unit Tests
-      run: |
-        yarn test --code-coverage
-      env:
-        CI: true
-    - name: 💅 Run Linting
-      run: |
-        yarn lint
-        yarn format:check
-      env:
-        CI: true
-    - name: 🔼 Upload Unit Tests Coverage Reports
-      run: |
-        yarn codecov --flag unittests --clear
+        yarn codecov --flag e2e --clear
       env:
         CI: true
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

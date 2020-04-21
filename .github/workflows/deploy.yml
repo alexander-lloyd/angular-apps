@@ -21,7 +21,7 @@ jobs:
       name: Use Node.js ${{ matrix.node-version }}
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install Dependencies
+    - name: ⚙️ Install Dependencies
       run: |
         yarn install --frozen-lockfile
     - name: Build 🏗️ & Deploy Todo App 🚀
