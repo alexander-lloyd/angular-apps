@@ -12,12 +12,26 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v1
-      name: Git Checkout
-    - uses: actions/setup-node@v1
-      name: Use Node.js ${{ matrix.node-version }}
+    - name: 🎉 Git Checkout
+      uses: actions/checkout@v1
+    - name: ⚡ Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: 👷 Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - name: 📇 Retrieve Cache
+      uses: actions/cache@v1
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+    - name: Debug was Cache Hit?
+      run: |
+        echo "Cache Hit? ${{ ((steps.yarn-cache.outputs.cache-hit == 'true') && '✅') || '❌'}}"
     - name: ⚙️ Install Dependencies
       run: |
         yarn install --frozen-lockfile
