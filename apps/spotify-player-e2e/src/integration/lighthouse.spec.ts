@@ -1,5 +1,4 @@
 describe('Performance Metrics from Lighthouse', () => {
-
   it('should meet performance benchmark', () => {
     const url = Cypress.config('baseUrl');
     cy.lighthouse(url).then((result) => {
