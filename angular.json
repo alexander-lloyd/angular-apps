@@ -236,7 +236,11 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "index": {
+                "input": "apps/spotify-player/src/index.production.html",
+                "output": "index.html"
+              }
             }
           }
         },
