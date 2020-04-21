@@ -1,5 +1,9 @@
-<div *ngIf="(loading$ | async); else loaded" style="text-align: center;">
-  <mat-spinner [diameter]="65" mode="indeterminate" style="margin: 25px auto"></mat-spinner>
+<div *ngIf="loading$ | async; else loaded" style="text-align: center;">
+  <mat-spinner
+    [diameter]="65"
+    mode="indeterminate"
+    style="margin: 25px auto"
+  ></mat-spinner>
 </div>
 
 <ng-template #loaded>
@@ -10,7 +14,12 @@
 
 <ng-template #unauthenticated>
   <div style="text-align: center;">
-    <button i18n="Spotify Login Button" mat-flat-button color="accent" style="margin: 30px auto" (click)="logIn()">
+    <button
+      mat-flat-button
+      color="accent"
+      style="margin: 30px auto"
+      (click)="logIn()"
+    >
       <fa-icon [icon]="faSpotify"></fa-icon>
       {{ 'loginWithSpotify' | translate }}
     </button>
