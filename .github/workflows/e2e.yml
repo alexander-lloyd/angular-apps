@@ -30,7 +30,8 @@ jobs:
         CI: true
     - name: 🔼 Upload Integration Tests Coverage Reports
       run: |
-        yarn codecov --flag e2e --clear
+        yarn codecov --clear
       env:
         CI: true
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        CODECOV_FLAGS: e2e
