@@ -28,7 +28,7 @@ jobs:
         yarn e2e --browser chrome
       env:
         CI: true
- - name: 🔼 Upload Integration Tests Coverage Reports
+    - name: 🔼 Upload Integration Tests Coverage Reports
       run: |
         yarn codecov --flag e2e --clear
       env:
