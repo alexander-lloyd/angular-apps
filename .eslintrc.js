@@ -253,6 +253,7 @@ module.exports = {
       rules: {
         'jest/expect-expect': 'off',
         'jest/prefer-expect-assertions': 'off',
+        'jest/valid-expect': 'off',
         'jest/valid-expect-in-promise': 'off'
       }
     }
