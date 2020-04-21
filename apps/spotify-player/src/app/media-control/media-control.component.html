@@ -18,6 +18,7 @@
         <button
           aria-label="Pause Track Button"
           class="al-media-player-control-button al-media-player-button-pause"
+          data-testid="pause-button"
           mat-fab
           role="button"
           *ngIf="isPlaying$ | async; else pauseTemplate"
@@ -50,8 +51,9 @@
 
 <ng-template #pauseTemplate>
   <button
-    aria-label="Pause Track Button"
+    aria-label="Play Track Button"
     class="al-media-player-control-button al-media-player-button-play"
+    data-testid="play-button"
     mat-fab
     (click)="play()"
   >

@@ -18,7 +18,8 @@ const chromeFlags = [
   'CrossSiteDocumentBlockingAlways',
   'IsolateOrigins',
   'site-per-process'
-].join(',')
+].join(',');
+const ignoreXFrameHeadersExtension = path.join(__dirname, '../extensions/ignore-x-frame-headers');
 
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
@@ -27,13 +28,16 @@ module.exports = (on, config) => {
   // Preprocess Typescript file using Nx helper
   on('file:preprocessor', preprocessTypescript(config));
 
-  on('before:browser:launch', (browser = {}, args) => {
-    if (browser.name === 'chrome' || browser.name == 'electron') {
-      args.push(`--disable-features="${chromeFlags}"`);
-      const ignoreXFrameHeadersExtension = path.join(__dirname, '../extensions/ignore-x-frame-headers');
-      args.push(`--load-extension=${ignoreXFrameHeadersExtension}`);
+  on('before:browser:launch', (browser = {}, launchOptions) => {
+    // console.log(launchOptions);
+    if (browser.family === 'chromium' || browser.name !== 'electron') {
+      launchOptions.push(`--disable-features="${chromeFlags}"`);
+      launchOptions.push(`--load-extension=${ignoreXFrameHeadersExtension}`);
     }
-    console.log(config, browser, args);
-    return args;
+    return launchOptions;
   });
+
+  require('@cypress/code-coverage/task')(on, config);
+
+  return config;
 };

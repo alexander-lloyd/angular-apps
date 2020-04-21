@@ -9,7 +9,7 @@ import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {OAuthModule} from 'angular-oauth2-oidc';
+import {OAuthModule, OAuthStorage} from 'angular-oauth2-oidc';
 
 import {AppComponent} from './app.component';
 import {MediaControlModule} from './media-control/media-control.module';
@@ -25,6 +25,15 @@ import {environment} from '../environments/environment';
  */
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http);
+}
+
+/**
+ * OAuthStorage Factory.
+ *
+ * @returns OAuthStorage.
+ */
+export function oAuthStorageFactory(): OAuthStorage {
+  return localStorage;
 }
 
 /**
@@ -63,7 +72,12 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
       }
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: OAuthStorage,
+      useFactory: oAuthStorageFactory
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
