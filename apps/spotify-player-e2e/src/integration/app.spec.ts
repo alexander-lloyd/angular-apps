@@ -13,6 +13,6 @@ describe('spotify-player', () => {
     getLoginButton().click()
       .then(() => cy.location().should((location) => {
         expect(location.host).eq('accounts.spotify.com');
-      }))
+      }));
   });
 });

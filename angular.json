@@ -241,9 +241,10 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "spotify-player:build"
+            "browserTarget": "spotify-player:build",
+            "extraWebpackConfig": "./apps/spotify-player-e2e/coverage.webpack.js"
           },
           "configurations": {
             "production": {
