@@ -102,7 +102,7 @@
             "repo": "https://github.com/alexander-lloyd/todo",
             "branch": "master",
             "name": "Alex Bot",
-            "email": "bot@alexlloyd.xyz"
+            "email": "bot@alexander-lloyd.dev"
           }
         }
       }
@@ -277,6 +277,17 @@
             "tsConfig": "apps/spotify-player/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "apps/spotify-player/src/test-setup.ts"
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/spotify-player/",
+            "configuration": "production",
+            "repo": "https://github.com/alexander-lloyd/spotify-player",
+            "branch": "master",
+            "name": "Alex Bot",
+            "email": "bot@alexander-lloyd.dev"
           }
         }
       }

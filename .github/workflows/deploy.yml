@@ -29,3 +29,8 @@ jobs:
         yarn deploy todo --message "Deploying $GITHUB_SHA from $GITHUB_REF"
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name: Build 🏗️ & Deploy Spotify Player 🚀
+      run: |
+        yarn deploy spotify-player --message "Deploying $GITHUB_SHA from $GITHUB_REF"
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
