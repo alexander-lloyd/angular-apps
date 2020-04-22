@@ -199,10 +199,10 @@
     "@typescript-eslint/experimental-utils" "2.19.2"
     eslint-scope "^4.0.0"
 
-"@angular-eslint/eslint-plugin@0.0.1-alpha.28":
-  version "0.0.1-alpha.28"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-0.0.1-alpha.28.tgz#c9adcdea697d4c253813dd0477827ec9875dd785"
-  integrity sha512-KwGbxnl3z6s4JaUpU/VM5N+IvmrWlUyMS9438/KzBelLz3xuZtCVWBtPHb7Pqzzc4yd7s6kczxArh6YY6ulFSg==
+"@angular-eslint/eslint-plugin@0.0.1-alpha.29":
+  version "0.0.1-alpha.29"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-0.0.1-alpha.29.tgz#187e9f4beb0ebfbd7f4cfdf9142601c5fd4f7838"
+  integrity sha512-K9inFXN5YJHjPWrE5wNPdJ1E3FDdrlZ61qDUJioO2WoAeWYHhqKXx20LRDEiAO3l96gNVCm8SByO+KUQkkc2yQ==
   dependencies:
     "@typescript-eslint/experimental-utils" "2.19.2"
 
