@@ -10,6 +10,7 @@ import {OAuthService, AuthConfig} from 'angular-oauth2-oidc';
 import {TranslateTestingModule} from 'ngx-translate-testing';
 
 import {AppComponent} from './app.component';
+import {AuthConfigService} from './app-config.service';
 
 class OAuthServiceStub {
   public configure(config: AuthConfig): void {
@@ -24,6 +25,12 @@ class OAuthServiceStub {
 
   public hasValidAccessToken(): boolean {
     return false;
+  }
+}
+
+class AuthConfigServiceStub {
+  public getConfig(): AuthConfig {
+    return {};
   }
 }
 
@@ -56,10 +63,16 @@ describe('AppComponent', () => {
         MatProgressSpinnerModule,
         TranslateTestingModule.withTranslations('en', translations)
       ],
-      providers: [{
-        provide: OAuthService,
-        useClass: OAuthServiceStub
-      }]
+      providers: [
+        {
+          provide: OAuthService,
+          useClass: OAuthServiceStub
+        },
+        {
+          provide: AuthConfigService,
+          useClass: AuthConfigServiceStub
+        }
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
