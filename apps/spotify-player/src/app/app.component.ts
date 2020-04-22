@@ -4,7 +4,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {BehaviorSubject} from 'rxjs';
 
-import {authConfig} from './app.config';
+import {AuthConfigService} from './app-config.service';
 
 /**
  * App Component.
@@ -20,11 +20,20 @@ export class AppComponent implements OnInit {
   public loading$ = new BehaviorSubject(true);
   public authenticated$ = new BehaviorSubject(false);
 
+  /**
+   * Constructor.
+   *
+   * @param oauthService OAuthService.
+   * @param translate TranslateService.
+   * @param authConfigService AuthConfigService.
+   */
   public constructor(
     private oauthService: OAuthService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private authConfigService: AuthConfigService
   ) {
-    this.oauthService.configure(authConfig);
+    const config = this.authConfigService.getConfig();
+    this.oauthService.configure(config);
     this.translate.setDefaultLang('en');
   }
 

@@ -4,7 +4,7 @@
 
 // 2 Spaces per indentation
 const INDENT = 2;
-const MAX_CLASSES_PER_FILE = 2;
+const MAX_CLASSES_PER_FILE = 5;
 const MAX_COMPLEXITY = 10;
 const MAX_LINE_LENGTH = 120;
 const MAX_LINES = 200;

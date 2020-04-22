@@ -17,6 +17,7 @@ import {MediaControlModule} from './media-control/media-control.module';
 import {spotifyReducer} from './media-control/store/spotify.reducer';
 import {SpotifyPlayerEffects} from './media-control/store/spotify.effects';
 import {environment} from '../environments/environment';
+import {AuthConfigService} from './app-config.service';
 
 /**
  * Ngx Translate Loader Factory.
@@ -94,7 +95,8 @@ function getBaseUrl(document: Document): string {
     {
       provide: OAuthStorage,
       useFactory: oAuthStorageFactory
-    }
+    },
+    AuthConfigService
   ],
   bootstrap: [AppComponent]
 })
