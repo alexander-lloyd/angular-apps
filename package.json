@@ -75,7 +75,7 @@
     "@nrwl/linter": "^9.0.4",
     "@nrwl/workspace": "9.0.4",
     "@types/jest": "25.2.1",
-    "@types/node": "~13.13.1",
+    "@types/node": "~13.13.2",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
     "angular-cli-ghpages": "^0.6.2",
