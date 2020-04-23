@@ -20,6 +20,12 @@ class SpotifyAPIStub {
 
   public getCurrentPlayback$(): void {
   }
+
+  public previousTrack$(): void {
+  }
+
+  public skipTrack$(): void {
+  }
 }
 
 describe('Spotify Effects', () => {
@@ -128,4 +134,65 @@ describe('Spotify Effects', () => {
       });
     });
   });
+
+  it('should call previous track api endpoint when previous action emitted', async () => {
+    expect.assertions(2);
+    actions$ = of(actions.previousAction());
+    const mockPreviousAPI = jest.spyOn(mockAPIService, 'previousTrack$')
+      .mockImplementation(() => of(null));
+
+    await new Promise((resolve) => {
+      effects.previous$.subscribe((action: Action) => {
+        expect(action.type).toBe(actions.NOOP);
+        expect(mockPreviousAPI).toHaveBeenCalledTimes(1);
+        resolve();
+      });
+    });
+  });
+
+  it('should emit previous error action when error occurs', async () => {
+    expect.assertions(2);
+    actions$ = of(actions.previousAction());
+    const mockPreviousAPI = jest.spyOn(mockAPIService, 'previousTrack$')
+      .mockImplementation(() => throwError('Error'));
+
+    await new Promise((resolve) => {
+      effects.previous$.subscribe((action: Action) => {
+        expect(action.type).toBe(actions.PREVIOUS_ERROR);
+        expect(mockPreviousAPI).toHaveBeenCalledTimes(1);
+        resolve();
+      });
+    });
+  });
+
+  it('should call skip track api endpoint when skip action emitted', async () => {
+    expect.assertions(2);
+    actions$ = of(actions.skipAction());
+    const mockSkipAPI = jest.spyOn(mockAPIService, 'skipTrack$')
+      .mockImplementation(() => of(null));
+
+    await new Promise((resolve) => {
+      effects.skip$.subscribe((action: Action) => {
+        expect(action.type).toBe(actions.NOOP);
+        expect(mockSkipAPI).toHaveBeenCalledTimes(1);
+        resolve();
+      });
+    });
+  });
+
+  it('should emit skip error action when error occurs', async () => {
+    expect.assertions(2);
+    actions$ = of(actions.skipAction());
+    const mockSkipAPI = jest.spyOn(mockAPIService, 'skipTrack$')
+      .mockImplementation(() => throwError('Error'));
+
+    await new Promise((resolve) => {
+      effects.skip$.subscribe((action: Action) => {
+        expect(action.type).toBe(actions.SKIP_ERROR);
+        expect(mockSkipAPI).toHaveBeenCalledTimes(1);
+        resolve();
+      });
+    });
+  });
+
 });

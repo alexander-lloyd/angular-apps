@@ -72,4 +72,30 @@ describe('MediaControlComponent', () => {
 
     expect(playMethodSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('should dispatch previous action when previous button is pressed', async () => {
+    expect.assertions(1);
+
+    const button = await loader.getHarness(MatButtonHarness.with({
+      selector: '.al-media-player-button-previous'
+    }));
+
+    const previousMethodSpy = jest.spyOn(component, 'previousTrack');
+    await button.click();
+
+    expect(previousMethodSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dispatch skip action when skip  button is pressed', async () => {
+    expect.assertions(1);
+
+    const button = await loader.getHarness(MatButtonHarness.with({
+      selector: '.al-media-player-button-skip'
+    }));
+
+    const skipMethodSpy = jest.spyOn(component, 'skipTrack');
+    await button.click();
+
+    expect(skipMethodSpy).toHaveBeenCalledTimes(1);
+  });
 });
