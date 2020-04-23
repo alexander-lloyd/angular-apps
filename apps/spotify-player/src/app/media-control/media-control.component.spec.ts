@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MemoizedSelector} from '@ngrx/store';
 import {provideMockStore, MockStore} from '@ngrx/store/testing';
 
@@ -23,6 +24,7 @@ describe('MediaControlComponent', () => {
     TestBed.configureTestingModule({
       declarations: [MediaControlComponent],
       imports: [
+        FontAwesomeModule,
         MatButtonModule,
         MatIconModule,
         MatProgressBarModule
