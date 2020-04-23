@@ -5,16 +5,7 @@ import {of} from 'rxjs';
 import {catchError, map, mergeMap} from 'rxjs/operators';
 
 import {SpotifyPlayerAPIService} from '../services/spotify-player-api.service';
-import {
-  CURRENT_TRACK_REQUEST,
-  PAUSE,
-  PLAY,
-  currentTrackFailure,
-  currentTrackSuccess,
-  pauseErrorAction,
-  playErrorAction
-} from './spotify.actions';
-
+import * as actions from './spotify.actions';
 
 @Injectable()
 export class SpotifyPlayerEffects {
@@ -31,28 +22,30 @@ export class SpotifyPlayerEffects {
 
   public pause$ = createEffect(
     () => this.actions$.pipe(
-      ofType(PAUSE),
+      ofType(actions.PAUSE),
       mergeMap(() => this.spotifyAPI.pause$().pipe(
-        catchError(() => of(pauseErrorAction()))
+        map(() => actions.noop()),
+        catchError(() => of(actions.pauseErrorAction()))
       ))
     )
   );
 
   public play$ = createEffect(
     () => this.actions$.pipe(
-      ofType(PLAY),
+      ofType(actions.PLAY),
       mergeMap(() => this.spotifyAPI.resume$().pipe(
-        catchError(() => of(playErrorAction()))
+        map(() => actions.noop()),
+        catchError(() => of(actions.playErrorAction()))
       ))
     )
   );
 
   public currentTrack$ = createEffect(
     () => this.actions$.pipe(
-      ofType(CURRENT_TRACK_REQUEST),
+      ofType(actions.CURRENT_TRACK_REQUEST),
       mergeMap(() => this.spotifyAPI.getCurrentPlayback$().pipe(
-        map((response) => currentTrackSuccess(response)),
-        catchError(() => of(currentTrackFailure()))
+        map((response) => actions.currentTrackSuccess(response)),
+        catchError(() => of(actions.currentTrackFailure()))
       ))
     )
   );
