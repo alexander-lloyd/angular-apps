@@ -74,7 +74,7 @@ describe('AppComponent', () => {
           provide: AuthConfigService,
           useClass: AuthConfigServiceStub
         },
-        provideMockStore({initialState})]
+        provideMockStore({initialState})
       ]
     }).compileComponents();
 
