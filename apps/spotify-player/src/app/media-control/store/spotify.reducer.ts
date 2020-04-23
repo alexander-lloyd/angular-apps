@@ -1,5 +1,5 @@
 import {Action, createReducer, on} from '@ngrx/store';
-import {pause, play} from './spotify.actions';
+import {pause, play, currentTrackSuccess} from './spotify.actions';
 import {SpotifyState} from './spotify.types';
 
 export const initialState: SpotifyState = {
@@ -15,6 +15,10 @@ export const _spotifyReducer = createReducer(
   on(play, (state: SpotifyState) => ({
     ...state,
     playing: true
+  })),
+  on(currentTrackSuccess, (state: SpotifyState, action) => ({
+    ...state,
+    playing: action.is_playing || false
   }))
 );
 

@@ -29,7 +29,7 @@ export class SpotifyPlayerAPIService {
    *
    * @returns Observable containing the current playback object.
    */
-  public getCurrentPlayback$(): Observable<CurrentlyPlayingObject> {
+  public getCurrentPlayback$(): Observable<CurrentlyPlayingObject | null> {
     return this.http.get<CurrentlyPlayingObject>(`${this.spotifyPlayerAPIURL}/player`);
   }
 

@@ -6,11 +6,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {provideMockStore} from '@ngrx/store/testing';
 import {OAuthService, AuthConfig} from 'angular-oauth2-oidc';
 import {TranslateTestingModule} from 'ngx-translate-testing';
 
 import {AppComponent} from './app.component';
 import {AuthConfigService} from './app-config.service';
+import {initialState} from './media-control/store';
 
 class OAuthServiceStub {
   public configure(config: AuthConfig): void {
@@ -71,7 +73,8 @@ describe('AppComponent', () => {
         {
           provide: AuthConfigService,
           useClass: AuthConfigServiceStub
-        }
+        },
+        provideMockStore({initialState})]
       ]
     }).compileComponents();
 

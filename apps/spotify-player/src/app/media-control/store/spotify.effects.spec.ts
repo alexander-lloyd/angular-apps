@@ -7,15 +7,18 @@ import {SpotifyPlayerAPIService} from '../services/spotify-player-api.service';
 
 import * as actions from './spotify.actions';
 import {SpotifyPlayerEffects} from './spotify.effects';
+import * as currentlyPlayingObject from '../services/currently-playing-object.response.json';
+import {CurrentlyPlayingObject} from '../services/types';
 
 
 class SpotifyAPIStub {
   public pause$(): void {
-
   }
 
   public resume$(): void {
+  }
 
+  public getCurrentPlayback$(): void {
   }
 }
 
@@ -91,6 +94,36 @@ describe('Spotify Effects', () => {
       effects.play$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.PLAY_ERROR);
         expect(mockPauseAPI).toHaveBeenCalledTimes(1);
+        resolve();
+      });
+    });
+  });
+
+  it('should emit a current track success when current track requested', async () => {
+    expect.assertions(2);
+    actions$ = of(actions.currentTrackRequest());
+    const mockCurrentPlaybackAPI = jest.spyOn(mockAPIService, 'getCurrentPlayback$')
+      .mockImplementation(() => of(currentlyPlayingObject as CurrentlyPlayingObject));
+
+    await new Promise((resolve) => {
+      effects.currentTrack$.subscribe((action: Action) => {
+        expect(action.type).toBe(actions.CURRENT_TRACK_SUCCESS);
+        expect(mockCurrentPlaybackAPI).toHaveBeenCalledTimes(1);
+        resolve();
+      });
+    });
+  });
+
+  it('should emit a current track failure when current track request failed', async () => {
+    expect.assertions(2);
+    actions$ = of(actions.currentTrackRequest());
+    const mockCurrentPlaybackAPI = jest.spyOn(mockAPIService, 'getCurrentPlayback$')
+      .mockImplementation(() => throwError('Error'));
+
+    await new Promise((resolve) => {
+      effects.currentTrack$.subscribe((action: Action) => {
+        expect(action.type).toBe(actions.CURRENT_TRACK_FAILURE);
+        expect(mockCurrentPlaybackAPI).toHaveBeenCalledTimes(1);
         resolve();
       });
     });
