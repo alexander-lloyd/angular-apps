@@ -26,4 +26,12 @@ export class MediaControlComponent {
   public play(): void {
     this.store.dispatch(actions.play());
   }
+
+  public previousTrack(): void {
+    this.store.dispatch(actions.previousAction());
+  }
+
+  public skipTrack(): void {
+    this.store.dispatch(actions.skipAction());
+  }
 }

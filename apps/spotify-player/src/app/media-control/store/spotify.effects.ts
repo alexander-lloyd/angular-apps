@@ -40,6 +40,26 @@ export class SpotifyPlayerEffects {
     )
   );
 
+  public previous$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(actions.PREVIOUS),
+      mergeMap(() => this.spotifyAPI.previousTrack$().pipe(
+        map(() => actions.noop()),
+        catchError(() => of(actions.previousErrorAction()))
+      ))
+    )
+  );
+
+  public skip$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(actions.SKIP),
+      mergeMap(() => this.spotifyAPI.skipTrack$().pipe(
+        map(() => actions.noop()),
+        catchError(() => of(actions.skipErrorAction()))
+      ))
+    )
+  );
+
   public currentTrack$ = createEffect(
     () => this.actions$.pipe(
       ofType(actions.CURRENT_TRACK_REQUEST),
