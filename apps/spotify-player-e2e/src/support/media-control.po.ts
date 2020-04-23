@@ -18,3 +18,17 @@ export const getPlayButton = (): Cypress.Chainable<JQuery<HTMLButtonElement>> =>
  * @returns Chainable to Pause Button.
  */
 export const getPauseButton = (): Cypress.Chainable<JQuery<HTMLButtonElement>> => cy.get('[data-testid=pause-button]');
+
+/**
+ * Get the Previous button.
+ *
+ * @returns Chainable to Previous Button.
+ */
+export const getPreviousButton = (): Cypress.Chainable<JQuery<HTMLButtonElement>> => cy.get('[data-testid=previous-button]');
+
+/**
+ * Get the Skip button.
+ *
+ * @returns Chainable to Skip Button.
+ */
+export const getSkipButton = (): Cypress.Chainable<JQuery<HTMLButtonElement>> => cy.get('[data-testid=skip-button]');

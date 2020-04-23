@@ -1,7 +1,9 @@
 import {
   getMediaControls,
   getPauseButton,
-  getPlayButton
+  getPlayButton,
+  getPreviousButton,
+  getSkipButton
 } from '../support/media-control.po';
 
 describe('media-control', () => {
@@ -51,5 +53,29 @@ describe('media-control', () => {
     cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
     cy.visit('/');
     getPauseButton().should('exist');
+  });
+
+  it('should should go back when previous button is pressed', () => {
+    cy.server({
+      force404: true
+    });
+    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
+    cy.route('GET', 'https://api.spotify.com/v1/me/player/previous', '');
+    cy.visit('/');
+    getPreviousButton()
+      .should('exist')
+      .click();
+  });
+
+  it('should should go next when skip button is pressed', () => {
+    cy.server({
+      force404: true
+    });
+    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
+    cy.route('GET', 'https://api.spotify.com/v1/me/player/next', '');
+    cy.visit('/');
+    getSkipButton()
+      .should('exist')
+      .click();
   });
 });

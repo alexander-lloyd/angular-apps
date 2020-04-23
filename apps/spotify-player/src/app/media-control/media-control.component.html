@@ -11,6 +11,7 @@
         <button
           aria-label="Previous Track Button"
           class="al-media-player-control-button al-media-player-button-previous"
+          data-testid="previous-button"
           mat-fab
           (click)="previousTrack()"
         >
@@ -28,9 +29,10 @@
           <mat-icon>pause</mat-icon>
         </button>
         <button
-          mat-fab
           aria-label="Next Track Button"
           class="al-media-player-control-button al-media-player-button-skip"
+          data-testid="skip-button"
+          mat-fab
           (click)="skipTrack()"
         >
           <mat-icon>skip_next</mat-icon>

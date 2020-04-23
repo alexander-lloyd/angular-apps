@@ -194,5 +194,4 @@ describe('Spotify Effects', () => {
       });
     });
   });
-
 });
