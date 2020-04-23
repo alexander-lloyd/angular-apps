@@ -6,29 +6,50 @@ import {
 
 describe('media-control', () => {
   beforeEach(() => {
-    cy.login()
-      .visit('/');
+    cy.login();
   });
 
   it('should have media player component', () => {
-    getMediaControls().should((t) => expect(t).not.equal(null));
+    cy.server();
+    cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
+    cy.visit('/');
+    getMediaControls().should('exist');
   });
 
   it('should play when play button is pressed', () => {
-    cy.server();
+    cy.server({
+      force404: true
+    });
+    cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
     cy.route('PUT', 'https://api.spotify.com/v1/me/player/play', '');
-    getPlayButton().click();
-
-    getPauseButton().should((t) => expect(t).not.equal(null));
+    cy.visit('/');
+    getPlayButton()
+      .click()
+      .then(() => {
+        getPauseButton().should('exist');
+      });
   });
 
   it('should pause when pause button is presses', () => {
-    cy.server();
+    cy.server({
+      force404: true
+    });
+    cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
     cy.route('PUT', 'https://api.spotify.com/v1/me/player/play', '');
     cy.route('PUT', 'https://api.spotify.com/v1/me/player/pause', '');
+    cy.visit('/');
     getPlayButton().click();
     getPauseButton().click();
 
-    getPlayButton().should((t) => expect(t).not.equal(null));
+    getPlayButton().should('exist');
+  });
+
+  it('should set playing state when response from spotify sets playstate', () => {
+    cy.server({
+      force404: true
+    });
+    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
+    cy.visit('/');
+    getPauseButton().should('exist');
   });
 });
