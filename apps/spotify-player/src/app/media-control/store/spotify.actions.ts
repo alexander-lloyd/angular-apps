@@ -1,6 +1,7 @@
 import {createAction, props} from '@ngrx/store';
 import {CurrentlyPlayingObject} from '../services/types';
 
+export const NOOP = '[Spotify Player] [MediaController] Noop Action';
 export const PAUSE = '[Spotify Player] [MediaController] Pause';
 export const PAUSE_ERROR = '[Spotify Player] [MediaController] Pause Error';
 export const PLAY = '[Spotify Player] [MediaController] Play';
@@ -9,6 +10,7 @@ export const CURRENT_TRACK_REQUEST = '[Spotify Player] [MediaController] Current
 export const CURRENT_TRACK_SUCCESS = '[Spotify Player] [MediaController] Current Track Success';
 export const CURRENT_TRACK_FAILURE = '[Spotify Player] [MediaController] Current Track Failure';
 
+export const noop = createAction(NOOP);
 export const pause = createAction(PAUSE);
 export const pauseErrorAction = createAction(PAUSE_ERROR);
 export const play = createAction(PLAY);
