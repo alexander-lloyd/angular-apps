@@ -15,7 +15,7 @@
           mat-fab
           (click)="previousTrack()"
         >
-          <mat-icon>skip_previous</mat-icon>
+          <fa-icon [icon]="faStepBackward"></fa-icon>
         </button>
         <button
           aria-label="Pause Track Button"
@@ -26,7 +26,7 @@
           *ngIf="isPlaying$ | async; else pauseTemplate"
           (click)="pause()"
         >
-          <mat-icon>pause</mat-icon>
+          <fa-icon [icon]="faPause"></fa-icon>
         </button>
         <button
           aria-label="Next Track Button"
@@ -35,7 +35,7 @@
           mat-fab
           (click)="skipTrack()"
         >
-          <mat-icon>skip_next</mat-icon>
+          <fa-icon [icon]="faStepForward"></fa-icon>
         </button>
       </div>
     </div>
@@ -61,7 +61,7 @@
     mat-fab
     (click)="play()"
   >
-    <mat-icon>play_arrow</mat-icon>
+    <fa-icon [icon]="faPlay"></fa-icon>
   </button>
 </ng-template>
 
