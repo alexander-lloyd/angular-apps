@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {faSpotify} from '@fortawesome/free-brands-svg-icons';
 import {Store} from '@ngrx/store';
 import {TranslateService} from '@ngx-translate/core';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Subscription, timer} from 'rxjs';
 
 import {AuthConfigService} from './app-config.service';
 import {actions, SpotifyState} from './media-control/store';
@@ -16,11 +16,13 @@ import {actions, SpotifyState} from './media-control/store';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnDestroy, OnInit {
   public faSpotify = faSpotify;
 
   public loading$ = new BehaviorSubject(true);
   public authenticated$ = new BehaviorSubject(false);
+
+  private updateSpotify: Subscription | null = null;
 
   /**
    * Constructor.
@@ -49,11 +51,23 @@ export class AppComponent implements OnInit {
     this.loading$.next(false);
 
     if (hasValidAccessToken) {
-      this.store.dispatch(actions.currentTrackRequest());
+      this.updateSpotify = timer(0, 1000)
+        .subscribe(() => this.updateCurrentTrack());
+
+    }
+  }
+
+  public ngOnDestroy(): void {
+    if (this.updateSpotify !== null) {
+      this.updateSpotify.unsubscribe();
     }
   }
 
   public logIn(): void {
     this.oauthService.initImplicitFlow();
+  }
+
+  public updateCurrentTrack(): void {
+    this.store.dispatch(actions.currentTrackRequest());
   }
 }
