@@ -40,14 +40,18 @@
       </div>
     </div>
     <div class="al-media-player-progress-container">
-      <p class="al-media-player-progress-element">{{ songProgress$ | async | formattime }}</p>
+      <p class="al-media-player-progress-element" data-testid="song-progress">
+        {{ songProgress$ | async | formattime }}
+      </p>
       <mat-progress-bar
         class="al-media-player-progress-element"
         mode="determinate"
         [value]="songProgressPercent$ | async"
       >
       </mat-progress-bar>
-      <p class="al-media-player-progress-element">{{ songLength$ | async | formattime }}</p>
+      <p class="al-media-player-progress-element" data-testid="song-length">
+        {{ songLength$ | async | formattime }}
+      </p>
     </div>
   </div>
   <div class="al-media-control-element-empty"></div>
