@@ -32,3 +32,19 @@ export const getPreviousButton = (): Cypress.Chainable<JQuery<HTMLButtonElement>
  * @returns Chainable to Skip Button.
  */
 export const getSkipButton = (): Cypress.Chainable<JQuery<HTMLButtonElement>> => cy.get('[data-testid=skip-button]');
+
+/**
+ * Get the Song Progress.
+ *
+ * @returns Chainable to Progress Paragraph Element.
+ */
+export const getSongProgress = (): Cypress.Chainable<JQuery<HTMLParagraphElement>> => getMediaControls()
+  .get('p[data-testid=song-progress]');
+
+/**
+ * Get the Song Length.
+ *
+ * @returns Chainable to Length Paragraph Element.
+ */
+export const getSongLength = (): Cypress.Chainable<JQuery<HTMLParagraphElement>> => getMediaControls()
+  .get('p[data-testid=song-length]');

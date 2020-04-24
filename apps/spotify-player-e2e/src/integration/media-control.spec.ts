@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import {
   getMediaControls,
   getPauseButton,
   getPlayButton,
   getPreviousButton,
-  getSkipButton
+  getSkipButton,
+  getSongLength,
+  getSongProgress
 } from '../support/media-control.po';
 
 describe('media-control', () => {
@@ -79,5 +82,16 @@ describe('media-control', () => {
     getSkipButton()
       .should('exist')
       .click();
+  });
+
+  it('should set the progress and song length', () => {
+    cy.server({
+      force404: true
+    });
+    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
+    cy.visit('/');
+
+    getSongProgress().should('contain.text', '0:04');
+    getSongLength().should('contain.text', '3:30');
   });
 });
