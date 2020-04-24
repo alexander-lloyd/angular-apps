@@ -14,69 +14,103 @@ describe('Spotify Reducer', () => {
   it('should pause', () => {
     expect.assertions(1);
     const state: SpotifyState = {
-      playing: true
+      playing: true,
+      current: {
+        name: 'Song Name'
+      }
     };
     const action = actions.pause();
 
     expect(spotifyReducer(state, action)).toStrictEqual({
-      playing: false
+      playing: false,
+      current: {
+        name: 'Song Name'
+      }
     });
   });
 
   it('should play', () => {
     expect.assertions(1);
     const state: SpotifyState = {
-      playing: false
+      playing: false,
+      current: {
+        name: 'Song Name'
+      }
     };
     const action = actions.play();
 
     expect(spotifyReducer(state, action)).toStrictEqual({
-      playing: true
+      playing: true,
+      current: {
+        name: 'Song Name'
+      }
     });
   });
 
   it('should get playing state from current track success', () => {
     expect.assertions(1);
     const state: SpotifyState = {
-      playing: false
+      playing: false,
+      current: {
+        name: 'Song Name'
+      }
     };
 
     const props = {
-      is_playing: true
-    };
-    const action = actions.currentTrackSuccess(props as CurrentlyPlayingObject);
+      is_playing: true,
+      item: {
+        name: 'Song Name'
+      }
+    } as CurrentlyPlayingObject;
+    const action = actions.currentTrackSuccess(props);
 
     expect(spotifyReducer(state, action)).toStrictEqual({
-      playing: true
+      playing: true,
+      current: {
+        name: 'Song Name'
+      }
     });
   });
 
   it('should get playing state from current track success 2', () => {
     expect.assertions(1);
     const state: SpotifyState = {
-      playing: true
+      playing: true,
+      current: {
+        name: 'Song Name'
+      }
     };
 
     const props = {
-      is_playing: false
-    };
-    const action = actions.currentTrackSuccess(props as CurrentlyPlayingObject);
+      is_playing: false,
+      item: {
+        name: 'Song Name'
+      }
+    } as CurrentlyPlayingObject;
+    const action = actions.currentTrackSuccess(props);
 
     expect(spotifyReducer(state, action)).toStrictEqual({
-      playing: false
+      playing: false,
+      current: {
+        name: 'Song Name'
+      }
     });
   });
 
   it('should set not playing if we don\'t get any response', () => {
     expect.assertions(1);
     const state: SpotifyState = {
-      playing: true
+      playing: true,
+      current: {
+        name: 'Song Name'
+      }
     };
 
     const action = actions.currentTrackSuccess(null);
 
     expect(spotifyReducer(state, action)).toStrictEqual({
-      playing: false
+      playing: false,
+      current: null
     });
   });
 });
