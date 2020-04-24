@@ -22,6 +22,7 @@ describe('media-control', () => {
     cy.server({
       force404: true
     });
+    cy.clock();
     cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
     cy.route('PUT', 'https://api.spotify.com/v1/me/player/play', '');
     cy.visit('/');
@@ -36,6 +37,7 @@ describe('media-control', () => {
     cy.server({
       force404: true
     });
+    cy.clock();
     cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
     cy.route('PUT', 'https://api.spotify.com/v1/me/player/play', '');
     cy.route('PUT', 'https://api.spotify.com/v1/me/player/pause', '');
