@@ -86,7 +86,8 @@ module.exports = {
         'Inject',
         'Injectable',
         'NgModule',
-        'Optional'
+        'Optional',
+        'Pipe'
       ]
     }],
     'no-console': 'warn',
