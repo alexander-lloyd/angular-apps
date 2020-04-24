@@ -1,11 +1,16 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import {Action, createReducer, on} from '@ngrx/store';
 import {pause, play, currentTrackSuccess} from './spotify.actions';
 import {SpotifyState} from './spotify.types';
-import {TrackObject} from '../services/types';
+import {CurrentlyPlayingObject} from '../services/types';
 
 export const initialState: SpotifyState = {
   playing: false,
-  current: null
+  current: {
+    name: '',
+    progress: 0,
+    total: 0
+  }
 };
 
 export const _spotifyReducer = createReducer(
@@ -18,21 +23,24 @@ export const _spotifyReducer = createReducer(
     ...state,
     playing: true
   })),
-  on(currentTrackSuccess, (state: SpotifyState, action) => {
-    const currentSong = action.item;
-    let current = null;
-    // Is it an empty object?
-    if (Object.keys(currentSong || {}).length) {
-      current = {
-        ...state.current,
-        name: (currentSong as TrackObject).name
-      };
-    }
-
+  on(currentTrackSuccess, (state: SpotifyState, action: CurrentlyPlayingObject) => {
+    const {
+      is_playing = false,
+      progress_ms = 0,
+      item = {
+        name: '',
+        duration_ms: 0
+      }
+    } = action;
     return {
       ...state,
-      playing: action.is_playing || false,
-      current
+      playing: is_playing,
+      current: {
+        ...state.current,
+        name: item.name,
+        progress: progress_ms,
+        total: item.duration_ms
+      }
     };
   })
 );

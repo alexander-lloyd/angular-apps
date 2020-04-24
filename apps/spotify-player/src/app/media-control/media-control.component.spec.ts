@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatIconModule} from '@angular/material/icon';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressBarHarness} from '@angular/material/progress-bar/testing';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MemoizedSelector} from '@ngrx/store';
 import {provideMockStore, MockStore} from '@ngrx/store/testing';
@@ -18,6 +19,8 @@ describe('MediaControlComponent', () => {
   let fixture: ComponentFixture<MediaControlComponent>;
   let mockStore: MockStore;
   let mockPlayingSelector: MemoizedSelector<{spotify: SpotifyState}, boolean>;
+  let mockProgressSelector: MemoizedSelector<{spotify: SpotifyState}, number>;
+  let mockLengthSelector: MemoizedSelector<{spotify: SpotifyState}, number>;
   let loader: HarnessLoader;
 
   beforeEach(async(() => {
@@ -38,6 +41,8 @@ describe('MediaControlComponent', () => {
     component = fixture.componentInstance;
     mockStore = TestBed.get(MockStore);
     mockPlayingSelector = mockStore.overrideSelector(selectors.isPlaying, false);
+    mockProgressSelector = mockStore.overrideSelector(selectors.getSongProgress, 0);
+    mockLengthSelector = mockStore.overrideSelector(selectors.getSongLength, 0);
     loader = TestbedHarnessEnvironment.loader(fixture);
     fixture.detectChanges();
   }));
@@ -99,5 +104,19 @@ describe('MediaControlComponent', () => {
     await button.click();
 
     expect(skipMethodSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should set progress bar position', async () => {
+    expect.assertions(1);
+
+    const progressBar = await loader.getHarness(MatProgressBarHarness.with({
+      selector: '.al-media-player-progress-element'
+    }));
+
+    mockProgressSelector.setResult(50);
+    mockLengthSelector.setResult(100);
+    mockStore.refreshState();
+
+    expect(await progressBar.getValue()).toBe(50);
   });
 });

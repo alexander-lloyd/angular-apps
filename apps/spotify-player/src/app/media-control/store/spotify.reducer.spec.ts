@@ -16,7 +16,9 @@ describe('Spotify Reducer', () => {
     const state: SpotifyState = {
       playing: true,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 0,
+        total: 0
       }
     };
     const action = actions.pause();
@@ -24,7 +26,9 @@ describe('Spotify Reducer', () => {
     expect(spotifyReducer(state, action)).toStrictEqual({
       playing: false,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 0,
+        total: 0
       }
     });
   });
@@ -34,7 +38,9 @@ describe('Spotify Reducer', () => {
     const state: SpotifyState = {
       playing: false,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 0,
+        total: 0
       }
     };
     const action = actions.play();
@@ -42,7 +48,9 @@ describe('Spotify Reducer', () => {
     expect(spotifyReducer(state, action)).toStrictEqual({
       playing: true,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 0,
+        total: 0
       }
     });
   });
@@ -52,14 +60,18 @@ describe('Spotify Reducer', () => {
     const state: SpotifyState = {
       playing: false,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 0,
+        total: 0
       }
     };
 
     const props = {
       is_playing: true,
+      progress_ms: 100,
       item: {
-        name: 'Song Name'
+        name: 'Song Name',
+        duration_ms: 200
       }
     } as CurrentlyPlayingObject;
     const action = actions.currentTrackSuccess(props);
@@ -67,7 +79,9 @@ describe('Spotify Reducer', () => {
     expect(spotifyReducer(state, action)).toStrictEqual({
       playing: true,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 100,
+        total: 200
       }
     });
   });
@@ -77,14 +91,18 @@ describe('Spotify Reducer', () => {
     const state: SpotifyState = {
       playing: true,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 0,
+        total: 0
       }
     };
 
     const props = {
       is_playing: false,
+      progress_ms: 200,
       item: {
-        name: 'Song Name'
+        name: 'Song Name',
+        duration_ms: 400
       }
     } as CurrentlyPlayingObject;
     const action = actions.currentTrackSuccess(props);
@@ -92,7 +110,9 @@ describe('Spotify Reducer', () => {
     expect(spotifyReducer(state, action)).toStrictEqual({
       playing: false,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 200,
+        total: 400
       }
     });
   });
@@ -102,7 +122,9 @@ describe('Spotify Reducer', () => {
     const state: SpotifyState = {
       playing: true,
       current: {
-        name: 'Song Name'
+        name: 'Song Name',
+        progress: 0,
+        total: 0
       }
     };
 
@@ -110,7 +132,11 @@ describe('Spotify Reducer', () => {
 
     expect(spotifyReducer(state, action)).toStrictEqual({
       playing: false,
-      current: null
+      current: {
+        name: '',
+        progress: 0,
+        total: 0
+      }
     });
   });
 });
