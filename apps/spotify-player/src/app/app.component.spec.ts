@@ -1,12 +1,12 @@
 import {HarnessLoader} from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 import {Component} from '@angular/core';
-import {TestBed, async, ComponentFixture} from '@angular/core/testing';
+import {TestBed, async, ComponentFixture, fakeAsync, tick} from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {provideMockStore} from '@ngrx/store/testing';
+import {provideMockStore, MockStore} from '@ngrx/store/testing';
 import {OAuthService, AuthConfig} from 'angular-oauth2-oidc';
 import {TranslateTestingModule} from 'ngx-translate-testing';
 
@@ -51,6 +51,7 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   let loader: HarnessLoader;
+  let store: MockStore;
 
   beforeEach(async(() => {
     jest.resetAllMocks();
@@ -79,9 +80,9 @@ describe('AppComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
     app = fixture.componentInstance;
     loader = TestbedHarnessEnvironment.loader(fixture);
+    store = TestBed.inject(MockStore);
   }));
 
   it('should create the app', () => {
@@ -112,7 +113,7 @@ describe('AppComponent', () => {
     expect(initImplicitFlowSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('should show media component is already logged in', async () => {
+  it('should show media component is already logged in', fakeAsync(() => {
     expect.assertions(2);
     const oAuthService = TestBed.inject(OAuthService);
     const hasValidAccessTokenSpy = jest.spyOn(oAuthService, 'hasValidAccessToken')
@@ -122,8 +123,26 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     fixture.detectChanges();
-    await fixture.whenStable();
     expect(hasValidAccessTokenSpy).toHaveBeenCalledTimes(1);
     expect(fixture.debugElement.nativeElement.querySelector('al-media-control')).not.toBeNull();
-  });
+    app.ngOnDestroy();
+  }));
+
+  it('should call the periodic timer to update the store', fakeAsync(() => {
+    expect.assertions(4);
+    const oAuthService = TestBed.inject(OAuthService);
+    const hasValidAccessTokenSpy = jest.spyOn(oAuthService, 'hasValidAccessToken')
+      .mockImplementation(() => true);
+
+    const updateStoreSpy = jest.spyOn(app, 'updateCurrentTrack');
+    fixture.detectChanges();
+
+    expect(hasValidAccessTokenSpy).toHaveBeenCalledTimes(1);
+    expect(updateStoreSpy).toHaveBeenCalledTimes(0);
+    tick(0);
+    expect(updateStoreSpy).toHaveBeenCalledTimes(1);
+    tick(1000);
+    expect(updateStoreSpy).toHaveBeenCalledTimes(2);
+    app.ngOnDestroy();
+  }));
 });
