@@ -6,7 +6,8 @@ import {
   faStepForward
 } from '@fortawesome/free-solid-svg-icons';
 import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
+import {Observable, combineLatest} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 import {SpotifyState, actions, selectors} from './store';
 
@@ -22,11 +23,18 @@ export class MediaControlComponent {
   public faStepBackward = faStepBackward;
   public faStepForward = faStepForward;
   public isPlaying$: Observable<boolean>;
+  public songProgress$: Observable<number>;
 
   public constructor(
     private readonly store: Store<{spotify: SpotifyState}>
   ) {
     this.isPlaying$ = this.store.select(selectors.isPlaying);
+    this.songProgress$ = combineLatest(
+      this.store.select(selectors.getSongProgress),
+      this.store.select(selectors.getSongLength)
+    ).pipe(
+      map(([progress, total]: [number, number]) => (progress / total) * 100)
+    );
   }
 
   public pause(): void {

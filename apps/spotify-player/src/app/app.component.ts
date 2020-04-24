@@ -53,7 +53,6 @@ export class AppComponent implements OnDestroy, OnInit {
     if (hasValidAccessToken) {
       this.updateSpotify = timer(0, 1000)
         .subscribe(() => this.updateCurrentTrack());
-
     }
   }
 

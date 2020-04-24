@@ -170,8 +170,8 @@ export interface CurrentlyPlayingObject {
   context: ContextObject;
   currently_playing_type: PlayingType;
   is_playing: boolean;
-  item: TrackObject | {};
-  progress_ms: string;
+  item: TrackObject;
+  progress_ms: number;
   timestamp: number;
 }
 
