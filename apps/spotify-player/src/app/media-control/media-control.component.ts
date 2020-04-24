@@ -24,14 +24,18 @@ export class MediaControlComponent {
   public faStepForward = faStepForward;
   public isPlaying$: Observable<boolean>;
   public songProgress$: Observable<number>;
+  public songLength$: Observable<number>;
+  public songProgressPercent$: Observable<number>;
 
   public constructor(
     private readonly store: Store<{spotify: SpotifyState}>
   ) {
     this.isPlaying$ = this.store.select(selectors.isPlaying);
-    this.songProgress$ = combineLatest(
-      this.store.select(selectors.getSongProgress),
-      this.store.select(selectors.getSongLength)
+    this.songProgress$ = this.store.select(selectors.getSongProgress);
+    this.songLength$ = this.store.select(selectors.getSongLength);
+    this.songProgressPercent$ = combineLatest(
+      this.songProgress$,
+      this.songLength$
     ).pipe(
       map(([progress, total]: [number, number]) => (progress / total) * 100)
     );

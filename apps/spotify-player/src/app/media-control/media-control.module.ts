@@ -5,6 +5,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {MediaControlComponent} from './media-control.component';
+import {FormatTimePipe} from './pipes/format-time.pipe';
 
 @NgModule({
   imports: [
@@ -14,7 +15,10 @@ import {MediaControlComponent} from './media-control.component';
     MatProgressBarModule
   ],
   exports: [MediaControlComponent],
-  declarations: [MediaControlComponent],
+  declarations: [
+    FormatTimePipe,
+    MediaControlComponent
+  ],
   providers: []
 })
 export class MediaControlModule {}
