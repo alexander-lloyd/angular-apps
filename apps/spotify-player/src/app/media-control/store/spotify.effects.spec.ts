@@ -109,7 +109,7 @@ describe('Spotify Effects', () => {
     expect.assertions(2);
     actions$ = of(actions.currentTrackRequest());
     const mockCurrentPlaybackAPI = jest.spyOn(mockAPIService, 'getCurrentPlayback$')
-      .mockImplementation(() => of(currentlyPlayingObject as CurrentlyPlayingObject));
+      .mockImplementation(() => of(currentlyPlayingObject as unknown as CurrentlyPlayingObject));
 
     await new Promise((resolve) => {
       effects.currentTrack$.subscribe((action: Action) => {

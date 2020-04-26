@@ -12,6 +12,7 @@ import {provideMockStore, MockStore} from '@ngrx/store/testing';
 
 import {MediaControlComponent} from './media-control.component';
 import {selectors, SpotifyState} from './store';
+import {FormatTimePipe} from './pipes/format-time.pipe';
 
 
 describe('MediaControlComponent', () => {
@@ -25,7 +26,10 @@ describe('MediaControlComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MediaControlComponent],
+      declarations: [
+        MediaControlComponent,
+        FormatTimePipe
+      ],
       imports: [
         FontAwesomeModule,
         MatButtonModule,
@@ -118,5 +122,22 @@ describe('MediaControlComponent', () => {
     mockStore.refreshState();
 
     expect(await progressBar.getValue()).toBe(50);
+  });
+
+  it('should set the textual progress and length', async () => {
+    expect.assertions(2);
+
+    const progressElement: HTMLParagraphElement = fixture.nativeElement.querySelector('[data-testid=song-progress]');
+    const lengthElement: HTMLParagraphElement = fixture.nativeElement.querySelector('[data-testid=song-length]');
+
+    mockProgressSelector.setResult(60000);
+    mockLengthSelector.setResult(120000);
+    mockStore.refreshState();
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(progressElement.textContent).toContain('1:00');
+    expect(lengthElement.textContent).toContain('2:00');
   });
 });

@@ -30,7 +30,7 @@ describe('SpotifyPlayerAPIService', () => {
 
   it('should get current playback', () => {
     expect.assertions(2);
-    const mockResponse = currentlyPlayingObject as CurrentlyPlayingObject;
+    const mockResponse = currentlyPlayingObject as unknown as CurrentlyPlayingObject;
 
     service.getCurrentPlayback$().subscribe((response: CurrentlyPlayingObject) => {
       expect(response).toBe(mockResponse);
@@ -43,7 +43,7 @@ describe('SpotifyPlayerAPIService', () => {
 
   it('should get current track', () => {
     expect.assertions(2);
-    const mockResponse = currentlyPlayingObject as CurrentlyPlayingObject;
+    const mockResponse = currentlyPlayingObject as unknown as CurrentlyPlayingObject;
 
     service.getCurrentTrack$().subscribe((response: CurrentlyPlayingObject) => {
       expect(response).toBe(mockResponse);
