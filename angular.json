@@ -202,10 +202,7 @@
             "polyfills": "apps/spotify-player/src/polyfills.ts",
             "tsConfig": "apps/spotify-player/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/spotify-player/src/favicon.ico",
-              "apps/spotify-player/src/assets"
-            ],
+            "assets": ["apps/spotify-player/src/assets"],
             "styles": ["apps/spotify-player/src/styles.scss"],
             "scripts": []
           },
