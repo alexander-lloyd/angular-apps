@@ -1,0 +1,14 @@
+/* TEAM */
+	Developer: Alexander Lloyd
+	Contact: alex [at] alexander-lloyd.dev
+	Twitter: @alex___lloyd
+	From: London, UK
+
+/* THANKS */
+	DE Translator: Raj Ranavaya
+	From: Essex, UK
+
+/* SITE */
+	Language: English / Deutsch
+	Doctype: HTML5
+	IDE: Visual Studio Code, Photoshop
