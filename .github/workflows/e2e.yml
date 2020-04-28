@@ -35,9 +35,10 @@ jobs:
         CI: true
     - name: 🤖 Run Integration Tests
       run: |
-        yarn e2e --browser chrome
+        yarn e2e --browser chrome --record
       env:
         CI: true
+        CYPRESS_RECORD_KEY: ${{ secret.CYPRESS_RECORD_KEY }}
     - name: 🔼 Upload Integration Tests Coverage Reports
       run: |
         yarn codecov --clear

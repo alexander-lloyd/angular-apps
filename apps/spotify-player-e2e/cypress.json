@@ -8,5 +8,6 @@
   "video": false,
   "videosFolder": "../../dist/cypress/apps/spotify-player-e2e/videos",
   "screenshotsFolder": "../../dist/cypress/apps/spotify-player-e2e/screenshots",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "projectId": "efd25i"
 }
