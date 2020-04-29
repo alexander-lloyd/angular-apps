@@ -5,7 +5,9 @@
  */
 
 export const environment = {
-  production: false
+  production: false,
+  // Don't enable Google Analytics in Development Mode.
+  gaCode: null
 };
 
 /*
