@@ -8,12 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self'; font-src data: https://fonts.gstatic.com; connect-src 'self' https://api.spotify.com; manifest-src 'self'; require-trusted-types-for 'script'"
+      content="default-src 'none'; script-src 'strict-dynamic'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' https://www.google-analytics.com; font-src data: https://fonts.gstatic.com; connect-src 'self' https://api.spotify.com; manifest-src 'self'; require-trusted-types-for 'script'; script-src-elem 'self' https://www.googletagmanager.com/ https://www.google-analytics.com/"
     />
     <meta name="apple-mobile-web-app-title" content="Spotify Player" />
     <meta name="application-name" content="Spotify Player" />
     <meta name="msapplication-TileColor" content="#1db954" />
     <meta name="msapplication-config" content="./assets/browserconfig.xml" />
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-109095621-3"
+      integrity="sha256-M2EWWSnGuV7vzcgJK36epv82rG5bXgqoegiJQVgwuWk="
+      crossorigin="anonymous"
+    ></script>
     <meta name="theme-color" content="#ffffff" />
     <link
       rel="apple-touch-icon"
@@ -81,6 +86,8 @@
     <base href="/" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      integrity="sha256-Haw2h6Ev+kwGhnJ4M6rWpPZx45nKKssA6bx3wtv/Ya0="
+      crossorigin="anonymous"
       rel="stylesheet"
     />
   </head>

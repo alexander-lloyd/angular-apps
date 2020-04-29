@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any,prefer-rest-params */
 /* istanbul ignore file */
 import {enableProdMode, ViewEncapsulation} from '@angular/core';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
@@ -5,8 +6,30 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
+window.dataLayer = window.dataLayer || [];
+
+/**
+ * Gtag Function.
+ *
+ * @param args Arguments
+ */
+function gtag(...args: any[]): void {
+  window.dataLayer.push(arguments);
+}
+
 if (environment.production) {
   enableProdMode();
+}
+
+if (environment.gaCode) {
+  gtag('js', new Date());
+  gtag('config', 'UA-109095621-3');
 }
 
 platformBrowserDynamic()
