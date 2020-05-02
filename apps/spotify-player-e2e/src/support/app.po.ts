@@ -10,7 +10,7 @@ export const getApp = (): Cypress.Chainable<JQuery<HTMLElement>> => cy.get('al-r
  *
  * @returns Cypress Chainable HtmlButton.
  */
-export const getLoginButton = (): Cypress.Chainable<JQuery<HTMLButtonElement>> => getApp().get('button');
+export const getLoginButton = (): Cypress.Chainable<JQuery<HTMLAnchorElement>> => getApp().get('a');
 
 /**
  * Get the loading spinner.

@@ -14,14 +14,15 @@
 
 <ng-template #unauthenticated>
   <div style="text-align: center;">
-    <button
+    <a
       mat-flat-button
       color="accent"
       style="margin: 30px auto"
+      target="_blank"
       (click)="logIn()"
     >
       <fa-icon [icon]="faSpotify"></fa-icon>
       {{ 'loginWithSpotify' | translate }}
-    </button>
+    </a>
   </div>
 </ng-template>
