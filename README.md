@@ -1,86 +1,104 @@
-# Al
+<p align="center">
+  <h1 align="center">Angular Applications</h1>
+  [![CodeCov Code Coverage](https://codecov.io/gh/alexander-lloyd/angular-apps/branch/master/graph/badge.svg?token=UAGOdykN63)](https://codecov.io/gh/alexander-lloyd/angular-apps)
+  [![Build Status](https://github.com/alexander-lloyd/digital-circuit-visualiser/workflows/Build/badge.svg)](https://github.com/alexander-lloyd/angular-apps)
+</p>
 
-[![codecov](https://codecov.io/gh/alexander-lloyd/angular-apps/branch/master/graph/badge.svg?token=UAGOdykN63)](https://codecov.io/gh/alexander-lloyd/angular-apps)
+## Table of Contents
 
-This project was generated using [Nx](https://nx.dev).
+- [Table of Contents](#table-of-contents)
+- [Applications](#applications)
+  - [Spotify Player](#spotify-player)
+  - [Todo App](#todo-app)
+- [Build With](#build-with)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Development server](#development-server)
+  - [Build](#build)
+  - [Running unit tests](#running-unit-tests)
+  - [Running end-to-end tests](#running-end-to-end-tests)
+- [Understand the workspace](#understand-the-workspace)
+- [Contact](#contact)
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+## Applications
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+### Spotify Player
 
-## Quick Start & Documentation
+[View the Web App »](https://alexander-lloyd.dev/spotify-player)
 
-[Nx Documentation](https://nx.dev/angular)
+Control Spotify playback within the browser window. Shows the current song and progress. Connects to your Spotify through the [Player API](https://developer.spotify.com/documentation/web-api/reference/player/).
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+More information can be found in the applications [README](https://github.com/alexander-lloyd/angular-apps/tree/master/apps/spotify-player).
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+### Todo App
 
-## Adding capabilities to your workspace
+[View the Web App »](https://alexander-lloyd.dev/spotify-player)
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+Manage Tasks using the Todo App. Stores data in the browsers Local Storage. This application uses the latest browser features including Progressive Web Applications and Service Workers and Notifications.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+More information can be found in the applications [README](https://github.com/alexander-lloyd/angular-apps/tree/master/apps/todo).
 
-Below are some plugins which you can add to your workspace:
+## Build With
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+These projects were build using the following:
 
-## Generate an application
+- [Angular](https://angular.io).
+- [Nx](https://nx.dev).
+- [Sass](https://sass-lang.com).
+- [TypeScript](https://www.typescriptlang.org/).
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
+## Getting Started
 
-> You can use any of the plugins above to generate applications as well.
+First, install the dependencies:
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+- Nodejs: Follow the instructions on the [NodeJS website](https://nodejs.org/)
+- Yarn package manager (`npm install -g yarn`). [Yarn Website](https://yarnpkg.com/)
 
-## Generate a library
+To get started, clone the repository and then install dependencies.
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+```sh
+$ git clone git@github.com:alexander-lloyd/angular-apps.git
+```
 
-> You can also use any of the plugins above to generate libraries as well.
+## Installation
 
-Libraries are sharable across libraries and applications. They can be imported from `@al/mylib`.
+Install dependencies.
 
-## Development server
+```sh
+$ yarn install
+```
 
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+## Usage
 
-## Code scaffolding
+### Development server
 
-Run `ng g component my-component --project=my-app` to generate a new component.
+Run `yarn serve <app-name>` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-## Build
+### Build
 
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `yarn build <app-name>` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+### Running unit tests
 
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+Run `yarn test <app-name>` to execute the unit tests via [Jest](https://jestjs.io).
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+Run `yarn affected:test` to execute the unit tests affected by a change.
 
-## Running end-to-end tests
+### Running end-to-end tests
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+Run `yarn e2e <app-name>` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+Run `yarn affected:e2e` to execute the end-to-end tests affected by a change.
 
-## Understand your workspace
+## Understand the workspace
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+Run `yarn dep-graph` to see a diagram of the dependencies of your projects.
 
-## Further help
+## Contact
 
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
+- Project Link: [https://github.com/alexander-lloyd/angular-apps](https://github.com/alexander-lloyd/angular-apps)
+- LinkedIn: [![LinkedIn][linkedin-shield]][linkedin-url]
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/alexander-lloyd
