@@ -6,10 +6,13 @@
       <strong>View the WebApp »</strong>
     </a>
   </p>
+</p>
 
-[![CodeCov Code Coverage](https://codecov.io/gh/alexander-lloyd/angular-apps/branch/master/graph/badge.svg?token=UAGOdykN63)](https://codecov.io/gh/alexander-lloyd/angular-apps)
+[![Codecov Code Coverage](https://codecov.io/gh/alexander-lloyd/angular-apps/branch/master/graph/badge.svg?token=UAGOdykN63)](https://codecov.io/gh/alexander-lloyd/angular-apps)
 [![Build Status](https://github.com/alexander-lloyd/digital-circuit-visualiser/workflows/Build/badge.svg)](https://github.com/alexander-lloyd/angular-apps)
 
+<p align="center">
+  <img src="src/assets/screenshot.png" alt="Screenshot of Spotify player">
 </p>
 
 ## Table of Contents
