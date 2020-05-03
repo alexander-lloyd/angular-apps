@@ -21,7 +21,11 @@
   "name": "Spotify Player",
   "orientation": "natural",
   "scope": "/spotify-player/",
-  "screenshots": [],
+  "screenshots": [{
+    "src": "https://alexander-lloyd.dev/spotify-player/assets/screenshot.png",
+    "sizes": "965x205",
+    "type": "image/png"
+  }],
   "short_name": "Spotify Player",
   "start_url": "/spotify-player/",
   "theme_color": "#303030"
