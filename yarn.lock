@@ -200,13 +200,12 @@
     ora "4.0.3"
     rxjs "6.5.4"
 
-"@angular-eslint/eslint-plugin-template@0.0.1-alpha.29":
-  version "0.0.1-alpha.29"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-0.0.1-alpha.29.tgz#7e144d076802dc7e2557125d27cdfc498a42a28d"
-  integrity sha512-IQHBMBx+BeDAOaeaw9yQbOWmH/QhOq3ez5/6y1vHedqYI5TVDsomLZVzMkocShIUhrAXe2J2hi5c0Pn/e3qisQ==
+"@angular-eslint/eslint-plugin-template@0.0.1-alpha.32":
+  version "0.0.1-alpha.32"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin-template/-/eslint-plugin-template-0.0.1-alpha.32.tgz#53d0ef6a37bec94b38b9b1924ee96d1f28eb356f"
+  integrity sha512-IQtH+QW4a94cD+3dXJzPhK/gejAjqQGL/y9SaBVa7CMseG1bt4SCEMynPm7k+dE8Sm3ql6NM9Cs23szr4uBYFQ==
   dependencies:
-    "@typescript-eslint/experimental-utils" "2.19.2"
-    eslint-scope "^4.0.0"
+    "@typescript-eslint/experimental-utils" "2.31.0"
 
 "@angular-eslint/eslint-plugin@0.0.1-alpha.29":
   version "0.0.1-alpha.29"
@@ -5306,7 +5305,7 @@ eslint-plugin-jsdoc@^24.0.6:
     semver "^6.3.0"
     spdx-expression-parse "^3.0.0"
 
-eslint-scope@^4.0.0, eslint-scope@^4.0.3:
+eslint-scope@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-4.0.3.tgz#ca03833310f6889a3264781aa82e63eb9cfe7848"
   integrity sha512-p7VutNr1O/QrxysMo3E45FjYDTeXBy0iTltPFNSqKAIfjDSXC+4dj+qfyuD8bfAXrW/y6lW3O76VaYNPKfpKrg==
