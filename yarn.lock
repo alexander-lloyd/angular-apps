@@ -154,15 +154,6 @@
     "@angular-devkit/core" "8.0.0"
     rxjs "6.4.0"
 
-"@angular-devkit/schematics@9.0.7", "@angular-devkit/schematics@~9.0.1":
-  version "9.0.7"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.0.7.tgz#df5936b0cf24a102d110da7ab3ab63feab7e28ff"
-  integrity sha512-ryPC+l24f3gX5DFMTLkDM/q2Kp6LPzBn6400k7j4qVdb1cIrZx+JUQd7F4iAksTTkX15EQPanptQXeztUrl9Ng==
-  dependencies:
-    "@angular-devkit/core" "9.0.7"
-    ora "4.0.2"
-    rxjs "6.5.3"
-
 "@angular-devkit/schematics@9.1.5", "@angular-devkit/schematics@~9.1.0":
   version "9.1.5"
   resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.1.5.tgz#c176fe030925b660e85c751e6cc64e7d12e7f2f8"
@@ -171,6 +162,15 @@
     "@angular-devkit/core" "9.1.5"
     ora "4.0.3"
     rxjs "6.5.4"
+
+"@angular-devkit/schematics@~9.0.1":
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-9.0.7.tgz#df5936b0cf24a102d110da7ab3ab63feab7e28ff"
+  integrity sha512-ryPC+l24f3gX5DFMTLkDM/q2Kp6LPzBn6400k7j4qVdb1cIrZx+JUQd7F4iAksTTkX15EQPanptQXeztUrl9Ng==
+  dependencies:
+    "@angular-devkit/core" "9.0.7"
+    ora "4.0.2"
+    rxjs "6.5.3"
 
 "@angular-eslint/eslint-plugin-template@0.0.1-alpha.32":
   version "0.0.1-alpha.32"
@@ -1739,15 +1739,15 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@nrwl/angular@9.0.4":
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/angular/-/angular-9.0.4.tgz#8a85057ea448258778a30aab31612342d3dbb21a"
-  integrity sha512-2kDYY2yhL04VRcH2TV/sB1xurnB2Jpp8UgbHCj/6Jd+3dd1v1r/J1PZv7K90/MHEFcOeGlSAk/vaHYkfF0K3VQ==
+"@nrwl/angular@9.2.4":
+  version "9.2.4"
+  resolved "https://registry.yarnpkg.com/@nrwl/angular/-/angular-9.2.4.tgz#26c13994f97313d0809b46efc7943b67d6fa20e4"
+  integrity sha512-ySaT9hDCEMxdYPQLzOwxYaV94iUsVqUvtEsRXig7PPwCiAojX3bjL04bC0l2RUptQsLfXScow1QA6IM4jyB7cA==
   dependencies:
-    "@angular-devkit/schematics" "~9.0.1"
-    "@nrwl/cypress" "9.0.4"
-    "@nrwl/jest" "9.0.4"
-    "@schematics/angular" "~9.0.1"
+    "@angular-devkit/schematics" "~9.1.0"
+    "@nrwl/cypress" "9.2.4"
+    "@nrwl/jest" "9.2.4"
+    "@schematics/angular" "~9.1.0"
     jasmine-marbles "~0.6.0"
 
 "@nrwl/cli@9.2.4":
@@ -1760,20 +1760,6 @@
     tmp "0.0.33"
     yargs "^11.0.0"
     yargs-parser "10.0.0"
-
-"@nrwl/cypress@9.0.4":
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-9.0.4.tgz#30d48dc0428576dd25197edcccc2e96978f0259b"
-  integrity sha512-A6I9kp+vgxWYgm4smFOtA0iX7z3z5chFiPSN/xduWKzOg4B3Sg+QGKyvI0gad8PPBSgx8NTi+qTvvHDWE7lzWQ==
-  dependencies:
-    "@angular-devkit/architect" "~0.900.1"
-    "@angular-devkit/core" "~9.0.1"
-    "@cypress/webpack-preprocessor" "~4.1.2"
-    fork-ts-checker-webpack-plugin "^3.1.1"
-    tree-kill "1.2.2"
-    ts-loader "^5.3.1"
-    tsconfig-paths-webpack-plugin "3.2.0"
-    webpack-node-externals "1.7.2"
 
 "@nrwl/cypress@9.2.4":
   version "9.2.4"
@@ -1804,6 +1790,15 @@
     "@angular-devkit/architect" "~0.900.1"
     "@angular-devkit/core" "~9.0.1"
     "@angular-devkit/schematics" "~9.0.1"
+
+"@nrwl/jest@9.2.4":
+  version "9.2.4"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-9.2.4.tgz#fed43ef87ce768c9a13d0feb52f992c1dfa8b849"
+  integrity sha512-OXl7NUDV8ivt6tflFbK3uM4qEwLhQFna3+Y3NvcYkCJABWy7VJnobkS2dV/4FIRl+nqp3vv7h0hTDO6PbMWe9w==
+  dependencies:
+    "@angular-devkit/architect" "~0.901.0"
+    "@angular-devkit/core" "~9.1.0"
+    "@angular-devkit/schematics" "~9.1.0"
 
 "@nrwl/linter@^9.2.4":
   version "9.2.4"
@@ -1901,21 +1896,13 @@
     "@angular-devkit/core" "8.0.0"
     "@angular-devkit/schematics" "8.0.0"
 
-"@schematics/angular@9.1.5":
+"@schematics/angular@9.1.5", "@schematics/angular@~9.1.0":
   version "9.1.5"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-9.1.5.tgz#9d07997638194439b47d4bf3ba2b3fe4f7f1a630"
   integrity sha512-kMscfnwd9TGLo8V+dE/Pzu4wNxZej/6F6z5XzMOQVFTbL+RqMDvtkHf9CarhiKBd5ogm4npfKV8ToNTUecFJkA==
   dependencies:
     "@angular-devkit/core" "9.1.5"
     "@angular-devkit/schematics" "9.1.5"
-
-"@schematics/angular@~9.0.1":
-  version "9.0.7"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-9.0.7.tgz#e09ab998c2b3aa7269d91378b08a0fbca5037ea6"
-  integrity sha512-3UCeexYx/YVo3kboyPZ8KgqBTduMA18AAm3s2yrC0qj41fBFVVZAZLa74uouTf4RYVgy9kR7J3uv6VLxrJPOnQ==
-  dependencies:
-    "@angular-devkit/core" "9.0.7"
-    "@angular-devkit/schematics" "9.0.7"
 
 "@schematics/update@0.901.5":
   version "0.901.5"

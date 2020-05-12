@@ -46,7 +46,7 @@
     "@ngrx/effects": "^9.1.0",
     "@ngrx/store": "^9.1.0",
     "@ngrx/store-devtools": "^9.1.0",
-    "@nrwl/angular": "9.0.4",
+    "@nrwl/angular": "9.2.4",
     "angular-oauth2-oidc": "^9.2.2",
     "core-js": "^3.6.5",
     "rxjs": "~6.5.5",
