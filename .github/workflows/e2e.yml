@@ -35,13 +35,13 @@ jobs:
         CI: true
     - name: 🤖 Run Spotify Player Integration Tests
       run: |
-        yarn e2e spotify-player-e2e --browser chrome --record
+        yarn e2e spotify-player-e2e --browser chrome
       env:
         CI: true
         CYPRESS_RECORD_KEY: ${{ secrets.SPOTIFY_PLAYER_CYPRESS_RECORD_KEY }}
     - name: 🤖 Run Todo App Integration Tests
       run: |
-        yarn e2e todo-e2e --browser chrome --record
+        yarn e2e todo-e2e --browser chrome
       env:
         CI: true
         CYPRESS_RECORD_KEY: ${{ secrets.TODO_CYPRESS_RECORD_KEY }}
