@@ -34,7 +34,7 @@ More information can be found in the applications [README](https://github.com/al
 
 ### Todo App
 
-[View the Web App »](https://alexander-lloyd.dev/spotify-player)
+[View the Web App »](https://alexander-lloyd.dev/todo)
 
 Manage Tasks using the Todo App. Stores data in the browsers Local Storage. This application uses the latest browser features including Progressive Web Applications and Service Workers and Notifications.
 
