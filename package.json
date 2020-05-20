@@ -71,7 +71,7 @@
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
     "@nrwl/cypress": "9.2.4",
-    "@nrwl/eslint-plugin-nx": "9.2.4",
+    "@nrwl/eslint-plugin-nx": "9.3.0",
     "@nrwl/jest": "9.2.4",
     "@nrwl/linter": "^9.2.4",
     "@nrwl/workspace": "9.3.0",
