@@ -1711,14 +1711,14 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@nrwl/angular@9.2.4":
-  version "9.2.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/angular/-/angular-9.2.4.tgz#26c13994f97313d0809b46efc7943b67d6fa20e4"
-  integrity sha512-ySaT9hDCEMxdYPQLzOwxYaV94iUsVqUvtEsRXig7PPwCiAojX3bjL04bC0l2RUptQsLfXScow1QA6IM4jyB7cA==
+"@nrwl/angular@9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@nrwl/angular/-/angular-9.3.0.tgz#6da4e03d7f3f001f2f37c0e91a61ba2c78d2c4c9"
+  integrity sha512-9dOveCWwOvKSj+GT8nhEnsF9Tqk6YEu1C7X7H7fMMUtNCO8/67MSsMvgbfF5gRXAMxWwtmx1wj8sTo/K6icEZQ==
   dependencies:
     "@angular-devkit/schematics" "~9.1.0"
-    "@nrwl/cypress" "9.2.4"
-    "@nrwl/jest" "9.2.4"
+    "@nrwl/cypress" "9.3.0"
+    "@nrwl/jest" "9.3.0"
     "@schematics/angular" "~9.1.0"
     jasmine-marbles "~0.6.0"
 
@@ -1747,6 +1747,20 @@
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
 
+"@nrwl/cypress@9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-9.3.0.tgz#4cc82358e18b0f93d8551f20d8e0e2d1665f6270"
+  integrity sha512-yoYpDZVM+YhIiwS18sjgcbmAKczQRo9JBFpjRSRu6YEqKjzCEt28Zjo/k14xy2qytXkmhEvn8hbM7vE9OC0cXA==
+  dependencies:
+    "@angular-devkit/architect" "~0.901.0"
+    "@angular-devkit/core" "~9.1.0"
+    "@cypress/webpack-preprocessor" "~4.1.2"
+    fork-ts-checker-webpack-plugin "^3.1.1"
+    tree-kill "1.2.2"
+    ts-loader "^5.3.1"
+    tsconfig-paths-webpack-plugin "3.2.0"
+    webpack-node-externals "1.7.2"
+
 "@nrwl/eslint-plugin-nx@9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-9.3.0.tgz#2996b3edf1a5d8bd2e6cf349938f3a3296fbf322"
@@ -1758,6 +1772,15 @@
   version "9.2.4"
   resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-9.2.4.tgz#fed43ef87ce768c9a13d0feb52f992c1dfa8b849"
   integrity sha512-OXl7NUDV8ivt6tflFbK3uM4qEwLhQFna3+Y3NvcYkCJABWy7VJnobkS2dV/4FIRl+nqp3vv7h0hTDO6PbMWe9w==
+  dependencies:
+    "@angular-devkit/architect" "~0.901.0"
+    "@angular-devkit/core" "~9.1.0"
+    "@angular-devkit/schematics" "~9.1.0"
+
+"@nrwl/jest@9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-9.3.0.tgz#5f69731c187d7d9f078c5c4b019b57e81344157a"
+  integrity sha512-/ihVH9YTOnC+gwMvy4nlUg/W1rtM+W2RZuH9AeiBeruUQn2Ipbx6e4P8Ecxnc91P95sZus79qJQklsaeXjPqmA==
   dependencies:
     "@angular-devkit/architect" "~0.901.0"
     "@angular-devkit/core" "~9.1.0"
