@@ -1763,6 +1763,15 @@
     "@angular-devkit/core" "~9.1.0"
     "@angular-devkit/schematics" "~9.1.0"
 
+"@nrwl/jest@9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-9.3.0.tgz#5f69731c187d7d9f078c5c4b019b57e81344157a"
+  integrity sha512-/ihVH9YTOnC+gwMvy4nlUg/W1rtM+W2RZuH9AeiBeruUQn2Ipbx6e4P8Ecxnc91P95sZus79qJQklsaeXjPqmA==
+  dependencies:
+    "@angular-devkit/architect" "~0.901.0"
+    "@angular-devkit/core" "~9.1.0"
+    "@angular-devkit/schematics" "~9.1.0"
+
 "@nrwl/linter@^9.2.4":
   version "9.2.4"
   resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-9.2.4.tgz#e90dc89e0aaec7e39d47bf6c3860f84588be7ba4"
