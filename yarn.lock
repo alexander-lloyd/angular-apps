@@ -1786,10 +1786,10 @@
     "@angular-devkit/core" "~9.1.0"
     "@angular-devkit/schematics" "~9.1.0"
 
-"@nrwl/linter@^9.2.4":
-  version "9.2.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-9.2.4.tgz#e90dc89e0aaec7e39d47bf6c3860f84588be7ba4"
-  integrity sha512-21OeVEZfj0EoWvAz1hK9PZMYukHXNYE+fICPXzGLX393AmZoRPwPyEte95Q2QQdNEUxqEdTD1QG7ICUXZVNUMA==
+"@nrwl/linter@^9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-9.3.0.tgz#9167b709cbb17d0012ab29a54a4a10c1a7228c47"
+  integrity sha512-3FxY2RKt2TUuOSPq9zhGfk48JPA51hoBoEcJ2Na/b87bKGMBspYoHV7k0TgF5/B3g2lQdk0/xARRBWAOJkAJjg==
   dependencies:
     "@angular-devkit/architect" "~0.901.0"
 
