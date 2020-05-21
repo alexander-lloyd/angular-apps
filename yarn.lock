@@ -239,10 +239,10 @@
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-9.1.7.tgz#d8d62872b8a7df61e2d0e4f546680f0a5450f6c9"
   integrity sha512-p4WOZFCn6H5qgII9MbPjSu/AErt0rXpsXlMHC9KJl+JgfPI3YwQuX1dLdt3xTJlxuv8/fY9UbgmPJUqR/txRCg==
 
-"@angular/localize@^9.1.7":
-  version "9.1.7"
-  resolved "https://registry.yarnpkg.com/@angular/localize/-/localize-9.1.7.tgz#1923d2e260d0b87fbe79f0d0506694be87df7bd1"
-  integrity sha512-PY/rBaJvix6DOq3k9IlNcG8wquHn4bFqLLJ8PURKDYz8k9gt335lMQZKUpX7Bv/TlZ8aSKcAuswOw8jlPNFRHA==
+"@angular/localize@^9.1.9":
+  version "9.1.9"
+  resolved "https://registry.yarnpkg.com/@angular/localize/-/localize-9.1.9.tgz#0867a82abcdeb6b88cbd4d61e1410f3c63a66ddb"
+  integrity sha512-U/4axUr99GO3+dRuMIEyJ1FqXauT82x/w7GulWu05qk8ML8MaIQ58RcB/LTJJY1s1qfwdcsyzX2wZrZcwBLKlA==
   dependencies:
     "@babel/core" "7.8.3"
     glob "7.1.2"
@@ -1733,20 +1733,6 @@
     yargs "^11.0.0"
     yargs-parser "10.0.0"
 
-"@nrwl/cypress@9.2.4":
-  version "9.2.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-9.2.4.tgz#7e382e29887238ef3f528afac54bbfbd91dc803a"
-  integrity sha512-Ie0yYPzxHWmP6/cDu5tcojMzdX4DspBb7/vzj02na3fZ1sdyrCXyPzoDHK5tJvX1s5vefa4OU6Hhym8eAnksUw==
-  dependencies:
-    "@angular-devkit/architect" "~0.901.0"
-    "@angular-devkit/core" "~9.1.0"
-    "@cypress/webpack-preprocessor" "~4.1.2"
-    fork-ts-checker-webpack-plugin "^3.1.1"
-    tree-kill "1.2.2"
-    ts-loader "^5.3.1"
-    tsconfig-paths-webpack-plugin "3.2.0"
-    webpack-node-externals "1.7.2"
-
 "@nrwl/cypress@9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-9.3.0.tgz#4cc82358e18b0f93d8551f20d8e0e2d1665f6270"
@@ -1767,15 +1753,6 @@
   integrity sha512-fsTxh0P4WmOBYykGSjyQRdRi74V0lxVPk3GafbnQVQ+yi+G8+JdskVblvXnM9YUa3nC0bLF2MMR7SPY8SPbYww==
   dependencies:
     "@typescript-eslint/experimental-utils" "^2.19.2"
-
-"@nrwl/jest@9.2.4":
-  version "9.2.4"
-  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-9.2.4.tgz#fed43ef87ce768c9a13d0feb52f992c1dfa8b849"
-  integrity sha512-OXl7NUDV8ivt6tflFbK3uM4qEwLhQFna3+Y3NvcYkCJABWy7VJnobkS2dV/4FIRl+nqp3vv7h0hTDO6PbMWe9w==
-  dependencies:
-    "@angular-devkit/architect" "~0.901.0"
-    "@angular-devkit/core" "~9.1.0"
-    "@angular-devkit/schematics" "~9.1.0"
 
 "@nrwl/jest@9.3.0":
   version "9.3.0"
