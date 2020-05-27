@@ -41,12 +41,12 @@ jobs:
         CI: true
     - name: 🔧 Build Affected Apps
       run: |
-        yarn affected:build --base=master
+        yarn affected:build --base=origin/master
       env:
         CI: true
     - name: 🤖 Run Affected Tests
       run: |
-        yarn affected:test --base=master --code-coverage
+        yarn affected:test --base=origin/master --code-coverage
       env:
         CI: true
     - name: 🔼 Upload Unit Tests Coverage Reports
@@ -58,7 +58,7 @@ jobs:
         CODECOV_FLAGS: unittests
     - name: 💅 Run Linting
       run: |
-        yarn affected:lint --base=master
+        yarn affected:lint --base=origin/master
         yarn format:check
       env:
         CI: true
