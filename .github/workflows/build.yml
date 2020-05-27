@@ -55,7 +55,7 @@ jobs:
         CI: true
     - name: 🔧 Build Affected Apps
       run: |
-        yarn build affected:build --base=$NX_BASE
+        yarn affected:build --base=$NX_BASE
       env:
         CI: true
     - name: 🤖 Run Affected Tests
