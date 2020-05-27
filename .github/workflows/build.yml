@@ -39,7 +39,10 @@ jobs:
       run: |
         if [[ $GITHUB_BASE_REF ]]
         then
-          export NX_BASE=remotes/origin/$GITHUB_BASE_REF
+          export NX_BASE=$GITHUB_BASE_REF
+        elif [[ $GITHUB_REF ]]
+        then
+          export NX_BASE=remotes/origin/$GITHUB_REF
         else
           export NX_BASE=$(git rev-parse HEAD~1)
         fi
