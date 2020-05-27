@@ -35,7 +35,7 @@ jobs:
         CI: true
     - name: 🤖 Run Affected Apps Integration Tests
       run: |
-        yarn affected:e2e --browser chrome
+        yarn affected:e2e --base=origin/master --browser chrome
       env:
         CI: true
     - name: 🔼 Upload Integration Tests Coverage Reports
