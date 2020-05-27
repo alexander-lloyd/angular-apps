@@ -33,18 +33,11 @@ jobs:
         yarn install --frozen-lockfile
       env:
         CI: true
-    - name: 🤖 Run Spotify Player Integration Tests
+    - name: 🤖 Run Affected Apps Integration Tests
       run: |
-        yarn e2e spotify-player-e2e --browser chrome
+        yarn affected:e2e --browser chrome
       env:
         CI: true
-        CYPRESS_RECORD_KEY: ${{ secrets.SPOTIFY_PLAYER_CYPRESS_RECORD_KEY }}
-    - name: 🤖 Run Todo App Integration Tests
-      run: |
-        yarn e2e todo-e2e --browser chrome
-      env:
-        CI: true
-        CYPRESS_RECORD_KEY: ${{ secrets.TODO_CYPRESS_RECORD_KEY }}
     - name: 🔼 Upload Integration Tests Coverage Reports
       run: |
         yarn codecov --clear
