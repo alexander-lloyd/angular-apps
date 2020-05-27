@@ -34,23 +34,6 @@ jobs:
     - name: Debug was Cache Hit?
       run: |
         echo "Cache Hit? ${{ ((steps.yarn-cache.outputs.cache-hit == 'true') && '✅') || '❌'}}"
-    - name: NX Setup
-      shell: bash
-      run: |
-        echo "GITHUB_BASE_REF => $GITHUB_BASE_REF"
-        echo "GITHUB_REF => $GITHUB_REF"
-        echo "Rev Parse => $(git rev-parse HEAD~1)"
-        if [[ $GITHUB_BASE_REF ]]
-        then
-          export NX_BASE=$GITHUB_BASE_REF
-        elif [[ $GITHUB_REF ]]
-        then
-          export NX_BASE=remotes/origin/$GITHUB_REF
-        else
-          export NX_BASE=$(git rev-parse HEAD~1)
-        fi
-        echo "Base => $NX_BASE"
-        echo ::set-env name=NX_BASE::$NX_BASE
     - name: ⚙️ Install Dependencies
       run: |
         yarn install --frozen-lockfile
@@ -58,12 +41,12 @@ jobs:
         CI: true
     - name: 🔧 Build Affected Apps
       run: |
-        yarn affected:build --base=$NX_BASE
+        yarn affected:build --base=master
       env:
         CI: true
     - name: 🤖 Run Affected Tests
       run: |
-        yarn affected:test --base=$NX_BASE --code-coverage
+        yarn affected:test --base=master --code-coverage
       env:
         CI: true
     - name: 🔼 Upload Unit Tests Coverage Reports
@@ -75,7 +58,7 @@ jobs:
         CODECOV_FLAGS: unittests
     - name: 💅 Run Linting
       run: |
-        yarn affected:lint --base=$NX_BASE
+        yarn affected:lint --base=master
         yarn format:check
       env:
         CI: true
