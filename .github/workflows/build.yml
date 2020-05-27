@@ -37,6 +37,9 @@ jobs:
     - name: NX Setup
       shell: bash
       run: |
+        echo "GITHUB_BASE_REF => $GITHUB_BASE_REF"
+        echo "GITHUB_REF => $GITHUB_REF"
+        echo "Rev Parse => $(git rev-parse HEAD~1)"
         if [[ $GITHUB_BASE_REF ]]
         then
           export NX_BASE=$GITHUB_BASE_REF
