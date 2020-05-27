@@ -35,13 +35,8 @@ jobs:
     - name: ⚙️ Install Dependencies
       run: |
         yarn install --frozen-lockfile
-    - name: Build 🏗️ & Deploy Todo App 🚀
+    - name: Build 🏗️ & Deploy Affected Apps 🚀
       run: |
-        yarn deploy todo --message "Deploying $GITHUB_SHA from $GITHUB_REF"
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-    - name: Build 🏗️ & Deploy Spotify Player 🚀
-      run: |
-        yarn deploy spotify-player --message "Deploying $GITHUB_SHA from $GITHUB_REF"
+        yarn affected:deploy --message "Deploying $GITHUB_SHA from $GITHUB_REF"
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}

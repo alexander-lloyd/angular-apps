@@ -37,19 +37,14 @@ jobs:
         yarn install --frozen-lockfile
       env:
         CI: true
-    - name: 🔧 Build Todo App
+    - name: 🔧 Build Affected Apps
       run: |
-        yarn build todo
+        yarn build affected:build
       env:
         CI: true
-    - name: 🔧 Build Spotify Player App
+    - name: 🤖 Run Affected Tests
       run: |
-        yarn build spotify-player
-      env:
-        CI: true
-    - name: 🤖 Run Unit Tests
-      run: |
-        yarn test --code-coverage
+        yarn affected:test --code-coverage
       env:
         CI: true
     - name: 🔼 Upload Unit Tests Coverage Reports
@@ -61,7 +56,7 @@ jobs:
         CODECOV_FLAGS: unittests
     - name: 💅 Run Linting
       run: |
-        yarn lint
+        yarn affected:lint
         yarn format:check
       env:
         CI: true
