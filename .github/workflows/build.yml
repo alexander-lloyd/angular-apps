@@ -14,6 +14,8 @@ jobs:
     steps:
     - name: 🎉 Git Checkout
       uses: actions/checkout@v1
+      with:
+        fetch-depth: 0
     - name: ⚡ Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -32,6 +34,17 @@ jobs:
     - name: Debug was Cache Hit?
       run: |
         echo "Cache Hit? ${{ ((steps.yarn-cache.outputs.cache-hit == 'true') && '✅') || '❌'}}"
+    - name: NX Setup
+      shell: bash
+      run: |
+        if [[ $GITHUB_BASE_REF ]]
+        then
+          export NX_BASE=remotes/origin/$GITHUB_BASE_REF
+        else
+          export NX_BASE=$(git rev-parse HEAD~1)
+        fi
+        echo "Base => $NX_BASE"
+        echo ::set-env name=NX_BASE::$NX_BASE
     - name: ⚙️ Install Dependencies
       run: |
         yarn install --frozen-lockfile
@@ -39,12 +52,12 @@ jobs:
         CI: true
     - name: 🔧 Build Affected Apps
       run: |
-        yarn build affected:build
+        yarn build affected:build --base=$NX_BASE
       env:
         CI: true
     - name: 🤖 Run Affected Tests
       run: |
-        yarn affected:test --code-coverage
+        yarn affected:test --base=$NX_BASE --code-coverage
       env:
         CI: true
     - name: 🔼 Upload Unit Tests Coverage Reports
@@ -56,7 +69,7 @@ jobs:
         CODECOV_FLAGS: unittests
     - name: 💅 Run Linting
       run: |
-        yarn affected:lint
+        yarn affected:lint --base=$NX_BASE
         yarn format:check
       env:
         CI: true
