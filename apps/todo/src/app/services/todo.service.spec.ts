@@ -16,7 +16,7 @@ describe('TodoService', () => {
     id: 123,
     name: 'Task',
     completed: false,
-    due: new Date()
+    due: new Date().toISOString()
   };
 
   let localStorageService: LocalStorageService;
