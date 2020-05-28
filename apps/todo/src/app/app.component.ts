@@ -2,6 +2,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {Component, Inject, ChangeDetectorRef, OnDestroy, OnInit} from '@angular/core';
 import {faBars, faCog} from '@fortawesome/free-solid-svg-icons';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 import {LOG_SERVICE_TOKEN, LoggerService, Logger} from '@al/logger';
 
@@ -44,7 +45,9 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   public ngOnInit(): void {
-    this.todos$ = this.todoService.getTodos();
+    this.todos$ = this.todoService.getTodos().pipe(
+      map((todos: TodoTask[]) => todos.sort((taskA, taskB) => Date.parse(taskA.due) - Date.parse(taskB.due)))
+    );
   }
 
   public ngOnDestroy(): void {
