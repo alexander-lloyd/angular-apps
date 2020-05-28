@@ -112,4 +112,18 @@ describe('AppComponent', () => {
       resolve();
     }));
   });
+
+  it('should call change detection when screen size changes', () => {
+    expect.assertions(1);
+    jest.spyOn(todoService, 'getTodos')
+      .mockImplementation(() => of([]));
+
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const component = fixture.componentInstance;
+    const {changeDetectorRef, _mobileQueryListener} = component as any;
+    const changeDetectorSpy = jest.spyOn(changeDetectorRef, 'detectChanges');
+    _mobileQueryListener();
+    expect(changeDetectorSpy).toHaveBeenCalledTimes(1);
+  });
 });
