@@ -1,0 +1,8 @@
+<mat-list>
+  <mat-list-item *ngFor="let todo of todos">
+    <mat-checkbox mat-list-icon></mat-checkbox>
+    <div mat-line>{{ todo.name }}</div>
+    <fa-icon [icon]="faCalendar"></fa-icon>
+    <p>{{ todo.due | amCalendar }}</p>
+  </mat-list-item>
+</mat-list>

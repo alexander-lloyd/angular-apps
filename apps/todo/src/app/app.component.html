@@ -24,6 +24,6 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    Hello World
+    <al-todo-list [todos]="todos$ | async"></al-todo-list>
   </mat-sidenav-content>
 </mat-sidenav-container>
