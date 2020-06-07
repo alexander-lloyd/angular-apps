@@ -12,6 +12,10 @@ jobs:
         node-version: [12.x]
 
     steps:
+    - name: ❓ Dump GitHub Context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
     - name: 🎉 Git Checkout
       uses: actions/checkout@v1
       with:
@@ -31,7 +35,7 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-yarn-
-    - name: Debug was Cache Hit?
+    - name: ❓ Debug was Cache Hit?
       run: |
         echo "Cache Hit? ${{ ((steps.yarn-cache.outputs.cache-hit == 'true') && '✅') || '❌'}}"
     - name: ⚙️ Install Dependencies
