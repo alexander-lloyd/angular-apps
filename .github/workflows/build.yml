@@ -1,68 +1,75 @@
-name: Build
+name: Build Affected
 
-on: [push, pull_request]
+on:
+  - push
+  - pull_request
+
+env:
+  CI: true
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
-    - name: ❓ Dump GitHub Context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
-    - name: 🎉 Git Checkout
-      uses: actions/checkout@v1
-      with:
-        fetch-depth: 0
-    - name: ⚡ Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: 👷 Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-    - name: 📇 Retrieve Cache
-      uses: actions/cache@v1
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-    - name: ❓ Debug was Cache Hit?
-      run: |
-        echo "Cache Hit? ${{ ((steps.yarn-cache.outputs.cache-hit == 'true') && '✅') || '❌'}}"
-    - name: ⚙️ Install Dependencies
-      run: |
-        yarn install --frozen-lockfile
-      env:
-        CI: true
-    - name: 🔧 Build Affected Apps
-      run: |
-        yarn affected:build --base=origin/master
-      env:
-        CI: true
-    - name: 🤖 Run Affected Tests
-      run: |
-        yarn affected:test --base=origin/master --code-coverage
-      env:
-        CI: true
-    - name: 🔼 Upload Unit Tests Coverage Reports
-      run: |
-        yarn codecov --clear
-      env:
-        CI: true
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        CODECOV_FLAGS: unittests
-    - name: 💅 Run Linting
-      run: |
-        yarn affected:lint --base=origin/master
-        yarn format:check
-      env:
-        CI: true
+      - name: ❓ Dump GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+      - name: 🎉 Git Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: ⚾ Fetch Origin
+        run: |
+          git fetch --no-tags --prune --depth=5 origin master
+
+      - name: ⚡ Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: 👷 Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: |
+          echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: 📇 Retrieve Cache
+        uses: actions/cache@v1
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: ❓ Debug was Cache Hit?
+        run: |
+          echo "Cache Hit? ${{ ((steps.yarn-cache.outputs.cache-hit == 'true') && '✅') || '❌'}}"
+
+      - name: ⚙️ Install Dependencies
+        run: |
+          yarn install --frozen-lockfile
+
+      - name: 🔧 Build Affected Apps
+        run: |
+          yarn affected:build --base=origin/master
+
+      - name: 🤖 Run Affected Tests
+        run: |
+          yarn affected:test --base=origin/master --code-coverage
+
+      - name: 🔼 Upload Unit Tests Coverage Reports
+        run: |
+          yarn codecov --clear
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          CODECOV_FLAGS: unittests
+
+      - name: 💅 Run Linting
+        run: |
+          yarn affected:lint --base=origin/master
+          yarn format:check
