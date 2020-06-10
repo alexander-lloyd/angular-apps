@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {getApp, getLoginButton, getLoadingSpinner} from '../support/app.po';
 
 declare global {
