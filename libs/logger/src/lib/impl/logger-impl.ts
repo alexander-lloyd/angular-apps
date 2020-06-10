@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any,@typescript-eslint/explicit-module-boundary-types */
 import {Logger, LoggerService} from '../api';
 import {LogLevelImpl} from './log-level-impl';
 
@@ -6,6 +6,12 @@ import {LogLevelImpl} from './log-level-impl';
  * Logger Implementation.
  */
 export class LoggerImpl implements Logger {
+  /**
+   * Constructor.
+   *
+   * @param loggerName Logger Name.
+   * @param parentService Parent Logger Service.
+   */
   public constructor(
     private loggerName: string,
     private parentService: LoggerService

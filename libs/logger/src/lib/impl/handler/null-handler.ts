@@ -7,6 +7,11 @@ import {LogHandler, LogMessage} from '../../api';
  * Does nothing.
  */
 export class NullLogHandler implements LogHandler {
+  /**
+   * Called when log message is received.
+   *
+   * @param message Log message.
+   */
   public onMessage(message: LogMessage): void {
   }
 }

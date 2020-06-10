@@ -30,6 +30,10 @@ export class ConsoleHandler implements LogHandler {
    * Log a debug message to the console.
    *
    * @param message Log Message.
+   * @param message.level message log level.
+   * @param message.loggerName message logger name.
+   * @param message.messages log message.
+   * @param message.timestamp message timestamp.
    */
   private onDebug({level, loggerName, messages, timestamp}: LogMessage): void {
     console.debug(level.name, timestamp, loggerName, ...messages);
@@ -39,6 +43,10 @@ export class ConsoleHandler implements LogHandler {
    * Log a info message to the console.
    *
    * @param message Log Message.
+   * @param message.level message log level.
+   * @param message.loggerName message logger name.
+   * @param message.messages log message.
+   * @param message.timestamp message timestamp.
    */
   private onInfo({level, loggerName, messages, timestamp}: LogMessage): void {
     console.info(level.name, timestamp, loggerName, ...messages);
@@ -48,6 +56,10 @@ export class ConsoleHandler implements LogHandler {
    * Log a warn message to the console.
    *
    * @param message Log Message.
+   * @param message.level message log level.
+   * @param message.loggerName message logger name.
+   * @param message.messages log message.
+   * @param message.timestamp message timestamp.
    */
   private onWarn({level, loggerName, messages, timestamp}: LogMessage): void {
     console.warn(level.name, timestamp, loggerName, ...messages);
@@ -57,6 +69,10 @@ export class ConsoleHandler implements LogHandler {
    * Log a error message to the console.
    *
    * @param message Log Message.
+   * @param message.level message log level.
+   * @param message.loggerName message logger name.
+   * @param message.messages log message.
+   * @param message.timestamp message timestamp.
    */
   private onError({level, loggerName, messages, timestamp}: LogMessage): void {
     console.error(level.name, timestamp, loggerName, ...messages);
