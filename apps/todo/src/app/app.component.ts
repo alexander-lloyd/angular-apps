@@ -14,6 +14,11 @@ export class AppComponent {
   public title = 'todo';
   private logger: Logger;
 
+  /**
+   * Constructor.
+   *
+   * @param logService LoggerService.
+   */
   public constructor(
     @Inject(LOG_SERVICE_TOKEN) private logService: LoggerService
   ) {
