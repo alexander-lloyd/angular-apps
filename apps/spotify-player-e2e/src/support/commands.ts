@@ -17,11 +17,15 @@ declare namespace Cypress {
 }
 
 Cypress.Commands.add('login', () => {
-  const currentTime = Date.now() * 1000;
+  const MILLISECONDS_TO_NANOSECONDS = 1000;
+  const FIVE_SECONDS = 5000;
+  const ONE_HOUR = 3600000;
+
+  const currentTime = Date.now() * MILLISECONDS_TO_NANOSECONDS;
   // The token was got 5 seconds ago
-  const tokenStoredAt = currentTime - (5 * 1000);
+  const tokenStoredAt = currentTime - FIVE_SECONDS;
   // The token expires in 1 hour.
-  const tokenExpiry = currentTime + (60 * 60 * 1000);
+  const tokenExpiry = currentTime + ONE_HOUR;
 
   localStorage.setItem('access_token_stored_at', tokenStoredAt.toString());
   localStorage.setItem('nonce', 'nonce');
