@@ -1,17 +1,23 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
-function pad(n: number, z: number = 2): string {
+const DEFAULT_PADDING = 2;
+
+function pad(n: number, z: number = DEFAULT_PADDING): string {
   return `00${n}`.slice(-z);
 }
 
+/**
+ * FormatTimePipe.
+ */
 @Pipe({
   name: 'formattime',
   pure: true
 })
 export class FormatTimePipe implements PipeTransform {
-  private static MILLISECONDS_IN_SECONDS = 1000;
-  private static SECONDS_IN_MINUTE = 60;
-  private static MINUTES_IN_HOUR = 60;
+  private static readonly MILLISECONDS_IN_SECONDS = 1000;
+  private static readonly SECONDS_IN_MINUTE = 60;
+  private static readonly MINUTES_IN_HOUR = 60;
+  private static readonly ZERO = 0;
 
   /**
    * Transform a millisecond value into a formatted string.
@@ -35,7 +41,7 @@ export class FormatTimePipe implements PipeTransform {
       FormatTimePipe.MILLISECONDS_IN_SECONDS
     ));
 
-    if (hours > 0) {
+    if (hours > FormatTimePipe.ZERO) {
       return `${hours}:${pad(minutes)}:${pad(seconds)}`;
     }
 

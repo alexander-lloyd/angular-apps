@@ -7,6 +7,9 @@ import {catchError, map, mergeMap} from 'rxjs/operators';
 import {SpotifyPlayerAPIService} from '../services/spotify-player-api.service';
 import * as actions from './spotify.actions';
 
+/**
+ * SpotifyPlayerEffects
+ */
 @Injectable()
 export class SpotifyPlayerEffects {
   /**

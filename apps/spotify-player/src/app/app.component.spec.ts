@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {provideMockStore, MockStore} from '@ngrx/store/testing';
+import {provideMockStore} from '@ngrx/store/testing';
 import {OAuthService, AuthConfig} from 'angular-oauth2-oidc';
 import {TranslateTestingModule} from 'ngx-translate-testing';
 
@@ -15,7 +15,7 @@ import {AuthConfigService} from './app-config.service';
 import {initialState} from './media-control/store';
 
 class OAuthServiceStub {
-  public configure(config: AuthConfig): void {
+  public configure(_: AuthConfig): void {
   }
 
   public tryLogin(): Promise<boolean> {
@@ -51,7 +51,6 @@ describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let app: AppComponent;
   let loader: HarnessLoader;
-  let store: MockStore;
 
   beforeEach(async(() => {
     jest.resetAllMocks();
@@ -82,7 +81,6 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     loader = TestbedHarnessEnvironment.loader(fixture);
-    store = TestBed.inject(MockStore);
   }));
 
   it('should create the app', () => {

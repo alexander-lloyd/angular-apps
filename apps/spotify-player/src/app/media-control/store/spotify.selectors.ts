@@ -2,6 +2,13 @@ import {createSelector} from '@ngrx/store';
 
 import {SpotifyState} from './spotify.types';
 
+/**
+ * Get the Spotify State.
+ *
+ * @param state Global State.
+ * @param state.spotify Spotify State.
+ * @returns Spotify State.
+ */
 export const selectFeature = (state: {spotify: SpotifyState}): SpotifyState => state.spotify;
 
 export const isPlaying = createSelector(

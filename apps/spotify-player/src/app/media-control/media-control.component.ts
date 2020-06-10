@@ -11,6 +11,11 @@ import {map} from 'rxjs/operators';
 
 import {SpotifyState, actions, selectors} from './store';
 
+const PRECENTAGE = 100;
+
+/**
+ * MediaControlComponent.
+ */
 @Component({
   selector: 'al-media-control',
   templateUrl: './media-control.component.html',
@@ -27,6 +32,11 @@ export class MediaControlComponent {
   public songLength$: Observable<number>;
   public songProgressPercent$: Observable<number>;
 
+  /**
+   * Constructor.
+   *
+   * @param store Application Store.
+   */
   public constructor(
     private readonly store: Store<{spotify: SpotifyState}>
   ) {
@@ -37,7 +47,7 @@ export class MediaControlComponent {
       this.songProgress$,
       this.songLength$
     ).pipe(
-      map(([progress, total]: [number, number]) => (progress / total) * 100)
+      map(([progress, total]: [number, number]) => (progress / total) * PRECENTAGE)
     );
   }
 

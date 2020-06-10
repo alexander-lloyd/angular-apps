@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import * as actions from './spotify.actions';
 import {spotifyReducer, initialState} from './spotify.reducer';
 import {SpotifyState} from './spotify.types';
