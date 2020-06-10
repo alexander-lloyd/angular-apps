@@ -47,7 +47,8 @@ export function oAuthStorageFactory(): OAuthStorage {
  * @returns The Base URL.
  */
 function getBaseUrl(document: Document): string {
-  return document.getElementsByTagName('base')[0].href;
+  const ZERO = 0;
+  return document.getElementsByTagName('base')[ZERO].href;
 }
 
 /**

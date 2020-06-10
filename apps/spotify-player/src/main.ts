@@ -17,9 +17,9 @@ window.dataLayer = window.dataLayer || [];
 /**
  * Gtag Function.
  *
- * @param args Arguments
+ * @param _ Arguments
  */
-function gtag(...args: any[]): void {
+function gtag(..._: any[]): void {
   window.dataLayer.push(arguments);
 }
 
@@ -36,4 +36,5 @@ platformBrowserDynamic()
   .bootstrapModule(AppModule, {
     defaultEncapsulation: ViewEncapsulation.Native
   })
+  // eslint-disable-next-line no-console
   .catch((err: Error) => console.error(err));

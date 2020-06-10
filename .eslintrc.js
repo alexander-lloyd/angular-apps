@@ -7,7 +7,7 @@ const INDENT = 2;
 const MAX_CLASSES_PER_FILE = 5;
 const MAX_COMPLEXITY = 10;
 const MAX_LINE_LENGTH = 120;
-const MAX_LINES = 200;
+const MAX_LINES = 250;
 const MAX_LINES_PER_FUNCTION = 20;
 const MAX_PARAMETERS = 6;
 
@@ -130,7 +130,6 @@ module.exports = {
         '@angular-eslint'
       ],
       extends: [
-        'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript'
       ],
@@ -188,13 +187,23 @@ module.exports = {
             ignoreParameters: true,
           },
         ],
+        '@typescript-eslint/no-magic-numbers': ['error',{
+          ignoreEnums: true,
+          ignoreNumericLiteralTypes: true,
+          ignoreReadonlyClassProperties: true
+        }],
         '@typescript-eslint/no-non-null-assertion': 'error',
+        '@typescript-eslint/no-unused-vars': ['error', {
+          'argsIgnorePattern': '^_$'
+        }],
         '@typescript-eslint/no-useless-constructor': 'error',
         '@typescript-eslint/semi': 'error',
         // Use @typescript-eslint version instead.
+        'camelcase': 'off',
         'indent': 'off',
         'semi': 'off',
         'no-invalid-this': 'off',
+        'no-magic-numbers': 'off',
         'no-restricted-imports': [
           'error',
           {
@@ -239,6 +248,7 @@ module.exports = {
           suffixes: ['Component', 'ComponentStub']
         }],
         '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-magic-numbers': 'off',
         'jest/lowercase-name': ['error', {ignore: ['describe']}],
         'jest/no-hooks': ['error', {allow: ['beforeEach', 'afterEach']}],
         'jest/no-truthy-falsy': 'off',

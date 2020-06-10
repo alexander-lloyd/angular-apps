@@ -7,6 +7,9 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MediaControlComponent} from './media-control.component';
 import {FormatTimePipe} from './pipes/format-time.pipe';
 
+/**
+ * MediaControlModule
+ */
 @NgModule({
   imports: [
     CommonModule,
