@@ -1,14 +1,18 @@
-/* eslint-disable no-magic-numbers */
-
 import {LogLevel} from '../api';
+
+const DEBUG_VALUE = 10;
+const INFO_VALUE = 20;
+const WARN_VALUE = 30;
+const ERROR_VALUE = 40;
+
 /**
  * Log Levels.
  */
 export class LogLevelImpl implements LogLevel {
-  public static DEBUG = new LogLevelImpl('DEBUG', 10);
-  public static INFO = new LogLevelImpl('INFO', 20);
-  public static WARN = new LogLevelImpl('WARN', 30);
-  public static ERROR = new LogLevelImpl('ERROR', 40);
+  public static DEBUG = new LogLevelImpl('DEBUG', DEBUG_VALUE);
+  public static INFO = new LogLevelImpl('INFO', INFO_VALUE);
+  public static WARN = new LogLevelImpl('WARN', WARN_VALUE);
+  public static ERROR = new LogLevelImpl('ERROR', ERROR_VALUE);
   /**
    * Constructor.
    *
