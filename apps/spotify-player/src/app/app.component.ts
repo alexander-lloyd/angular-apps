@@ -3,11 +3,12 @@ import {faSpotify} from '@fortawesome/free-brands-svg-icons';
 import {Store} from '@ngrx/store';
 import {TranslateService} from '@ngx-translate/core';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {BehaviorSubject, interval, Subscription} from 'rxjs';
+import {BehaviorSubject, Subscription, timer} from 'rxjs';
 
 import {AuthConfigService} from './app-config.service';
 import {actions, SpotifyState} from './media-control/store';
 
+export const ZERO = 0;
 export const TRACK_UPDATE_INTERVAL = 1000;
 
 /**
@@ -53,7 +54,7 @@ export class AppComponent implements OnDestroy, OnInit {
     this.loading$.next(false);
 
     if (hasValidAccessToken) {
-      this.updateSpotify = interval(TRACK_UPDATE_INTERVAL)
+      this.updateSpotify = timer(ZERO, TRACK_UPDATE_INTERVAL)
         .subscribe(() => this.updateCurrentTrack());
     }
   }
