@@ -93,7 +93,7 @@
     "istanbul-lib-coverage": "^3.0.0",
     "jest": "24.9.0",
     "jest-preset-angular": "8.0.0",
-    "ng-packagr": "^9.1.5",
+    "ng-packagr": "^10.0.0",
     "ngx-build-plus": "^9.0.6",
     "ngx-translate-testing": "^4.0.0",
     "nyc": "^15.1.0",
