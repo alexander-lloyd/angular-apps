@@ -2527,12 +2527,12 @@ angular-cli-ghpages@^0.6.2:
     fs-extra "^8.1.0"
     gh-pages "^2.1.0"
 
-angular-oauth2-oidc@^9.2.2:
-  version "9.2.2"
-  resolved "https://registry.yarnpkg.com/angular-oauth2-oidc/-/angular-oauth2-oidc-9.2.2.tgz#2b888337953a8773e0269b5ef1709f30316448f1"
-  integrity sha512-aMQXeujzhubvxGw3ujw9FGwTC+L8m7CXnzVntpNJRkJsgMiuZFrXzgeiG87tvAE61J+PlOVIb/UkJjYDgDVU6Q==
+angular-oauth2-oidc@^10.0.3:
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/angular-oauth2-oidc/-/angular-oauth2-oidc-10.0.3.tgz#612ef75c2e07b56592d2506f9618ee6a61857ad9"
+  integrity sha512-9wC8I3e3cN6rMBOlo5JB2y3Fd2erp8pJ67t4vEVzyPbnRG6BJ4rreSOznSL9zw/2SjhC9kRV2OfFie29CUCzEg==
   dependencies:
-    js-sha256 "^0.9.0"
+    tslib "^2.0.0"
 
 ansi-align@^2.0.0:
   version "2.0.0"
@@ -7932,11 +7932,6 @@ js-library-detector@^5.5.0:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/js-library-detector/-/js-library-detector-5.9.0.tgz#ad0add7f4991424326895b273e774876555d0e1b"
   integrity sha512-0wYHRVJv8uVsylJhfQQaH2vOBYGehyZyJbtaHuchoTP3Mb6hqYvrA0hoMQ1ZhARLHzHJMbMc/nCr4D3pTNSCgw==
-
-js-sha256@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/js-sha256/-/js-sha256-0.9.0.tgz#0b89ac166583e91ef9123644bd3c5334ce9d0966"
-  integrity sha512-sga3MHh9sgQN2+pJ9VYZ+1LPwXOxuBJBA5nrR5/ofPfuiJBE2hnjsaN8se8JznOmGLN2p49Pe5U/ttafcs/apA==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
