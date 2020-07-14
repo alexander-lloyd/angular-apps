@@ -70,7 +70,7 @@
     "@cypress/code-coverage": "^3.8.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@ngx-translate/core": "^12.1.2",
-    "@ngx-translate/http-loader": "^4.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "@nrwl/cypress": "9.3.0",
     "@nrwl/eslint-plugin-nx": "9.3.0",
     "@nrwl/jest": "9.3.0",
