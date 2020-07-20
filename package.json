@@ -88,7 +88,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jest": "^23.13.2",
-    "eslint-plugin-jsdoc": "^27.0.5",
+    "eslint-plugin-jsdoc": "^30.0.0",
     "istanbul-instrumenter-loader": "^3.0.1",
     "istanbul-lib-coverage": "^3.0.0",
     "jest": "24.9.0",
