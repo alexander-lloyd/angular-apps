@@ -19,7 +19,7 @@ describe('spotify-player', () => {
   it('should get redirected to spotify login page when login button is pressed', () => {
     getLoginButton().click()
       .then(() => cy.location().should((location) => {
-        expect(location.host).eq('accounts.spotify.com');
+        expect(location.host).not.eq('localhost');
       }));
   });
 
