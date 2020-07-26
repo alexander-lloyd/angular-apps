@@ -27,6 +27,9 @@
     "spotify-player-e2e": {
       "tags": [],
       "implicitDependencies": ["spotify-player"]
+    },
+    "button-component": {
+      "tags": []
     }
   }
 }

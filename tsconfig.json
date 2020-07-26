@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@al/components/button": ["libs/components/button/src/index.ts"],
       "@al/logger": ["libs/logger/src/index.ts"]
     }
   },
