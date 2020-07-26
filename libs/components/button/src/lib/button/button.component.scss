@@ -1,0 +1,74 @@
+/* Colours */
+$button-primary-colour: #3457dc !default;
+$button-primary-hover-colour: #364FC7 !default;
+$button-primary-disabled-colour: #5C7CFA !default;
+$button-primary-text-colour: #ffffff !default;
+$button-secondary-colour: #7048E8 !default;
+$button-secondary-hover-colour: #5F3DC4 !default;
+$button-secondary-disabled-colour: #845EF7 !default;
+$button-secondary-text-colour: #ffffff !default;
+$button-shadow-colour: rgba(255, 255, 255, 0.25) !default;
+
+/* Text */
+$button-font-family: Roboto;
+$button-font-style: normal;
+$button-font-weight: bold;
+$button-font-size: 16px;
+$button-line-height: 19px;
+
+/* Positioning */
+$button-border: 1px solid;
+$button-border-radius: 8px;
+$button-padding: 8px 24px;
+
+
+.button {
+  border: $button-border;
+  border-radius: $button-border-radius;
+  cursor: pointer;
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  font-style: $button-font-style;
+  font-weight: $button-font-weight;
+  line-height: $button-line-height;
+  padding: $button-padding;
+
+  &:active {
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: 0;
+    filter: drop-shadow(0px 4px 4px rgba($button-shadow-colour));
+  }
+
+  &.button:disabled,
+   .button-disabled {
+    background-color: transparent;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.button-primary {
+    border-color: $button-primary-colour;
+    background-color: $button-primary-colour;
+    color: $button-primary-text-colour;
+  }
+
+  &.button-primary:disabled {
+    border-color: $button-primary-disabled-colour;
+    background-color: $button-primary-disabled-colour;
+  }
+
+  &.button-secondary {
+    border-color: $button-secondary-colour;
+    background-color: $button-secondary-colour;
+    color: $button-secondary-text-colour;
+  }
+
+  &.button-secondary:disabled {
+    border-color: $button-secondary-disabled-colour;
+    background-color: $button-secondary-disabled-colour;
+  }
+}
+
