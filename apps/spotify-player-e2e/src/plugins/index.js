@@ -31,8 +31,8 @@ module.exports = (on, config) => {
   on('before:browser:launch', (browser = {}, launchOptions) => {
     // console.log(launchOptions);
     if (browser.family === 'chromium' || browser.name !== 'electron') {
-      launchOptions.push(`--disable-features="${chromeFlags}"`);
-      launchOptions.push(`--load-extension=${ignoreXFrameHeadersExtension}`);
+      launchOptions.args.push(`--disable-features="${chromeFlags}"`);
+      launchOptions.args.push(`--load-extension=${ignoreXFrameHeadersExtension}`);
     }
     return launchOptions;
   });
