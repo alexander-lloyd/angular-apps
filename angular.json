@@ -82,7 +82,7 @@
               "apps/todo/tsconfig.app.json",
               "apps/todo/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/todo/**"]
+            "exclude": ["**/node_modules/**", "!apps/todo/**/*"]
           }
         },
         "test": {
@@ -131,7 +131,7 @@
             "linter": "eslint",
             "config": "apps/todo-e2e/.eslintrc.js",
             "tsConfig": ["apps/todo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/todo-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/todo-e2e/**/*"]
           }
         }
       }
@@ -163,7 +163,7 @@
               "libs/logger/tsconfig.lib.json",
               "libs/logger/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/logger/**"]
+            "exclude": ["**/node_modules/**", "!libs/logger/**/*"]
           }
         },
         "test": {
@@ -272,7 +272,7 @@
               "apps/spotify-player/tsconfig.app.json",
               "apps/spotify-player/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/spotify-player/**"]
+            "exclude": ["**/node_modules/**", "!apps/spotify-player/**/*"]
           }
         },
         "test": {
@@ -321,7 +321,7 @@
             "linter": "eslint",
             "config": "apps/spotify-player-e2e/.eslintrc.js",
             "tsConfig": ["apps/spotify-player-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/spotify-player-e2e/**"]
+            "exclude": ["**/node_modules/**", "!apps/spotify-player-e2e/**/*"]
           }
         }
       }
