@@ -182,10 +182,10 @@
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-9.1.7.tgz#09bf7c84c234d8b6ecaa101024a3b3e69ab198cd"
   integrity sha512-1wW8ndGMLDuE2LpTN2RNRz1Dt7JgVBeVmOPMgzoA7g1uuvm+jESTrGG7W3BzLzG0BE2TeXt0fY90o4iU+S2Rmg==
 
-"@angular/cdk@^10.0.1":
-  version "10.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-10.0.1.tgz#8e10317cd6fee4d9f8a3794998629496fb60e68b"
-  integrity sha512-tEgaTDQplptbOf4cHHdVScH0h5QNvkWDhabAWpWaT4/dVXEsp+p2E9Pzkemesi/gNmUIetVjGaicX5VqsijZSQ==
+"@angular/cdk@^10.1.1":
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-10.1.1.tgz#aec95fb4d1143d0b82a41c34622453ffbae42872"
+  integrity sha512-Gt9TmqSVxPTmuNkApEuvva25U60WW152r9+vL7ViFgG+297RE7tzUU8ffBwMXZMdtXnrhLKqLv6ZaBhihMM2Kw==
   dependencies:
     tslib "^2.0.0"
   optionalDependencies:
@@ -553,7 +553,7 @@
   dependencies:
     "@babel/types" "^7.8.3"
 
-"@babel/helper-plugin-utils@^7.0.0", "@babel/helper-plugin-utils@^7.10.1", "@babel/helper-plugin-utils@^7.10.4", "@babel/helper-plugin-utils@^7.8.0", "@babel/helper-plugin-utils@^7.8.3":
+"@babel/helper-plugin-utils@^7.0.0", "@babel/helper-plugin-utils@^7.10.4", "@babel/helper-plugin-utils@^7.8.0", "@babel/helper-plugin-utils@^7.8.3":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.10.4.tgz#2f75a831269d4f677de49986dff59927533cf375"
   integrity sha512-O4KCvQA6lLiMU9l2eawBPMf1xPP8xPfB3iEQw150hOVTqj/rfXz0ThTb4HEzqQfs2Bmo5Ay8BzxfzVtBrr9dVg==
