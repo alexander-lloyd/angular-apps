@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HarnessLoader} from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 import {MatButtonModule} from '@angular/material/button';
@@ -24,8 +24,8 @@ describe('MediaControlComponent', () => {
   let mockLengthSelector: MemoizedSelector<{spotify: SpotifyState}, number>;
   let loader: HarnessLoader;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [
         MediaControlComponent,
         FormatTimePipe
@@ -43,13 +43,13 @@ describe('MediaControlComponent', () => {
 
     fixture = TestBed.createComponent(MediaControlComponent);
     component = fixture.componentInstance;
-    mockStore = TestBed.get(MockStore);
+    mockStore = TestBed.inject(MockStore);
     mockPlayingSelector = mockStore.overrideSelector(selectors.isPlaying, false);
     mockProgressSelector = mockStore.overrideSelector(selectors.getSongProgress, 0);
     mockLengthSelector = mockStore.overrideSelector(selectors.getSongLength, 0);
     loader = TestbedHarnessEnvironment.loader(fixture);
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect.assertions(1);
