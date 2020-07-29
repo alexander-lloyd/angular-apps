@@ -255,10 +255,10 @@
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-9.1.9.tgz#20c9a79d1dcb2cace45df9e2f304b658e02c1687"
   integrity sha512-r675yImnb/0pY7K5W3V2ITa7YETu1I2AS+bRfII6UQ6gthyeFFOHb5noa7YneC2yqQiM6E4DQmF5ig3daPuFNg==
 
-"@angular/language-service@9.1.9":
-  version "9.1.9"
-  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-9.1.9.tgz#332a7e54d5e553b92342b10703dc13aba474a28f"
-  integrity sha512-yT6HPpdAe2mD9HRoTCiWFog1MRJt+0j+CLbI/Ql7C6pH6vbjmfsJ55xMmQ7eS6trsnebpMWTUv1f2GRykv3ygw==
+"@angular/language-service@10.0.6":
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-10.0.6.tgz#d76e8f1850e521f716c15755b869ea4e49b8c59d"
+  integrity sha512-Aaee3kjmIPnTQJZL1+eBgkP+bnNh9zj6F78WEoYX7lHt98uRBfv3C9Wl+S4Gewoe99d7BZ53JdthsKY+ejCSIA==
 
 "@angular/localize@^9.1.12":
   version "9.1.12"
@@ -553,7 +553,7 @@
   dependencies:
     "@babel/types" "^7.8.3"
 
-"@babel/helper-plugin-utils@^7.0.0", "@babel/helper-plugin-utils@^7.10.1", "@babel/helper-plugin-utils@^7.10.4", "@babel/helper-plugin-utils@^7.8.0", "@babel/helper-plugin-utils@^7.8.3":
+"@babel/helper-plugin-utils@^7.0.0", "@babel/helper-plugin-utils@^7.10.4", "@babel/helper-plugin-utils@^7.8.0", "@babel/helper-plugin-utils@^7.8.3":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/helper-plugin-utils/-/helper-plugin-utils-7.10.4.tgz#2f75a831269d4f677de49986dff59927533cf375"
   integrity sha512-O4KCvQA6lLiMU9l2eawBPMf1xPP8xPfB3iEQw150hOVTqj/rfXz0ThTb4HEzqQfs2Bmo5Ay8BzxfzVtBrr9dVg==
