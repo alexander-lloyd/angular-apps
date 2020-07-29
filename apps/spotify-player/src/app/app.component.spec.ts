@@ -1,7 +1,7 @@
 import {HarnessLoader} from '@angular/cdk/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 import {Component} from '@angular/core';
-import {TestBed, async, ComponentFixture, fakeAsync, tick} from '@angular/core/testing';
+import {TestBed, ComponentFixture, fakeAsync, tick} from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
@@ -52,9 +52,9 @@ describe('AppComponent', () => {
   let app: AppComponent;
   let loader: HarnessLoader;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     jest.resetAllMocks();
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       declarations: [
         AppComponent,
         MediaComponentStub
@@ -81,7 +81,7 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     loader = TestbedHarnessEnvironment.loader(fixture);
-  }));
+  });
 
   it('should create the app', () => {
     expect.assertions(1);
