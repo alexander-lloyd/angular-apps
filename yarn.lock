@@ -2182,6 +2182,20 @@
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
 
+"@nrwl/cypress@10.0.7":
+  version "10.0.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-10.0.7.tgz#d3f49471ed9ec46c280c479e1ed8577ab1d6e9fd"
+  integrity sha512-YcG4J5SUmA4aQisxnLu2EN+noMHorxaUfSfx0Ywi/OO/CU9vFUAWp87dONzqSYGjeuxzoenHSiN7r1HOR9p+ig==
+  dependencies:
+    "@angular-devkit/architect" "~0.1000.0"
+    "@angular-devkit/core" "~10.0.0"
+    "@cypress/webpack-preprocessor" "~4.1.2"
+    fork-ts-checker-webpack-plugin "^3.1.1"
+    tree-kill "1.2.2"
+    ts-loader "^5.3.1"
+    tsconfig-paths-webpack-plugin "3.2.0"
+    webpack-node-externals "1.7.2"
+
 "@nrwl/eslint-plugin-nx@10.0.6":
   version "10.0.6"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-10.0.6.tgz#050fe3d61675a6180e6e4a5b8f3a98b659eda534"
@@ -2204,6 +2218,18 @@
   integrity sha512-HiYFz8iHMfTmhn+hswmDsdFNL3bhMi5rXzv5veu8pQOPU37ZOS+mTp9/hnOSDm5qAxxh1HCWzwOwCu1PRTrB9Q==
   dependencies:
     "@angular-devkit/architect" "~0.1000.0"
+
+"@nrwl/storybook@^10.0.7":
+  version "10.0.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-10.0.7.tgz#c0e32fba2acd1ec0f915c5dd3f16d8084a8c9693"
+  integrity sha512-KPlAMYQp1cGysyw9ZdplnF5sFzF2ArxywqdRTsKQkOfA5ZqN1ciGtP4Z4q0d4d4W8OZa/I9vv6IlPViz9i7T7Q==
+  dependencies:
+    "@nrwl/cypress" "10.0.7"
+    core-js "^3.6.5"
+    tree-kill "1.2.2"
+    ts-loader "5.3.1"
+    tsconfig-paths-webpack-plugin "3.2.0"
+    webpack-node-externals "1.7.2"
 
 "@nrwl/tao@10.0.6":
   version "10.0.6"
@@ -13512,6 +13538,17 @@ ts-jest@^26.0.0:
     mkdirp "1.x"
     semver "7.x"
     yargs-parser "18.x"
+
+ts-loader@5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-5.3.1.tgz#70614c8ec4354a9c8b89c9f97b2becb7a98a3980"
+  integrity sha512-fDDgpBH3SR8xlt2MasLdz3Yy611PQ/UY/KGyo7TgXhTRU/6sS8uGG0nJYnU1OdFBNKcoYbId1UTNaAOUn+i41g==
+  dependencies:
+    chalk "^2.3.0"
+    enhanced-resolve "^4.0.0"
+    loader-utils "^1.0.2"
+    micromatch "^3.1.4"
+    semver "^5.0.1"
 
 ts-loader@^5.3.1:
   version "5.4.5"
