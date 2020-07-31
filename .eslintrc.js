@@ -114,7 +114,8 @@ module.exports = {
     'semi': 'error',
     'space-before-function-paren': 'off',
     'sort-imports': 'off',
-    'sort-keys': 'off'
+    'sort-keys': 'off',
+    'strict': 'off'
   },
   overrides: [
     {
