@@ -1,1 +1,7 @@
-<button></button>
+<button class="button"
+        [ngClass]="{
+          'button-primary': type === 'primary',
+          'button-secondary': type === 'secondary'
+        }">
+ABC
+</button>

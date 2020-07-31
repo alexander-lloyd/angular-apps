@@ -12,5 +12,16 @@ export const primary = () => ({
   },
   component: ButtonComponent,
   props: {
+    type: 'primary'
+  }
+});
+
+export const secondary = () => ({
+  moduleMetadata: {
+    imports: []
+  },
+  component: ButtonComponent,
+  props: {
+    type: 'secondary'
   }
 });

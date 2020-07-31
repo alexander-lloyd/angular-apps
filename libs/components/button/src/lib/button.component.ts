@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 /**
  * Button Component.
@@ -9,4 +9,5 @@ import {Component} from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
+  @Input() public type: string;
 }

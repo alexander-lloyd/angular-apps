@@ -85,6 +85,7 @@ module.exports = {
         'Effect',
         'Inject',
         'Injectable',
+        'Input',
         'NgModule',
         'Optional',
         'Pipe'
