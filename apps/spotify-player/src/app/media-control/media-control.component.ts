@@ -18,7 +18,7 @@ const PRECENTAGE = 100;
  */
 @Component({
   selector: 'al-media-control',
-  templateUrl: './media-control.component.html',
+  templateUrl: 'media-control.component.html',
   styleUrls: ['./media-control.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
