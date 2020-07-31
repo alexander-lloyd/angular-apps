@@ -32,16 +32,16 @@ $button-padding: 8px 24px;
   line-height: $button-line-height;
   padding: $button-padding;
 
-  &:active {
+  :active {
     opacity: 1;
   }
 
-  &:focus {
+  :focus {
     outline: 0;
     filter: drop-shadow(0 4px 4px $button-shadow-colour);
   }
 
-  &.button:disabled,
+  .button:disabled,
   .button-disabled {
     background-color: transparent;
     cursor: not-allowed;
@@ -54,15 +54,25 @@ $button-padding: 8px 24px;
     color: $button-primary-text-colour;
   }
 
+  &.button-primary:hover {
+    background-color: $button-primary-hover-colour;
+    border-color: $button-primary-hover-colour;
+  }
+
   &.button-primary:disabled {
-    border-color: $button-primary-disabled-colour;
     background-color: $button-primary-disabled-colour;
+    border-color: $button-primary-disabled-colour;
   }
 
   &.button-secondary {
     border-color: $button-secondary-colour;
     background-color: $button-secondary-colour;
     color: $button-secondary-text-colour;
+  }
+
+  &.button-secondary:hover {
+    background-color: $button-secondary-hover-colour;
+    border-color: $button-secondary-hover-colour;
   }
 
   &.button-secondary:disabled {
