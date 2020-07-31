@@ -269,6 +269,15 @@ module.exports = {
         'jest/valid-expect': 'off',
         'jest/valid-expect-in-promise': 'off'
       }
+    },
+    {
+      files: [
+        '*.stories.ts'
+      ],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        'jsdoc/require-jsdoc': 'off'
+      }
     }
   ]
 };
