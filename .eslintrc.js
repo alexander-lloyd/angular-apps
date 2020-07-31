@@ -124,12 +124,14 @@ module.exports = {
       parserOptions: {
         ecmaVersion: 2018,
         sourceType: 'module',
+        project: './tsconfig.base.json'
       },
       plugins: [
         '@typescript-eslint',
         '@angular-eslint'
       ],
       extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript'
       ],

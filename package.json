@@ -102,7 +102,11 @@
     "source-map-support": "^0.5.19",
     "ts-jest": "24.3.0",
     "ts-node": "~8.10.2",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "@storybook/addon-knobs": "5.3.9",
+    "@storybook/angular": "5.3.9",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-config-prettier": "6.0.0"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
