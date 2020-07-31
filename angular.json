@@ -325,6 +325,49 @@
           }
         }
       }
+    },
+    "button-component": {
+      "projectType": "library",
+      "root": "libs/components/button",
+      "sourceRoot": "libs/components/button/src",
+      "prefix": "al",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/components/button/tsconfig.lib.json",
+            "project": "libs/components/button/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/components/button/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/components/button/.eslintrc.js",
+            "tsConfig": ["libs/components/button/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/components/button/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/components/button/jest.config.js",
+            "tsConfig": "libs/components/button/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/components/button/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
