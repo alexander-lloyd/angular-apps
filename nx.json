@@ -16,9 +16,7 @@
     },
     "todo-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "todo"
-      ]
+      "implicitDependencies": ["todo"]
     },
     "logger": {
       "tags": []
@@ -28,9 +26,7 @@
     },
     "spotify-player-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "spotify-player"
-      ]
+      "implicitDependencies": ["spotify-player"]
     }
   },
   "affected": {
