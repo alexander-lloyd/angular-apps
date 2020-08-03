@@ -68,7 +68,7 @@
     "@babel/plugin-syntax-top-level-await": "^7.10.4",
     "@cypress/code-coverage": "^3.8.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
-    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^4.0.0",
     "@nrwl/angular": "10.0.6",
     "@nrwl/cypress": "10.0.6",
