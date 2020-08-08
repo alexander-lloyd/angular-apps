@@ -398,39 +398,6 @@
           "style": "scss"
         }
       }
-    },
-    "button-component-e2e": {
-      "root": "apps/components/button-component-e2e",
-      "sourceRoot": "apps/components/button-component-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/components/button-component-e2e/cypress.json",
-            "tsConfig": "apps/components/button-component-e2e/tsconfig.e2e.json",
-            "devServerTarget": "button-component:storybook"
-          },
-          "configurations": {
-            "ci": {
-              "devServerTarget": "button-component:storybook:ci"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/components/button-component-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/components/button-component-e2e/**/*"
-            ]
-          }
-        }
-      }
     }
   },
   "cli": {
