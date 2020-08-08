@@ -31,6 +31,4 @@ Cypress.Commands.add('login', () => {
   localStorage.setItem('nonce', 'nonce');
   localStorage.setItem('access_token', 'access token');
   localStorage.setItem('expires_at', tokenExpiry.toString());
-
-  return this;
 });
