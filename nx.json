@@ -30,10 +30,6 @@
     },
     "button-component": {
       "tags": []
-    },
-    "button-component-e2e": {
-      "tags": [],
-      "implicitDependencies": ["button-component"]
     }
   },
   "affected": {
