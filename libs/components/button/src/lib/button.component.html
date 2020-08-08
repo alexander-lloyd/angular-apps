@@ -1,7 +1,8 @@
 <button class="button"
+        [disabled]="disabled"
         [ngClass]="{
           'button-primary': type === 'primary',
           'button-secondary': type === 'secondary'
         }">
-ABC
+        <ng-content></ng-content>
 </button>

@@ -1,3 +1,5 @@
+@import '../../../../../node_modules/roboto-fontface/css/roboto/roboto-fontface.css';
+
 /* Colours */
 $button-primary-colour: #3457dc !default;
 $button-primary-hover-colour: #364fc7 !default;
@@ -7,10 +9,10 @@ $button-secondary-colour: #7048e8 !default;
 $button-secondary-hover-colour: #5f3dc4 !default;
 $button-secondary-disabled-colour: #845ef7 !default;
 $button-secondary-text-colour: #ffffff !default;
-$button-shadow-colour: rgba(255, 255, 255, 0.25) !default;
+$button-shadow-colour: rgba(0, 0, 0, 0.25) !default;
 
 /* Text */
-$button-font-family: Roboto;
+$button-font-family: Roboto, sans-serif;
 $button-font-style: normal;
 $button-font-weight: bold;
 $button-font-size: 16px;
@@ -24,7 +26,9 @@ $button-padding: 8px 24px;
 .button {
   border: $button-border;
   border-radius: $button-border-radius;
+  box-sizing: border-box;
   cursor: pointer;
+  filter: drop-shadow(0 4px 4px $button-shadow-colour);
   font-family: $button-font-family;
   font-size: $button-font-size;
   font-style: $button-font-style;
@@ -33,12 +37,12 @@ $button-padding: 8px 24px;
   padding: $button-padding;
 
   :active {
+    filter: none;
     opacity: 1;
   }
 
   :focus {
     outline: 0;
-    filter: drop-shadow(0 4px 4px $button-shadow-colour);
   }
 
   .button:disabled,
