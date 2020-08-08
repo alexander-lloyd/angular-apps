@@ -265,7 +265,7 @@ module.exports = {
     {
       // Exclude e2e tests
       files: [
-        'src/integration/*.spec.ts'
+        'apps/*-e2e/**/*.ts'
       ],
       rules: {
         'jest/expect-expect': 'off',
