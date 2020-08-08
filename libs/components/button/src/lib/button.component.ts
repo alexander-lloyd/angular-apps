@@ -9,5 +9,6 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
+  @Input() public disabled: boolean;
   @Input() public type: string;
 }
