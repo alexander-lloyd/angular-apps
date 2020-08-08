@@ -14,6 +14,9 @@ const MAX_PARAMETERS = 6;
 module.exports = {
   root: true,
   reportUnusedDisableDirectives: true,
+  parserOptions: {
+    ecmaVersion: 6
+  },
   plugins: [
     '@nrwl/nx',
     'jsdoc'
