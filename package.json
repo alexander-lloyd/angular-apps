@@ -101,7 +101,7 @@
     "jest-preset-angular": "8.2.1",
     "ng-packagr": "10.0.3",
     "ngx-build-plus": "^10.1.1",
-    "ngx-translate-testing": "^4.0.0",
+    "ngx-translate-testing": "^5.0.0",
     "nyc": "^15.1.0",
     "prettier": "2.0.5",
     "roboto-fontface": "^0.10.0",
