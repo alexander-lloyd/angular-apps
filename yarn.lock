@@ -11405,10 +11405,12 @@ ngx-build-plus@^10.1.1:
     webpack-dev-server "^3.1.14"
     webpack-merge "^4.2.1"
 
-ngx-translate-testing@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-translate-testing/-/ngx-translate-testing-4.0.0.tgz#a1bdae230566042bfd875af6ccb88d3c57751925"
-  integrity sha512-XnNs0oMF4I/DLcs2HUWOho3HqKBG7ZlcpMAI8WLqcCW0UiRNiopDbl12PVOIq70LssrS41s7H6od7CV2l75RYA==
+ngx-translate-testing@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-translate-testing/-/ngx-translate-testing-5.0.0.tgz#101de6cfde27a949796229d5cb35a93ce5bf1de4"
+  integrity sha512-TO29tDY4vxvWPaJfR/keMQx6+CG7qA1HV7DWpya/1xp/v+j8/VMmXiGvBp2XApQJ/dHboeAouqv97ngo5Ve4uQ==
+  dependencies:
+    tslib "^2.0.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
