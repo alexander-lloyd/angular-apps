@@ -1998,10 +1998,10 @@
     yargs "^11.0.0"
     yargs-parser "10.0.0"
 
-"@nrwl/cypress@10.0.10":
-  version "10.0.10"
-  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-10.0.10.tgz#5d3b555700d0d79dd66d21a733cef1bb97d556ba"
-  integrity sha512-0rR6Ko/VbElzCVj6SQmfYObLndk3fLfgrgiHC4965Ax2Oi1DZxaAeCXkTlOZONnugd8r/TF3PalpOsYdmWz3wA==
+"@nrwl/cypress@10.0.11":
+  version "10.0.11"
+  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-10.0.11.tgz#b5df19bcf3bcc1ed7a1784a5eacaebc9e4c9549c"
+  integrity sha512-SkrRNUK8gkGyeTqqvM9p3DWhspLSY/YLYgPRWGGcV2iOVaDP1/AuF/uZ5xjaselrIE3M/Z64H2B5ciotd5sgyA==
   dependencies:
     "@angular-devkit/architect" "~0.1000.0"
     "@angular-devkit/core" "~10.0.0"
@@ -2049,12 +2049,12 @@
   dependencies:
     "@angular-devkit/architect" "~0.1000.0"
 
-"@nrwl/storybook@^10.0.7":
-  version "10.0.10"
-  resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-10.0.10.tgz#316d4c257981348122fa6894d968cf93fdd9f84b"
-  integrity sha512-k3srjhsZPqi9aXSeZfZ+9q894fBnUFPlZzIAbRs+LseWsAEtRZsju8kt3nJvy6kMj9kBZkNIHdO6vVddvRhEfA==
+"@nrwl/storybook@^10.0.11":
+  version "10.0.11"
+  resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-10.0.11.tgz#4910695f57ca7354731385005637716715e335ea"
+  integrity sha512-jBfKpUdRg4o6XlQIayD/DBl6L1B3Qb/e4jcT4ND7T5Ugv3k3oWp/ZidVtbkErB0+Xnv+nS7D3hEuSFZWTsFJFg==
   dependencies:
-    "@nrwl/cypress" "10.0.10"
+    "@nrwl/cypress" "10.0.11"
     core-js "^3.6.5"
     tree-kill "1.2.2"
     ts-loader "5.3.1"
