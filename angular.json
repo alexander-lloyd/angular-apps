@@ -21,7 +21,7 @@
             "polyfills": "apps/todo/src/polyfills.ts",
             "tsConfig": "apps/todo/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/todo/src/favicon.ico", "apps/todo/src/assets"],
+            "assets": ["apps/todo/src/assets"],
             "styles": ["apps/todo/src/styles.scss"],
             "scripts": [],
             "customWebpackConfig": {
