@@ -2,14 +2,9 @@ import {TestBed} from '@angular/core/testing';
 import {of} from 'rxjs';
 
 import {TodoTask} from '../types/todo.types';
-import {LocalStorageService} from './local-storage.service';
 import {TodoService} from './todo.service';
+import { execPath } from 'process';
 
-
-class LocalStorageServiceStub {
-  public getItem(): void {
-  }
-}
 
 describe('TodoService', () => {
   const todo: TodoTask = {
@@ -19,7 +14,6 @@ describe('TodoService', () => {
     due: new Date().toISOString()
   };
 
-  let localStorageService: LocalStorageService;
   let service: TodoService;
 
   beforeEach(() => {
@@ -27,15 +21,10 @@ describe('TodoService', () => {
 
     TestBed.configureTestingModule({
       providers: [
-        TodoService,
-        {
-          provide: LocalStorageService,
-          useClass: LocalStorageServiceStub
-        }
+        TodoService
       ]
     }).compileComponents();
 
-    localStorageService = TestBed.inject(LocalStorageService);
     service = TestBed.inject(TodoService);
   });
 
@@ -44,14 +33,9 @@ describe('TodoService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get the list of todos', () => {
+  it('should get the list of todos', async () => {
     expect.assertions(1);
-
-    const todos = of([todo]);
-
-    jest.spyOn(localStorageService, 'getItem')
-      .mockImplementation(() => todos);
-
-    expect(service.getTodos()).toBe(todos);
+    const todos = await service.getTodos().toPromise();
+    expect(todos).toStrictEqual([]);
   });
 });
