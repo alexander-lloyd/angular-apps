@@ -13,7 +13,6 @@ import {LoggerModule} from '@al/logger';
 import {AppComponent} from './app.component';
 import {TodoListComponent} from './components/todo-item/todo-list.component';
 import {TodoService} from './services/todo.service';
-import {LocalStorageService} from './services/local-storage.service';
 
 
 /**
@@ -37,8 +36,7 @@ import {LocalStorageService} from './services/local-storage.service';
     MomentModule
   ],
   providers: [
-    TodoService,
-    LocalStorageService
+    TodoService
   ],
   bootstrap: [AppComponent]
 })
