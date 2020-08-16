@@ -55,6 +55,7 @@
     "zone.js": "^0.10.3"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^10.0.0",
     "@angular-devkit/build-angular": "0.1000.5",
     "@angular-devkit/build-ng-packagr": "0.1000.5",
     "@angular-eslint/eslint-plugin": "0.0.1-alpha.32",
@@ -104,9 +105,13 @@
     "ngx-build-plus": "^10.1.1",
     "ngx-translate-testing": "^5.0.0",
     "nyc": "^15.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-scss": "^2.1.1",
     "prettier": "2.0.5",
     "roboto-fontface": "^0.10.0",
     "source-map-support": "^0.5.19",
+    "tailwindcss": "^1.6.2",
     "ts-jest": "24.3.0",
     "ts-node": "~8.10.2",
     "typescript": "~3.9.7"

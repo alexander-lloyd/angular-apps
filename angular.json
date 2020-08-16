@@ -13,7 +13,7 @@
       "prefix": "al",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/apps/todo",
             "index": "apps/todo/src/index.html",
@@ -23,7 +23,10 @@
             "aot": true,
             "assets": ["apps/todo/src/favicon.ico", "apps/todo/src/assets"],
             "styles": ["apps/todo/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/todo/webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
