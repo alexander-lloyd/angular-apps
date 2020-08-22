@@ -1998,10 +1998,10 @@
     yargs "^11.0.0"
     yargs-parser "10.0.0"
 
-"@nrwl/cypress@10.0.10":
-  version "10.0.10"
-  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-10.0.10.tgz#5d3b555700d0d79dd66d21a733cef1bb97d556ba"
-  integrity sha512-0rR6Ko/VbElzCVj6SQmfYObLndk3fLfgrgiHC4965Ax2Oi1DZxaAeCXkTlOZONnugd8r/TF3PalpOsYdmWz3wA==
+"@nrwl/cypress@10.0.6":
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-10.0.6.tgz#80abe2856e7636e9a38962e7a7ac252edb83efc5"
+  integrity sha512-8DQwpBUVjC0h7w0bztpOqp3K7ZtAzGY/vkWPhkTM4p4i+C9BjtQhbCC7IuYv2qil6stVwDkxNT4FkbnT2r55NA==
   dependencies:
     "@angular-devkit/architect" "~0.1000.0"
     "@angular-devkit/core" "~10.0.0"
@@ -2012,10 +2012,10 @@
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
 
-"@nrwl/cypress@10.0.6":
-  version "10.0.6"
-  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-10.0.6.tgz#80abe2856e7636e9a38962e7a7ac252edb83efc5"
-  integrity sha512-8DQwpBUVjC0h7w0bztpOqp3K7ZtAzGY/vkWPhkTM4p4i+C9BjtQhbCC7IuYv2qil6stVwDkxNT4FkbnT2r55NA==
+"@nrwl/cypress@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-10.1.0.tgz#c448a0080ced0972d70ca097fbf9d9967c3ad49f"
+  integrity sha512-MaMvSN2vue3E9hRxVMr5pw1bjyr2tyWDVIQXrQ69r7TlYQLOUNxLWZ/8vlYZGkBExCUJABFjMUKZw4QB/Ave3Q==
   dependencies:
     "@angular-devkit/architect" "~0.1000.0"
     "@angular-devkit/core" "~10.0.0"
@@ -2049,12 +2049,12 @@
   dependencies:
     "@angular-devkit/architect" "~0.1000.0"
 
-"@nrwl/storybook@^10.0.7":
-  version "10.0.10"
-  resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-10.0.10.tgz#316d4c257981348122fa6894d968cf93fdd9f84b"
-  integrity sha512-k3srjhsZPqi9aXSeZfZ+9q894fBnUFPlZzIAbRs+LseWsAEtRZsju8kt3nJvy6kMj9kBZkNIHdO6vVddvRhEfA==
+"@nrwl/storybook@^10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-10.1.0.tgz#32b6bb6b580533f153296751c9ebbef2bc0bf668"
+  integrity sha512-y7DpK0LKMwrid6uJdDnM5+LAvJF6dmDSlilJclSYiJEmyhjwiys9xfWe+69EE6qF0xJLK+GpGOtnmDtonay97w==
   dependencies:
-    "@nrwl/cypress" "10.0.10"
+    "@nrwl/cypress" "10.1.0"
     core-js "^3.6.5"
     tree-kill "1.2.2"
     ts-loader "5.3.1"
