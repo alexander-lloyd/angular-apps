@@ -103,7 +103,7 @@
     "ngx-build-plus": "^10.1.1",
     "ngx-translate-testing": "^5.0.0",
     "nyc": "^15.1.0",
-    "prettier": "2.0.5",
+    "prettier": "2.1.0",
     "roboto-fontface": "^0.10.0",
     "source-map-support": "^0.5.19",
     "ts-jest": "24.3.0",
