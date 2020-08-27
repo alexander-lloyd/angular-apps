@@ -1,9 +1,13 @@
 import {TestBed} from '@angular/core/testing';
-import {of} from 'rxjs';
 
 import {TodoTask} from '../types/todo.types';
 import {TodoService} from './todo.service';
-import { execPath } from 'process';
+import {LocalStorageService} from './local-storage.service';
+
+
+class LocalStorageServiceStub {
+  public getItem() {}
+}
 
 
 describe('TodoService', () => {
@@ -14,18 +18,24 @@ describe('TodoService', () => {
     due: new Date().toISOString()
   };
 
+  let localStorageService: LocalStorageService;
+  let getItemSpy: jest.SpyInstance<string, [string]>;
   let service: TodoService;
 
   beforeEach(() => {
-    localStorage.clear();
-
     TestBed.configureTestingModule({
       providers: [
-        TodoService
+        TodoService,
+        {
+          provide: LocalStorageService,
+          useClass: LocalStorageServiceStub
+        }
       ]
     }).compileComponents();
 
     service = TestBed.inject(TodoService);
+    localStorageService = TestBed.inject(LocalStorageService);
+    getItemSpy = jest.spyOn(localStorageService, 'getItem');
   });
 
   it('should be truthy', () => {
@@ -34,8 +44,10 @@ describe('TodoService', () => {
   });
 
   it('should get the list of todos', async () => {
-    expect.assertions(1);
+    expect.assertions(2);
+    getItemSpy.mockImplementation(() => JSON.stringify([todo]));
     const todos = await service.getTodos().toPromise();
-    expect(todos).toStrictEqual([]);
+    expect(todos).toStrictEqual([todo]);
+    expect(getItemSpy).toHaveBeenCalledTimes(1);
   });
 });
