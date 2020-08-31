@@ -12,6 +12,7 @@ import {MomentModule} from 'ngx-moment';
 import {LoggerModule} from '@al/logger';
 import {AppComponent} from './app.component';
 import {TodoListComponent} from './components/todo-item/todo-list.component';
+import {LocalStorageService} from './services/local-storage.service';
 import {TodoService} from './services/todo.service';
 
 
@@ -36,6 +37,7 @@ import {TodoService} from './services/todo.service';
     MomentModule
   ],
   providers: [
+    LocalStorageService,
     TodoService
   ],
   bootstrap: [AppComponent]
