@@ -50,4 +50,12 @@ describe('TodoService', () => {
     expect(todos).toStrictEqual([todo]);
     expect(getItemSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('should return an empty list if local storage key does not exist', async () => {
+    expect.assertions(2);
+    getItemSpy.mockImplementation(() => undefined);
+    const todos = await service.getTodos().toPromise();
+    expect(todos).toStrictEqual([]);
+    expect(getItemSpy).toHaveBeenCalledTimes(1);
+  });
 });
