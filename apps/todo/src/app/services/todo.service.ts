@@ -26,7 +26,7 @@ export class TodoService {
    * @returns List of todo objects.
    */
   public getTodos(): Observable<TodoTask[]> {
-    const todosJson = this.localStorage.getItem(TodoService.TODOS_KEY);
+    const todosJson = this.localStorage.getItem(TodoService.TODOS_KEY) || '[]';
     const todos = JSON.parse(todosJson) as TodoTask[];
     return of(todos);
   }
