@@ -11,7 +11,7 @@ export class LocalStorageService {
    * @param key Key to get from local storage.
    * @returns The value to get from local storage.
    */
-  public getItem(key: string): string {
+  public getItem(key: string): string | undefined {
     return localStorage.getItem(key);
   }
 
