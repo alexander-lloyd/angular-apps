@@ -47,7 +47,7 @@ jobs:
     - name: Build
       run: |
         yarn
-        yarn build:affected
+        yarn affected:build --all
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
