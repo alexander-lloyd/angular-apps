@@ -2207,11 +2207,12 @@
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
 
-"@nrwl/eslint-plugin-nx@10.0.10":
-  version "10.0.10"
-  resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-10.0.10.tgz#0fff385afcf506d035652b4e1fa26ae174f4a8a2"
-  integrity sha512-lSauwCaFy5RchywnP0mRIxiZ17xkjUdecb63NdI3XrcdsJehr1wmkoGJsOSdZoSI5bJuosgsqLLyCgGbxYUaFA==
+"@nrwl/eslint-plugin-nx@10.2.1":
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-10.2.1.tgz#8181998654336e59b7d0246a3f1e20c9a8a6209b"
+  integrity sha512-LxgDKcsGPhZmmnwfKyNu2St4Wewm8AzawbrYsTE7M/C4jwYZh6quWZdPXqbrNnXU+r5XU5H1gE/maEeHSdWRoA==
   dependencies:
+    "@angular-devkit/core" "~10.0.0"
     "@typescript-eslint/experimental-utils" "^2.19.2"
 
 "@nrwl/jest@10.0.6":
