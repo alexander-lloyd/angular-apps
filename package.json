@@ -72,7 +72,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "@nrwl/angular": "10.0.6",
     "@nrwl/cypress": "10.0.6",
-    "@nrwl/eslint-plugin-nx": "10.0.10",
+    "@nrwl/eslint-plugin-nx": "10.2.1",
     "@nrwl/jest": "10.0.6",
     "@nrwl/linter": "^10.0.6",
     "@nrwl/storybook": "^10.0.7",
