@@ -20,6 +20,13 @@ class TodoListComponentStub {
   @Input() public todos;
 }
 
+@Component({
+  selector: 'al-create-todo',
+  template: ''
+})
+class CreateTodoComponentStub {
+}
+
 class TodoServiceStub {
   public getTodos(): void {}
 }
@@ -31,6 +38,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
+        CreateTodoComponentStub,
         TodoListComponentStub
       ],
       imports: [

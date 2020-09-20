@@ -1,0 +1,13 @@
+.al-todo-create-form-container {
+  @apply flex w-full;
+}
+
+.al-todo-create-form-input {
+  @apply flex-grow;
+}
+
+.al-todo-create-form-button {
+  @apply flex-none;
+  height: 4em;
+  width: 6em;
+}

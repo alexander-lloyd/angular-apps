@@ -1,0 +1,13 @@
+<div class="al-todo-create-form-container">
+  <mat-form-field appearance="outline" class="al-todo-create-form-input">
+    <mat-label>New Todo</mat-label>
+    <input matInput type="text" placeholder="Todo" [(ngModel)]="value" />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    class="al-todo-create-form-button"
+    (click)="_onSubmit(value)"
+  >
+    Create
+  </button>
+</div>
