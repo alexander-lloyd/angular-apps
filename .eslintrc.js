@@ -91,6 +91,7 @@ module.exports = {
         'Input',
         'NgModule',
         'Optional',
+        'Output',
         'Pipe'
       ]
     }],

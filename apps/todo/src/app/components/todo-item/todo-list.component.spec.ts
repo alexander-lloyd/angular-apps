@@ -8,7 +8,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MomentModule} from 'ngx-moment';
 
 import {TodoListComponent} from './todo-list.component';
-import { TodoTask } from '../../types/todo.types';
+import {TodoTask} from '../../types/todo.types';
 
 describe('TodoListComponent', () => {
   let fixture: ComponentFixture<TodoListComponent>;
