@@ -129,7 +129,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const component = fixture.componentInstance;
-    const {changeDetectorRef, _mobileQueryListener} = component as any;
+    const {changeDetectorRef, _mobileQueryListener} = component;
     const changeDetectorSpy = jest.spyOn(changeDetectorRef, 'detectChanges');
     _mobileQueryListener();
     expect(changeDetectorSpy).toHaveBeenCalledTimes(1);
