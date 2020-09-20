@@ -23,7 +23,7 @@ export class AppComponent implements OnDestroy, OnInit {
   public mobileQuery: MediaQueryList;
 
   private logger: Logger;
-  private _mobileQueryListener: () => void;
+  public _mobileQueryListener: () => void;
 
   public todos$: Observable<TodoTask[]>;
 
@@ -31,10 +31,13 @@ export class AppComponent implements OnDestroy, OnInit {
    * Constructor.
    *
    * @param logService LoggerService.
+   * @param changeDetectorRef change detector reference.
+   * @param media media matcher.
+   * @param todoService todo service.
    */
   public constructor(
     @Inject(LOG_SERVICE_TOKEN) private logService: LoggerService,
-    private changeDetectorRef: ChangeDetectorRef,
+    public changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     private todoService: TodoService
   ) {
