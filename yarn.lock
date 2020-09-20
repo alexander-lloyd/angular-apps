@@ -14,7 +14,7 @@
     ts-node "^8.10.2"
     webpack-merge "^4.2.2"
 
-"@angular-devkit/architect@0.1000.5", "@angular-devkit/architect@~0.1000.0":
+"@angular-devkit/architect@0.1000.5":
   version "0.1000.5"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1000.5.tgz#39488b92a366e49d50dda0af4eee3b0bb9425ec4"
   integrity sha512-BhNqB7fmmrDQwxoJ3zdw5FslFD+nYGgMTiC48ERVYJVuN3BK6xtt2OGA7vho3eJ13OE5cPGUi8crQDRROgxxQg==
@@ -22,13 +22,21 @@
     "@angular-devkit/core" "10.0.5"
     rxjs "6.5.5"
 
-"@angular-devkit/architect@0.1000.6", "@angular-devkit/architect@>=0.1000.0 < 0.1100.0":
+"@angular-devkit/architect@0.1000.6", "@angular-devkit/architect@~0.1000.0":
   version "0.1000.6"
   resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1000.6.tgz#d8143abbf1a1cef8e0ea9c80690821e8ca4cd54c"
   integrity sha512-IZ8yiiW+LQ5mI3VbNHzisTIn0j6D1inQZgcZtc5W2A7fFNvBlIh6vGU3mB6Qvg678Gt6tlvnNT6/R9A9Ct7VnA==
   dependencies:
     "@angular-devkit/core" "10.0.6"
     rxjs "6.5.5"
+
+"@angular-devkit/architect@0.1001.2", "@angular-devkit/architect@>=0.1000.0 < 0.1100.0":
+  version "0.1001.2"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1001.2.tgz#9f4d1f95e85a2b85d26bf8f5c06909552d703a02"
+  integrity sha512-05o12amjZ8NNIFehKm/lFYf12xvCclC7V5tGl/9+V7g/3pQqakwAjCysgb9T+ETffhmKhMnE8XdAJZqF7YrDcw==
+  dependencies:
+    "@angular-devkit/core" "10.1.2"
+    rxjs "6.6.2"
 
 "@angular-devkit/build-angular@0.1000.5":
   version "0.1000.5"
@@ -172,13 +180,13 @@
     webpack-subresource-integrity "1.4.1"
     worker-plugin "4.0.3"
 
-"@angular-devkit/build-ng-packagr@0.1000.5":
-  version "0.1000.5"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.1000.5.tgz#681774fa8982bf092e7ee33a19842e531a36a4dc"
-  integrity sha512-MiYwlyz6LOQONEBZMiaN3U7/CpsttNKmphdMmsBZyIPBnlHIHeHgekUEjYSMJDI9C/31HsstVR2DIJjOD2nJmw==
+"@angular-devkit/build-ng-packagr@0.1001.2":
+  version "0.1001.2"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-ng-packagr/-/build-ng-packagr-0.1001.2.tgz#96ab007edc95487df6382a7161e10a324306dd09"
+  integrity sha512-tDGcrLA7z7/teuKlrhKL+1OgImLdY8wVv5OpFb219gG/t0mRy27xHzTd1YxulOjkaSfDUNIi859mnySv8knVsw==
   dependencies:
-    "@angular-devkit/architect" "0.1000.5"
-    rxjs "6.5.5"
+    "@angular-devkit/architect" "0.1001.2"
+    rxjs "6.6.2"
 
 "@angular-devkit/build-optimizer@0.1000.5":
   version "0.1000.5"
@@ -249,6 +257,17 @@
     fast-json-stable-stringify "2.1.0"
     magic-string "0.25.7"
     rxjs "6.5.5"
+    source-map "0.7.3"
+
+"@angular-devkit/core@10.1.2":
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-10.1.2.tgz#3deb429596a6127c5b68bbc3bbd49cf00aeac966"
+  integrity sha512-LMxesiCuXRe3UzPdRouXsC1W73/q6rVtACVoD5GdzmmnZ7cRh7oiwonqT0lEXIKQikMsZUasUOXHD2HoKV6BoA==
+  dependencies:
+    ajv "6.12.4"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.2"
     source-map "0.7.3"
 
 "@angular-devkit/core@8.0.0":
@@ -3620,6 +3639,16 @@ ajv@6.12.3:
   version "6.12.3"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.3.tgz#18c5af38a111ddeb4f2697bd78d68abc1cabd706"
   integrity sha512-4K0cK3L1hsqk9xIb2z9vs/XU+PGJZ9PNpJRDS9YLzmNdX6jmVPfamLvTJr0aDAusnHyCHO6MjzlkAsgtqp9teA==
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    fast-json-stable-stringify "^2.0.0"
+    json-schema-traverse "^0.4.1"
+    uri-js "^4.2.2"
+
+ajv@6.12.4:
+  version "6.12.4"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.4.tgz#0614facc4522127fa713445c6bfd3ebd376e2234"
+  integrity sha512-eienB2c9qVQs2KWexhkrdMLVDoIQCz5KSeLxwg9Lzk4DOfBtIK9PQwwufcsn1jjGuf9WZmqPMbGxOzfcuphJCQ==
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
@@ -14479,6 +14508,13 @@ rxjs@6.5.5:
   version "6.5.5"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.5.5.tgz#c5c884e3094c8cfee31bf27eb87e54ccfc87f9ec"
   integrity sha512-WfQI+1gohdf0Dai/Bbmk5L5ItH5tYqm3ki2c5GdWhKjalzjg93N3avFjVStyZZz+A2Em+ZxKH5bNghw9UeylGQ==
+  dependencies:
+    tslib "^1.9.0"
+
+rxjs@6.6.2:
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.2.tgz#8096a7ac03f2cc4fe5860ef6e572810d9e01c0d2"
+  integrity sha512-BHdBMVoWC2sL26w//BCu3YzKT4s2jip/WhwsGEDmeKYBhKDZeYezVUnHatYB7L85v5xs0BAQmg6BEYJEKxBabg==
   dependencies:
     tslib "^1.9.0"
 
