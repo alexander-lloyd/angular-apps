@@ -37,6 +37,6 @@ jobs:
         yarn install --frozen-lockfile
     - name: Build 🏗️ & Deploy Affected Apps 🚀
       run: |
-        yarn affected:deploy --base=origin/master --message "Deploying $GITHUB_SHA from $GITHUB_REF"
+        yarn nx run-many --all --target="deploy" --message "Deploying $GITHUB_SHA from $GITHUB_REF"
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
