@@ -11526,12 +11526,12 @@ ngx-build-plus@^10.1.1:
     webpack-dev-server "^3.1.14"
     webpack-merge "^4.2.1"
 
-ngx-moment@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/ngx-moment/-/ngx-moment-3.5.0.tgz#97a4575a05d038612229b9fe09c4910353020613"
-  integrity sha512-QC/5XNC0BW6WkJkwZT4r2A29j/8sJAmhuQJrEnEdpW35GvkemccuxEUAwo/PwkzPB/CHaquR00E6P2HVEQ1iEg==
+ngx-moment@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-moment/-/ngx-moment-5.0.0.tgz#6500432a2fcda75fb236a632850e599db23c8177"
+  integrity sha512-LPpGPo4ccdh8RWnDbJdLTLGGGcwbRYMbn/j4PXM24754J7MZ0tgnBM+ncaVbwefUSSEMme8yMkNIxFiVxgOOvQ==
   dependencies:
-    tslib "^1.9.0"
+    tslib "^2.0.0"
 
 ngx-translate-testing@^5.0.0:
   version "5.0.0"
