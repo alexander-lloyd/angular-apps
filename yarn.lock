@@ -295,10 +295,10 @@
   dependencies:
     "@typescript-eslint/experimental-utils" "2.31.0"
 
-"@angular-eslint/eslint-plugin@0.0.1-alpha.32":
-  version "0.0.1-alpha.32"
-  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-0.0.1-alpha.32.tgz#5c137b77ed7054cb58868d966fb4c6572d1d03c5"
-  integrity sha512-QZWDK8ze+rFRXlrqrwxQTj9IVJ/GyoRNFTGUsMjkw1usREghQZmrl3zHLm7YvjPQp8vT+QUKrWu8jP7lB/+pKg==
+"@angular-eslint/eslint-plugin@0.0.1-alpha.33":
+  version "0.0.1-alpha.33"
+  resolved "https://registry.yarnpkg.com/@angular-eslint/eslint-plugin/-/eslint-plugin-0.0.1-alpha.33.tgz#3b000837010278faff2deb6bd24953adb58cef25"
+  integrity sha512-2P4fjX479JFtphgKgy6y8HL3INeyS27kxwv0u6uH/rrA76LICl3jBlZ1DnbhqVena/81xyyIp5BhkbSSHSSezA==
   dependencies:
     "@typescript-eslint/experimental-utils" "2.31.0"
 
