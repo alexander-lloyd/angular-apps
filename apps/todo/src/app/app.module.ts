@@ -8,6 +8,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ServiceWorkerModule} from '@angular/service-worker';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MomentModule} from 'ngx-moment';
 
@@ -17,6 +18,7 @@ import {TodoListComponent} from './components/todo-item/todo-list.component';
 import {LocalStorageService} from './services/local-storage.service';
 import {TodoService} from './services/todo.service';
 import {CreateTodoComponent} from './components/todo-item/create-todo/create-todo.component';
+import {environment} from '../environments/environment';
 
 
 /**
@@ -40,7 +42,8 @@ import {CreateTodoComponent} from './components/todo-item/create-todo/create-tod
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MomentModule
+    MomentModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
     LocalStorageService,
