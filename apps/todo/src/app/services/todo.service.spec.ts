@@ -7,6 +7,7 @@ import {LocalStorageService} from './local-storage.service';
 
 class LocalStorageServiceStub {
   public getItem() {}
+  public setItem() {}
 }
 
 
@@ -20,6 +21,7 @@ describe('TodoService', () => {
 
   let localStorageService: LocalStorageService;
   let getItemSpy: jest.SpyInstance<string, [string]>;
+  let setItemSpy: jest.SpyInstance<void, [string, string]>;
   let service: TodoService;
 
   beforeEach(() => {
@@ -36,6 +38,7 @@ describe('TodoService', () => {
     service = TestBed.inject(TodoService);
     localStorageService = TestBed.inject(LocalStorageService);
     getItemSpy = jest.spyOn(localStorageService, 'getItem');
+    setItemSpy = jest.spyOn(localStorageService, 'setItem');
   });
 
   it('should be truthy', () => {
@@ -57,5 +60,13 @@ describe('TodoService', () => {
     const todos = await service.getTodos().toPromise();
     expect(todos).toStrictEqual([]);
     expect(getItemSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should add a todo', () => {
+    expect.assertions(2);
+    getItemSpy.mockImplementation(() => '[]');
+    service.addTodo(todo);
+    expect(setItemSpy).toHaveBeenCalledTimes(1);
+    expect(setItemSpy).toHaveBeenCalledWith(TodoService.TODOS_KEY, JSON.stringify([todo]));
   });
 });
