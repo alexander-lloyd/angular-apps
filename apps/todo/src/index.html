@@ -32,12 +32,40 @@
     <meta name="msapplication-TileColor" content="#ff867f" />
     <meta name="msapplication-config" content="./assets/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
+
+    <!-- [1] Preemptively warm up the fonts’ origin. -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- [2] Initiate a high-priority, asynchronous fetch for the CSS file. Works in most modern browsers. -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
       integrity="sha256-Haw2h6Ev+kwGhnJ4M6rWpPZx45nKKssA6bx3wtv/Ya0="
       crossorigin="anonymous"
-      rel="stylesheet"
     />
+    <!-- [3] Initiate a low-priority, asynchronous fetch that gets applied to the page
+      - only after it’s arrived. Works in all browsers with JavaScript enabled.
+      -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+      media="print"
+      onload="this.media='all'"
+      integrity="sha256-Haw2h6Ev+kwGhnJ4M6rWpPZx45nKKssA6bx3wtv/Ya0="
+      crossorigin="anonymous"
+    />
+    <!-- [4] In the unlikely event that a visitor has disabled JavaScript, make a
+      - render-blocking request, it can still make use of the preconnect which makes
+      - it marginally faster than the default.
+      -->
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap"
+        integrity="sha256-Haw2h6Ev+kwGhnJ4M6rWpPZx45nKKssA6bx3wtv/Ya0="
+        crossorigin="anonymous"
+      />
+    </noscript>
   </head>
   <body class="mat-app-background mat-typography">
     <al-root></al-root>
