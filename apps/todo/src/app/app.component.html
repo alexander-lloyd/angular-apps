@@ -25,6 +25,6 @@
 
   <mat-sidenav-content class="al-todo-content">
     <al-todo-list [todos]="todos$ | async"></al-todo-list>
-    <al-create-todo></al-create-todo>
+    <al-create-todo (submitTodo)="addTask($event)"></al-create-todo>
   </mat-sidenav-content>
 </mat-sidenav-container>

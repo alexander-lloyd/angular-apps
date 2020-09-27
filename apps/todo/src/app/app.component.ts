@@ -56,4 +56,13 @@ export class AppComponent implements OnDestroy, OnInit {
   public ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  /**
+   * Callback called to add a task.
+   *
+   * @param todoTask Todo task.
+   */
+  public addTask(todoTask: TodoTask): void {
+    this.todoService.addTodo(todoTask);
+  }
 }
