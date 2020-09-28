@@ -20,6 +20,14 @@ export class TodoEffects {
     ))
   ));
 
+  public addTask$ = createEffect(() => this.actions$.pipe(
+    ofType(actions.addTask),
+    mergeMap(({task}) => {
+      this.todoService.addTodo(task);
+      return of(actions.getTasks());
+    })
+  ));
+
   public init$ = createEffect(() => this.actions$.pipe(
     ofType(ROOT_EFFECTS_INIT),
     map((_) => actions.getTasks())

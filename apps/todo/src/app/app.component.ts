@@ -7,7 +7,7 @@ import {map} from 'rxjs/operators';
 
 import {LOG_SERVICE_TOKEN, LoggerService, Logger} from '@al/logger';
 
-import {TodoService} from './services/todo.service';
+import * as actions from './store/todo.actions';
 import {TodoTask} from './types/todo.types';
 import {GlobalState} from './store/todo.types';
 import * as selectors from './store/todo.selectors';
@@ -36,14 +36,12 @@ export class AppComponent implements OnDestroy, OnInit {
    * @param logService LoggerService.
    * @param changeDetectorRef change detector reference.
    * @param media media matcher.
-   * @param todoService todo service.
    * @param store Global Store.
    */
   public constructor(
     @Inject(LOG_SERVICE_TOKEN) private logService: LoggerService,
     public changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
-    private todoService: TodoService,
     private store: Store<GlobalState>
   ) {
     this.logger = this.logService.getLogger('AppComponent');
@@ -65,9 +63,9 @@ export class AppComponent implements OnDestroy, OnInit {
   /**
    * Callback called to add a task.
    *
-   * @param todoTask Todo task.
+   * @param task Todo task.
    */
-  public addTask(todoTask: TodoTask): void {
-    this.todoService.addTodo(todoTask);
+  public addTask(task: TodoTask): void {
+    this.store.dispatch(actions.addTask({task}));
   }
 }

@@ -12,6 +12,7 @@ import {TodoEffects} from './todo.effects';
 
 class TodoServiceStub {
   public getTodos() {}
+  public addTodo() {}
 }
 
 describe('TodoEffects', () => {
@@ -65,6 +66,26 @@ describe('TodoEffects', () => {
       effects.loadTasks$.subscribe((action) => {
         expect(getTodosSpy).toHaveBeenCalledTimes(1);
         expect(action.type).toBe(actions.getTasksFailureAction);
+        resolve();
+      });
+    });
+  });
+
+  it('should add a task when a save task action', async () => {
+    expect.assertions(2);
+    const task: TodoTask = {
+      id: 1,
+      completed: false,
+      due: '',
+      name: 'b'
+    };
+    actions$ = of(actions.addTask({task}));
+    const addTodoSpy = jest.spyOn(todoService, 'addTodo').mockImplementation();
+
+    await new Promise((resolve) => {
+      effects.addTask$.subscribe((action) => {
+        expect(addTodoSpy).toHaveBeenCalledTimes(1);
+        expect(action.type).toBe(actions.getTasksAction);
         resolve();
       });
     });

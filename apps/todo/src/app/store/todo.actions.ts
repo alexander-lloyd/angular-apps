@@ -5,6 +5,7 @@ export const getTasksAction = '[Todo] Get Tasks';
 export const getTasksSuccessAction = '[Todo] Get Tasks Success';
 export const getTasksFailureAction = '[Todo] Get Tasks Failure';
 export const addTaskAction = '[Todo] Add Task';
+export const addTaskSuccessAction = '[Todo] Add Task Success';
 
 export const getTasks = createAction(
   getTasksAction
