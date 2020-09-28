@@ -4,11 +4,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {MemoizedSelector} from '@ngrx/store';
+import {provideMockStore, MockStore} from '@ngrx/store/testing';
 import {of} from 'rxjs';
 
 import {LoggerModule} from '@al/logger';
 import {AppComponent} from './app.component';
 import {TodoService} from './services/todo.service';
+import {selectTasks} from './store/todo.selectors';
+import {GlobalState} from './store/todo.types';
 import {TodoTask} from './types/todo.types';
 
 
@@ -32,7 +36,14 @@ class TodoServiceStub {
 }
 
 describe('AppComponent', () => {
+  const initialState: GlobalState = {
+    todo: {
+      todos: []
+    }
+  };
   let todoService: TodoService;
+  let mockStore: MockStore;
+  let mockTodoTaskSelector: MemoizedSelector<GlobalState, TodoTask[]>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -52,11 +63,14 @@ describe('AppComponent', () => {
         {
           provide: TodoService,
           useClass: TodoServiceStub
-        }
+        },
+        provideMockStore({initialState})
       ]
     }).compileComponents();
 
     todoService = TestBed.inject(TodoService);
+    mockStore = TestBed.inject(MockStore);
+    mockTodoTaskSelector = mockStore.overrideSelector(selectTasks, []);
   }));
 
   it('should create the app', () => {
@@ -82,7 +96,7 @@ describe('AppComponent', () => {
 
   it('should sort list of todos', async () => {
     expect.assertions(1);
-    const todos: TodoTask[] = [
+    const tasks: TodoTask[] = [
       {
         name: 'def',
         due: '2020-06-28T08:40:10.567Z',
@@ -96,8 +110,8 @@ describe('AppComponent', () => {
         id: 123
       }
     ];
-    jest.spyOn(todoService, 'getTodos')
-      .mockImplementation(() => of(todos));
+    mockTodoTaskSelector.setResult(tasks);
+    mockStore.refreshState();
 
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
@@ -123,8 +137,6 @@ describe('AppComponent', () => {
 
   it('should call change detection when screen size changes', () => {
     expect.assertions(1);
-    jest.spyOn(todoService, 'getTodos')
-      .mockImplementation(() => of([]));
 
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

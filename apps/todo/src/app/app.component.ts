@@ -1,6 +1,7 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {Component, Inject, ChangeDetectorRef, OnDestroy, OnInit} from '@angular/core';
 import {faBars, faCog} from '@fortawesome/free-solid-svg-icons';
+import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -8,6 +9,8 @@ import {LOG_SERVICE_TOKEN, LoggerService, Logger} from '@al/logger';
 
 import {TodoService} from './services/todo.service';
 import {TodoTask} from './types/todo.types';
+import {GlobalState} from './store/todo.types';
+import * as selectors from './store/todo.selectors';
 
 /**
  * AppComponent.
@@ -34,12 +37,14 @@ export class AppComponent implements OnDestroy, OnInit {
    * @param changeDetectorRef change detector reference.
    * @param media media matcher.
    * @param todoService todo service.
+   * @param store Global Store.
    */
   public constructor(
     @Inject(LOG_SERVICE_TOKEN) private logService: LoggerService,
     public changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
-    private todoService: TodoService
+    private todoService: TodoService,
+    private store: Store<GlobalState>
   ) {
     this.logger = this.logService.getLogger('AppComponent');
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -48,8 +53,8 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   public ngOnInit(): void {
-    this.todos$ = this.todoService.getTodos().pipe(
-      map((todos: TodoTask[]) => todos.sort((taskA, taskB) => Date.parse(taskA.due) - Date.parse(taskB.due)))
+    this.todos$ = this.store.select(selectors.selectTasks).pipe(
+      map((todos: TodoTask[]) => [...todos].sort((taskA, taskB) => Date.parse(taskA.due) - Date.parse(taskB.due)))
     );
   }
 
