@@ -10,6 +10,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreModule} from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {MomentModule} from 'ngx-moment';
 
 import {LoggerModule} from '@al/logger';
@@ -19,6 +22,8 @@ import {LocalStorageService} from './services/local-storage.service';
 import {TodoService} from './services/todo.service';
 import {CreateTodoComponent} from './components/todo-item/create-todo/create-todo.component';
 import {environment} from '../environments/environment';
+import {TodoEffects} from './store/todo.effects';
+import {todoReducer} from './store/todo.reducer';
 
 
 /**
@@ -33,6 +38,7 @@ import {environment} from '../environments/environment';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    EffectsModule.forRoot([TodoEffects]),
     FormsModule,
     FontAwesomeModule,
     LoggerModule,
@@ -43,7 +49,14 @@ import {environment} from '../environments/environment';
     MatSidenavModule,
     MatToolbarModule,
     MomentModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    }),
+    StoreModule.forRoot({
+      todo: todoReducer
+    }, {})
   ],
   providers: [
     LocalStorageService,
