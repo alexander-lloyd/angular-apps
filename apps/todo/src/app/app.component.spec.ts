@@ -1,7 +1,8 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TestBed, async} from '@angular/core/testing';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {By} from '@angular/platform-browser';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MemoizedSelector} from '@ngrx/store';
@@ -11,6 +12,7 @@ import {of} from 'rxjs';
 import {LoggerModule} from '@al/logger';
 import {AppComponent} from './app.component';
 import {TodoService} from './services/todo.service';
+import * as actions from './store/todo.actions';
 import {selectTasks} from './store/todo.selectors';
 import {GlobalState} from './store/todo.types';
 import {TodoTask} from './types/todo.types';
@@ -29,6 +31,8 @@ class TodoListComponentStub {
   template: ''
 })
 class CreateTodoComponentStub {
+  @Output()
+  public submitTodo = new EventEmitter<TodoTask>();
 }
 
 class TodoServiceStub {
@@ -145,5 +149,26 @@ describe('AppComponent', () => {
     const changeDetectorSpy = jest.spyOn(changeDetectorRef, 'detectChanges');
     _mobileQueryListener();
     expect(changeDetectorSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should dispatch add todo action when button is pressed', () => {
+    expect.assertions(2);
+    const task: TodoTask = {
+      id: 1,
+      completed: false,
+      due: '1',
+      name: 'a'
+    };
+    const fixture = TestBed.createComponent(AppComponent);
+    const createTodoFixture = fixture.debugElement.query(By.directive(CreateTodoComponentStub));
+    const createTodoComponent = createTodoFixture.componentInstance as CreateTodoComponentStub;
+    fixture.detectChanges();
+
+    const storeEmitSpy = jest.spyOn(mockStore, 'dispatch');
+
+    createTodoComponent.submitTodo.emit(task);
+
+    expect(storeEmitSpy).toHaveBeenCalledTimes(1);
+    expect(storeEmitSpy).toHaveBeenCalledWith(actions.addTask({task}));
   });
 });
