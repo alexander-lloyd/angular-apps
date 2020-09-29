@@ -21,7 +21,10 @@
             "polyfills": "apps/todo/src/polyfills.ts",
             "tsConfig": "apps/todo/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/todo/src/assets", "apps/todo/src/manifest.webmanifest"],
+            "assets": [
+              "apps/todo/src/assets",
+              "apps/todo/src/manifest.webmanifest"
+            ],
             "styles": ["apps/todo/src/styles.scss"],
             "scripts": [],
             "customWebpackConfig": {
