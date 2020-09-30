@@ -92,7 +92,8 @@ module.exports = {
         'NgModule',
         'Optional',
         'Output',
-        'Pipe'
+        'Pipe',
+        'ViewChild'
       ]
     }],
     'no-console': 'warn',

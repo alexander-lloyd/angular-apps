@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {TodoTask} from '../../../types/todo.types';
 
 /**
@@ -15,6 +15,9 @@ export class CreateTodoComponent {
   @Output()
   public submitTodo = new EventEmitter<TodoTask>();
 
+  @ViewChild('taskNameInput')
+  public input: ElementRef<HTMLInputElement>;
+
   /**
    * Internal method called when form is submitted.
    * Calls the EventEmitter.
@@ -29,5 +32,7 @@ export class CreateTodoComponent {
       name
     };
     this.submitTodo.emit(task);
+    // Clear the input
+    this.input.nativeElement.value = '';
   }
 }
