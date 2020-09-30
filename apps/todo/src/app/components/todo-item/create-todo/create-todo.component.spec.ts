@@ -40,12 +40,30 @@ describe('CreateTodoComponent', () => {
     const input = await loader.getHarness(MatInputHarness);
     const button = await loader.getHarness(MatButtonHarness);
 
-    component.submitTodo.subscribe((name) => {
+    component.submitTodo.subscribe(({name}) => {
       expect(name).toBe(taskName);
     });
 
     await input.focus();
     await input.setValue(taskName);
     await button.click();
+  });
+
+  it('should clear the text input when the task is created', async () => {
+    expect.assertions(2);
+    const taskName = 'taskName';
+
+    const input = await loader.getHarness(MatInputHarness);
+    const button = await loader.getHarness(MatButtonHarness);
+
+    component.submitTodo.subscribe(({name}) => {
+      expect(name).toBe(taskName);
+    });
+
+    await input.focus();
+    await input.setValue(taskName);
+    await button.click();
+    const inputValue = await input.getValue();
+    expect(inputValue).toBe('');
   });
 });
