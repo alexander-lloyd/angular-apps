@@ -1,5 +1,5 @@
 import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import {TodoTask} from '../../../types/todo.types';
+import {TodoTask} from '../../types/todo.types';
 
 /**
  * Create Todo Form Component.

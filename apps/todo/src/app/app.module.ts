@@ -20,7 +20,7 @@ import {AppComponent} from './app.component';
 import {TodoListComponent} from './components/todo-item/todo-list.component';
 import {LocalStorageService} from './services/local-storage.service';
 import {TodoService} from './services/todo.service';
-import {CreateTodoComponent} from './components/todo-item/create-todo/create-todo.component';
+import {CreateTodoComponent} from './components/create-todo/create-todo.component';
 import {environment} from '../environments/environment';
 import {TodoEffects} from './store/todo.effects';
 import {todoReducer} from './store/todo.reducer';
