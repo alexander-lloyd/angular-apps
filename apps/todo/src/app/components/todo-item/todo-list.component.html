@@ -1,6 +1,10 @@
 <mat-list>
   <mat-list-item *ngFor="let todo of todos">
-    <mat-checkbox mat-list-icon></mat-checkbox>
+    <mat-checkbox
+      mat-list-icon
+      (change)="this._onTaskComplete(todo)"
+      aria-label="Complete Task"
+    ></mat-checkbox>
     <div mat-line>{{ todo.name }}</div>
     <fa-icon [icon]="faCalendar"></fa-icon>
     <p>{{ todo.due | amCalendar }}</p>
