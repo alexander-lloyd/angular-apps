@@ -97,10 +97,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/todo/jest.config.js",
-            "tsConfig": "apps/todo/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/todo/src/test-setup.ts"
+            "jestConfig": "apps/todo/jest.config.js"
           }
         },
         "deploy": {
@@ -178,10 +175,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/logger/jest.config.js",
-            "tsConfig": "libs/logger/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/logger/src/test-setup.ts"
+            "jestConfig": "libs/logger/jest.config.js"
           }
         }
       },
@@ -287,10 +281,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/spotify-player/jest.config.js",
-            "tsConfig": "apps/spotify-player/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/spotify-player/src/test-setup.ts"
+            "jestConfig": "apps/spotify-player/jest.config.js"
           }
         },
         "deploy": {
@@ -365,10 +356,7 @@
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/components/button/jest.config.js",
-            "tsConfig": "libs/components/button/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/components/button/src/test-setup.ts"
+            "jestConfig": "libs/components/button/jest.config.js"
           }
         },
         "storybook": {
