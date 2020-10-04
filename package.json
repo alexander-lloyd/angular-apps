@@ -50,7 +50,6 @@
     "@ngrx/store-devtools": "10.0.0",
     "angular-oauth2-oidc": "^10.0.3",
     "core-js": "^3.6.5",
-    "ngx-moment": "5.0.0",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.3"
@@ -91,6 +90,7 @@
     "codecov": "^3.7.1",
     "cypress": "^4.8.0",
     "cypress-lighthouse": "^0.1.0",
+    "date-fns": "^2.16.1",
     "dotenv": "8.2.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "6.12.0",
@@ -104,6 +104,7 @@
     "jest-preset-angular": "8.3.1",
     "ng-packagr": "10.1.2",
     "ngx-build-plus": "^10.1.1",
+    "ngx-date-fns": "^6.5.0",
     "ngx-translate-testing": "^5.0.0",
     "nyc": "^15.1.0",
     "postcss-import": "^12.0.1",

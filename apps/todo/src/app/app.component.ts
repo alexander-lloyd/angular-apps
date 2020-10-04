@@ -52,7 +52,7 @@ export class AppComponent implements OnDestroy, OnInit {
 
   public ngOnInit(): void {
     this.todos$ = this.store.select(selectors.selectOpenTasks).pipe(
-      map((todos: TodoTask[]) => [...todos].sort((taskA, taskB) => Date.parse(taskA.due) - Date.parse(taskB.due)))
+      map((todos: TodoTask[]) => [...todos].sort((taskA, taskB) => taskA.due - taskB.due))
     );
   }
 

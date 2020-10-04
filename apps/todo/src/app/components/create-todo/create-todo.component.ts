@@ -28,7 +28,7 @@ export class CreateTodoComponent {
   public _onSubmit(name: string): void {
     const task: TodoTask = {
       completed: false,
-      due: '',
+      due: 0,
       id: uuidv4(),
       name
     };
