@@ -186,6 +186,7 @@ module.exports = {
         '@typescript-eslint/no-empty-interface': 'error',
         '@typescript-eslint/no-empty-function': 'error',
         '@typescript-eslint/no-extra-parens': ['error', 'all', {
+          enforceForArrowConditionals: false,
           ignoreJSX: 'multi-line',
           nestedBinaryExpressions: false
         }],

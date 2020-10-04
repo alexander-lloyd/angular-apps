@@ -27,3 +27,17 @@ export interface AddTodoActionProperties {
 export interface GetTodoSuccessProperties {
   todos: TodoTask[];
 }
+
+/**
+ * Complete Task Success Properties.
+ */
+export interface CompleteTaskProperties {
+  task: TodoTask;
+}
+
+/**
+ * Save Tasks Properties.
+ */
+export interface SaveTasksProperties {
+  tasks: TodoTask[]
+}

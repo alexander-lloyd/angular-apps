@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {TestBed, async} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {By} from '@angular/platform-browser';
@@ -13,7 +13,7 @@ import {LoggerModule} from '@al/logger';
 import {AppComponent} from './app.component';
 import {TodoService} from './services/todo.service';
 import * as actions from './store/todo.actions';
-import {selectTasks} from './store/todo.selectors';
+import * as selectors from './store/todo.selectors';
 import {GlobalState} from './store/todo.types';
 import {TodoTask} from './types/todo.types';
 
@@ -24,6 +24,8 @@ import {TodoTask} from './types/todo.types';
 })
 class TodoListComponentStub {
   @Input() public todos;
+  @Output()
+  public taskCompleted = new EventEmitter<TodoTask>();
 }
 
 @Component({
@@ -49,8 +51,8 @@ describe('AppComponent', () => {
   let mockStore: MockStore;
   let mockTodoTaskSelector: MemoizedSelector<GlobalState, TodoTask[]>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       declarations: [
         AppComponent,
         CreateTodoComponentStub,
@@ -74,8 +76,8 @@ describe('AppComponent', () => {
 
     todoService = TestBed.inject(TodoService);
     mockStore = TestBed.inject(MockStore);
-    mockTodoTaskSelector = mockStore.overrideSelector(selectTasks, []);
-  }));
+    mockTodoTaskSelector = mockStore.overrideSelector(selectors.selectOpenTasks, []);
+  });
 
   it('should create the app', () => {
     expect.assertions(1);
@@ -170,5 +172,26 @@ describe('AppComponent', () => {
 
     expect(storeEmitSpy).toHaveBeenCalledTimes(1);
     expect(storeEmitSpy).toHaveBeenCalledWith(actions.addTask({task}));
+  });
+
+  it('should dispatch complete task action when  is pressed', () => {
+    expect.assertions(2);
+    const task: TodoTask = {
+      id: 1,
+      completed: false,
+      due: '1',
+      name: 'a'
+    };
+    const fixture = TestBed.createComponent(AppComponent);
+    const todoListFixture = fixture.debugElement.query(By.directive(TodoListComponentStub));
+    const todoListComponent = todoListFixture.componentInstance as TodoListComponentStub;
+    fixture.detectChanges();
+
+    const storeEmitSpy = jest.spyOn(mockStore, 'dispatch');
+
+    todoListComponent.taskCompleted.emit(task);
+
+    expect(storeEmitSpy).toHaveBeenCalledTimes(1);
+    expect(storeEmitSpy).toHaveBeenCalledWith(actions.completeTask({task}));
   });
 });

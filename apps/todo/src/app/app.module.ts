@@ -50,13 +50,13 @@ import {todoReducer} from './store/todo.reducer';
     MatToolbarModule,
     MomentModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    StoreModule.forRoot({
+      todo: todoReducer
+    }, {}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    }),
-    StoreModule.forRoot({
-      todo: todoReducer
-    }, {})
+    })
   ],
   providers: [
     LocalStorageService,

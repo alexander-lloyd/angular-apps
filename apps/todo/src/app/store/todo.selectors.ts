@@ -8,15 +8,43 @@ import {TodoTask} from '../types/todo.types';
  * @param state The global app state.
  * @returns The todo app store.
  */
-export const selectTodo = (state: GlobalState): TodoStore => state.todo;
+export const getTodoState = (state: GlobalState): TodoStore => state.todo;
 
 /**
- * Get the list of todos.
+ * Get all the tasks.
+ *
+ * @param state The todo app state.
+ * @returns List of tasks.
+ */
+export const getTasks = (state: TodoStore): TodoTask[] => state.todos;
+
+/**
+ * Get all the open tasks.
+ *
+ * @param state The todo app state.
+ * @returns List of tasks.
+ */
+export const getOpenTasks = (state: TodoStore): TodoTask[] => getTasks(state)
+  .filter((task: TodoTask) => !task.completed);
+
+/**
+ * Get the list of tasks.
  *
  * @param state The global app state.
  * @returns The list of tasks.
  */
 export const selectTasks = createSelector(
-  selectTodo,
-  (state: TodoStore): TodoTask[] => state.todos
+  getTodoState,
+  getTasks
+);
+
+/**
+ * Get the list of open tasks.
+ *
+ * @param state The global app state.
+ * @returns The list of open tasks.
+ */
+export const selectOpenTasks = createSelector(
+  getTodoState,
+  getOpenTasks
 );

@@ -18,7 +18,20 @@ const _todoReducer = createReducer(
       ...state,
       todos: [...todos, task]
     };
-  })
+  }),
+  on(actions.completeTask, (state, {task: completedTask}) => ({
+    ...state,
+    todos: [
+      ...state.todos.map(
+        (task) => (task.id === completedTask.id
+          ? {
+            ...completedTask,
+            completed: true
+          }
+          : task)
+      )
+    ]
+  }))
 );
 
 /**
