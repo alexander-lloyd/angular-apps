@@ -28,6 +28,42 @@ describe('Todo Reducer', () => {
     });
   });
 
+  it('should add tasks to store in sorted order', () => {
+    expect.assertions(1);
+    const state: TodoStore = {
+      todos: []
+    };
+    const todos = [{
+      id: 2,
+      completed: false,
+      due: 1,
+      name: ''
+    },
+    {
+      id: 1,
+      completed: false,
+      due: 0,
+      name: ''
+    }];
+
+    const action = actions.getTasksSuccess({todos});
+
+    expect(todoReducer(state, action)).toStrictEqual({
+      todos: [{
+        id: 1,
+        completed: false,
+        due: 0,
+        name: ''
+      },
+      {
+        id: 2,
+        completed: false,
+        due: 1,
+        name: ''
+      }]
+    });
+  });
+
   it('should add a task to the store', () => {
     expect.assertions(1);
     const state: TodoStore = {
@@ -45,6 +81,43 @@ describe('Todo Reducer', () => {
       todos: [task]
     });
   });
+
+  it('should add a task in sorted order', () => {
+    expect.assertions(1);
+    const state: TodoStore = {
+      todos: [{
+        id: 2,
+        completed: false,
+        due: 1,
+        name: ''
+      }]
+    };
+    const task: TodoTask = {
+      id: 1,
+      completed: false,
+      due: 0,
+      name: ''
+    };
+    const action = actions.addTask({task});
+
+    expect(todoReducer(state, action)).toStrictEqual({
+      todos: [
+        {
+          id: 1,
+          completed: false,
+          due: 0,
+          name: ''
+        },
+        {
+          id: 2,
+          completed: false,
+          due: 1,
+          name: ''
+        }
+      ]
+    });
+  });
+
 
   it('should complete a task in task list', () => {
     expect.assertions(1);

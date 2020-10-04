@@ -1,5 +1,6 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import * as actions from './todo.actions';
+import {sortTasks} from './todo.selectors';
 import {TodoStore} from './todo.types';
 
 export const initialState: TodoStore = {
@@ -10,13 +11,14 @@ const _todoReducer = createReducer(
   initialState,
   on(actions.getTasksSuccess, (state, {todos}) => ({
     ...state,
-    todos
+    todos: todos.sort(sortTasks)
   })),
   on(actions.addTask, (state, {task}) => {
     const {todos} = state;
     return {
       ...state,
-      todos: [...todos, task]
+      // Is it going to be better to do an insertion?
+      todos: [...todos, task].sort(sortTasks)
     };
   }),
   on(actions.completeTask, (state, {task: completedTask}) => ({

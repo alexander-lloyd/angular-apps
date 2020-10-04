@@ -5,7 +5,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {By} from '@angular/platform-browser';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {MemoizedSelector} from '@ngrx/store';
 import {provideMockStore, MockStore} from '@ngrx/store/testing';
 import {of} from 'rxjs';
 
@@ -49,7 +48,6 @@ describe('AppComponent', () => {
   };
   let todoService: TodoService;
   let mockStore: MockStore;
-  let mockTodoTaskSelector: MemoizedSelector<GlobalState, TodoTask[]>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -76,7 +74,7 @@ describe('AppComponent', () => {
 
     todoService = TestBed.inject(TodoService);
     mockStore = TestBed.inject(MockStore);
-    mockTodoTaskSelector = mockStore.overrideSelector(selectors.selectOpenTasks, []);
+    mockStore.overrideSelector(selectors.selectOpenTasks, []);
   });
 
   it('should create the app', () => {
@@ -98,47 +96,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('mat-toolbar').textContent).toContain('Todo App');
-  });
-
-  it('should sort list of todos', async () => {
-    expect.assertions(1);
-    const tasks: TodoTask[] = [
-      {
-        name: 'def',
-        due: 1593333610567,
-        completed: false,
-        id: 456
-      },
-      {
-        name: 'abc',
-        due: 1590655210567,
-        completed: false,
-        id: 123
-      }
-    ];
-    mockTodoTaskSelector.setResult(tasks);
-    mockStore.refreshState();
-
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    fixture.detectChanges();
-    await new Promise((resolve) => app.todos$.subscribe((sortedTodos) => {
-      expect(sortedTodos).toStrictEqual([
-        {
-          name: 'abc',
-          due: 1590655210567,
-          completed: false,
-          id: 123
-        },
-        {
-          name: 'def',
-          due: 1593333610567,
-          completed: false,
-          id: 456
-        }
-      ]);
-      resolve();
-    }));
   });
 
   it('should call change detection when screen size changes', () => {
