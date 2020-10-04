@@ -105,13 +105,13 @@ describe('AppComponent', () => {
     const tasks: TodoTask[] = [
       {
         name: 'def',
-        due: '2020-06-28T08:40:10.567Z',
+        due: 1593333610567,
         completed: false,
         id: 456
       },
       {
         name: 'abc',
-        due: '2020-05-28T08:40:10.567Z',
+        due: 1590655210567,
         completed: false,
         id: 123
       }
@@ -126,13 +126,13 @@ describe('AppComponent', () => {
       expect(sortedTodos).toStrictEqual([
         {
           name: 'abc',
-          due: '2020-05-28T08:40:10.567Z',
+          due: 1590655210567,
           completed: false,
           id: 123
         },
         {
           name: 'def',
-          due: '2020-06-28T08:40:10.567Z',
+          due: 1593333610567,
           completed: false,
           id: 456
         }
@@ -158,7 +158,7 @@ describe('AppComponent', () => {
     const task: TodoTask = {
       id: 1,
       completed: false,
-      due: '1',
+      due: 1,
       name: 'a'
     };
     const fixture = TestBed.createComponent(AppComponent);
@@ -179,7 +179,7 @@ describe('AppComponent', () => {
     const task: TodoTask = {
       id: 1,
       completed: false,
-      due: '1',
+      due: 1,
       name: 'a'
     };
     const fixture = TestBed.createComponent(AppComponent);

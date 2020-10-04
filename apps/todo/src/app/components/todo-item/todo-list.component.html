@@ -7,6 +7,6 @@
     ></mat-checkbox>
     <div mat-line>{{ todo.name }}</div>
     <fa-icon [icon]="faCalendar"></fa-icon>
-    <p>{{ todo.due | amCalendar }}</p>
+    <p>{{ todo.due | dfnsFormatDistanceToNow }}</p>
   </mat-list-item>
 </mat-list>

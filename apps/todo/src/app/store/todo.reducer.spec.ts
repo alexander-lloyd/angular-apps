@@ -18,7 +18,7 @@ describe('Todo Reducer', () => {
     const todos: TodoTask[] = [{
       id: 1,
       completed: false,
-      due: '',
+      due: 0,
       name: ''
     }];
     const action = actions.getTasksSuccess({todos});
@@ -36,7 +36,7 @@ describe('Todo Reducer', () => {
     const task: TodoTask = {
       id: 1,
       completed: false,
-      due: '',
+      due: 0,
       name: ''
     };
     const action = actions.addTask({task});
@@ -51,7 +51,7 @@ describe('Todo Reducer', () => {
     const task: TodoTask = {
       id: 1,
       completed: false,
-      due: '',
+      due: 0,
       name: ''
     };
     const state: TodoStore = {
@@ -73,13 +73,13 @@ describe('Todo Reducer', () => {
     const tasks: TodoTask[] = [{
       id: 1,
       completed: false,
-      due: '',
+      due: 0,
       name: ''
     },
     {
       id: 2,
       completed: false,
-      due: '',
+      due: 0,
       name: ''
     }];
     const state: TodoStore = {
@@ -93,13 +93,13 @@ describe('Todo Reducer', () => {
       todos: [{
         id: 1,
         completed: true,
-        due: '',
+        due: 0,
         name: ''
       },
       {
         id: 2,
         completed: false,
-        due: '',
+        due: 0,
         name: ''
       }]
     });

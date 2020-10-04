@@ -13,7 +13,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
-import {MomentModule} from 'ngx-moment';
+import {DateFnsModule} from 'ngx-date-fns';
 
 import {LoggerModule} from '@al/logger';
 import {AppComponent} from './app.component';
@@ -38,6 +38,7 @@ import {todoReducer} from './store/todo.reducer';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    DateFnsModule.forRoot(),
     EffectsModule.forRoot([TodoEffects]),
     FormsModule,
     FontAwesomeModule,
@@ -48,7 +49,6 @@ import {todoReducer} from './store/todo.reducer';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    MomentModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     StoreModule.forRoot({
       todo: todoReducer

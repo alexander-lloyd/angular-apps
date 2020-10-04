@@ -6,7 +6,7 @@ import {MatCheckboxHarness} from '@angular/material/checkbox/testing';
 import {MatListModule} from '@angular/material/list';
 import {MatListHarness} from '@angular/material/list/testing';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {MomentModule} from 'ngx-moment';
+import {DateFnsModule} from 'ngx-date-fns';
 
 import {TodoListComponent} from './todo-list.component';
 import {TodoTask} from '../../types/todo.types';
@@ -22,10 +22,10 @@ describe('TodoListComponent', () => {
         TodoListComponent
       ],
       imports: [
+        DateFnsModule,
         FontAwesomeModule,
         MatCheckboxModule,
-        MatListModule,
-        MomentModule
+        MatListModule
       ]
     }).compileComponents();
 
@@ -45,7 +45,7 @@ describe('TodoListComponent', () => {
       id: 123,
       name: 'Task',
       completed: false,
-      due: new Date().toISOString()
+      due: 0
     }];
     component.todos = todos;
 
@@ -61,7 +61,7 @@ describe('TodoListComponent', () => {
       id: 123,
       name: 'Task',
       completed: false,
-      due: new Date().toISOString()
+      due: 0
     }];
     component.todos = todos;
     fixture.detectChanges();

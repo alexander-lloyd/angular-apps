@@ -53,7 +53,7 @@ describe('TodoEffects', () => {
     const tasks: TodoTask[] = [{
       id: 1,
       completed: false,
-      due: '',
+      due: 0,
       name: 'Name'
     }];
     const getTodosSpy = jest.spyOn(todoService, 'getTodos').mockImplementation(() => of(tasks));
@@ -88,7 +88,7 @@ describe('TodoEffects', () => {
     const task: TodoTask = {
       id: 1,
       completed: false,
-      due: '',
+      due: 0,
       name: 'b'
     };
     actions$ = of(actions.completeTask({task}));
@@ -111,7 +111,7 @@ describe('TodoEffects', () => {
     const task: TodoTask = {
       id: 1,
       completed: false,
-      due: '',
+      due: 0,
       name: 'b'
     };
     actions$ = of(actions.addTask({task}));

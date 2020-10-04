@@ -25,20 +25,20 @@ describe('Todo Selectors', () => {
     const store: TodoStore = {
       todos: [{
         id: 1,
-        due: '',
+        due: 0,
         completed: false,
         name: ''
       },
       {
         id: 2,
-        due: '',
+        due: 0,
         completed: true,
         name: ''
       }]
     };
     expect(selectors.getOpenTasks(store)).toStrictEqual([{
       id: 1,
-      due: '',
+      due: 0,
       completed: false,
       name: ''
     }]);
