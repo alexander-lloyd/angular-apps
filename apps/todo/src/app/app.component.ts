@@ -3,7 +3,6 @@ import {Component, Inject, ChangeDetectorRef, OnDestroy, OnInit} from '@angular/
 import {faBars, faCog} from '@fortawesome/free-solid-svg-icons';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 
 import {LOG_SERVICE_TOKEN, LoggerService, Logger} from '@al/logger';
 
@@ -51,9 +50,7 @@ export class AppComponent implements OnDestroy, OnInit {
   }
 
   public ngOnInit(): void {
-    this.todos$ = this.store.select(selectors.selectOpenTasks).pipe(
-      map((todos: TodoTask[]) => [...todos].sort((taskA, taskB) => taskA.due - taskB.due))
-    );
+    this.todos$ = this.store.select(selectors.selectOpenTasks);
   }
 
   public ngOnDestroy(): void {

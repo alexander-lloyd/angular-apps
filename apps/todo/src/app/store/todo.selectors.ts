@@ -28,6 +28,15 @@ export const getOpenTasks = (state: TodoStore): TodoTask[] => getTasks(state)
   .filter((task: TodoTask) => !task.completed);
 
 /**
+ * Sort function for tasks.
+ *
+ * @param taskA The first task.
+ * @param taskB The second task.
+ * @returns sort value.
+ */
+export const sortTasks = (taskA: TodoTask, taskB: TodoTask): number => taskA.due - taskB.due;
+
+/**
  * Get the list of tasks.
  *
  * @param state The global app state.
