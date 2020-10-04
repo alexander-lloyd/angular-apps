@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {rootEffectsInit} from '@ngrx/effects';
 import {provideMockActions} from '@ngrx/effects/testing';
-import {Action} from '@ngrx/store';
+import {Action, Store} from '@ngrx/store';
 import {Observable, of, throwError} from 'rxjs';
 
 import {TodoService} from '../services/todo.service';
@@ -13,12 +13,18 @@ import {TodoEffects} from './todo.effects';
 class TodoServiceStub {
   public getTodos() {}
   public addTodo() {}
+  public saveTodos() {}
+}
+
+class StoreStub {
+  public select() {}
 }
 
 describe('TodoEffects', () => {
   let actions$: Observable<Action>;
   let effects: TodoEffects;
   let todoService: TodoService;
+  let store: Store;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -28,12 +34,17 @@ describe('TodoEffects', () => {
         {
           provide: TodoService,
           useClass: TodoServiceStub
+        },
+        {
+          provide: Store,
+          useClass: StoreStub
         }
       ]
     });
 
     effects = TestBed.inject(TodoEffects);
     todoService = TestBed.inject(TodoService);
+    store = TestBed.inject(Store);
   });
 
   it('loadTasks$ should get tasks', async () => {
@@ -66,6 +77,30 @@ describe('TodoEffects', () => {
       effects.loadTasks$.subscribe((action) => {
         expect(getTodosSpy).toHaveBeenCalledTimes(1);
         expect(action.type).toBe(actions.getTasksFailureAction);
+        resolve();
+      });
+    });
+  });
+
+  it('should save task when task is completed', async () => {
+    expect.assertions(3);
+
+    const task: TodoTask = {
+      id: 1,
+      completed: false,
+      due: '',
+      name: 'b'
+    };
+    actions$ = of(actions.completeTask({task}));
+    const saveTodosSpy = jest.spyOn(todoService, 'saveTodos');
+    const storeSelectSpy = jest.spyOn(store, 'select')
+      .mockImplementation(() => of([]));
+
+    await new Promise((resolve) => {
+      effects.saveTasks$.subscribe((action) => {
+        expect(saveTodosSpy).toHaveBeenCalledTimes(1);
+        expect(storeSelectSpy).toHaveBeenCalledTimes(1);
+        expect(action.type).toStrictEqual(actions.saveTasksSuccessAction);
         resolve();
       });
     });

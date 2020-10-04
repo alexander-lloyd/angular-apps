@@ -45,4 +45,63 @@ describe('Todo Reducer', () => {
       todos: [task]
     });
   });
+
+  it('should complete a task in task list', () => {
+    expect.assertions(1);
+    const task: TodoTask = {
+      id: 1,
+      completed: false,
+      due: '',
+      name: ''
+    };
+    const state: TodoStore = {
+      todos: [task]
+    };
+
+    const action = actions.completeTask({task});
+
+    expect(todoReducer(state, action)).toStrictEqual({
+      todos: [{
+        ...task,
+        completed: true
+      }]
+    });
+  });
+
+  it('should complete tasks in list with multiple tasks', () => {
+    expect.assertions(1);
+    const tasks: TodoTask[] = [{
+      id: 1,
+      completed: false,
+      due: '',
+      name: ''
+    },
+    {
+      id: 2,
+      completed: false,
+      due: '',
+      name: ''
+    }];
+    const state: TodoStore = {
+      todos: tasks
+    };
+    const [task] = tasks;
+
+    const action = actions.completeTask({task});
+
+    expect(todoReducer(state, action)).toStrictEqual({
+      todos: [{
+        id: 1,
+        completed: true,
+        due: '',
+        name: ''
+      },
+      {
+        id: 2,
+        completed: false,
+        due: '',
+        name: ''
+      }]
+    });
+  });
 });

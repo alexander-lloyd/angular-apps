@@ -38,7 +38,7 @@ export class TodoService {
   public addTodo(todoTask: TodoTask): void {
     const todos = this._getTodos();
     todos.push(todoTask);
-    this._saveTodos(todos);
+    this.saveTodos(todos);
   }
 
   /**
@@ -56,7 +56,7 @@ export class TodoService {
    *
    * @param todos List of all the todo tasks.
    */
-  private _saveTodos(todos: TodoTask[]): void {
+  public saveTodos(todos: TodoTask[]): void {
     const todosJson = JSON.stringify(todos);
     this.localStorage.setItem(TodoService.TODOS_KEY, todosJson);
   }

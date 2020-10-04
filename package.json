@@ -115,7 +115,8 @@
     "tailwindcss": "^1.8.10",
     "ts-jest": "26.1.4",
     "ts-node": "~9.0.0",
-    "typescript": "~3.9.7"
+    "typescript": "~3.9.7",
+    "uuid": "^8.3.0"
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",

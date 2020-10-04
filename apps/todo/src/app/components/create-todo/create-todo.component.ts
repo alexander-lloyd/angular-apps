@@ -1,4 +1,5 @@
 import {Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {v4 as uuidv4} from 'uuid';
 import {TodoTask} from '../../types/todo.types';
 
 /**
@@ -28,7 +29,7 @@ export class CreateTodoComponent {
     const task: TodoTask = {
       completed: false,
       due: '',
-      id: 1,
+      id: uuidv4(),
       name
     };
     this.submitTodo.emit(task);

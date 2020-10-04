@@ -45,13 +45,13 @@ export class AppComponent implements OnDestroy, OnInit {
     private store: Store<GlobalState>
   ) {
     this.logger = this.logService.getLogger('AppComponent');
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = (): void => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   public ngOnInit(): void {
-    this.todos$ = this.store.select(selectors.selectTasks).pipe(
+    this.todos$ = this.store.select(selectors.selectOpenTasks).pipe(
       map((todos: TodoTask[]) => [...todos].sort((taskA, taskB) => Date.parse(taskA.due) - Date.parse(taskB.due)))
     );
   }
@@ -67,5 +67,14 @@ export class AppComponent implements OnDestroy, OnInit {
    */
   public addTask(task: TodoTask): void {
     this.store.dispatch(actions.addTask({task}));
+  }
+
+  /**
+   * Callback called when a task is completed.
+   *
+   * @param task Todo task.
+   */
+  public taskCompleted(task: TodoTask): void {
+    this.store.dispatch(actions.completeTask({task}));
   }
 }
