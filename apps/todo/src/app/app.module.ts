@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -45,6 +47,8 @@ import {todoReducer} from './store/todo.reducer';
     LoggerModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatChipsModule,
+    MatIconModule,
     MatInputModule,
     MatListModule,
     MatSidenavModule,
