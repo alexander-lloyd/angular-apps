@@ -11,7 +11,7 @@ const _todoReducer = createReducer(
   initialState,
   on(actions.getTasksSuccess, (state, {todos}) => ({
     ...state,
-    todos: todos.sort(sortTasks)
+    todos: [...todos].sort(sortTasks)
   })),
   on(actions.addTask, (state, {task}) => {
     const {todos} = state;
