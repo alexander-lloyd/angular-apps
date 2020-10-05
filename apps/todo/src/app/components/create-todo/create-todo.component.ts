@@ -34,6 +34,6 @@ export class CreateTodoComponent {
     };
     this.submitTodo.emit(task);
     // Clear the input
-    this.input.nativeElement.value = '';
+    this.value = '';
   }
 }
