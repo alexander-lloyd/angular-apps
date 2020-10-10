@@ -7,9 +7,14 @@ import {MatListModule} from '@angular/material/list';
 import {MatListHarness} from '@angular/material/list/testing';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {DateFnsModule} from 'ngx-date-fns';
+import {TranslateTestingModule} from 'ngx-translate-testing';
 
 import {TodoListComponent} from './todo-list.component';
 import {TodoTask} from '../../types/todo.types';
+
+const translations = {
+  TODO_LIST_TASKS_COMPLETE_TASK_ARIA_TEXT: 'Complete Task'
+};
 
 describe('TodoListComponent', () => {
   let fixture: ComponentFixture<TodoListComponent>;
@@ -25,7 +30,8 @@ describe('TodoListComponent', () => {
         DateFnsModule,
         FontAwesomeModule,
         MatCheckboxModule,
-        MatListModule
+        MatListModule,
+        TranslateTestingModule.withTranslations('en', translations)
       ]
     }).compileComponents();
 
