@@ -3,7 +3,7 @@
     <mat-checkbox
       mat-list-icon
       (change)="this._onTaskComplete(todo)"
-      aria-label="Complete Task"
+      [aria-label]="'TODO_LIST_TASKS_COMPLETE_TASK_ARIA_TEXT' | translate"
     ></mat-checkbox>
     <div mat-line>{{ todo.name }}</div>
     <fa-icon [icon]="faCalendar"></fa-icon>

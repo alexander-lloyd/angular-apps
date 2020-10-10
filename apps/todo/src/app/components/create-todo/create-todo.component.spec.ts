@@ -11,9 +11,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatInputHarness} from '@angular/material/input/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {TranslateTestingModule} from 'ngx-translate-testing';
 import {DateFnsModule} from 'ngx-date-fns';
 
 import {CreateTodoComponent} from './create-todo.component';
+
+const translations = {
+  TODO_CREATE_FORM_CHIP_ARIA_TEXT: 'Chip Text',
+  TODO_CREATE_FORM_CHIP_CANCEL_ARIA_TEXT: 'Cancel',
+  TODO_CREATE_FORM_CREATE_BUTTON_TEXT: 'Create'
+};
 
 describe('CreateTodoComponent', () => {
   let component: CreateTodoComponent;
@@ -31,7 +38,8 @@ describe('CreateTodoComponent', () => {
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        TranslateTestingModule.withTranslations('en', translations)
       ]
     }).compileComponents();
 
