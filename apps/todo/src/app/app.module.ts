@@ -1,4 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
+import {APP_BASE_HREF, DOCUMENT} from '@angular/common';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
@@ -16,6 +18,8 @@ import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {DateFnsModule} from 'ngx-date-fns';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {LoggerModule} from '@al/logger';
 import {AppComponent} from './app.component';
@@ -27,6 +31,28 @@ import {environment} from '../environments/environment';
 import {TodoEffects} from './store/todo.effects';
 import {todoReducer} from './store/todo.reducer';
 
+/**
+ * Ngx Translate Loader Factory.
+ *
+ * @param http HttpClient.
+ * @param baseHref The base url.
+ * @returns Translate Loader.
+ */
+export function translateLoaderFactory(http: HttpClient, baseHref: string): TranslateLoader {
+  const url = new URL('assets/i18n/', baseHref);
+  return new TranslateHttpLoader(http, url.href);
+}
+
+/**
+ * Get the base url.
+ *
+ * @param document The Document object.
+ * @returns The Base URL.
+ */
+function getBaseUrl(document: Document): string {
+  const ZERO = 0;
+  return document.getElementsByTagName('base')[ZERO].href;
+}
 
 /**
  * AppModule.
@@ -44,6 +70,7 @@ import {todoReducer} from './store/todo.reducer';
     EffectsModule.forRoot([TodoEffects]),
     FormsModule,
     FontAwesomeModule,
+    HttpClientModule,
     LoggerModule,
     MatButtonModule,
     MatCheckboxModule,
@@ -60,11 +87,23 @@ import {todoReducer} from './store/todo.reducer';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateLoaderFactory,
+        deps: [HttpClient, APP_BASE_HREF]
+      }
     })
   ],
   providers: [
     LocalStorageService,
-    TodoService
+    TodoService,
+    {
+      provide: APP_BASE_HREF,
+      useFactory: getBaseUrl,
+      deps: [DOCUMENT]
+    }
   ],
   bootstrap: [AppComponent]
 })
