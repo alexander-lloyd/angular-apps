@@ -1,15 +1,17 @@
 <mat-toolbar class="al-todo-header">
   <button
     mat-icon-button
-    aria-label="Todo app sidebar menu toggle"
+    [attr.aria-label]="'TODO_SIDEBAR_BUTTON_ARIA_TEXT' | translate"
     (click)="sidenav.toggle()"
   >
     <fa-icon [icon]="faBars"></fa-icon>
   </button>
-  <span>Todo App</span>
+  <span>{{ 'TODO_APP_NAME' | translate }}</span>
 
   <span class="al-todo-menu-spacer"></span>
-  <button mat-icon-button aria-label="Settings">
+  <button
+    mat-icon-button
+    [attr.aria-label]="'TODO_SETTINGS_BUTTON_ARIA_TEXT' | translate">
     <fa-icon [icon]="faCog"></fa-icon>
   </button>
 </mat-toolbar>

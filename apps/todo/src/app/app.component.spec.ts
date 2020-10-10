@@ -6,6 +6,7 @@ import {By} from '@angular/platform-browser';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {provideMockStore, MockStore} from '@ngrx/store/testing';
+import {TranslateTestingModule} from 'ngx-translate-testing';
 import {of} from 'rxjs';
 
 import {LoggerModule} from '@al/logger';
@@ -15,6 +16,12 @@ import * as actions from './store/todo.actions';
 import * as selectors from './store/todo.selectors';
 import {GlobalState} from './store/todo.types';
 import {TodoTask} from './types/todo.types';
+
+const translations = {
+  TODO_APP_NAME: 'Todo App',
+  TODO_SIDEBAR_BUTTON_ARIA_TEXT: 'Toggle Menu Sidebar',
+  TODO_SETTINGS_BUTTON_ARIA_TEXT: 'Open Settings Dialog'
+};
 
 
 @Component({
@@ -61,7 +68,8 @@ describe('AppComponent', () => {
         LoggerModule,
         MatSidenavModule,
         MatToolbarModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        TranslateTestingModule.withTranslations('en', translations)
       ],
       providers: [
         {

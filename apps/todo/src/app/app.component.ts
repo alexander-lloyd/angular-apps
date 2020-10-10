@@ -2,6 +2,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import {Component, Inject, ChangeDetectorRef, OnDestroy, OnInit} from '@angular/core';
 import {faBars, faCog} from '@fortawesome/free-solid-svg-icons';
 import {Store} from '@ngrx/store';
+import {TranslateService} from '@ngx-translate/core';
 import {Observable} from 'rxjs';
 
 import {LOG_SERVICE_TOKEN, LoggerService, Logger} from '@al/logger';
@@ -36,14 +37,22 @@ export class AppComponent implements OnDestroy, OnInit {
    * @param changeDetectorRef change detector reference.
    * @param media media matcher.
    * @param store Global Store.
+   * @param translate Translation Service.
    */
   public constructor(
     @Inject(LOG_SERVICE_TOKEN) private logService: LoggerService,
     public changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
-    private store: Store<GlobalState>
+    private store: Store<GlobalState>,
+    private translate: TranslateService
   ) {
     this.logger = this.logService.getLogger('AppComponent');
+
+    this.translate.addLangs(['en', 'fr']);
+    this.translate.setDefaultLang('en');
+    const browserLang = this.translate.getBrowserLang();
+    this.translate.use(browserLang.match(/en|fr/u) ? browserLang : 'en');
+
     this.mobileQuery = this.media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = (): void => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
