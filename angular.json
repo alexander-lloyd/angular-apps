@@ -83,15 +83,15 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "config": "apps/todo/.eslintrc.js",
-            "tsConfig": [
-              "apps/todo/tsconfig.app.json",
-              "apps/todo/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/todo/**/*"]
+            "lintFilePatterns": [
+              "apps/todo/src/main.ts",
+              "apps/todo/src/polyfills.ts",
+              "apps/todo/**/*.spec.ts",
+              "apps/todo/**/*.d.ts",
+              "apps/todo/src/test-setup.ts"
+            ]
           }
         },
         "test": {
@@ -132,12 +132,14 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "config": "apps/todo-e2e/.eslintrc.js",
-            "tsConfig": ["apps/todo-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/todo-e2e/**/*"]
+            "lintFilePatterns": [
+              "apps/todo-e2e/src/**/*.ts",
+              "apps/todo-e2e/src/**/*.js",
+              "apps/todo-e2e/**/*.ts",
+              "apps/todo-e2e/**/*.js"
+            ]
           }
         }
       }
@@ -152,7 +154,8 @@
           "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/logger/tsconfig.lib.json",
-            "project": "libs/logger/ng-package.json"
+            "project": "libs/logger/ng-package.json",
+            "buildableProjectDepsInPackageJsonType": "dependencies"
           },
           "configurations": {
             "production": {
@@ -161,15 +164,14 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "config": "apps/todo-e2e/.eslintrc.js",
-            "tsConfig": [
-              "libs/logger/tsconfig.lib.json",
-              "libs/logger/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/logger/**/*"]
+            "lintFilePatterns": [
+              "libs/logger/**/*.ts",
+              "libs/logger/**/*.spec.ts",
+              "libs/logger/**/*.d.ts",
+              "libs/logger/src/test-setup.ts"
+            ]
           }
         },
         "test": {
@@ -267,15 +269,15 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "config": "apps/spotify-player/.eslintrc.js",
-            "tsConfig": [
-              "apps/spotify-player/tsconfig.app.json",
-              "apps/spotify-player/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/spotify-player/**/*"]
+            "lintFilePatterns": [
+              "apps/spotify-player/src/main.ts",
+              "apps/spotify-player/src/polyfills.ts",
+              "apps/spotify-player/**/*.spec.ts",
+              "apps/spotify-player/**/*.d.ts",
+              "apps/spotify-player/src/test-setup.ts"
+            ]
           }
         },
         "test": {
@@ -316,12 +318,14 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "config": "apps/spotify-player-e2e/.eslintrc.js",
-            "tsConfig": ["apps/spotify-player-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/spotify-player-e2e/**/*"]
+            "lintFilePatterns": [
+              "apps/spotify-player-e2e/src/**/*.ts",
+              "apps/spotify-player-e2e/src/**/*.js",
+              "apps/spotify-player-e2e/**/*.ts",
+              "apps/spotify-player-e2e/**/*.js"
+            ]
           }
         }
       }
@@ -336,7 +340,8 @@
           "builder": "@nrwl/angular:package",
           "options": {
             "tsConfig": "libs/components/button/tsconfig.lib.json",
-            "project": "libs/components/button/ng-package.json"
+            "project": "libs/components/button/ng-package.json",
+            "buildableProjectDepsInPackageJsonType": "dependencies"
           },
           "configurations": {
             "production": {
@@ -345,12 +350,9 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "config": "libs/components/button/.eslintrc.js",
-            "tsConfig": ["libs/components/button/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/components/button/**"]
+            "lintFilePatterns": ["libs/components/button/**/*.ts"]
           }
         },
         "test": {

@@ -1,7 +1,5 @@
 /* eslint-env node */
 
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 /*
  * This example plugins/index.js can be used to load plugins
  *
@@ -19,12 +17,18 @@
 
 const {preprocessTypescript} = require('@nrwl/cypress/plugins/preprocessor');
 
+/**
+ * Preprocess TypeScript files.
+ *
+ * @param on event emitter.
+ * @param config Cypress config.
+ */
 module.exports = (on, config) => {
-  /*
-   * `on` is used to hook into various events Cypress emits
-   * `config` is the resolved Cypress config
-   */
+    /*
+     * `on` is used to hook into various events Cypress emits
+     * `config` is the resolved Cypress config
+     */
 
-  // Preprocess Typescript file using Nx helper
-  on('file:preprocessor', preprocessTypescript(config));
+    // Preprocess Typescript file using Nx helper
+    on('file:preprocessor', preprocessTypescript(config));
 };

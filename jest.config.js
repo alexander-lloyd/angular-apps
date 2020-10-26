@@ -1,10 +1,8 @@
-/* eslint-env node */
 module.exports = {
-    testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
-    transform: {
-        '^.+\\.(ts|js|html)$': 'ts-jest'
-    },
-    resolver: '@nrwl/jest/plugins/resolver',
-    moduleFileExtensions: ['ts', 'js', 'html'],
-    coverageReporters: ['html', 'lcov', 'text']
+  projects: [
+    '<rootDir>/apps/todo',
+    '<rootDir>/libs/logger',
+    '<rootDir>/apps/spotify-player',
+    '<rootDir>/libs/components/button',
+  ],
 };
