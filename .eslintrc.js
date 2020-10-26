@@ -7,7 +7,7 @@ const INDENT = 2;
 const MAX_CLASSES_PER_FILE = 5;
 const MAX_COMPLEXITY = 10;
 const MAX_LINE_LENGTH = 120;
-const MAX_LINES = 250;
+const MAX_LINES = 300;
 const MAX_LINES_PER_FUNCTION = 20;
 const MAX_PARAMETERS = 6;
 
@@ -106,6 +106,7 @@ module.exports = {
     'no-ternary': 'off',
     'no-undefined': 'off',
     'no-underscore-dangle': 'off',
+    'no-use-before-define': 'off',
     'no-useless-constructor': 'off',
     'no-warning-comments': 'warn',
     'no-trailing-spaces': 'error',
@@ -205,6 +206,7 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': ['error', {
           'argsIgnorePattern': '^_$'
         }],
+        '@typescript-eslint/no-use-before-define': 'error',
         '@typescript-eslint/no-useless-constructor': 'error',
         '@typescript-eslint/semi': 'error',
         // Use @typescript-eslint version instead.

@@ -1,6 +1,9 @@
 import {Logger} from './logger';
 import {LogMessage} from './message';
 
+/**
+ * LoggerService.
+ */
 export interface LoggerService {
   /**
    * Get a logger.

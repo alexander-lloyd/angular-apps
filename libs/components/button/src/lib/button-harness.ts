@@ -1,6 +1,8 @@
 import {BaseHarnessFilters, ComponentHarness, HarnessPredicate} from '@angular/cdk/testing';
 
-
+/**
+ * ButtonHarnessFilters.
+ */
 export interface ButtonHarnessFilters extends BaseHarnessFilters {
   text?: string | RegExp;
 }

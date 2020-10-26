@@ -9,12 +9,18 @@ export type PlayingType =
   | 'ad'
   | 'unknown';
 
+/**
+ * ExternalIdObject.
+ */
 export interface ExternalIdObject {
   ean: string;
   isrc: string;
   upc: string;
 }
 
+/**
+ * DeviceObject.
+ */
 export interface DeviceObject {
   id: string;
   is_active: boolean;
@@ -24,20 +30,32 @@ export interface DeviceObject {
   volume_percent: number;
 }
 
+/**
+ * DevicesObject.
+ */
 export interface DevicesObject {
   devices: DeviceObject[];
 }
 
+/**
+ * ImageObject.
+ */
 export interface ImageObject {
   height: number;
   width: number;
   url: string;
 }
 
+/**
+ * ExternalUrlObject.
+ */
 export interface ExternalUrlObject {
   spotify: string;
 }
 
+/**
+ * ContextObject.
+ */
 export interface ContextObject {
   external_urls: ExternalUrlObject;
   href: string;
@@ -45,6 +63,9 @@ export interface ContextObject {
   uri: string;
 }
 
+/**
+ * PublicUserObject.
+ */
 export interface PublicUserObject {
   dislay_name: string;
   external_urls: ExternalUrlObject;
@@ -55,10 +76,16 @@ export interface PublicUserObject {
   uri: string;
 }
 
+/**
+ * SpotifyEntity.
+ */
 export interface SpotifyEntity extends ContextObject {
   id: string;
 }
 
+/**
+ * AlbumObject.
+ */
 export interface AlbumObject {
   id: string;
   album_type: string;
@@ -70,6 +97,9 @@ export interface AlbumObject {
   uri: string;
 }
 
+/**
+ * SimplifiedAlbumObject.
+ */
 export interface SimplifiedAlbumObject {
   album_group: string;
   album_type: string;
@@ -84,6 +114,9 @@ export interface SimplifiedAlbumObject {
   uri: string;
 }
 
+/**
+ * ArtistObject.
+ */
 export interface ArtistObject {
   external_urls: ExternalUrlObject;
   genres: string[];
@@ -96,6 +129,9 @@ export interface ArtistObject {
   uri: string;
 }
 
+/**
+ * PlaylistTrackObject.
+ */
 export interface PlaylistTrackObject {
   added_at: number | null;
   added_by: PublicUserObject;
@@ -103,6 +139,9 @@ export interface PlaylistTrackObject {
   track: TrackObject;
 }
 
+/**
+ * SimplifiedTrackObject.
+ */
 export interface SimplifiedTrackObject {
   artists: ArtistObject[];
   available_markets: string[];
@@ -123,6 +162,9 @@ export interface SimplifiedTrackObject {
   uri: string;
 }
 
+/**
+ * TrackObject.
+ */
 export interface TrackObject {
   album: SimplifiedAlbumObject;
   artists: ArtistObject[];
@@ -145,12 +187,18 @@ export interface TrackObject {
   uri: string;
 }
 
+/**
+ * TrackRestrictionObject.
+ */
 export interface TrackRestrictionObject extends TrackObject {
   restrictions: {
     resaon: string;
   };
 }
 
+/**
+ * PlaylistObject.
+ */
 export interface PlaylistObject {
   collaborative: boolean;
   external_urls: ExternalIdObject;
@@ -166,6 +214,9 @@ export interface PlaylistObject {
   uri: string;
 }
 
+/**
+ * CurrentlyPlayingObject.
+ */
 export interface CurrentlyPlayingObject {
   context: ContextObject;
   currently_playing_type: PlayingType;
@@ -195,12 +246,18 @@ export type PlayerErrorReason =
   | 'PREMIUM_REQUIRED'
   | 'UNKNOWN';
 
+/**
+ * PlayerErrorObject.
+ */
 export interface PlayerErrorObject {
   status: number;
   message: PlayerErrorReason;
   reason: string;
 }
 
+/**
+ * PlayerErrorResponse.
+ */
 export interface PlayerErrorResponse {
   error: PlayerErrorObject;
 }
