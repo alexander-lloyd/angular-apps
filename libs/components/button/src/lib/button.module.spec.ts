@@ -4,7 +4,7 @@ import {ButtonModule} from './button.module';
 describe('ComponentsButtonModule', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ButtonModule],
+      imports: [ButtonModule]
     }).compileComponents();
   });
 

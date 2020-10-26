@@ -23,7 +23,7 @@ module.exports = {
   ],
   extends: [
     'eslint:all',
-    'plugin:jsdoc/recommended',
+    'plugin:jsdoc/recommended'
   ],
   rules: {
     '@nrwl/nx/enforce-module-boundaries': [
@@ -270,7 +270,7 @@ module.exports = {
     {
       // Exclude e2e tests
       files: [
-        'apps/*-e2e/**/*.ts'
+        'src/integration/*.spec.ts'
       ],
       rules: {
         'jest/expect-expect': 'off',
