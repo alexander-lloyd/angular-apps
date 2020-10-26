@@ -1,11 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {By} from '@angular/platform-browser';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {provideMockStore, MockStore} from '@ngrx/store/testing';
+import {TranslateService} from '@ngx-translate/core';
 import {TranslateTestingModule} from 'ngx-translate-testing';
 import {of} from 'rxjs';
 
@@ -16,6 +18,8 @@ import * as actions from './store/todo.actions';
 import * as selectors from './store/todo.selectors';
 import {GlobalState} from './store/todo.types';
 import {TodoTask} from './types/todo.types';
+import {DEFAULT_SETTINGS} from './types/settings.type';
+import {SettingsDialogComponent} from './components/settings-dialog/settings-dialog.component';
 
 const translations = {
   TODO_APP_NAME: 'Todo App',
@@ -47,10 +51,15 @@ class TodoServiceStub {
   public getTodos(): void {}
 }
 
+class MatDialogStub {
+  public open() {}
+}
+
 describe('AppComponent', () => {
   const initialState: GlobalState = {
     todo: {
-      todos: []
+      todos: [],
+      settings: DEFAULT_SETTINGS
     }
   };
   let todoService: TodoService;
@@ -66,6 +75,7 @@ describe('AppComponent', () => {
       imports: [
         FontAwesomeModule,
         LoggerModule,
+        MatDialogModule,
         MatSidenavModule,
         MatToolbarModule,
         NoopAnimationsModule,
@@ -76,7 +86,12 @@ describe('AppComponent', () => {
           provide: TodoService,
           useClass: TodoServiceStub
         },
-        provideMockStore({initialState})
+
+        provideMockStore({initialState}),
+        {
+          provide: MatDialog,
+          useClass: MatDialogStub
+        }
       ]
     }).compileComponents();
 
@@ -158,5 +173,53 @@ describe('AppComponent', () => {
 
     expect(storeEmitSpy).toHaveBeenCalledTimes(1);
     expect(storeEmitSpy).toHaveBeenCalledWith(actions.completeTask({task}));
+  });
+
+  it('should open the modal when the settings button is pressed', () => {
+    expect.assertions(2);
+
+    const dialog = TestBed.inject(MatDialog);
+    const dialogOpenSpy = jest.spyOn(dialog, 'open');
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
+
+    component.openSettingsDialog();
+
+    expect(dialogOpenSpy).toHaveBeenCalledTimes(1);
+    expect(dialogOpenSpy).toHaveBeenCalledWith(SettingsDialogComponent);
+  });
+
+  it('should try use the browser default language', () => {
+    expect.assertions(3);
+    const translateService = TestBed.inject(TranslateService);
+
+    const language = 'fr';
+    const getBrowserLangSpy = jest.spyOn(translateService, 'getBrowserLang')
+      .mockReturnValue(language);
+    const useSpy = jest.spyOn(translateService, 'use');
+
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+
+    expect(getBrowserLangSpy).toHaveBeenCalledTimes(1);
+    expect(useSpy).toHaveBeenCalledTimes(2);
+    expect(useSpy).toHaveBeenCalledWith(language);
+  });
+
+  it('should fallback to english if language is not supported', () => {
+    expect.assertions(3);
+    const translateService = TestBed.inject(TranslateService);
+
+    const language = 'unknown-language';
+    const getBrowserLangSpy = jest.spyOn(translateService, 'getBrowserLang')
+      .mockReturnValue(language);
+    const useSpy = jest.spyOn(translateService, 'use');
+
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+
+    expect(getBrowserLangSpy).toHaveBeenCalledTimes(1);
+    expect(useSpy).toHaveBeenCalledTimes(2);
+    expect(useSpy).toHaveBeenCalledWith('en');
   });
 });

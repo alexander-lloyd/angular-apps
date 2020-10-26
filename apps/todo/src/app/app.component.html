@@ -10,8 +10,11 @@
 
   <span class="al-todo-menu-spacer"></span>
   <button
+    data-id="todo-settings-button"
     mat-icon-button
-    [attr.aria-label]="'TODO_SETTINGS_BUTTON_ARIA_TEXT' | translate">
+    [attr.aria-label]="'TODO_SETTINGS_BUTTON_ARIA_TEXT' | translate"
+    (click)="openSettingsDialog()"
+  >
     <fa-icon [icon]="faCog"></fa-icon>
   </button>
 </mat-toolbar>

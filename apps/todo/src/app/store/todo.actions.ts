@@ -3,7 +3,7 @@ import {
   AddTodoActionProperties,
   GetTodoSuccessProperties,
   CompleteTaskProperties,
-  SaveTasksProperties
+  SaveTasksProperties, GetSettingSuccessProperties, SaveSettingSuccessProperties
 } from './todo.types';
 
 export const getTasksAction = '[Todo] Get Tasks';
@@ -14,6 +14,9 @@ export const addTaskSuccessAction = '[Todo] Add Task Success';
 export const completeTaskAction = '[Todo] Complete Task';
 export const saveTasksAction = '[Todo] Save Tasks';
 export const saveTasksSuccessAction = '[Todo] Save Tasks Success';
+export const getSettingsAction = '[Todo] Get Settings';
+export const getSettingsSuccessAction = '[Todo] Get Settings Success';
+export const saveSettingsAction = '[Todo] Save Settings';
 
 export const getTasks = createAction(
   getTasksAction
@@ -45,4 +48,18 @@ export const saveTasks = createAction(
 
 export const saveTasksSuccess = createAction(
   saveTasksSuccessAction
+);
+
+export const getSettings = createAction(
+  getSettingsAction
+);
+
+export const getSettingsSuccess = createAction(
+  getSettingsSuccessAction,
+  props<GetSettingSuccessProperties>()
+);
+
+export const saveSettings = createAction(
+  saveSettingsAction,
+  props<SaveSettingSuccessProperties>()
 );

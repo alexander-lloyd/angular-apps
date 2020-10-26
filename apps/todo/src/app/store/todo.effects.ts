@@ -4,7 +4,9 @@ import {Store} from '@ngrx/store';
 import {of} from 'rxjs';
 import {catchError, concatMap, map, mergeMap, tap, withLatestFrom} from 'rxjs/operators';
 
+import {SettingsService} from '../services/settings.service';
 import {TodoService} from '../services/todo.service';
+import {Settings} from '../types/settings.type';
 import {TodoTask} from '../types/todo.types';
 import * as actions from './todo.actions';
 import * as selectors from './todo.selectors';
@@ -41,9 +43,21 @@ export class TodoEffects {
     })
   ));
 
+  public getSettings$ = createEffect(() => this.actions$.pipe(
+    ofType(actions.getSettings),
+    mergeMap(() => this.settingsService.getSettings().pipe(
+      map((settings: Settings) => actions.getSettingsSuccess({settings}))
+    ))
+  ));
+
+  public saveSettings$ = createEffect(() => this.actions$.pipe(
+    ofType(actions.saveSettings),
+    tap(({settings}) => this.settingsService.saveSettings(settings))
+  ), {dispatch: false});
+
   public init$ = createEffect(() => this.actions$.pipe(
     ofType(ROOT_EFFECTS_INIT),
-    map((_) => actions.getTasks())
+    mergeMap((_) => [actions.getTasks(), actions.getSettings()])
   ));
 
 
@@ -51,12 +65,14 @@ export class TodoEffects {
    * Constructor.
    *
    * @param actions$ Actions observable.
+   * @param settingsService SettingsService
    * @param todoService Todo Service.
    * @param store$ Store.
    *
    */
   public constructor(
     private actions$: Actions,
+    private settingsService: SettingsService,
     private todoService: TodoService,
     private store$: Store<GlobalState>
   ) {}

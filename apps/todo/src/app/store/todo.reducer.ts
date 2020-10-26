@@ -1,10 +1,12 @@
 import {Action, createReducer, on} from '@ngrx/store';
+import {DEFAULT_SETTINGS} from '../types/settings.type';
 import * as actions from './todo.actions';
 import {sortTasks} from './todo.selectors';
 import {TodoStore} from './todo.types';
 
 export const initialState: TodoStore = {
-  todos: []
+  todos: [],
+  settings: DEFAULT_SETTINGS
 };
 
 const _todoReducer = createReducer(
@@ -33,6 +35,10 @@ const _todoReducer = createReducer(
           : task)
       )
     ]
+  })),
+  on(actions.getSettingsSuccess, (state, {settings}) => ({
+    ...state,
+    settings
   }))
 );
 
