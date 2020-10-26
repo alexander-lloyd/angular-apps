@@ -2,6 +2,7 @@ import {initialState, todoReducer} from './todo.reducer';
 import * as actions from './todo.actions';
 import {TodoStore} from './todo.types';
 import {TodoTask} from '../types/todo.types';
+import {DEFAULT_SETTINGS} from '../types/settings.type';
 
 describe('Todo Reducer', () => {
   it('should get the initial state', () => {
@@ -13,7 +14,8 @@ describe('Todo Reducer', () => {
   it('should add tasks to store', () => {
     expect.assertions(1);
     const state: TodoStore = {
-      todos: []
+      todos: [],
+      settings: DEFAULT_SETTINGS
     };
     const todos: TodoTask[] = [{
       id: 1,
@@ -24,6 +26,7 @@ describe('Todo Reducer', () => {
     const action = actions.getTasksSuccess({todos});
 
     expect(todoReducer(state, action)).toStrictEqual({
+      settings: DEFAULT_SETTINGS,
       todos
     });
   });
@@ -31,7 +34,8 @@ describe('Todo Reducer', () => {
   it('should add tasks to store in sorted order', () => {
     expect.assertions(1);
     const state: TodoStore = {
-      todos: []
+      todos: [],
+      settings: DEFAULT_SETTINGS
     };
     const todos = [{
       id: 2,
@@ -60,14 +64,16 @@ describe('Todo Reducer', () => {
         completed: false,
         due: 1,
         name: ''
-      }]
+      }],
+      settings: DEFAULT_SETTINGS
     });
   });
 
   it('should add a task to the store', () => {
     expect.assertions(1);
     const state: TodoStore = {
-      todos: []
+      todos: [],
+      settings: DEFAULT_SETTINGS
     };
     const task: TodoTask = {
       id: 1,
@@ -78,6 +84,7 @@ describe('Todo Reducer', () => {
     const action = actions.addTask({task});
 
     expect(todoReducer(state, action)).toStrictEqual({
+      settings: DEFAULT_SETTINGS,
       todos: [task]
     });
   });
@@ -90,7 +97,8 @@ describe('Todo Reducer', () => {
         completed: false,
         due: 1,
         name: ''
-      }]
+      }],
+      settings: DEFAULT_SETTINGS
     };
     const task: TodoTask = {
       id: 1,
@@ -114,7 +122,8 @@ describe('Todo Reducer', () => {
           due: 1,
           name: ''
         }
-      ]
+      ],
+      settings: DEFAULT_SETTINGS
     });
   });
 
@@ -128,12 +137,14 @@ describe('Todo Reducer', () => {
       name: ''
     };
     const state: TodoStore = {
-      todos: [task]
+      todos: [task],
+      settings: DEFAULT_SETTINGS
     };
 
     const action = actions.completeTask({task});
 
     expect(todoReducer(state, action)).toStrictEqual({
+      settings: DEFAULT_SETTINGS,
       todos: [{
         ...task,
         completed: true
@@ -156,13 +167,15 @@ describe('Todo Reducer', () => {
       name: ''
     }];
     const state: TodoStore = {
-      todos: tasks
+      todos: tasks,
+      settings: DEFAULT_SETTINGS
     };
     const [task] = tasks;
 
     const action = actions.completeTask({task});
 
     expect(todoReducer(state, action)).toStrictEqual({
+      settings: DEFAULT_SETTINGS,
       todos: [{
         id: 1,
         completed: true,
@@ -175,6 +188,29 @@ describe('Todo Reducer', () => {
         due: 0,
         name: ''
       }]
+    });
+  });
+
+  it('should update settings', () => {
+    expect.assertions(1);
+    const state: TodoStore = {
+      todos: [],
+      settings: {
+        language: 'en'
+      }
+    };
+
+    const action = actions.getSettingsSuccess({
+      settings: {
+        language: 'fr'
+      }
+    });
+
+    expect(todoReducer(state, action)).toStrictEqual({
+      todos: [],
+      settings: {
+        language: 'fr'
+      }
     });
   });
 });

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 
-import {Settings} from '../types/settings.type';
+import {DEFAULT_SETTINGS, Settings} from '../types/settings.type';
 import {LocalStorageService} from './local-storage.service';
 
 /**
@@ -9,7 +9,8 @@ import {LocalStorageService} from './local-storage.service';
  */
 @Injectable()
 export class SettingsService {
-  private readonly SETTINGS_KEY = 'TODO_SETTINGS';
+  public readonly SETTINGS_KEY = 'TODO_SETTINGS';
+  public readonly DEFAULT_SETTINGS: Settings = DEFAULT_SETTINGS;
 
   /**
    * Constructor.
@@ -27,7 +28,15 @@ export class SettingsService {
    */
   public getSettings(): Observable<Settings> {
     const settingsJson = this.localStorage.getItem(this.SETTINGS_KEY);
-    const settings: Settings = JSON.parse(settingsJson);
+    let settings: Settings;
+    if (settingsJson === undefined) {
+      settings = this.DEFAULT_SETTINGS;
+      // If settings don't exist save default settings.
+      this.saveSettings(settings);
+    } else {
+      settings = JSON.parse(settingsJson);
+    }
+
     return of(settings);
   }
 
@@ -38,6 +47,6 @@ export class SettingsService {
    */
   public saveSettings(settings: Settings): void {
     const settingsJson = JSON.stringify(settings);
-    localStorage.setItem(this.SETTINGS_KEY, settingsJson);
+    this.localStorage.setItem(this.SETTINGS_KEY, settingsJson);
   }
 }

@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(model)">
+  <h2 mat-dialog-title>Settings</h2>
+  <mat-dialog-content class="mat-typography">
+    <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>
+      {{ 'TODO_SETTINGS_SAVE_BUTTON' | translate }}
+    </button>
+  </mat-dialog-actions>
+</form>

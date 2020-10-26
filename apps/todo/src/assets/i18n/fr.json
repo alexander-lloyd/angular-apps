@@ -1,0 +1,21 @@
+{
+  "FORM": {
+    "VALIDATION": {
+      "REQUIRED": "Ce champ est requis"
+    },
+    "TODO": {
+      "SETTINGS": {
+        "LANGUAGE": "Changer la langue"
+      }
+    }
+  },
+  "TODO_APP_NAME": "Application Todo",
+  "TODO_SIDEBAR_BUTTON_ARIA_TEXT": "Toggle Menu Sidebar",
+  "TODO_SETTINGS_BUTTON_ARIA_TEXT": "Toggle Barre latérale du menu",
+  "TODO_CREATE_FORM_CHIP_ARIA_TEXT": "Basculer l'entrée",
+  "TODO_CREATE_FORM_CHIP_CANCEL_ARIA_TEXT": "Annuler",
+  "TODO_CREATE_FORM_INPUT_TEXT": "Nom de la tâche",
+  "TODO_CREATE_FORM_CREATE_BUTTON_TEXT": "Créer",
+  "TODO_LIST_TASKS_COMPLETE_TASK_ARIA_TEXT": "Terminer la tâche",
+  "TODO_SETTINGS_SAVE_BUTTON": "Sauvegarder"
+}

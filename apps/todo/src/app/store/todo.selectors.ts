@@ -1,6 +1,7 @@
 import {createSelector} from '@ngrx/store';
 import {GlobalState, TodoStore} from './todo.types';
 import {TodoTask} from '../types/todo.types';
+import {Settings} from '../types/settings.type';
 
 /**
  * Get the todo app store.
@@ -37,6 +38,22 @@ export const getOpenTasks = (state: TodoStore): TodoTask[] => getTasks(state)
 export const sortTasks = (taskA: TodoTask, taskB: TodoTask): number => taskA.due - taskB.due;
 
 /**
+ * Get the app settings.
+ *
+ * @param state The todo app state.
+ * @returns Settings object.
+ */
+export const getSettings = (state: TodoStore): Settings => state.settings;
+
+/**
+ * Get the current language.
+ *
+ * @param settings App Settings.
+ * @returns Current Language
+ */
+export const getLanguage = (settings: Settings): string => settings.language;
+
+/**
  * Get the list of tasks.
  *
  * @param state The global app state.
@@ -56,4 +73,14 @@ export const selectTasks = createSelector(
 export const selectOpenTasks = createSelector(
   getTodoState,
   getOpenTasks
+);
+
+export const selectSettings = createSelector(
+  getTodoState,
+  getSettings
+);
+
+export const selectLanguage = createSelector(
+  selectSettings,
+  getLanguage
 );

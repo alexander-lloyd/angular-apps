@@ -3,6 +3,7 @@ import {rootEffectsInit} from '@ngrx/effects';
 import {provideMockActions} from '@ngrx/effects/testing';
 import {Action, Store} from '@ngrx/store';
 import {Observable, of, throwError} from 'rxjs';
+import {SettingsService} from '../services/settings.service';
 
 import {TodoService} from '../services/todo.service';
 import {TodoTask} from '../types/todo.types';
@@ -16,6 +17,11 @@ class TodoServiceStub {
   public saveTodos() {}
 }
 
+class SettingsServiceStub {
+  public getSettings() {}
+  public saveSettings() {}
+}
+
 class StoreStub {
   public select() {}
 }
@@ -24,6 +30,7 @@ describe('TodoEffects', () => {
   let actions$: Observable<Action>;
   let effects: TodoEffects;
   let todoService: TodoService;
+  let settingsService: SettingsService;
   let store: Store;
 
   beforeEach(() => {
@@ -38,12 +45,17 @@ describe('TodoEffects', () => {
         {
           provide: Store,
           useClass: StoreStub
+        },
+        {
+          provide: SettingsService,
+          useClass: SettingsServiceStub
         }
       ]
     });
 
     effects = TestBed.inject(TodoEffects);
     todoService = TestBed.inject(TodoService);
+    settingsService = TestBed.inject(SettingsService);
     store = TestBed.inject(Store);
   });
 
@@ -126,13 +138,49 @@ describe('TodoEffects', () => {
     });
   });
 
+  it('should get settings from storage', async () => {
+    expect.assertions(3);
+    const settings = {
+      language: 'en'
+    };
+    actions$ = of(actions.getSettings());
+    const getSettingsSpy = jest.spyOn(settingsService, 'getSettings').mockImplementation(() => of(settings));
+
+    await new Promise((resolve) => {
+      effects.getSettings$.subscribe((action) => {
+        expect(action.type).toBe(actions.getSettingsSuccessAction);
+        expect(action.settings).toStrictEqual(settings);
+        expect(getSettingsSpy).toHaveBeenCalledWith();
+        resolve();
+      });
+    });
+  });
+
+  it('should save settings to storage', async () => {
+    expect.assertions(2);
+    const settings = {
+      language: 'en'
+    };
+    actions$ = of(actions.saveSettings({settings}));
+    const saveSettingsSpy = jest.spyOn(settingsService, 'saveSettings');
+
+    await new Promise((resolve) => {
+      effects.saveSettings$.subscribe((action) => {
+        expect(action.type).toBe(actions.saveSettingsAction);
+        expect(saveSettingsSpy).toHaveBeenCalledWith(settings);
+        resolve();
+      });
+    });
+  });
+
   it('should call get tasks on init', async () => {
-    expect.assertions(1);
+    expect.assertions(2);
     actions$ = of(rootEffectsInit());
 
     await new Promise((resolve) => {
       effects.init$.subscribe((action) => {
-        expect(action.type).toBe(actions.getTasksAction);
+        expect([actions.getTasksAction, actions.getSettingsAction])
+          .toContain(action.type);
         resolve();
       });
     });

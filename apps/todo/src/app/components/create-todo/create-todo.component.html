@@ -1,15 +1,20 @@
 <form class="al-todo-create-form-container" (submit)="_onSubmit()">
   <mat-form-field appearance="outline" class="al-todo-create-form-input">
-    <mat-chip-list #chipList [attr.aria-label]="'TODO_CREATE_FORM_CHIP_ARIA_TEXT' | translate">
+    <mat-chip-list
+      #chipList
+      [attr.aria-label]="'TODO_CREATE_FORM_CHIP_ARIA_TEXT' | translate"
+    >
       <mat-chip *ngIf="task.due" [removable]="true" (removed)="remove()">
         {{ task.due | dfnsFormat: 'yyyy-MM-dd' }}
-        <mat-icon matChipRemove>{{ 'TODO_CREATE_FORM_CHIP_CANCEL_ARIA_TEXT' | translate }}</mat-icon>
+        <mat-icon matChipRemove>{{
+          'TODO_CREATE_FORM_CHIP_CANCEL_ARIA_TEXT' | translate
+        }}</mat-icon>
       </mat-chip>
       <input
         matInput
         name="taskName"
         type="text"
-        placeholder="Task Name"
+        [placeholder]="'TODO_CREATE_FORM_INPUT_TEXT' | translate"
         [matChipInputFor]="chipList"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         (matChipInputTokenEnd)="add($event)"
@@ -18,5 +23,7 @@
       />
     </mat-chip-list>
   </mat-form-field>
-  <button mat-raised-button class="al-todo-create-form-button">{{'TODO_CREATE_FORM_CREATE_BUTTON_TEXT' | translate}}</button>
+  <button mat-raised-button class="al-todo-create-form-button">
+    {{ 'TODO_CREATE_FORM_CREATE_BUTTON_TEXT' | translate }}
+  </button>
 </form>

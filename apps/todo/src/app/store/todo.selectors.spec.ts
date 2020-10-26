@@ -1,3 +1,4 @@
+import {DEFAULT_SETTINGS} from '../types/settings.type';
 import * as selectors from './todo.selectors';
 import {TodoStore} from './todo.types';
 
@@ -6,7 +7,8 @@ describe('Todo Selectors', () => {
     expect.assertions(1);
     const state = {
       todo: {
-        todos: []
+        todos: [],
+        settings: DEFAULT_SETTINGS
       }
     };
     expect(selectors.getTodoState(state)).toBe(state.todo);
@@ -15,7 +17,8 @@ describe('Todo Selectors', () => {
   it('should get the tasks', () => {
     expect.assertions(1);
     const state = {
-      todos: []
+      todos: [],
+      settings: DEFAULT_SETTINGS
     };
     expect(selectors.getTasks(state)).toBe(state.todos);
   });
@@ -34,7 +37,8 @@ describe('Todo Selectors', () => {
         due: 0,
         completed: true,
         name: ''
-      }]
+      }],
+      settings: DEFAULT_SETTINGS
     };
     expect(selectors.getOpenTasks(store)).toStrictEqual([{
       id: 1,
@@ -47,7 +51,8 @@ describe('Todo Selectors', () => {
   it('should select the tasks', () => {
     expect.assertions(1);
     const state = {
-      todos: []
+      todos: [],
+      settings: DEFAULT_SETTINGS
     };
     expect(selectors.selectTasks.projector(state)).toBe(state.todos);
   });
@@ -66,7 +71,8 @@ describe('Todo Selectors', () => {
         due: '',
         completed: true,
         name: ''
-      }]
+      }],
+      settings: DEFAULT_SETTINGS
     };
     expect(selectors.selectOpenTasks.projector(state)).toStrictEqual([{
       id: 1,
