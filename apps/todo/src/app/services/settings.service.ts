@@ -29,7 +29,7 @@ export class SettingsService {
   public getSettings(): Observable<Settings> {
     const settingsJson = this.localStorage.getItem(this.SETTINGS_KEY);
     let settings: Settings;
-    if (settingsJson === undefined) {
+    if (settingsJson === null) {
       settings = this.DEFAULT_SETTINGS;
       // If settings don't exist save default settings.
       this.saveSettings(settings);

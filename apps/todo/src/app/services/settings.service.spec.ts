@@ -49,7 +49,7 @@ describe('SettingsService', () => {
 
   it('should save and return default settings if settings key does not exist', async () => {
     expect.assertions(3);
-    getItemSpy.mockImplementation(() => undefined);
+    getItemSpy.mockImplementation(() => null);
     const settings = await service.getSettings().toPromise();
     expect(settings).toStrictEqual(service.DEFAULT_SETTINGS);
     expect(getItemSpy).toHaveBeenCalledTimes(1);
