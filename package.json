@@ -116,7 +116,7 @@
     "prettier": "2.0.5",
     "roboto-fontface": "^0.10.0",
     "source-map-support": "^0.5.19",
-    "tailwindcss": "^1.8.10",
+    "tailwindcss": "^1.9.6",
     "ts-jest": "26.4.2",
     "ts-node": "~9.0.0",
     "typescript": "~4.0.3",
