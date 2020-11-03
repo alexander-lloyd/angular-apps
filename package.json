@@ -103,7 +103,7 @@
     "eslint-plugin-jsdoc": "^30.6.2",
     "istanbul-instrumenter-loader": "^3.0.1",
     "istanbul-lib-coverage": "^3.0.0",
-    "jest": "26.4.2",
+    "jest": "26.6.2",
     "jest-preset-angular": "8.3.2",
     "ng-packagr": "10.1.2",
     "ngx-build-plus": "^10.1.1",
