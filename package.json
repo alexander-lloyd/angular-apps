@@ -80,7 +80,7 @@
     "@nrwl/eslint-plugin-nx": "10.3.1",
     "@nrwl/jest": "10.3.1",
     "@nrwl/linter": "^10.3.1",
-    "@nrwl/storybook": "^10.3.1",
+    "@nrwl/storybook": "^11.1.2",
     "@nrwl/workspace": "10.3.1",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-knobs": "5.3.19",
