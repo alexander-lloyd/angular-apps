@@ -22,6 +22,7 @@ const {preprocessTypescript} = require('@nrwl/cypress/plugins/preprocessor');
  *
  * @param on event emitter.
  * @param config Cypress config.
+ * @returns Cypress Config.
  */
 module.exports = (on, config) => {
     /*
@@ -31,4 +32,6 @@ module.exports = (on, config) => {
 
     // Preprocess Typescript file using Nx helper
     on('file:preprocessor', preprocessTypescript(config));
+    require('@cypress/code-coverage/task')(on, config);
+    return config;
 };

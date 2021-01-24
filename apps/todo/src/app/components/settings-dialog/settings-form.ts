@@ -27,7 +27,10 @@ export function buildSettingsForm(translate: TranslateService): FormlyFieldConfi
             label: 'French',
             value: 'fr'
           }
-        ]
+        ],
+        attributes: {
+          'data-id': 'al-todo-settings-language-select'
+        }
       }
     }
   ];
