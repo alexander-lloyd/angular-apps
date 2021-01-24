@@ -34,7 +34,7 @@ if (environment.gaCode) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule, {
-    defaultEncapsulation: ViewEncapsulation.Native
+    defaultEncapsulation: ViewEncapsulation.ShadowDom
   })
   // eslint-disable-next-line no-console
   .catch((err: Error) => console.error(err));
