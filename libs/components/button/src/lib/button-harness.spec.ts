@@ -83,9 +83,9 @@ describe('Button Harness', () => {
     expect.assertions(3);
     const button = await loader.getHarness(ButtonHarness.with({text: 'Primary'}));
     expect(await button.isFocused()).toBe(false);
-    button.focus();
+    await button.focus();
     expect(await button.isFocused()).toBe(true);
-    button.blur();
+    await button.blur();
     expect(await button.isFocused()).toBe(false);
   });
 
