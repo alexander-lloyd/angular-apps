@@ -100,7 +100,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/todo/jest.config.js"
-          }
+          },
+          "outputs": ["coverage/apps/todo"]
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
@@ -180,7 +181,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/logger/jest.config.js"
-          }
+          },
+          "outputs": ["coverage/libs/logger"]
         }
       },
       "schematics": {
@@ -249,7 +251,8 @@
                 "output": "index.html"
               }
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "ngx-build-plus:dev-server",
@@ -285,7 +288,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/spotify-player/jest.config.js"
-          }
+          },
+          "outputs": ["coverage/apps/spotify-player"]
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
@@ -360,7 +364,8 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/components/button/jest.config.js"
-          }
+          },
+          "outputs": ["coverage/libs/components/button"]
         },
         "storybook": {
           "builder": "@nrwl/storybook:storybook",
@@ -390,7 +395,8 @@
             "ci": {
               "quiet": true
             }
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         }
       },
       "schematics": {
