@@ -11866,10 +11866,10 @@ ngx-build-plus@^11.0.0:
     webpack-dev-server "^3.1.14"
     webpack-merge "^4.2.1"
 
-ngx-date-fns@^6.5.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/ngx-date-fns/-/ngx-date-fns-6.6.0.tgz#88f9adfa60adef1c5e7802e0ad13893dabfe19ab"
-  integrity sha512-wKA/8f096IihMQAmv/eJD2ggCK52JAjMmoq3UmJ4oE4XjXn9eBOq6SogMyPCGh7ZooetdNB6i2mckbCjnttfcg==
+ngx-date-fns@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-date-fns/-/ngx-date-fns-7.0.0.tgz#86815acf87271eed44c598eb934407981c9b70cc"
+  integrity sha512-xUH0dEy9x6aI+t/50jlqjBVmS3F5FMC2ohDQKiqnbuVWImARLWhd+tgov0N34wmHc+pqFppSnn3YsxLvD/WvGg==
   dependencies:
     tslib "^2.0.0"
 
