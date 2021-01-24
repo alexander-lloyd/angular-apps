@@ -4,7 +4,13 @@
     <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button type="submit" [mat-dialog-close]="true" cdkFocusInitial>
+    <button
+      mat-button
+      type="submit"
+      [mat-dialog-close]="true"
+      data-id="al-todo-settings-save"
+      cdkFocusInitial
+    >
       {{ 'TODO_SETTINGS_SAVE_BUTTON' | translate }}
     </button>
   </mat-dialog-actions>
