@@ -80,7 +80,7 @@
     "@nrwl/jest": "11.1.5",
     "@nrwl/linter": "^11.1.5",
     "@nrwl/storybook": "^11.1.5",
-    "@nrwl/tao": "11.1.5",
+    "@nrwl/tao": "11.2.0",
     "@nrwl/workspace": "11.1.5",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-knobs": "5.3.19",
