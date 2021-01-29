@@ -81,7 +81,7 @@
     "@nrwl/linter": "^11.1.5",
     "@nrwl/storybook": "^11.1.5",
     "@nrwl/tao": "11.1.5",
-    "@nrwl/workspace": "11.1.5",
+    "@nrwl/workspace": "11.2.0",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-knobs": "5.3.19",
     "@storybook/angular": "5.3.19",
