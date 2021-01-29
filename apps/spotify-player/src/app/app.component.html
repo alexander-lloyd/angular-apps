@@ -1,8 +1,8 @@
-<div *ngIf="loading$ | async; else loaded" style="text-align: center;">
+<div *ngIf="loading$ | async; else loaded" style="text-align: center">
   <mat-spinner
     [diameter]="65"
     mode="indeterminate"
-    style="margin: 25px auto;"
+    style="margin: 25px auto"
   ></mat-spinner>
 </div>
 
@@ -13,11 +13,11 @@
 </ng-template>
 
 <ng-template #unauthenticated>
-  <div style="text-align: center;">
+  <div style="text-align: center">
     <a
       mat-flat-button
       color="accent"
-      style="margin: 30px auto;"
+      style="margin: 30px auto"
       target="_blank"
       (click)="logIn()"
     >
