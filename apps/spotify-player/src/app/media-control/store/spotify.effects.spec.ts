@@ -56,7 +56,7 @@ describe('Spotify Effects', () => {
     actions$ = of(actions.pause());
     const mockPauseAPI = jest.spyOn(mockAPIService, 'pause$').mockImplementation(() => of(null));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.pause$.subscribe(() => {
         expect(mockPauseAPI).toHaveBeenCalledTimes(1);
         resolve();
@@ -69,7 +69,7 @@ describe('Spotify Effects', () => {
     actions$ = of(actions.pause());
     const mockPauseAPI = jest.spyOn(mockAPIService, 'pause$').mockImplementation(() => throwError('Error'));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.pause$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.PAUSE_ERROR);
         expect(mockPauseAPI).toHaveBeenCalledTimes(1);
@@ -83,7 +83,7 @@ describe('Spotify Effects', () => {
     actions$ = of(actions.play());
     const mockResumeAPI = jest.spyOn(mockAPIService, 'resume$').mockImplementation(() => of(null));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.play$.subscribe(() => {
         expect(mockResumeAPI).toHaveBeenCalledTimes(1);
         resolve();
@@ -96,7 +96,7 @@ describe('Spotify Effects', () => {
     actions$ = of(actions.play());
     const mockPauseAPI = jest.spyOn(mockAPIService, 'resume$').mockImplementation(() => throwError('Error'));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.play$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.PLAY_ERROR);
         expect(mockPauseAPI).toHaveBeenCalledTimes(1);
@@ -111,7 +111,7 @@ describe('Spotify Effects', () => {
     const mockCurrentPlaybackAPI = jest.spyOn(mockAPIService, 'getCurrentPlayback$')
       .mockImplementation(() => of(currentlyPlayingObject as unknown as CurrentlyPlayingObject));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.currentTrack$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.CURRENT_TRACK_SUCCESS);
         expect(mockCurrentPlaybackAPI).toHaveBeenCalledTimes(1);
@@ -126,7 +126,7 @@ describe('Spotify Effects', () => {
     const mockCurrentPlaybackAPI = jest.spyOn(mockAPIService, 'getCurrentPlayback$')
       .mockImplementation(() => throwError('Error'));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.currentTrack$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.CURRENT_TRACK_FAILURE);
         expect(mockCurrentPlaybackAPI).toHaveBeenCalledTimes(1);
@@ -141,7 +141,7 @@ describe('Spotify Effects', () => {
     const mockPreviousAPI = jest.spyOn(mockAPIService, 'previousTrack$')
       .mockImplementation(() => of(null));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.previous$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.NOOP);
         expect(mockPreviousAPI).toHaveBeenCalledTimes(1);
@@ -156,7 +156,7 @@ describe('Spotify Effects', () => {
     const mockPreviousAPI = jest.spyOn(mockAPIService, 'previousTrack$')
       .mockImplementation(() => throwError('Error'));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.previous$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.PREVIOUS_ERROR);
         expect(mockPreviousAPI).toHaveBeenCalledTimes(1);
@@ -171,7 +171,7 @@ describe('Spotify Effects', () => {
     const mockSkipAPI = jest.spyOn(mockAPIService, 'skipTrack$')
       .mockImplementation(() => of(null));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.skip$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.NOOP);
         expect(mockSkipAPI).toHaveBeenCalledTimes(1);
@@ -186,7 +186,7 @@ describe('Spotify Effects', () => {
     const mockSkipAPI = jest.spyOn(mockAPIService, 'skipTrack$')
       .mockImplementation(() => throwError('Error'));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.skip$.subscribe((action: Action) => {
         expect(action.type).toBe(actions.SKIP_ERROR);
         expect(mockSkipAPI).toHaveBeenCalledTimes(1);
