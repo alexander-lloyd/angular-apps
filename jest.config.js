@@ -4,6 +4,7 @@ module.exports = {
         '<rootDir>/apps/todo',
         '<rootDir>/libs/logger',
         '<rootDir>/apps/spotify-player',
-        '<rootDir>/libs/components/button'
+        '<rootDir>/libs/components/button',
+        '<rootDir>/libs/history'
     ]
 };
