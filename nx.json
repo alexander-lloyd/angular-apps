@@ -30,6 +30,9 @@
     },
     "button-component": {
       "tags": []
+    },
+    "history": {
+      "tags": []
     }
   },
   "affected": {

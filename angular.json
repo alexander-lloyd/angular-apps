@@ -404,6 +404,27 @@
           "style": "scss"
         }
       }
+    },
+    "history": {
+      "root": "libs/history",
+      "sourceRoot": "libs/history/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/history/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/history"],
+          "options": {
+            "jestConfig": "libs/history/jest.config.js",
+            "passWithNoTests": false
+          }
+        }
+      }
     }
   },
   "cli": {
