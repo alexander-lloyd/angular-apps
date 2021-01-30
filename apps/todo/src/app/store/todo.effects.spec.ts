@@ -70,7 +70,7 @@ describe('TodoEffects', () => {
     }];
     const getTodosSpy = jest.spyOn(todoService, 'getTodos').mockImplementation(() => of(tasks));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.loadTasks$.subscribe((action) => {
         expect(getTodosSpy).toHaveBeenCalledTimes(1);
         expect(action.type).toBe(actions.getTasksSuccessAction);
@@ -85,7 +85,7 @@ describe('TodoEffects', () => {
     actions$ = of(actions.getTasks());
     const getTodosSpy = jest.spyOn(todoService, 'getTodos').mockImplementation(() => throwError(''));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.loadTasks$.subscribe((action) => {
         expect(getTodosSpy).toHaveBeenCalledTimes(1);
         expect(action.type).toBe(actions.getTasksFailureAction);
@@ -108,7 +108,7 @@ describe('TodoEffects', () => {
     const storeSelectSpy = jest.spyOn(store, 'select')
       .mockImplementation(() => of([]));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.saveTasks$.subscribe((action) => {
         expect(saveTodosSpy).toHaveBeenCalledTimes(1);
         expect(storeSelectSpy).toHaveBeenCalledTimes(1);
@@ -129,7 +129,7 @@ describe('TodoEffects', () => {
     actions$ = of(actions.addTask({task}));
     const addTodoSpy = jest.spyOn(todoService, 'addTodo').mockImplementation();
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.addTask$.subscribe((action) => {
         expect(addTodoSpy).toHaveBeenCalledTimes(1);
         expect(action.type).toBe(actions.getTasksAction);
@@ -146,7 +146,7 @@ describe('TodoEffects', () => {
     actions$ = of(actions.getSettings());
     const getSettingsSpy = jest.spyOn(settingsService, 'getSettings').mockImplementation(() => of(settings));
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.getSettings$.subscribe((action) => {
         expect(action.type).toBe(actions.getSettingsSuccessAction);
         expect(action.settings).toStrictEqual(settings);
@@ -164,7 +164,7 @@ describe('TodoEffects', () => {
     actions$ = of(actions.saveSettings({settings}));
     const saveSettingsSpy = jest.spyOn(settingsService, 'saveSettings');
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.saveSettings$.subscribe((action) => {
         expect(action.type).toBe(actions.saveSettingsAction);
         expect(saveSettingsSpy).toHaveBeenCalledWith(settings);
@@ -177,7 +177,7 @@ describe('TodoEffects', () => {
     expect.assertions(2);
     actions$ = of(rootEffectsInit());
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       effects.init$.subscribe((action) => {
         expect([actions.getTasksAction, actions.getSettingsAction])
           .toContain(action.type);
