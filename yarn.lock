@@ -2062,6 +2062,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@11.2.7":
+  version "11.2.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.2.7.tgz#3ba69bc8682e66e15e3d02b8c546b9a2318e7f5c"
+  integrity sha512-fRkpEQvSYDPt9KJ2JL+oDDC/EK/+nTqyMQDWwy8+T9Quxa2S/WCXjla2605kdJizjIqLS9bdGgV3Or89TJPcQA==
+  dependencies:
+    "@nrwl/tao" "11.2.7"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-11.2.6.tgz#29bcdda95adb22dcc3bb07adb6429f020f677e4b"
@@ -2077,6 +2089,17 @@
   integrity sha512-0bjqrNw1PFotpF5UTKswjQ8FvEKy3jVCoV0qiv0+oOl9FgRwLcqrE9PEf41W5nU3WpJDxfcuedO2hzj/slGXHg==
   dependencies:
     "@nrwl/devkit" "11.2.6"
+    jest-resolve "^26.6.2"
+    rxjs "^6.5.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
+"@nrwl/jest@11.2.7":
+  version "11.2.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-11.2.7.tgz#1aa9305e4454801f11fb3b10563502a0c9318e1c"
+  integrity sha512-JV6Y+QKvUjmQCmQ/ARAzoatnrZCe74W4Ca884Xq8BDqkZQEZVC312puOVshGErUhda8mdjeWzBT5B7TNShpxfg==
+  dependencies:
+    "@nrwl/devkit" "11.2.7"
     jest-resolve "^26.6.2"
     rxjs "^6.5.4"
     strip-json-comments "2.0.1"
@@ -2113,6 +2136,23 @@
     "@angular-devkit/architect" "~0.1100.1"
     "@angular-devkit/core" "~11.0.1"
     "@angular-devkit/schematics" "~11.0.1"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/tao@11.2.7":
+  version "11.2.7"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.2.7.tgz#e661066e613b1e26c3158585dc8c2105e516f0f7"
+  integrity sha512-OL/no+nPzpeZ76iPpoV7BLMUGlWOVCz+aA8iUeppcL0IalajLylo1+I7M6i4jP06coGEtxrhTfYU/u88oJTjwg==
+  dependencies:
     chalk "4.1.0"
     fs-extra "7.0.1"
     inquirer "^6.3.1"
