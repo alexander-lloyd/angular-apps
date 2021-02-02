@@ -11559,10 +11559,10 @@ ngx-date-fns@7.0.0:
   dependencies:
     tslib "^2.0.0"
 
-ngx-translate-testing@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-translate-testing/-/ngx-translate-testing-5.0.0.tgz#101de6cfde27a949796229d5cb35a93ce5bf1de4"
-  integrity sha512-TO29tDY4vxvWPaJfR/keMQx6+CG7qA1HV7DWpya/1xp/v+j8/VMmXiGvBp2XApQJ/dHboeAouqv97ngo5Ve4uQ==
+ngx-translate-testing@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ngx-translate-testing/-/ngx-translate-testing-5.1.0.tgz#4e4db75ea5c1b08cb97200d390a0d9ff5bc2891b"
+  integrity sha512-DO3DqHEl2x0ajL3WoYEvWD0buEI//Y7myKAvEWYOZw0ZZREcn7CY38ajzaAGtT2ge18BT511IjxS/IKrflkGDA==
   dependencies:
     tslib "^2.0.0"
 
