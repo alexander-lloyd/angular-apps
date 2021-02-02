@@ -8,7 +8,7 @@ const MAX_CLASSES_PER_FILE = 5;
 const MAX_COMPLEXITY = 10;
 const MAX_LINE_LENGTH = 120;
 const MAX_LINES = 300;
-const MAX_LINES_PER_FUNCTION = 20;
+const MAX_LINES_PER_FUNCTION = 30;
 const MAX_PARAMETERS = 6;
 
 module.exports = {
@@ -103,8 +103,9 @@ module.exports = {
         'no-continue': 'off',
         'no-extra-parens': 'off',
         'no-fallthrough': 'error',
-        'no-magic-numbers': 'warn',
+        'no-magic-numbers': 'off',
         'no-plusplus': 'off',
+        'no-shadow': 'error',
         'no-sync': 'off',
         'no-ternary': 'off',
         'no-undefined': 'off',
@@ -208,12 +209,9 @@ module.exports = {
                         ignoreParameters: true
                     }
                 ],
-                '@typescript-eslint/no-magic-numbers': ['error', {
-                    ignoreEnums: true,
-                    ignoreNumericLiteralTypes: true,
-                    ignoreReadonlyClassProperties: true
-                }],
+                '@typescript-eslint/no-magic-numbers': 'off',
                 '@typescript-eslint/no-non-null-assertion': 'error',
+                '@typescript-eslint/no-shadow': 'error',
                 '@typescript-eslint/no-unused-vars': ['error', {
                     'argsIgnorePattern': '^_$'
                 }],
@@ -236,7 +234,9 @@ module.exports = {
                             }
                         ]
                     }
-                ]
+                ],
+                // Use @typescript-eslint version instead.
+                'no-shadow': 'off'
             }
         },
         {
@@ -270,7 +270,6 @@ module.exports = {
                     suffixes: ['Component', 'ComponentStub']
                 }],
                 '@typescript-eslint/no-empty-function': 'off',
-                '@typescript-eslint/no-magic-numbers': 'off',
                 'jest/lowercase-name': ['error', {ignore: ['describe']}],
                 'jest/no-hooks': ['error', {allow: ['beforeEach', 'afterEach']}],
                 'jest/no-truthy-falsy': 'off',
