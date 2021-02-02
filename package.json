@@ -83,7 +83,7 @@
     "@nrwl/tao": "11.2.6",
     "@nrwl/workspace": "11.2.6",
     "@storybook/addon-a11y": "^6.1.15",
-    "@storybook/addon-knobs": "6.1.15",
+    "@storybook/addon-knobs": "6.1.16",
     "@storybook/angular": "5.3.19",
     "@types/jest": "26.0.20",
     "@types/node": "~14.14.22",
