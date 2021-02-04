@@ -2050,6 +2050,18 @@
     webpack-node-externals "1.7.2"
     yargs-parser "20.0.0"
 
+"@nrwl/devkit@11.2.10":
+  version "11.2.10"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.2.10.tgz#353c15258a66cffa5e8d366d89d9ba3ee8ba75da"
+  integrity sha512-S/zfB0WmsYneiw4pikrHzOu7V46emJTJQQVdRnlRnLYMeNQrbz1HzivgZPnKqPrOsGmZ9cfxg/tUZnFWpf6BKQ==
+  dependencies:
+    "@nrwl/tao" "11.2.10"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/devkit@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.2.6.tgz#cac1ccf8351898cd96b48eb11a834cf7846d5fb6"
@@ -2070,6 +2082,17 @@
     "@nrwl/devkit" "11.2.6"
     "@typescript-eslint/experimental-utils" "^4.3.0"
     confusing-browser-globals "^1.0.9"
+
+"@nrwl/jest@11.2.10":
+  version "11.2.10"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-11.2.10.tgz#26c7eb73a39e280dd2a1b78d176d08e87a52058a"
+  integrity sha512-A7/RbgsG8Sx6Ul7WULpIfLMMoJ4TzdipOrv2MgCc1Mj5PpwqO8jVRWzhtv1bwwM058RmAJXXol2Ni8qoCA5oXQ==
+  dependencies:
+    "@nrwl/devkit" "11.2.10"
+    jest-resolve "^26.6.2"
+    rxjs "^6.5.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
 
 "@nrwl/jest@11.2.6":
   version "11.2.6"
@@ -2104,6 +2127,26 @@
     ts-loader "5.4.5"
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
+
+"@nrwl/tao@11.2.10":
+  version "11.2.10"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.2.10.tgz#f55b3b39a620615f5d4fd84cbe08af8e9ae871a8"
+  integrity sha512-nOOuMDrdEd678HMlK9w7KhSGQJudN9Jr11k3MeTnroQrtGSzvN4FMW0tVynQWNJKbzLQeV3gQHNh8FsP9Pvo6Q==
+  dependencies:
+    "@angular-devkit/architect" "~0.1100.1"
+    "@angular-devkit/core" "~11.0.1"
+    "@angular-devkit/schematics" "~11.0.1"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
 
 "@nrwl/tao@11.2.6":
   version "11.2.6"

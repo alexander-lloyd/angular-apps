@@ -77,7 +77,7 @@
     "@nrwl/cli": "11.2.6",
     "@nrwl/cypress": "11.2.6",
     "@nrwl/eslint-plugin-nx": "11.2.6",
-    "@nrwl/jest": "11.2.6",
+    "@nrwl/jest": "11.2.10",
     "@nrwl/linter": "^11.2.6",
     "@nrwl/storybook": "^11.2.6",
     "@nrwl/tao": "11.2.6",
