@@ -93,7 +93,7 @@ function getBaseUrl(document: Document): string {
     MatSidenavModule,
     MatToolbarModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.serviceWorker}),
     StoreModule.forRoot({
       todo: todoReducer
     }, {}),

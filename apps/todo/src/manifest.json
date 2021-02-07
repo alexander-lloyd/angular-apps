@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Todo App",
+  "description": "Todo App",
+  "version": "0.0.1",
+  "icons": {
+    "16": "./assets/icons/favicon-16x16.png"
+  },
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["https://fonts.googleapis.com/"]
+}
