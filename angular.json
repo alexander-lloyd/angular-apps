@@ -24,7 +24,8 @@
             "aot": true,
             "assets": [
               "apps/todo/src/assets",
-              "apps/todo/src/manifest.webmanifest"
+              "apps/todo/src/manifest.webmanifest",
+              "apps/todo/src/manifest.json"
             ],
             "styles": ["apps/todo/src/styles.scss"],
             "scripts": [],
@@ -61,8 +62,50 @@
                   "maximumError": "10kb"
                 }
               ],
+              "index": {
+                "input": "apps/todo/src/index.production.html",
+                "output": "index.html"
+              },
               "serviceWorker": true,
               "ngswConfigPath": "apps/todo/ngsw-config.json"
+            },
+            "chrome-extension": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/todo/src/environments/environment.ts",
+                  "with": "apps/todo/src/environments/environment.extension.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "subresourceIntegrity": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "index": {
+                "input": "apps/todo/src/index.production.html",
+                "output": "index.html"
+              },
+              "serviceWorker": false,
+              "styles": [
+                "apps/todo/src/styles.scss",
+                "apps/todo/src/extension.css"
+              ]
             }
           }
         },
