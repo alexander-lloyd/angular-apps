@@ -18,7 +18,8 @@
     "paths": {
       "@al/button-component": ["libs/components/button/src/index.ts"],
       "@al/logger": ["libs/logger/src/index.ts"],
-      "@al/history": ["libs/history/src/index.ts"]
+      "@al/history": ["libs/history/src/index.ts"],
+      "@al/storage": ["libs/storage/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
