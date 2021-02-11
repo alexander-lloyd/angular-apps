@@ -2032,6 +2032,24 @@
     yargs "15.4.1"
     yargs-parser "20.0.0"
 
+"@nrwl/cypress@11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-11.2.12.tgz#847ca303af9b0cbb00cff9f22c41a34d08d84b29"
+  integrity sha512-FZeSGBwr4UfUJD47f/TbNPijoSEq85iHcbhebpUCUqYGzSxLtLaB5EE75SSlqvyQh9EvC+G/QBzZpT2JS0KGrw==
+  dependencies:
+    "@cypress/webpack-preprocessor" "~4.1.2"
+    "@nrwl/devkit" "11.2.12"
+    "@nrwl/linter" "11.2.12"
+    fork-ts-checker-webpack-plugin "^3.1.1"
+    fs-extra "7.0.1"
+    rxjs "^6.5.4"
+    tree-kill "1.2.2"
+    ts-loader "5.4.5"
+    tsconfig-paths-webpack-plugin "3.2.0"
+    tslib "^2.0.0"
+    webpack-node-externals "1.7.2"
+    yargs-parser "20.0.0"
+
 "@nrwl/cypress@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-11.2.6.tgz#2c36258a178d3c998ddfa63d5e4dc8cfdb8584d5"
@@ -2049,6 +2067,18 @@
     tslib "^2.0.0"
     webpack-node-externals "1.7.2"
     yargs-parser "20.0.0"
+
+"@nrwl/devkit@11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.2.12.tgz#d0f21d46063878e9baa6f6356db939ce09434033"
+  integrity sha512-zc8Otk2PmtE5YJ+poUePVonEIAMKE0jo+Iw4Pyx/YMWZ/IzKQLp2/EZgqNqLZeXrtfBc2iqdbnaKQRUADb4s/Q==
+  dependencies:
+    "@nrwl/tao" "11.2.12"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
 
 "@nrwl/devkit@11.2.6":
   version "11.2.6"
@@ -2082,6 +2112,16 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/linter@11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.12.tgz#8037e1ce28c6ab5b38b351c4bff106790e93162e"
+  integrity sha512-tehygt6vKAu35jgS5dPvAIVhgGw+7Nt8rMOVmehoMXZ+nWP00texD9cuFXCrqZpWU9hcv4xJTR+vr28eUJPcew==
+  dependencies:
+    "@nrwl/devkit" "11.2.12"
+    glob "7.1.4"
+    minimatch "3.0.4"
+    tslib "^2.0.0"
+
 "@nrwl/linter@11.2.6", "@nrwl/linter@^11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.6.tgz#b5862e834b29cfa1e5684758070be89e9be234aa"
@@ -2092,18 +2132,39 @@
     minimatch "3.0.4"
     tslib "^2.0.0"
 
-"@nrwl/storybook@^11.2.6":
-  version "11.2.6"
-  resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-11.2.6.tgz#0df62f88be344b39ab29716e6ac933e10bbef28b"
-  integrity sha512-HD2oKnUSAIXNeU4PFnsDTGvY9Y6prHL64wsDM/Mu9+miaPferN4M1rUX4tu4+hN0s9WW+erS/vweqLsb4L+Imw==
+"@nrwl/storybook@^11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/storybook/-/storybook-11.2.12.tgz#1d815400a773ab98d25299e96c2dcf4d32ba1199"
+  integrity sha512-oz9piw3uR0Pepix9QausLlfCUEVKZSZwE305k/d96ogI3FS7A3+/n+BEo0Lv0Lo4ajwj9uwAs948+59jgoA+VA==
   dependencies:
-    "@nrwl/cypress" "11.2.6"
-    "@nrwl/devkit" "11.2.6"
+    "@nrwl/cypress" "11.2.12"
+    "@nrwl/devkit" "11.2.12"
     core-js "^3.6.5"
+    semver "6.3.0"
     tree-kill "1.2.2"
     ts-loader "5.4.5"
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
+
+"@nrwl/tao@11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.2.12.tgz#400925366ceaf1249b4a937ab8bf49c035cccddc"
+  integrity sha512-begYux5B080UaRMxGwBB5kixDcTMIEliPm7/1mIQ4DgMTunetN5pXOlZoEiYovVPByVjgLBzwzZfNkGvj7mSzg==
+  dependencies:
+    "@angular-devkit/architect" "~0.1100.1"
+    "@angular-devkit/core" "~11.0.1"
+    "@angular-devkit/schematics" "~11.0.1"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
 
 "@nrwl/tao@11.2.6":
   version "11.2.6"
