@@ -2105,6 +2105,26 @@
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
 
+"@nrwl/tao@11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.2.12.tgz#400925366ceaf1249b4a937ab8bf49c035cccddc"
+  integrity sha512-begYux5B080UaRMxGwBB5kixDcTMIEliPm7/1mIQ4DgMTunetN5pXOlZoEiYovVPByVjgLBzwzZfNkGvj7mSzg==
+  dependencies:
+    "@angular-devkit/architect" "~0.1100.1"
+    "@angular-devkit/core" "~11.0.1"
+    "@angular-devkit/schematics" "~11.0.1"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
 "@nrwl/tao@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.2.6.tgz#8ecb9a754340086b50bc70feb0446a970ff2c092"
