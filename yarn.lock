@@ -2050,6 +2050,18 @@
     webpack-node-externals "1.7.2"
     yargs-parser "20.0.0"
 
+"@nrwl/devkit@11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.2.12.tgz#d0f21d46063878e9baa6f6356db939ce09434033"
+  integrity sha512-zc8Otk2PmtE5YJ+poUePVonEIAMKE0jo+Iw4Pyx/YMWZ/IzKQLp2/EZgqNqLZeXrtfBc2iqdbnaKQRUADb4s/Q==
+  dependencies:
+    "@nrwl/tao" "11.2.12"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/devkit@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.2.6.tgz#cac1ccf8351898cd96b48eb11a834cf7846d5fb6"
@@ -2082,12 +2094,22 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
-"@nrwl/linter@11.2.6", "@nrwl/linter@^11.2.6":
+"@nrwl/linter@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.6.tgz#b5862e834b29cfa1e5684758070be89e9be234aa"
   integrity sha512-7C1uZz+NA+jsj7bQC3UiGeJeyaA5b2LFNqGHcrcWht/Fshj/vB9scN3mc/FRRaX9tfWkU/W1BR06kJh3QDfwvg==
   dependencies:
     "@nrwl/devkit" "11.2.6"
+    glob "7.1.4"
+    minimatch "3.0.4"
+    tslib "^2.0.0"
+
+"@nrwl/linter@^11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.12.tgz#8037e1ce28c6ab5b38b351c4bff106790e93162e"
+  integrity sha512-tehygt6vKAu35jgS5dPvAIVhgGw+7Nt8rMOVmehoMXZ+nWP00texD9cuFXCrqZpWU9hcv4xJTR+vr28eUJPcew==
+  dependencies:
+    "@nrwl/devkit" "11.2.12"
     glob "7.1.4"
     minimatch "3.0.4"
     tslib "^2.0.0"
@@ -2104,6 +2126,26 @@
     ts-loader "5.4.5"
     tsconfig-paths-webpack-plugin "3.2.0"
     webpack-node-externals "1.7.2"
+
+"@nrwl/tao@11.2.12":
+  version "11.2.12"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.2.12.tgz#400925366ceaf1249b4a937ab8bf49c035cccddc"
+  integrity sha512-begYux5B080UaRMxGwBB5kixDcTMIEliPm7/1mIQ4DgMTunetN5pXOlZoEiYovVPByVjgLBzwzZfNkGvj7mSzg==
+  dependencies:
+    "@angular-devkit/architect" "~0.1100.1"
+    "@angular-devkit/core" "~11.0.1"
+    "@angular-devkit/schematics" "~11.0.1"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
 
 "@nrwl/tao@11.2.6":
   version "11.2.6"
