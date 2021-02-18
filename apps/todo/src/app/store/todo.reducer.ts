@@ -36,7 +36,7 @@ const _todoReducer = createReducer(
       )
     ]
   })),
-  on(actions.getSettingsSuccess, (state, {settings}) => ({
+  on(actions.getSettingsSuccess, actions.saveSettings, (state, {settings}) => ({
     ...state,
     settings
   }))

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {Store} from '@ngrx/store';
-import {TranslateService} from '@ngx-translate/core';
 import {GlobalState} from '../../store/todo.types';
 import * as actions from '../../store/todo.actions';
 import * as selectors from '../../store/todo.selectors';
@@ -20,17 +19,15 @@ import {buildSettingsForm} from './settings-form';
 export class SettingsDialogComponent implements OnInit {
   public form = new FormGroup({});
   public model: Settings;
-  public fields = buildSettingsForm(this.translate);
+  public fields = buildSettingsForm();
 
   /**
    * Constructor.
    *
    * @param store NGRX Store.
-   * @param translate Translation Service.
    */
   public constructor(
-    private store: Store<GlobalState>,
-    private translate: TranslateService
+    private store: Store<GlobalState>
   ) {}
 
   /**

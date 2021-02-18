@@ -34,4 +34,17 @@ describe('Settings Dialog', () => {
       expect(s).equal(newSettings);
     });
   });
+
+  it('should get the latest settings from storage when reopening settings', () => {
+    selectors.getLanguage().should('eq', 'en');
+    selectors.getSettingsButton().click();
+    selectors.getLanguageSelect().click()
+      .get('mat-option')
+      .contains('French')
+      .click();
+    selectors.getSaveSettingsButton().click();
+
+    selectors.getSettingsButton().click();
+    selectors.getLanguageSelect().should('have.text', 'French');
+  });
 });

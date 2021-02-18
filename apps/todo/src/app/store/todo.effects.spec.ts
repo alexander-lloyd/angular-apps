@@ -2,6 +2,7 @@ import {TestBed} from '@angular/core/testing';
 import {rootEffectsInit} from '@ngrx/effects';
 import {provideMockActions} from '@ngrx/effects/testing';
 import {Action, Store} from '@ngrx/store';
+import {TranslateService} from '@ngx-translate/core';
 import {Observable, of, throwError} from 'rxjs';
 import {SettingsService} from '../services/settings.service';
 
@@ -26,11 +27,16 @@ class StoreStub {
   public select() {}
 }
 
+class TranslateServiceStub {
+  public use() {}
+}
+
 describe('TodoEffects', () => {
   let actions$: Observable<Action>;
   let effects: TodoEffects;
   let todoService: TodoService;
   let settingsService: SettingsService;
+  let translateService: TranslateService;
   let store: Store;
 
   beforeEach(() => {
@@ -49,6 +55,10 @@ describe('TodoEffects', () => {
         {
           provide: SettingsService,
           useClass: SettingsServiceStub
+        },
+        {
+          provide: TranslateService,
+          useClass: TranslateServiceStub
         }
       ]
     });
@@ -56,6 +66,7 @@ describe('TodoEffects', () => {
     effects = TestBed.inject(TodoEffects);
     todoService = TestBed.inject(TodoService);
     settingsService = TestBed.inject(SettingsService);
+    translateService = TestBed.inject(TranslateService);
     store = TestBed.inject(Store);
   });
 
@@ -168,6 +179,22 @@ describe('TodoEffects', () => {
       effects.saveSettings$.subscribe((action) => {
         expect(action.type).toBe(actions.saveSettingsAction);
         expect(saveSettingsSpy).toHaveBeenCalledWith(settings);
+        resolve();
+      });
+    });
+  });
+
+  it('should set language on save settings', async () => {
+    expect.assertions(1);
+    const settings = {
+      language: 'en'
+    };
+    actions$ = of(actions.saveSettings({settings}));
+    const translateServiceSpy = jest.spyOn(translateService, 'use');
+
+    await new Promise<void>((resolve) => {
+      effects.saveLanguage$.subscribe(() => {
+        expect(translateServiceSpy).toHaveBeenCalledWith(settings.language);
         resolve();
       });
     });
