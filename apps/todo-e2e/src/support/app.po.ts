@@ -50,6 +50,13 @@ export const getLanguageSelect = (): Cypress.Chainable => cy.get('[data-id="al-t
 export const getSaveSettingsButton = (): Cypress.Chainable => cy.get('[data-id="al-todo-settings-save"]');
 
 /**
+ * Get the settings cancel button.
+ *
+ * @returns Settings Dialog.
+ */
+export const getCancelSettingsButton = (): Cypress.Chainable => cy.get('[data-id="al-todo-settings-cancel"]');
+
+/**
  * Get the main content.
  *
  * @returns Chainable.
