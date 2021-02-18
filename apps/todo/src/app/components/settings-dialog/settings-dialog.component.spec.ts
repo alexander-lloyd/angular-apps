@@ -108,7 +108,9 @@ describe('SettingsDialogComponent', () => {
     jest.spyOn(dialogRef, 'close').mockImplementation(() => {});
     const onSubmitSpy = jest.spyOn(component, 'onSubmit');
 
-    const saveButton = await loader.getHarness(MatButtonHarness);
+    const saveButton = await loader.getHarness(MatButtonHarness.with({
+      selector: '[data-id=al-todo-settings-save]'
+    }));
     await saveButton.click();
 
     expect(onSubmitSpy).toHaveBeenCalledTimes(1);
@@ -116,15 +118,34 @@ describe('SettingsDialogComponent', () => {
   });
 
   it('should close the dialog when save is pressed', async () => {
-    expect.assertions(1);
+    expect.assertions(2);
 
     const dialogRef = TestBed.inject(MatDialogRef);
     const closeDialogSpy = jest.spyOn(dialogRef, 'close').mockImplementation(() => {});
-    jest.spyOn(component, 'onSubmit');
+    const submitFormSpy = jest.spyOn(component, 'onSubmit');
 
-    const saveButton = await loader.getHarness(MatButtonHarness);
+    const saveButton = await loader.getHarness(MatButtonHarness.with({
+      selector: '[data-id=al-todo-settings-save]'
+    }));
     await saveButton.click();
 
     expect(closeDialogSpy).toHaveBeenCalledTimes(1);
+    expect(submitFormSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should close the dialog when cancel button is pressed', async () => {
+    expect.assertions(2);
+
+    const dialogRef = TestBed.inject(MatDialogRef);
+    const closeDialogSpy = jest.spyOn(dialogRef, 'close').mockImplementation(() => {});
+    const submitFormSpy = jest.spyOn(component, 'onSubmit');
+
+    const cancelButton = await loader.getHarness(MatButtonHarness.with({
+      selector: '[data-id=al-todo-settings-cancel]'
+    }));
+    await cancelButton.click();
+
+    expect(closeDialogSpy).toHaveBeenCalledTimes(1);
+    expect(submitFormSpy).toHaveBeenCalledTimes(0);
   });
 });

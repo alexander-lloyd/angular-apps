@@ -47,4 +47,17 @@ describe('Settings Dialog', () => {
     selectors.getSettingsButton().click();
     selectors.getLanguageSelect().should('have.text', 'French');
   });
+
+  it('should cancel settings modal if the cancel button is pressed', () => {
+    selectors.getLanguage().should('eq', 'en');
+    selectors.getSettingsButton().click();
+    selectors.getLanguageSelect().click()
+      .get('mat-option')
+      .contains('French')
+      .click();
+    selectors.getCancelSettingsButton().click();
+
+    selectors.getSettingsButton().click();
+    selectors.getLanguageSelect().should('have.text', 'English');
+  });
 });
