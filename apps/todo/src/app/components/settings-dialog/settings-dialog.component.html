@@ -2,6 +2,10 @@
   <h2 mat-dialog-title>Settings</h2>
   <mat-dialog-content class="mat-typography">
     <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    <h2>About</h2>
+    <p>Version: <span data-id="al-todo-settings-version">{{version$ | async}}</span></p>
+    <p>Build Time: <span data-id="al-todo-settings-build-time">{{buildTime$ | async}}</span></p>
+    <p>Commit Hash: <span data-id="al-todo-settings-commit-hash">{{commitHash$ | async}}</span></p>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
     <button
