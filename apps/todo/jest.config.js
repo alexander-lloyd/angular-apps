@@ -12,7 +12,11 @@ module.exports = {
                     'jest-preset-angular/build/StripStylesTransformer'
                 ]
             }
-        }
+        },
+        // Normally injected by webpack
+        'BUILD_TIME': 1613833105241,
+        'COMMIT_HASH': 'f4742bb',
+        'VERSION': '1.0.0'
     },
     coverageDirectory: '../../coverage/apps/todo',
     snapshotSerializers: [
