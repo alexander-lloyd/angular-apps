@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {VersionService} from '../../services/version.service';
 import {GlobalState} from '../../store/todo.types';
 import * as actions from '../../store/todo.actions';
 import * as selectors from '../../store/todo.selectors';
@@ -20,15 +22,24 @@ export class SettingsDialogComponent implements OnInit {
   public form = new FormGroup({});
   public model: Settings;
   public fields = buildSettingsForm();
+  public buildTime$: Observable<string>;
+  public commitHash$: Observable<string>;
+  public version$: Observable<string>;
 
   /**
    * Constructor.
    *
    * @param store NGRX Store.
+   * @param versionService VersionService.
    */
   public constructor(
-    private store: Store<GlobalState>
-  ) {}
+    private store: Store<GlobalState>,
+    private versionService: VersionService
+  ) {
+    this.buildTime$ = this.versionService.getBuildTime();
+    this.commitHash$ = this.versionService.getCommitHash();
+    this.version$ = this.versionService.getVersion();
+  }
 
   /**
    * Called when component is initialised.

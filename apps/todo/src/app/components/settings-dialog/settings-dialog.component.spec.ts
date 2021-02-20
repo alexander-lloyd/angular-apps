@@ -4,6 +4,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonHarness} from '@angular/material/button/testing';
 import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import {By} from '@angular/platform-browser';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MemoizedSelector} from '@ngrx/store';
 import {MockStore, provideMockStore} from '@ngrx/store/testing';
@@ -14,6 +15,7 @@ import {of} from 'rxjs';
 
 import * as selectors from '../../store/todo.selectors';
 import {SettingsService} from '../../services/settings.service';
+import {VersionService} from '../../services/version.service';
 import {GlobalState} from '../../store/todo.types';
 import {DEFAULT_SETTINGS, Settings} from '../../types/settings.type';
 import {SettingsDialogComponent} from './settings-dialog.component';
@@ -33,6 +35,12 @@ class SettingsServiceStub {
   }
 
   public saveSettings() {}
+}
+
+class VersionServiceStub {
+  public getBuildTime() {}
+  public getCommitHash() {}
+  public getVersion() {}
 }
 
 describe('SettingsDialogComponent', () => {
@@ -69,6 +77,10 @@ describe('SettingsDialogComponent', () => {
         {
           provide: MatDialogRef,
           useClass: DialogRefStub
+        },
+        {
+          provide: VersionService,
+          useClass: VersionServiceStub
         }
       ]
     }).compileComponents();
@@ -147,5 +159,26 @@ describe('SettingsDialogComponent', () => {
 
     expect(closeDialogSpy).toHaveBeenCalledTimes(1);
     expect(submitFormSpy).toHaveBeenCalledTimes(0);
+  });
+
+  it('should display build time, commit hash and version', () => {
+    expect.assertions(3);
+    const {debugElement} = fixture;
+
+    const version = '1.0.0';
+    const commitHash = 'abc';
+    const buildTime = '2020-02-20';
+    component.buildTime$ = of(buildTime);
+    component.commitHash$ = of(commitHash);
+    component.version$ = of(version);
+    fixture.detectChanges();
+
+    const buildTimeElement = debugElement.query(By.css('[data-id=al-todo-settings-build-time]')).nativeElement;
+    const commitHashElement = debugElement.query(By.css('[data-id=al-todo-settings-commit-hash]')).nativeElement;
+    const versionElement = debugElement.query(By.css('[data-id=al-todo-settings-version]')).nativeElement;
+
+    expect(buildTimeElement.textContent).toBe(buildTime);
+    expect(commitHashElement.textContent).toBe(commitHash);
+    expect(versionElement.textContent).toBe(version);
   });
 });

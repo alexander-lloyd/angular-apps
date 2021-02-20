@@ -37,6 +37,7 @@ import {TodoEffects} from './store/todo.effects';
 import {todoReducer} from './store/todo.reducer';
 import {registerTranslateExtension} from './services/translation.extension';
 import {SettingsService} from './services/settings.service';
+import {VersionService} from './services/version.service';
 
 /**
  * Ngx Translate Loader Factory.
@@ -113,6 +114,7 @@ function getBaseUrl(document: Document): string {
     LocalStorageService,
     TodoService,
     SettingsService,
+    VersionService,
     {
       provide: APP_BASE_HREF,
       useFactory: getBaseUrl,

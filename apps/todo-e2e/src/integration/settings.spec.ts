@@ -60,4 +60,15 @@ describe('Settings Dialog', () => {
     selectors.getSettingsButton().click();
     selectors.getLanguageSelect().should('have.text', 'English');
   });
+
+  it('should display build time, commit hash and version', () => {
+    selectors.getSettingsButton().click();
+
+    selectors.getAppBuildTime()
+      .should('match', /\w{3}, \d+ \w{3} \d{4} \d{2}:\d{2}:\d{2} \w{3}/u);
+    selectors.getAppCommitHash()
+      .should('match', /\w{7}/u);
+    selectors.getAppVersion()
+      .should('match', /\d+\.\d+\.\d+/u);
+  });
 });

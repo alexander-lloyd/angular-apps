@@ -43,6 +43,30 @@ export const getSettingsDialog = (): Cypress.Chainable => cy.get('al-settings-di
 export const getLanguageSelect = (): Cypress.Chainable => cy.get('[data-id="al-todo-settings-language-select"]');
 
 /**
+ * Get the app build time.
+ *
+ * @returns Build time.
+ */
+export const getAppBuildTime = (): Cypress.Chainable<string> => cy.get('[data-id=al-todo-settings-build-time]')
+  .invoke('text');
+
+/**
+ * Get the commit hash.
+ *
+ * @returns Commit Hash
+ */
+export const getAppCommitHash = (): Cypress.Chainable<string> => cy.get('[data-id=al-todo-settings-commit-hash]')
+  .invoke('text');
+
+/**
+ * Get the app version.
+ *
+ * @returns App Version.
+ */
+export const getAppVersion = (): Cypress.Chainable<string> => cy.get('[data-id="al-todo-settings-version"]')
+  .invoke('text');
+
+/**
  * Get the settings save button.
  *
  * @returns Settings Dialog.
