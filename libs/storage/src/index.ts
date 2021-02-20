@@ -1,1 +1,1 @@
-export * from './lib/storage';
+export * from './lib/reactive-web-storage';
