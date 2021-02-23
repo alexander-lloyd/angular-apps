@@ -1,5 +1,5 @@
 import {withLatestFrom} from 'rxjs/operators';
-import {ReactiveWebStorage} from './reactive-web-storage';
+import {ReactiveWebStorage} from './web-reactive-storage';
 import {ReactiveStorage} from './types';
 
 const localStorageMock = (() => {

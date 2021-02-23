@@ -273,6 +273,7 @@ module.exports = {
                 'jest/lowercase-name': ['error', {ignore: ['describe']}],
                 'jest/no-hooks': ['error', {allow: ['beforeEach', 'afterEach']}],
                 'jest/no-truthy-falsy': 'off',
+                'max-lines': 'off',
                 'max-lines-per-function': 'off',
                 'no-magic-numbers': 'off'
             }
