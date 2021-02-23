@@ -154,7 +154,8 @@
             "repo": "https://github.com/alexander-lloyd/todo",
             "branch": "master",
             "name": "Alex Bot",
-            "email": "bot@alexander-lloyd.dev"
+            "email": "bot@alexander-lloyd.dev",
+            "cname": ""
           }
         }
       }
@@ -342,7 +343,8 @@
             "repo": "https://github.com/alexander-lloyd/spotify-player",
             "branch": "master",
             "name": "Alex Bot",
-            "email": "bot@alexander-lloyd.dev"
+            "email": "bot@alexander-lloyd.dev",
+            "cname": ""
           }
         }
       }
