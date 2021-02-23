@@ -11,5 +11,6 @@ module.exports = {
         '^.+\\.[tj]sx?$': 'ts-jest'
     },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-    coverageDirectory: '../../coverage/libs/storage'
+    coverageDirectory: '../../coverage/libs/storage',
+    setupFilesAfterEnv: ['./jest-chrome-shim.ts']
 };
