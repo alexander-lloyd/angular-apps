@@ -2062,6 +2062,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@11.3.1":
+  version "11.3.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.3.1.tgz#dd15c2cf27f37dc35bcc9c8b2bf53a81adf9e66f"
+  integrity sha512-FOEJLUtXdZ+lfMw73rPDUzN1l5I75hIp9/ah8Myq2YwIm8JmgAuvDB4ZpTw6QiVZ/oqOiHiFq0bG4nekboCl4A==
+  dependencies:
+    "@nrwl/tao" "11.3.1"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-11.2.6.tgz#29bcdda95adb22dcc3bb07adb6429f020f677e4b"
@@ -2082,12 +2094,22 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
-"@nrwl/linter@11.2.6", "@nrwl/linter@^11.2.6":
+"@nrwl/linter@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.6.tgz#b5862e834b29cfa1e5684758070be89e9be234aa"
   integrity sha512-7C1uZz+NA+jsj7bQC3UiGeJeyaA5b2LFNqGHcrcWht/Fshj/vB9scN3mc/FRRaX9tfWkU/W1BR06kJh3QDfwvg==
   dependencies:
     "@nrwl/devkit" "11.2.6"
+    glob "7.1.4"
+    minimatch "3.0.4"
+    tslib "^2.0.0"
+
+"@nrwl/linter@^11.3.1":
+  version "11.3.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.3.1.tgz#829d340ab804bc5936cc7579bd8a8eabca8db51b"
+  integrity sha512-HB1+KS6YVnTlxOteZCSgvAMOo66muPnutOtHKDjTsFi3G4zktg2M98j5Nj4+/h3M20k4r9njycdHcR+eyNo1tw==
+  dependencies:
+    "@nrwl/devkit" "11.3.1"
     glob "7.1.4"
     minimatch "3.0.4"
     tslib "^2.0.0"
@@ -2113,6 +2135,23 @@
     "@angular-devkit/architect" "~0.1100.1"
     "@angular-devkit/core" "~11.0.1"
     "@angular-devkit/schematics" "~11.0.1"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/tao@11.3.1":
+  version "11.3.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.3.1.tgz#a92a65bf7de0e43fc3bf0dd5985b996be91e1234"
+  integrity sha512-5GuFBpUooJMdzzSqibue5XIQnqS64KRNQtO0SY30OKGlLj4VKHLTDlAtgnzKyPR297C/vgerCWbVl3DYApXsLw==
+  dependencies:
     chalk "4.1.0"
     fs-extra "7.0.1"
     inquirer "^6.3.1"
