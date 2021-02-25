@@ -2032,6 +2032,17 @@
     yargs "15.4.1"
     yargs-parser "20.0.0"
 
+"@nrwl/cli@11.3.2":
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/cli/-/cli-11.3.2.tgz#adb79f6489bb228328ff9f44406ad96cd8f2669b"
+  integrity sha512-2Yz3hIhV4HM/qyZHBzCidPswHIsg9oOAZvJJPmV9mDMR727Ek49Bt852EapSQqEDQLFbjk8wa/d3oSOfxkJ77g==
+  dependencies:
+    "@nrwl/tao" "11.3.2"
+    chalk "4.1.0"
+    tmp "0.0.33"
+    yargs "15.4.1"
+    yargs-parser "20.0.0"
+
 "@nrwl/cypress@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-11.2.6.tgz#2c36258a178d3c998ddfa63d5e4dc8cfdb8584d5"
@@ -2062,6 +2073,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@11.3.2":
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.3.2.tgz#ceaaee303327dda3d95b284a10a2537e2fec310e"
+  integrity sha512-LEKv76d0Ni6jp9mAv/i5bS9x2cGMM9kht+hUdJLkk1Gl0jfPN3q6t8eegu7Bc0b+dQQG1sNzgU3GlWwTmgLwiQ==
+  dependencies:
+    "@nrwl/tao" "11.3.2"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-11.2.6.tgz#29bcdda95adb22dcc3bb07adb6429f020f677e4b"
@@ -2082,12 +2105,33 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
-"@nrwl/linter@11.2.6", "@nrwl/linter@^11.2.6":
+"@nrwl/jest@11.3.2":
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-11.3.2.tgz#99f0be7618e1e7fa9e2baee413fddf8e7fceebf7"
+  integrity sha512-S6BzRmvuq3tHlyuU5Yqc0qRHdLNw4ltQQvA7yjAkfvnrY1WhZbnOLac0juFqHUYnJYaLcy58Wyly7szU21X76A==
+  dependencies:
+    "@nrwl/devkit" "11.3.2"
+    jest-resolve "^26.6.2"
+    rxjs "^6.5.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
+"@nrwl/linter@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.6.tgz#b5862e834b29cfa1e5684758070be89e9be234aa"
   integrity sha512-7C1uZz+NA+jsj7bQC3UiGeJeyaA5b2LFNqGHcrcWht/Fshj/vB9scN3mc/FRRaX9tfWkU/W1BR06kJh3QDfwvg==
   dependencies:
     "@nrwl/devkit" "11.2.6"
+    glob "7.1.4"
+    minimatch "3.0.4"
+    tslib "^2.0.0"
+
+"@nrwl/linter@11.3.2", "@nrwl/linter@^11.2.6":
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.3.2.tgz#684aa0fa8dab4f5fe53319d6a6ca7f187a03006c"
+  integrity sha512-/OYNz+/m5tk73Vv7uOGxRkmfVIcS/BCy6LaWc95beg8NMTFMGG+MhFh+eoFgrsD5lL1qIa8lTE4PJUq4hxOO1Q==
+  dependencies:
+    "@nrwl/devkit" "11.3.2"
     glob "7.1.4"
     minimatch "3.0.4"
     tslib "^2.0.0"
@@ -2125,15 +2169,32 @@
     tslib "^2.0.0"
     yargs-parser "20.0.0"
 
-"@nrwl/workspace@11.2.6":
-  version "11.2.6"
-  resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-11.2.6.tgz#6505610d3e459ffe5b4dfc39c6d241355476e6ac"
-  integrity sha512-olI+h9gSISCvAipw+4tzdJtSRi/kjPPZnZO6U+c8DDAsnt73O508pFyIVj0zsxdEhKaXODQTOfoWVshENdwyYQ==
+"@nrwl/tao@11.3.2":
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.3.2.tgz#9f81de23f0ffa417cbc72e316e670f96f1813934"
+  integrity sha512-fWRO3c09QuGu2Mp6AX3hDh5PL9OFkW6D7vnetapgEYIaLxZ4fSQv7vNWDgzchDEk30QBSyiDv7wDAL0iVC8mpg==
   dependencies:
-    "@nrwl/cli" "11.2.6"
-    "@nrwl/devkit" "11.2.6"
-    "@nrwl/jest" "11.2.6"
-    "@nrwl/linter" "11.2.6"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/workspace@11.3.2":
+  version "11.3.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-11.3.2.tgz#04e6a99c514107b13e43f9b64fceeb083d8781f3"
+  integrity sha512-OJxwnQ/dR5OuHJ5OZI1IZlhNpmMSOgGPc6d1hRY0grpGQA6UH8wA4NMDY/yGPxT0q2z0fMi1EM3VsMvHkWh6rQ==
+  dependencies:
+    "@nrwl/cli" "11.3.2"
+    "@nrwl/devkit" "11.3.2"
+    "@nrwl/jest" "11.3.2"
+    "@nrwl/linter" "11.3.2"
     axios "0.21.1"
     chalk "4.1.0"
     cosmiconfig "^4.0.0"
