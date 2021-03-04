@@ -105,7 +105,7 @@
     "istanbul-instrumenter-loader": "^3.0.1",
     "istanbul-lib-coverage": "^3.0.0",
     "jest": "26.6.3",
-    "jest-preset-angular": "8.3.2",
+    "jest-preset-angular": "8.4.0",
     "ng-packagr": "11.1.2",
     "ngx-build-plus": "^11.0.0",
     "ngx-date-fns": "7.0.0",
