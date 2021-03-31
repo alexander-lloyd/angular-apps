@@ -49,7 +49,7 @@
     "@ngrx/store": "10.1.2",
     "@ngrx/store-devtools": "10.1.2",
     "angular-oauth2-oidc": "^10.0.3",
-    "core-js": "^3.6.5",
+    "core-js": "^3.10.0",
     "rxjs": "~6.6.2",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.3"
