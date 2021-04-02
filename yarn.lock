@@ -2032,6 +2032,17 @@
     yargs "15.4.1"
     yargs-parser "20.0.0"
 
+"@nrwl/cli@11.6.1":
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/cli/-/cli-11.6.1.tgz#376b0e99c17d72820aea0eeb847aad47d80f4df3"
+  integrity sha512-WJccrtHza4k+Bdq3/tg3JO3OynmoQUdMdpQ3TypOHt7zkagwxcmVHxVofYCBTH8IylL/zKCV5s3cLIvzhJgLEA==
+  dependencies:
+    "@nrwl/tao" "11.6.1"
+    chalk "4.1.0"
+    tmp "0.0.33"
+    yargs "15.4.1"
+    yargs-parser "20.0.0"
+
 "@nrwl/cypress@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/cypress/-/cypress-11.2.6.tgz#2c36258a178d3c998ddfa63d5e4dc8cfdb8584d5"
@@ -2062,6 +2073,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@11.6.1":
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-11.6.1.tgz#ee987db554b7842fedbd8fbe982e96746946993f"
+  integrity sha512-kzZoKEAmxrTcXhb0B/lH662DYj/GINjP3leL09fUMA1qnNgNuf78YE3dIEopT30qMHUA3X5sXJbuVs4dPDIk+Q==
+  dependencies:
+    "@nrwl/tao" "11.6.1"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "7.3.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-11.2.6.tgz#29bcdda95adb22dcc3bb07adb6429f020f677e4b"
@@ -2082,7 +2105,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
-"@nrwl/linter@11.2.6", "@nrwl/linter@^11.2.6":
+"@nrwl/jest@11.6.1":
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-11.6.1.tgz#497454dc788cab6a7dbbbaf85e6a50abe6ce9681"
+  integrity sha512-yM4Icg8k3Gfq2mFF9OSnojhwmmH6u/1Xk5dLCAhBwbSZcne/FlOTbca45QddO7YboADqx2WV5fFS5bB8kHdIBw==
+  dependencies:
+    "@nrwl/devkit" "11.6.1"
+    jest-resolve "^26.6.2"
+    rxjs "^6.5.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
+"@nrwl/linter@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.6.tgz#b5862e834b29cfa1e5684758070be89e9be234aa"
   integrity sha512-7C1uZz+NA+jsj7bQC3UiGeJeyaA5b2LFNqGHcrcWht/Fshj/vB9scN3mc/FRRaX9tfWkU/W1BR06kJh3QDfwvg==
@@ -2090,6 +2124,17 @@
     "@nrwl/devkit" "11.2.6"
     glob "7.1.4"
     minimatch "3.0.4"
+    tslib "^2.0.0"
+
+"@nrwl/linter@11.6.1", "@nrwl/linter@^11.2.6":
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.6.1.tgz#6f4671dc2f86ef7008d8d345d10dcf3b0765d56d"
+  integrity sha512-BhcW18uAPhHPWqiDuX2pacghg8ZEcs1GRLJQWQVdLR5AqZ5HdkfxBQS1+/g6tbWHM/yWbirrT9Wa9UPkZ8h6oQ==
+  dependencies:
+    "@nrwl/devkit" "11.6.1"
+    glob "7.1.4"
+    minimatch "3.0.4"
+    tmp "0.0.33"
     tslib "^2.0.0"
 
 "@nrwl/storybook@^11.2.6":
@@ -2125,19 +2170,36 @@
     tslib "^2.0.0"
     yargs-parser "20.0.0"
 
-"@nrwl/workspace@11.2.6":
-  version "11.2.6"
-  resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-11.2.6.tgz#6505610d3e459ffe5b4dfc39c6d241355476e6ac"
-  integrity sha512-olI+h9gSISCvAipw+4tzdJtSRi/kjPPZnZO6U+c8DDAsnt73O508pFyIVj0zsxdEhKaXODQTOfoWVshENdwyYQ==
+"@nrwl/tao@11.6.1":
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-11.6.1.tgz#e7ed7fac6abed35cdc83ff3e9380c56c286d948f"
+  integrity sha512-I4BA1N64nGmWmy4uTavXlgcVA3zcmW2GhUCBdoQ1PF/Y2c50aF2r+erleH8ZzF3F8JHqwsCLHeBG+bzry1OhwQ==
   dependencies:
-    "@nrwl/cli" "11.2.6"
-    "@nrwl/devkit" "11.2.6"
-    "@nrwl/jest" "11.2.6"
-    "@nrwl/linter" "11.2.6"
+    chalk "4.1.0"
+    fs-extra "7.0.1"
+    inquirer "^6.3.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "7.3.4"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/workspace@11.6.1":
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-11.6.1.tgz#f6bffe4805287c26ea25fb8539d0c9f4e4f6087a"
+  integrity sha512-tUJwdjIooQU2LRcLNq8NBxfov+ZmSNboa5GDzIJFPhJugHdvZ8koAF0qcDI0eRzz3Y2T52aDA11t3wmTod8g7w==
+  dependencies:
+    "@nrwl/cli" "11.6.1"
+    "@nrwl/devkit" "11.6.1"
+    "@nrwl/jest" "11.6.1"
+    "@nrwl/linter" "11.6.1"
     axios "0.21.1"
     chalk "4.1.0"
     cosmiconfig "^4.0.0"
-    dotenv "6.2.0"
+    dotenv "8.2.0"
     flat "^5.0.2"
     fs-extra "7.0.1"
     ignore "^5.0.4"
@@ -2148,7 +2210,7 @@
     opn "^5.3.0"
     resolve "1.17.0"
     rxjs "^6.5.4"
-    semver "6.3.0"
+    semver "7.3.4"
     strip-json-comments "2.0.1"
     tmp "0.0.33"
     tslib "^2.0.0"
@@ -6840,15 +6902,15 @@ dotenv-webpack@^1.7.0:
   dependencies:
     dotenv-defaults "^1.0.2"
 
-dotenv@6.2.0, dotenv@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
-  integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
-
 dotenv@8.2.0, dotenv@^8.0.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+
+dotenv@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
+  integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
 duplexer2@^0.1.2, duplexer2@~0.1.0, duplexer2@~0.1.2:
   version "0.1.4"
