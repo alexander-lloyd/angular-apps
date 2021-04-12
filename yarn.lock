@@ -2062,6 +2062,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@12.0.1":
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-12.0.1.tgz#c3a4f6b995416b3782fafbb3cba9df98a4fcd3ab"
+  integrity sha512-4idslX3WHmg2y1b2A+4N476mHmUi03266xfIEWbpDyKiL4o7AlXlnnOryOE+Mxa3PxFphrpZ27Spy7ok+eiKjA==
+  dependencies:
+    "@nrwl/tao" "12.0.1"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "7.3.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-11.2.6.tgz#29bcdda95adb22dcc3bb07adb6429f020f677e4b"
@@ -2077,6 +2089,17 @@
   integrity sha512-0bjqrNw1PFotpF5UTKswjQ8FvEKy3jVCoV0qiv0+oOl9FgRwLcqrE9PEf41W5nU3WpJDxfcuedO2hzj/slGXHg==
   dependencies:
     "@nrwl/devkit" "11.2.6"
+    jest-resolve "^26.6.2"
+    rxjs "^6.5.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
+"@nrwl/jest@12.0.1":
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-12.0.1.tgz#845e1fb4d82ee577beb176bdd016ec228450bb79"
+  integrity sha512-mfg+jPuQQbXyjpw0c20ws9xnewPmR1lia2yMj2dOgAHPUXdp5XJVK+EpoYH3xpQC5SVY2F1d9BUTO3iv0DxSPw==
+  dependencies:
+    "@nrwl/devkit" "12.0.1"
     jest-resolve "^26.6.2"
     rxjs "^6.5.4"
     strip-json-comments "2.0.1"
@@ -2120,6 +2143,23 @@
     rxjs "^6.5.4"
     rxjs-for-await "0.0.2"
     semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/tao@12.0.1":
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-12.0.1.tgz#14fdd0cc982c05f7efa090e20e357be99c5d0764"
+  integrity sha512-j/ODmu+rENxWHCFWnVEJPH+1bhepmo3jnyedAz+7drZZ2cRPJn1E/HBFOCcDhUeG8ipymPoQwA/uLCgc+Ej48g==
+  dependencies:
+    chalk "4.1.0"
+    enquirer "~2.3.6"
+    fs-extra "7.0.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "7.3.4"
     strip-json-comments "2.0.1"
     tmp "0.0.33"
     tslib "^2.0.0"
@@ -7007,7 +7047,7 @@ enhanced-resolve@^4.0.0, enhanced-resolve@^4.3.0, enhanced-resolve@^4.5.0:
     memory-fs "^0.5.0"
     tapable "^1.0.0"
 
-enquirer@^2.3.5:
+enquirer@^2.3.5, enquirer@~2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/enquirer/-/enquirer-2.3.6.tgz#2a7fe5dd634a1e4125a975ec994ff5456dc3734d"
   integrity sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==
