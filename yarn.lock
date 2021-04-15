@@ -2062,6 +2062,18 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@12.0.6":
+  version "12.0.6"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-12.0.6.tgz#e32af7df35728a0e10311931d7e59e4c2dd58dd5"
+  integrity sha512-6OYAs+i3qdciSbx2Awx1PwzD/X4u62Ltp1dfWpLG0vEW31eyiQ/Wn6RqLNbWQXhMnOHnoeN6tEYpwT8QOk4MLg==
+  dependencies:
+    "@nrwl/tao" "12.0.6"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "7.3.4"
+    strip-json-comments "2.0.1"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-11.2.6.tgz#29bcdda95adb22dcc3bb07adb6429f020f677e4b"
@@ -2082,7 +2094,7 @@
     strip-json-comments "2.0.1"
     tslib "^2.0.0"
 
-"@nrwl/linter@11.2.6", "@nrwl/linter@^11.2.6":
+"@nrwl/linter@11.2.6":
   version "11.2.6"
   resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-11.2.6.tgz#b5862e834b29cfa1e5684758070be89e9be234aa"
   integrity sha512-7C1uZz+NA+jsj7bQC3UiGeJeyaA5b2LFNqGHcrcWht/Fshj/vB9scN3mc/FRRaX9tfWkU/W1BR06kJh3QDfwvg==
@@ -2090,6 +2102,17 @@
     "@nrwl/devkit" "11.2.6"
     glob "7.1.4"
     minimatch "3.0.4"
+    tslib "^2.0.0"
+
+"@nrwl/linter@^12.0.6":
+  version "12.0.6"
+  resolved "https://registry.yarnpkg.com/@nrwl/linter/-/linter-12.0.6.tgz#9c97517f9b6810260a9130603d91daa47711a72d"
+  integrity sha512-oX4DTxuLSYU9DRLL/d5QlQ3dmR4vb21uCft8+45XPZ4ydW4Gs2veKrTVtxfyUi3uZF9SkrKH54YTVKQrFM0cKA==
+  dependencies:
+    "@nrwl/devkit" "12.0.6"
+    glob "7.1.4"
+    minimatch "3.0.4"
+    tmp "0.0.33"
     tslib "^2.0.0"
 
 "@nrwl/storybook@^11.2.6":
@@ -2120,6 +2143,23 @@
     rxjs "^6.5.4"
     rxjs-for-await "0.0.2"
     semver "6.3.0"
+    strip-json-comments "2.0.1"
+    tmp "0.0.33"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/tao@12.0.6":
+  version "12.0.6"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-12.0.6.tgz#4f030ceae7790d41e63e5cc50bd2c27f2487b7e1"
+  integrity sha512-pMu6xFM6jOawSOOrhP459DFaQBmWgyGkktKCHooKm2qYvBG4NIcSw/v330dsoDD5/xUdLVv0J0mgA8wSVsLyFA==
+  dependencies:
+    chalk "4.1.0"
+    enquirer "~2.3.6"
+    fs-extra "7.0.1"
+    minimist "^1.2.5"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "7.3.4"
     strip-json-comments "2.0.1"
     tmp "0.0.33"
     tslib "^2.0.0"
@@ -7007,7 +7047,7 @@ enhanced-resolve@^4.0.0, enhanced-resolve@^4.3.0, enhanced-resolve@^4.5.0:
     memory-fs "^0.5.0"
     tapable "^1.0.0"
 
-enquirer@^2.3.5:
+enquirer@^2.3.5, enquirer@~2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/enquirer/-/enquirer-2.3.6.tgz#2a7fe5dd634a1e4125a975ec994ff5456dc3734d"
   integrity sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==
