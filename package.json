@@ -79,7 +79,7 @@
     "@nrwl/eslint-plugin-nx": "11.2.6",
     "@nrwl/jest": "11.2.6",
     "@nrwl/linter": "^11.2.6",
-    "@nrwl/storybook": "^11.2.6",
+    "@nrwl/storybook": "^12.3.1",
     "@nrwl/tao": "11.2.6",
     "@nrwl/workspace": "11.2.6",
     "@storybook/addon-a11y": "^6.1.15",
