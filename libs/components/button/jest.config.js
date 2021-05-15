@@ -15,10 +15,11 @@ module.exports = {
         }
     },
     coverageDirectory: '../../../coverage/libs/components/button',
+
+    displayName: 'button-component',
     snapshotSerializers: [
-        'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
-        'jest-preset-angular/build/AngularSnapshotSerializer.js',
-        'jest-preset-angular/build/HTMLCommentSerializer.js'
-    ],
-    displayName: 'button-component'
+        'jest-preset-angular/build/serializers/no-ng-attributes',
+        'jest-preset-angular/build/serializers/ng-snapshot',
+        'jest-preset-angular/build/serializers/html-comment'
+    ]
 };

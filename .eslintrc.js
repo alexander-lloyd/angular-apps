@@ -241,6 +241,7 @@ module.exports = {
         },
         {
             files: ['*.component.html'],
+            extends: ['plugin:@angular-eslint/all'],
             parser: '@angular-eslint/template-parser',
             plugins: ['@angular-eslint/template'],
             rules: {
@@ -250,6 +251,7 @@ module.exports = {
         },
         {
             files: ['*.component.ts'],
+            extends: ['plugin:@angular-eslint/all'],
             parser: '@typescript-eslint/parser',
             parserOptions: {
                 ecmaVersion: 2020,

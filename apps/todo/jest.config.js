@@ -19,10 +19,11 @@ module.exports = {
         'VERSION': '1.0.0'
     },
     coverageDirectory: '../../coverage/apps/todo',
+
+    displayName: 'todo',
     snapshotSerializers: [
-        'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
-        'jest-preset-angular/build/AngularSnapshotSerializer.js',
-        'jest-preset-angular/build/HTMLCommentSerializer.js'
-    ],
-    displayName: 'todo'
+        'jest-preset-angular/build/serializers/no-ng-attributes',
+        'jest-preset-angular/build/serializers/ng-snapshot',
+        'jest-preset-angular/build/serializers/html-comment'
+    ]
 };

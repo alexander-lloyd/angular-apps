@@ -254,13 +254,18 @@
             "main": "apps/spotify-player/src/main.ts",
             "polyfills": "apps/spotify-player/src/polyfills.ts",
             "tsConfig": "apps/spotify-player/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "apps/spotify-player/src/assets",
               "apps/spotify-player/src/humans.txt"
             ],
             "styles": ["apps/spotify-player/src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
