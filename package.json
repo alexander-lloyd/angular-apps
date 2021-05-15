@@ -95,7 +95,7 @@
     "codecov": "^3.7.1",
     "cypress": "^6.3.0",
     "cypress-lighthouse": "^0.1.0",
-    "date-fns": "^2.16.1",
+    "date-fns": "^2.21.3",
     "dotenv": "8.2.0",
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
