@@ -1,6 +1,6 @@
 describe('Performance Metrics from Lighthouse', () => {
   it('should meet performance benchmark', () => {
-    const url = Cypress.config('baseUrl');
+    const url = Cypress.config('baseUrl') as string;
     cy.lighthouse(url).then((result) => {
       cy.log('Lighthouse Results: ', result);
       cy.log('Lighthouse Accessibility Score', result.accessibility);
@@ -12,7 +12,7 @@ describe('Performance Metrics from Lighthouse', () => {
   });
 
   it('should meet performance benchmark when authenticated', () => {
-    const url = Cypress.config('baseUrl');
+    const url = Cypress.config('baseUrl') as string;
     cy.login();
     cy.lighthouse(url).then((result) => {
       cy.log('Lighthouse Results: ', result);

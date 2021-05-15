@@ -2,6 +2,7 @@ import {FormatTimePipe} from './format-time.pipe';
 
 describe('Format Time Pipe', () => {
   it.each([
+    [null, '0:00'],
     [0, '0:00'],
     [1000, '0:01'],
     [50000, '0:50'],

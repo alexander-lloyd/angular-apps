@@ -14,19 +14,15 @@ describe('media-control', () => {
   });
 
   it('should have media player component', () => {
-    cy.server();
-    cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player', '');
     cy.visit('/');
     getMediaControls().should('exist');
   });
 
   it('should play when play button is pressed', () => {
-    cy.server({
-      force404: true
-    });
     cy.clock();
-    cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
-    cy.route('PUT', 'https://api.spotify.com/v1/me/player/play', '');
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player', '');
+    cy.intercept('PUT', 'https://api.spotify.com/v1/me/player/play', '');
     cy.visit('/');
     getPlayButton()
       .click()
@@ -36,13 +32,10 @@ describe('media-control', () => {
   });
 
   it('should pause when pause button is presses', () => {
-    cy.server({
-      force404: true
-    });
     cy.clock();
-    cy.route('GET', 'https://api.spotify.com/v1/me/player', '');
-    cy.route('PUT', 'https://api.spotify.com/v1/me/player/play', '');
-    cy.route('PUT', 'https://api.spotify.com/v1/me/player/pause', '');
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player', '');
+    cy.intercept('PUT', 'https://api.spotify.com/v1/me/player/play', '');
+    cy.intercept('PUT', 'https://api.spotify.com/v1/me/player/pause', '');
     cy.visit('/');
     getPlayButton().click();
     getPauseButton().click();
@@ -51,20 +44,14 @@ describe('media-control', () => {
   });
 
   it('should set playing state when response from spotify sets playstate', () => {
-    cy.server({
-      force404: true
-    });
-    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player', {fixture: 'player.json'});
     cy.visit('/');
     getPauseButton().should('exist');
   });
 
   it('should should go back when previous button is pressed', () => {
-    cy.server({
-      force404: true
-    });
-    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
-    cy.route('GET', 'https://api.spotify.com/v1/me/player/previous', '');
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player', {fixture: 'player.json'});
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player/previous', '');
     cy.visit('/');
     getPreviousButton()
       .should('exist')
@@ -72,11 +59,8 @@ describe('media-control', () => {
   });
 
   it('should should go next when skip button is pressed', () => {
-    cy.server({
-      force404: true
-    });
-    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
-    cy.route('GET', 'https://api.spotify.com/v1/me/player/next', '');
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player', {fixture: 'player.json'});
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player/next', '');
     cy.visit('/');
     getSkipButton()
       .should('exist')
@@ -84,10 +68,7 @@ describe('media-control', () => {
   });
 
   it('should set the progress and song length', () => {
-    cy.server({
-      force404: true
-    });
-    cy.route('GET', 'https://api.spotify.com/v1/me/player', 'fixture:player.json');
+    cy.intercept('GET', 'https://api.spotify.com/v1/me/player', {fixture: 'player.json'});
     cy.visit('/');
 
     getSongProgress().should('contain.text', '0:04');

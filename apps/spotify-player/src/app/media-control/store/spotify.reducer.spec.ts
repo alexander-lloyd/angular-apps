@@ -127,7 +127,7 @@ describe('Spotify Reducer', () => {
       }
     };
 
-    const action = actions.currentTrackSuccess(null);
+    const action = actions.currentTrackSuccess(null as unknown as CurrentlyPlayingObject);
 
     expect(spotifyReducer(state, action)).toStrictEqual({
       playing: false,

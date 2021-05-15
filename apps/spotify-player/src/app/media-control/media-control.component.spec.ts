@@ -44,9 +44,9 @@ describe('MediaControlComponent', () => {
     fixture = TestBed.createComponent(MediaControlComponent);
     component = fixture.componentInstance;
     mockStore = TestBed.inject(MockStore);
-    mockPlayingSelector = mockStore.overrideSelector(selectors.isPlaying, false);
-    mockProgressSelector = mockStore.overrideSelector(selectors.getSongProgress, 0);
-    mockLengthSelector = mockStore.overrideSelector(selectors.getSongLength, 0);
+    mockPlayingSelector = mockStore.overrideSelector(selectors.selectPlaying, false);
+    mockProgressSelector = mockStore.overrideSelector(selectors.selectSongProgress, 0);
+    mockLengthSelector = mockStore.overrideSelector(selectors.selectSongLength, 0);
     loader = TestbedHarnessEnvironment.loader(fixture);
     fixture.detectChanges();
   });
