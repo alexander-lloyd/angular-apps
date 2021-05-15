@@ -4,6 +4,8 @@
     "types": ["node", "jest"]
   },
   "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
     "strictTemplates": true
   }
 }
