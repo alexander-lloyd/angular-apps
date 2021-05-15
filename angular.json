@@ -455,6 +455,47 @@
         }
       }
     },
+    "checkbox-component": {
+      "projectType": "library",
+      "root": "libs/components/checkbox",
+      "sourceRoot": "libs/components/checkbox/src",
+      "prefix": "al",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/components/checkbox/tsconfig.lib.json",
+            "project": "libs/components/checkbox/ng-package.json",
+            "buildableProjectDepsInPackageJsonType": "dependencies"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/components/checkbox/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/components/checkbox/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/components/checkbox/jest.config.js"
+          },
+          "outputs": ["coverage/libs/components/checkbox"]
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/checkbox/src/**/*.ts",
+              "libs/components/checkbox/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "history": {
       "root": "libs/history",
       "sourceRoot": "libs/history/src",
@@ -503,12 +544,16 @@
   },
   "schematics": {
     "@nrwl/angular:application": {
+      "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    }
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "strict": true
+    },
+    "@nrwl/angular:component": {}
   },
   "defaultProject": "todo"
 }

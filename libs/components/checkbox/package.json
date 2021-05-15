@@ -1,5 +1,5 @@
 {
-  "name": "@al/button-component",
+  "name": "@al/components/checkbox",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^12.0.0",
