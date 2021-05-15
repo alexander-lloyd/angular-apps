@@ -24,26 +24,16 @@ export const _spotifyReducer = createReducer(
     ...state,
     playing: true
   })),
-  on(currentTrackSuccess, (state: SpotifyState, action: CurrentlyPlayingObject) => {
-    const {
-      is_playing = false,
-      progress_ms = DEFAULT_START_TIME,
-      item = {
-        name: '',
-        duration_ms: 0
-      }
-    } = action;
-    return {
-      ...state,
-      playing: is_playing,
-      current: {
-        ...state.current,
-        name: item.name,
-        progress: progress_ms,
-        total: item.duration_ms
-      }
-    };
-  })
+  on(currentTrackSuccess, (state: SpotifyState, action: CurrentlyPlayingObject | null) => ({
+    ...state,
+    playing: action?.is_playing || false,
+    current: {
+      ...state.current,
+      name: action?.item?.name || '',
+      progress: action?.progress_ms || DEFAULT_START_TIME,
+      total: action?.item?.duration_ms || 0
+    }
+  } as SpotifyState))
 );
 
 /**

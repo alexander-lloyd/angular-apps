@@ -2,9 +2,10 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {of} from 'rxjs';
-import {catchError, map, mergeMap} from 'rxjs/operators';
+import {catchError, filter, map, mergeMap} from 'rxjs/operators';
 
 import {SpotifyPlayerAPIService} from '../services/spotify-player-api.service';
+import {CurrentlyPlayingObject} from '../services/types';
 import * as actions from './spotify.actions';
 
 /**
@@ -67,7 +68,8 @@ export class SpotifyPlayerEffects {
     () => this.actions$.pipe(
       ofType(actions.CURRENT_TRACK_REQUEST),
       mergeMap(() => this.spotifyAPI.getCurrentPlayback$().pipe(
-        map((response) => actions.currentTrackSuccess(response)),
+        filter((response) => response !== null),
+        map((response) => actions.currentTrackSuccess(response as CurrentlyPlayingObject)),
         catchError(() => of(actions.currentTrackFailure()))
       ))
     )

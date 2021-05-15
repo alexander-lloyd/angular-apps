@@ -29,7 +29,11 @@ export class FormatTimePipe implements PipeTransform {
    * @example transform(2000) -> 0:02
    * @example transform(60000) -> 1:00
    */
-  public transform(ms: number): string {
+  public transform(ms: number | null): string {
+    if (ms === null) {
+      return `0:00`;
+    }
+
     const seconds = Math.floor((ms / FormatTimePipe.MILLISECONDS_IN_SECONDS) % FormatTimePipe.SECONDS_IN_MINUTE);
     const minutes = Math.floor((ms / (
       FormatTimePipe.SECONDS_IN_MINUTE *

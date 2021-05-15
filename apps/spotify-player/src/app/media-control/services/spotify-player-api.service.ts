@@ -8,13 +8,13 @@ import {CurrentlyPlayingObject, RepeatState} from './types';
 /**
  * Interact with the Spotify Player API.
  *
- * You must use an HTTP intercepor to add the access token header.
+ * You must use an HTTP interceptor to add the access token header.
  */
 @Injectable({
   providedIn: MediaControlModule
 })
 export class SpotifyPlayerAPIService {
-  private spotifyPlayerAPIURL = 'https://api.spotify.com/v1/me';
+  private spotifyPlayerApiUrl = 'https://api.spotify.com/v1/me';
 
   /**
    * Constructor.
@@ -30,7 +30,7 @@ export class SpotifyPlayerAPIService {
    * @returns Observable containing the current playback object.
    */
   public getCurrentPlayback$(): Observable<CurrentlyPlayingObject | null> {
-    return this.http.get<CurrentlyPlayingObject>(`${this.spotifyPlayerAPIURL}/player`);
+    return this.http.get<CurrentlyPlayingObject>(`${this.spotifyPlayerApiUrl}/player`);
   }
 
   /**
@@ -39,7 +39,7 @@ export class SpotifyPlayerAPIService {
    * @returns Observable containing the current playback object.
    */
   public getCurrentTrack$(): Observable<CurrentlyPlayingObject> {
-    return this.http.get<CurrentlyPlayingObject>(`${this.spotifyPlayerAPIURL}/currently-playing`);
+    return this.http.get<CurrentlyPlayingObject>(`${this.spotifyPlayerApiUrl}/currently-playing`);
   }
 
   /**
@@ -49,7 +49,7 @@ export class SpotifyPlayerAPIService {
    * @returns Empty Observable.
    */
   public resume$(): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/play`, {});
+    return this.http.put<null>(`${this.spotifyPlayerApiUrl}/player/play`, {});
   }
 
   /**
@@ -58,7 +58,7 @@ export class SpotifyPlayerAPIService {
    * @returns Empty Observable.
    */
   public pause$(): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/pause`, {});
+    return this.http.put<null>(`${this.spotifyPlayerApiUrl}/player/pause`, {});
   }
 
   /**
@@ -67,7 +67,7 @@ export class SpotifyPlayerAPIService {
    * @returns Empty Observable.
    */
   public previousTrack$(): Observable<null> {
-    return this.http.post<null>(`${this.spotifyPlayerAPIURL}/player/previous`, {});
+    return this.http.post<null>(`${this.spotifyPlayerApiUrl}/player/previous`, {});
   }
 
   /**
@@ -76,7 +76,7 @@ export class SpotifyPlayerAPIService {
    * @returns Empty Observable.
    */
   public skipTrack$(): Observable<null> {
-    return this.http.post<null>(`${this.spotifyPlayerAPIURL}/player/next`, {});
+    return this.http.post<null>(`${this.spotifyPlayerApiUrl}/player/next`, {});
   }
 
   /**
@@ -86,7 +86,7 @@ export class SpotifyPlayerAPIService {
    * @returns Empty Observable.
    */
   public seekPosition$(positionMs: number): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/seek?position_ms=${positionMs}`, {});
+    return this.http.put<null>(`${this.spotifyPlayerApiUrl}/player/seek?position_ms=${positionMs}`, {});
   }
 
   /**
@@ -97,17 +97,17 @@ export class SpotifyPlayerAPIService {
    * @returns Empty Observable.
    */
   public toggleRepeat$(state: RepeatState): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/repeat?state=${state}`, {});
+    return this.http.put<null>(`${this.spotifyPlayerApiUrl}/player/repeat?state=${state}`, {});
   }
 
   /**
    * Toggle shuffle on or off for user’s playback.
    *
-   * @param shuffle Boolean true to turn on shuffe.
+   * @param shuffle Boolean true to turn on shuffle.
    * @returns Empty Observable.
    */
   public toggleShuffle$(shuffle: boolean): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/shuffle?state=${shuffle}`, {});
+    return this.http.put<null>(`${this.spotifyPlayerApiUrl}/player/shuffle?state=${shuffle}`, {});
   }
 
   /**
@@ -118,6 +118,6 @@ export class SpotifyPlayerAPIService {
    * @returns Empty Observable.
    */
   public setVolume$(volume: number): Observable<null> {
-    return this.http.put<null>(`${this.spotifyPlayerAPIURL}/player/volume?volume_percent=${volume}`, {});
+    return this.http.put<null>(`${this.spotifyPlayerApiUrl}/player/volume?volume_percent=${volume}`, {});
   }
 }

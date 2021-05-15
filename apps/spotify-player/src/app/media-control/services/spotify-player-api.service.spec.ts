@@ -32,7 +32,7 @@ describe('SpotifyPlayerAPIService', () => {
     expect.assertions(2);
     const mockResponse = currentlyPlayingObject as unknown as CurrentlyPlayingObject;
 
-    service.getCurrentPlayback$().subscribe((response: CurrentlyPlayingObject) => {
+    service.getCurrentPlayback$().subscribe((response: CurrentlyPlayingObject | null) => {
       expect(response).toBe(mockResponse);
     });
 
@@ -125,11 +125,13 @@ describe('SpotifyPlayerAPIService', () => {
     req.flush(mockResponse);
   });
 
-  it.each([
+  const repeatStates: RepeatState[][] = [
     ['track'],
     ['context'],
     ['off']
-  ])('should toggle repeat to %s', (repeatState: RepeatState) => {
+  ];
+
+  it.each(repeatStates)('should toggle repeat to %s', (repeatState: RepeatState) => {
     expect.assertions(3);
     const mockResponse = null;
 

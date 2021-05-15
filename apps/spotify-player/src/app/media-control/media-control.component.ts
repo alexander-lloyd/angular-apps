@@ -9,7 +9,7 @@ import {Store} from '@ngrx/store';
 import {Observable, combineLatest} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-import {SpotifyState, actions, selectors} from './store';
+import {actions, GlobalState, selectors} from './store';
 
 const PRECENTAGE = 100;
 
@@ -38,15 +38,15 @@ export class MediaControlComponent {
    * @param store Application Store.
    */
   public constructor(
-    private readonly store: Store<{spotify: SpotifyState}>
+    private readonly store: Store<GlobalState>
   ) {
-    this.isPlaying$ = this.store.select(selectors.isPlaying);
-    this.songProgress$ = this.store.select(selectors.getSongProgress);
-    this.songLength$ = this.store.select(selectors.getSongLength);
-    this.songProgressPercent$ = combineLatest(
+    this.isPlaying$ = this.store.select(selectors.selectPlaying);
+    this.songProgress$ = this.store.select(selectors.selectSongProgress);
+    this.songLength$ = this.store.select(selectors.selectSongLength);
+    this.songProgressPercent$ = combineLatest([
       this.songProgress$,
       this.songLength$
-    ).pipe(
+    ]).pipe(
       map(([progress, total]: [number, number]) => (progress / total) * PRECENTAGE)
     );
   }

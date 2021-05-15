@@ -24,5 +24,5 @@ export const previousErrorAction = createAction(PREVIOUS_ERROR);
 export const skipAction = createAction(SKIP);
 export const skipErrorAction = createAction(SKIP_ERROR);
 export const currentTrackRequest = createAction(CURRENT_TRACK_REQUEST);
-export const currentTrackSuccess = createAction(CURRENT_TRACK_SUCCESS, props<CurrentlyPlayingObject | null>());
+export const currentTrackSuccess = createAction(CURRENT_TRACK_SUCCESS, props<CurrentlyPlayingObject>());
 export const currentTrackFailure = createAction(CURRENT_TRACK_FAILURE);
