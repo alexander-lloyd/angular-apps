@@ -4164,10 +4164,10 @@
   resolved "https://registry.yarnpkg.com/@types/braces/-/braces-3.0.0.tgz#7da1c0d44ff1c7eb660a36ec078ea61ba7eb42cb"
   integrity sha512-TbH79tcyi9FHwbyboOKeRachRq63mSuWYXOflsNO9ZyE5ClQ/JaozNKl+aWUq87qPNsXasXxi2AbgfwIJ+8GQw==
 
-"@types/chrome@^0.0.129":
-  version "0.0.129"
-  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.129.tgz#0f11484239da26a0eb692049a269c90ab91d1860"
-  integrity sha512-7SdqJ7YFu8wBI13SRbxWibHG7W3W3N2Cdn2hRHw24tWiLBZGC2OOfIKREQyga8AeT83AaVcTirWDVMrph0Gkkw==
+"@types/chrome@^0.0.141":
+  version "0.0.141"
+  resolved "https://registry.yarnpkg.com/@types/chrome/-/chrome-0.0.141.tgz#337648651a2b75a74bf3038680dc0e47ddd75d07"
+  integrity sha512-0bYsCxGKo9xdrNHiqWRjPVygDRfKA2EczhXJmKjkfBF+KQc0BFKejtdFV28ygcVH3RTjGZ+ccoJ3bb8wKFacbw==
   dependencies:
     "@types/filesystem" "*"
     "@types/har-format" "*"
