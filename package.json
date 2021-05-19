@@ -84,7 +84,7 @@
     "@nrwl/workspace": "12.3.3",
     "@storybook/addon-a11y": "6.3.0-alpha.28",
     "@storybook/addon-knobs": "6.3.0-alpha.21",
-    "@storybook/angular": "6.3.0-alpha.28",
+    "@storybook/angular": "6.3.0-alpha.34",
     "@storybook/builder-webpack5": "6.3.0-alpha.28",
     "@types/chrome": "^0.0.129",
     "@types/jest": "26.0.20",
