@@ -553,7 +553,11 @@
       "unitTestRunner": "jest",
       "strict": true
     },
-    "@nrwl/angular:component": {}
+    "@schematics/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush",
+      "prefix": "al"
+    }
   },
   "defaultProject": "todo"
 }
