@@ -1,0 +1,89 @@
+/* Colours */
+$checkbox-primary-colour: #3457dc !default;
+$checkbox-primary-hover-colour: #364fc7 !default;
+$checkbox-primary-disabled-colour: #5c7cfa !default;
+$checkbox-primary-text-colour: #ffffff !default;
+$checkbox-secondary-colour: #7048e8 !default;
+$checkbox-secondary-hover-colour: #5f3dc4 !default;
+$checkbox-secondary-disabled-colour: #845ef7 !default;
+$checkbox-secondary-text-colour: #ffffff !default;
+$checkbox-shadow-colour: rgba(0, 0, 0, 0.25) !default;
+
+label {
+  position: relative;
+}
+
+span {
+  width: 16px;
+  height: 16px;
+  border-width: 1px;
+  border-style: solid;
+  display: inline-block;
+  border-radius: 30%;
+  transition: all linear 0.3s;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 4px $checkbox-shadow-colour);
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 1.5px;
+    left: 5.5px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-right-width: 2px;
+    border-right-style: solid;
+    height: 9px;
+    width: 3px;
+    transform: rotate(45deg);
+    visibility: hidden;
+  }
+}
+
+input {
+  display: none;
+
+  &:checked ~ span:after {
+    visibility: visible;
+  }
+
+  &.checkbox-primary ~ span {
+    background: $checkbox-primary-colour;
+    border-color: $checkbox-primary-colour;
+
+    &:after {
+      border-bottom-color: $checkbox-primary-text-colour;
+      border-right-color: $checkbox-primary-text-colour;
+    }
+  }
+
+  &.checkbox-primary:hover ~ span {
+    background: $checkbox-primary-hover-colour;
+    border-color: $checkbox-primary-hover-colour;
+  }
+
+  &.checkbox-primary:disabled ~ span {
+    background: $checkbox-primary-disabled-colour;
+    border-color: $checkbox-primary-disabled-colour;
+  }
+
+  &.checkbox-secondary ~ span {
+    background: $checkbox-secondary-colour;
+    border-color: $checkbox-secondary-colour;
+
+    &:after {
+      border-bottom-color: $checkbox-secondary-text-colour;
+      border-right-color: $checkbox-secondary-text-colour;
+    }
+  }
+
+  &.checkbox-secondary:hover ~ span {
+    background: $checkbox-secondary-hover-colour;
+    border-color: $checkbox-secondary-hover-colour;
+  }
+
+  &.checkbox-secondary:disabled ~ span {
+    background: $checkbox-secondary-disabled-colour;
+    border-color: $checkbox-secondary-disabled-colour;
+  }
+}

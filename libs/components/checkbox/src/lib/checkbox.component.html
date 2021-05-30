@@ -1,1 +1,14 @@
-<p>checkbox works!</p>
+<label>
+  <input
+    type="checkbox"
+    class="checkbox"
+    [checked]="checked"
+    [disabled]="disabled"
+    [ngClass]="{
+      'checkbox-primary': type === 'primary',
+      'checkbox-secondary': type === 'secondary'
+    }"
+    (onChange)="_onChecked($event)"
+  />
+  <span role="presentation"></span>
+</label>
