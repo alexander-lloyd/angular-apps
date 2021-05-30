@@ -28,7 +28,7 @@ export class CheckboxComponent {
    *
    * @param event Input Event.
    */
-  public _onChecked(event: Event): void {
+  public _onChecked(event: MouseEvent): void {
     this.onChecked.emit((event.target as HTMLInputElement).checked);
   }
 }
