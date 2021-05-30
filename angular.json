@@ -488,9 +488,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/components/checkbox/src/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/components/checkbox/src/**/*.ts"]
           }
         },
         "storybook": {
