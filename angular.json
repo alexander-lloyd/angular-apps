@@ -489,8 +489,7 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/components/checkbox/src/**/*.ts",
-              "libs/components/checkbox/src/**/*.html"
+              "libs/components/checkbox/src/**/*.ts"
             ]
           }
         },
