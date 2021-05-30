@@ -1,3 +1,5 @@
+@import '../../../../../node_modules/roboto-fontface/css/roboto/roboto-fontface.css';
+
 /* Colours */
 $checkbox-primary-colour: #3457dc !default;
 $checkbox-primary-hover-colour: #364fc7 !default;
@@ -11,6 +13,7 @@ $checkbox-shadow-colour: rgba(0, 0, 0, 0.25) !default;
 
 label {
   position: relative;
+  font-family: 'Roboto';
 }
 
 span {
@@ -42,6 +45,10 @@ span {
 
 input {
   display: none;
+
+  & ~ span {
+    margin-right: 5px;
+  }
 
   &:checked ~ span:after {
     visibility: visible;

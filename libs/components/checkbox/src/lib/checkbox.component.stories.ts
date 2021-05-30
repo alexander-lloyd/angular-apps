@@ -1,13 +1,14 @@
-import {boolean, select} from '@storybook/addon-knobs';
+import {boolean, select, text} from '@storybook/addon-knobs';
+import {Meta, Story} from '@storybook/angular/types-6-0';
 
 import {CheckboxComponent} from './checkbox.component';
 
 export default {
-  title: 'CheckboxComponent',
+  title: 'Components/Checkbox',
   component: CheckboxComponent
-};
+} as Meta;
 
-export const checkbox = () => ({
+export const checkbox: Story<CheckboxComponent> = () => ({
   moduleMetadata: {
     imports: []
   },
@@ -17,44 +18,8 @@ export const checkbox = () => ({
       'Primary': 'primary',
       'Secondary': 'secondary'
     }, 'primary'),
-    disabled: boolean('Disabled', false)
-  }
-});
-
-export const primary = () => ({
-  moduleMetadata: {
-    imports: []
+    disabled: boolean('Disabled', false),
+    label: text('Checkbox Label', 'Checkbox Label')
   },
-  props: {
-    type: 'primary'
-  }
-});
-
-export const secondary = () => ({
-  moduleMetadata: {
-    imports: []
-  },
-  props: {
-    type: 'secondary'
-  }
-});
-
-export const primaryDisabled = () => ({
-  moduleMetadata: {
-    imports: []
-  },
-  props: {
-    type: 'primary',
-    disabled: true
-  }
-});
-
-export const secondaryDisabled = () => ({
-  moduleMetadata: {
-    imports: []
-  },
-  props: {
-    type: 'secondary',
-    disabled: true
-  }
+  template: `<al-checkbox [checked]="checked" [type]="type" [disabled]="disabled">{{ label }}</al-checkbox>`
 });
