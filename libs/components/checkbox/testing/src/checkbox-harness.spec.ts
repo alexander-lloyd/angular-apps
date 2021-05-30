@@ -3,7 +3,7 @@ import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 
-import {CheckboxModule} from './checkbox.module';
+import {CheckboxModule} from '../../src';
 import {CheckboxHarness} from './checkbox-harness';
 
 @Component({

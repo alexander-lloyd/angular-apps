@@ -1,1 +1,1 @@
-export * from './lib/checkbox.module';
+export * from './public_api';
