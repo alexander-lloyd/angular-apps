@@ -62,7 +62,7 @@
     "@angular/cdk": "11.1.1",
     "@angular/cli": "12.0.0",
     "@angular/compiler-cli": "12.0.0",
-    "@angular/language-service": "12.0.0",
+    "@angular/language-service": "12.0.4",
     "@angular/material": "11.1.1",
     "@babel/plugin-proposal-dynamic-import": "^7.10.4",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
