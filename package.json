@@ -85,7 +85,7 @@
     "@nrwl/workspace": "12.3.3",
     "@storybook/addon-a11y": "6.3.0-beta.5",
     "@storybook/addon-knobs": "6.3.0-next.2",
-    "@storybook/angular": "6.3.0-beta.5",
+    "@storybook/angular": "6.3.0",
     "@storybook/builder-webpack5": "6.3.0-beta.5",
     "@storybook/manager-webpack5": "6.3.0-beta.5",
     "@types/chrome": "^0.0.129",
