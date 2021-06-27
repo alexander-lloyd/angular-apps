@@ -82,7 +82,7 @@
     "@nrwl/linter": "12.3.3",
     "@nrwl/storybook": "12.3.3",
     "@nrwl/tao": "12.3.3",
-    "@nrwl/workspace": "12.3.3",
+    "@nrwl/workspace": "12.4.0",
     "@storybook/addon-a11y": "6.3.0-beta.5",
     "@storybook/addon-knobs": "6.3.0-next.2",
     "@storybook/angular": "6.3.0-beta.5",
