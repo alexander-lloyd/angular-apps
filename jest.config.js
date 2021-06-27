@@ -6,6 +6,7 @@ module.exports = {
         '<rootDir>/apps/spotify-player',
         '<rootDir>/libs/components/button',
         '<rootDir>/libs/components/checkbox',
+        '<rootDir>/libs/components/dashboard',
         '<rootDir>/libs/history',
         '<rootDir>/libs/storage'
     ]

@@ -19,6 +19,7 @@
     "paths": {
       "@al/button-component": ["libs/components/button/src/index.ts"],
       "@al/checkbox-component": ["libs/components/checkbox/src/index.ts"],
+      "@al/dashboard-components": ["libs/components/dashboard/src/index.ts"],
       "@al/logger": ["libs/logger/src/index.ts"],
       "@al/history": ["libs/history/src/index.ts"],
       "@al/storage": ["libs/storage/src/index.ts"]

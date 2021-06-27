@@ -524,6 +524,44 @@
         }
       }
     },
+    "dashboard-components": {
+      "projectType": "library",
+      "root": "libs/components/dashboard",
+      "sourceRoot": "libs/components/dashboard/src",
+      "prefix": "al",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/components/dashboard/tsconfig.lib.json",
+            "project": "libs/components/dashboard/ng-package.json",
+            "buildableProjectDepsInPackageJsonType": "dependencies"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/components/dashboard/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/components/dashboard/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/dashboard"],
+          "options": {
+            "jestConfig": "libs/components/dashboard/jest.config.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/components/dashboard/src/**/*.ts"]
+          }
+        }
+      }
+    },
     "history": {
       "root": "libs/history",
       "sourceRoot": "libs/history/src",
