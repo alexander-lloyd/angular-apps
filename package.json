@@ -79,7 +79,7 @@
     "@nrwl/cypress": "12.3.3",
     "@nrwl/eslint-plugin-nx": "12.3.3",
     "@nrwl/jest": "12.3.3",
-    "@nrwl/linter": "12.3.3",
+    "@nrwl/linter": "12.5.5",
     "@nrwl/storybook": "12.3.3",
     "@nrwl/tao": "12.3.3",
     "@nrwl/workspace": "12.3.3",
