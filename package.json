@@ -77,7 +77,7 @@
     "@nrwl/angular": "12.3.3",
     "@nrwl/cli": "12.3.3",
     "@nrwl/cypress": "12.3.3",
-    "@nrwl/eslint-plugin-nx": "12.3.3",
+    "@nrwl/eslint-plugin-nx": "12.5.5",
     "@nrwl/jest": "12.3.3",
     "@nrwl/linter": "12.3.3",
     "@nrwl/storybook": "12.3.3",
