@@ -68,4 +68,31 @@ describe('ButtonComponent', () => {
     expect(buttonDebugElement.nativeElement.classList).toContain('button-secondary');
     expect(buttonDebugElement.nativeElement.disabled).toBe(true);
   });
+
+  it('should emit click when button is clicked', async () => {
+    component.type = 'primary'
+    component.disabled = false;
+
+    await new Promise<void>((resolve) => {
+      component.click.subscribe(() => {
+        resolve();
+      });
+
+      buttonDebugElement.nativeElement.click();
+    });
+  });
+
+  it('should emit mouseup when mouse is lifted', async () => {
+    component.type = 'primary'
+    component.disabled = false;
+
+    await new Promise<void>((resolve) => {
+      component.mouseup.subscribe(() => {
+        resolve();
+      });
+
+      (buttonDebugElement.nativeElement as HTMLButtonElement)
+        .dispatchEvent(new Event('mouseup'));
+    });
+  });
 });

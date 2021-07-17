@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/prefer-on-push-component-change-detection */
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 
 /**
  * Button Component.
@@ -11,6 +11,12 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class ButtonComponent {
-  @Input() public disabled: boolean;
-  @Input() public type: string;
+  @Input() public disabled = false;
+  @Input() public type!: string;
+
+  @Output()
+  public click = new EventEmitter<void>();
+
+  @Output()
+  public mouseup = new EventEmitter<void>();
 }

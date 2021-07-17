@@ -5,6 +5,8 @@
     'button-primary': type === 'primary',
     'button-secondary': type === 'secondary'
   }"
+  (click)="click.emit()"
+  (mouseup)="mouseup.emit()"
 >
   <ng-content></ng-content>
 </button>

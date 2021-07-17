@@ -3,10 +3,11 @@ import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 
-import {ButtonModule} from './button.module';
+import {ButtonModule} from '@al/button-component';
 import {ButtonHarness} from './button-harness';
 
 @Component({
+  selector: 'al-test',
   template: `
   <al-button id="primary" type="primary" (click)="clicked = true">Primary</al-button>
   <al-button id="primary-disabled" type="primary" disabled="true">Primary Disabled</al-button>
