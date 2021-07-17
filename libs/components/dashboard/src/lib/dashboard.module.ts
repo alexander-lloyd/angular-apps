@@ -1,10 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+
+import {ButtonModule} from '@al/button-component';
+
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardHeaderComponent} from './dashboard-header/dashboard-header.component';
 import {DashboardHeaderLogoComponent} from './dashboard-header-logo/dashboard-header-logo.component';
+import {DashboardSidebarComponent} from './dashboard-sidebar/dashboard-sidebar.component';
+import {DashboardSidebarItemComponent} from './dashboard-sidebar-item/dashboard-sidebar-item.component';
 
-import {ButtonModule} from '@al/button-component';
 
 /**
  * Dashboard Module.
@@ -17,12 +21,16 @@ import {ButtonModule} from '@al/button-component';
   declarations: [
     DashboardComponent,
     DashboardHeaderComponent,
-    DashboardHeaderLogoComponent
+    DashboardHeaderLogoComponent,
+    DashboardSidebarItemComponent,
+    DashboardSidebarComponent
   ],
   exports: [
     DashboardComponent,
     DashboardHeaderComponent,
-    DashboardHeaderLogoComponent
+    DashboardHeaderLogoComponent,
+    DashboardSidebarComponent,
+    DashboardSidebarItemComponent
   ]
 })
 export class DashboardModule {}

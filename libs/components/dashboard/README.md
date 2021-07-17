@@ -22,7 +22,14 @@ export AppModule {
     <al-dashboard-header-logo> Dashboard </al-dashboard-header-logo>
   </al-dashboard-header>
 
-  <al-dashboard-sidebar> </al-dashboard-sidebar>
+  <al-dashboard-sidebar>
+    <al-dashboard-sidebar-item>
+      Sidebar Item 1
+    </al-dashboard-sidebar-item>
+    <al-dashboard-sidebar-item>
+      Sidebar Item 2
+    </al-dashboard-sidebar-item>
+  </al-dashboard-sidebar>
 
   <al-dashboard-content> </al-dashboard-content>
 

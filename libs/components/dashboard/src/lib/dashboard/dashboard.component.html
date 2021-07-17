@@ -5,7 +5,9 @@
     >
     <ng-content select="al-dashboard-header"></ng-content>
   </header>
-  <div class="al-dashboard-sidebar">Sidebar</div>
-  <div class="al-dashboard-content">Content</div>
+  <aside class="al-dashboard-sidebar">
+    <ng-content select="al-dashboard-sidebar"></ng-content>
+  </aside>
+  <main class="al-dashboard-content">Content</main>
   <footer class="al-dashboard-footer">Footer</footer>
 </div>
