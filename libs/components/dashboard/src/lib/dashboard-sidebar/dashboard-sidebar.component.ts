@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ContentChildren, QueryList } from '@angular/core';
+import {Component, ChangeDetectionStrategy, ContentChildren, QueryList, ViewEncapsulation} from '@angular/core';
 
 import {DashboardSidebarItemComponent} from '../dashboard-sidebar-item/dashboard-sidebar-item.component';
 
@@ -6,7 +6,8 @@ import {DashboardSidebarItemComponent} from '../dashboard-sidebar-item/dashboard
   selector: 'al-dashboard-sidebar',
   templateUrl: './dashboard-sidebar.component.html',
   styleUrls: ['./dashboard-sidebar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class DashboardSidebarComponent {
     @ContentChildren(DashboardSidebarItemComponent)

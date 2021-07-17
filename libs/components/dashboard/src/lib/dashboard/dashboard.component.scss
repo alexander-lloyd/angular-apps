@@ -1,16 +1,16 @@
 .al-dashboard {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 /**
  * Grid
  */
-.al-dashboard {
+ .al-dashboard {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 1fr; /* Hide sidenav in module */
   grid-template-rows: 50px 1fr 50px;
-  grid-template-areas: 'header header' 'sidebar content' 'sidebar footer';
+  grid-template-areas: 'header' 'content' 'footer';
 
   .al-dashboard-header {
     grid-area: header;
@@ -26,6 +26,25 @@
 
   .al-dashboard-footer {
     grid-area: footer;
+  }
+
+  .al-dashboard-sidebar {
+    display: none;
+    grid-area: sidebar;
+  }
+}
+
+/* Non-mobile > 750px breakpoint */
+@media only screen and (min-width: 46.875em) {
+  /* Show sidenav */
+  .al-dashboard {
+    grid-template-columns: 240px 1fr;
+    grid-template-areas: 'header header' 'sidebar content' 'sidebar footer';
+  }
+
+  .al-dashboard-sidebar {
+    display: block !important;
+    grid-area: sidebar;
   }
 }
 
@@ -44,8 +63,8 @@
  * Header Burger
  */
 .al-dashboard-burger {
-  padding: 10px;
-  height: 50%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /**
