@@ -1,0 +1,74 @@
+.al-dashboard {
+  height: 100%;
+  width: 100%;
+}
+
+/**
+ * Grid
+ */
+.al-dashboard {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 0.2fr 2.5fr 0.1fr;
+  grid-template-areas: "header header" "sidebar content" "footer footer";
+
+  .al-dashboard-header {
+    grid-area: header;
+  }
+
+  .al-dashboard-sidebar {
+    grid-area: sidebar;
+  }
+
+  .al-dashboard-content {
+    grid-area: content;
+  }
+
+  .al-dashboard-footer {
+    grid-area: footer;
+  }
+}
+
+/**
+ * Header Burger Flex box.
+ */
+.al-dashboard-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/**
+ * Header Burger
+ */
+.al-dashboard-burger {
+  padding: 10px;
+  height: 50%;
+}
+
+
+
+/**
+ * Debug
+ */
+.al-dashboard {
+  background-color: #eeeeee;
+}
+
+.al-dashboard-header {
+  background-color: #e1e1e1;
+}
+
+.al-dashboard-sidebar {
+  background-color: #dedede;
+}
+
+.al-dashboard-content {
+  background-color: #d1d1d1;
+}
+
+.al-dashboard-footer {
+  background: #c9c9c9;
+}

@@ -144,7 +144,9 @@ module.exports = {
             extends: [
                 'plugin:@typescript-eslint/eslint-recommended',
                 'plugin:@typescript-eslint/recommended',
-                'plugin:import/typescript'
+                'plugin:import/typescript',
+                'plugin:@nrwl/nx/angular',
+                'plugin:@angular-eslint/template/process-inline-templates'
             ],
             rules: {
                 '@angular-eslint/component-class-suffix': 'error',
