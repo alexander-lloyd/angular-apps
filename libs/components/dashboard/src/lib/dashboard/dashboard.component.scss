@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 0.2fr 2.5fr 0.1fr;
-  grid-template-areas: "header header" "sidebar content" "footer footer";
+  grid-template-areas: 'header header' 'sidebar content' 'footer footer';
 
   .al-dashboard-header {
     grid-area: header;
@@ -47,8 +47,6 @@
   padding: 10px;
   height: 50%;
 }
-
-
 
 /**
  * Debug

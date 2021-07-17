@@ -1,5 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
+import {ButtonModule} from '@al/button-component';
+
 import {DashboardComponent} from './dashboard.component';
 
 describe('DashboardComponent', () => {
@@ -8,7 +10,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DashboardComponent]
+      declarations: [DashboardComponent],
+      imports: [ButtonModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardComponent);
