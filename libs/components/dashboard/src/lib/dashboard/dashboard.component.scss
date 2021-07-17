@@ -8,9 +8,9 @@
  */
 .al-dashboard {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 0.2fr 2.5fr 0.1fr;
-  grid-template-areas: 'header header' 'sidebar content' 'footer footer';
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: 'header header' 'sidebar content' 'sidebar footer';
 
   .al-dashboard-header {
     grid-area: header;
