@@ -42,6 +42,13 @@
     },
     "storage": {
       "tags": []
+    },
+    "favourite": {
+      "tags": []
+    },
+    "favourite-e2e": {
+      "tags": [],
+      "implicitDependencies": ["favourite"]
     }
   },
   "affected": {

@@ -11,7 +11,7 @@ import {DashboardSidebarItemComponent} from '../dashboard-sidebar-item/dashboard
 })
 export class DashboardSidebarComponent {
     @ContentChildren(DashboardSidebarItemComponent)
-    set inputSidebarItems(sidebarItems: QueryList<DashboardSidebarItemComponent>) {
+    public set inputSidebarItems(sidebarItems: QueryList<DashboardSidebarItemComponent>) {
       this.sidebarItems = sidebarItems.toArray();
     }
 
