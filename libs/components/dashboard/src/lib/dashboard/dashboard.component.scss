@@ -16,10 +16,6 @@
     grid-area: header;
   }
 
-  .al-dashboard-sidebar {
-    grid-area: sidebar;
-  }
-
   .al-dashboard-content {
     grid-area: content;
   }
@@ -29,8 +25,25 @@
   }
 
   .al-dashboard-sidebar {
-    display: none;
     grid-area: sidebar;
+    transform: translateX(-245px);
+    transition: all .6s ease-in-out;
+    height: calc(100% - 50px);
+    width: 240px;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    align-content: stretch;
+    position: fixed;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    z-index: 2; /* Needs to sit above the hamburger menu icon */
+    background-color: #394263;
+  }
+
+  .al-dashboard-sidebar-show {
+    transform: translateX(0);
   }
 }
 
@@ -46,7 +59,24 @@
     display: block !important;
     grid-area: sidebar;
   }
+
+  /* Not showing sidebar in non-mobile mode*/
+  .al-dashboard:not(* > .al-dashboard-sidebar-show) {
+    grid-template-columns: 0 1fr;
+  }
 }
+
+.al-dashboard-sidebar-show {
+  transform: translateX(0);
+}
+
+@media only screen and (min-width: 46.875em) {
+  .al-dashboard-sidebar {
+    position: relative; /* Fixed position on mobile */
+    transform: translateX(0);
+  }
+}
+
 
 /**
  * Header Burger Flex box.
@@ -65,6 +95,7 @@
 .al-dashboard-burger {
   margin-left: 10px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 /**
