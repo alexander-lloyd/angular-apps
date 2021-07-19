@@ -13047,10 +13047,10 @@ ngx-date-fns@7.0.0:
   dependencies:
     tslib "^2.0.0"
 
-ngx-translate-testing@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/ngx-translate-testing/-/ngx-translate-testing-5.1.0.tgz#4e4db75ea5c1b08cb97200d390a0d9ff5bc2891b"
-  integrity sha512-DO3DqHEl2x0ajL3WoYEvWD0buEI//Y7myKAvEWYOZw0ZZREcn7CY38ajzaAGtT2ge18BT511IjxS/IKrflkGDA==
+ngx-translate-testing@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/ngx-translate-testing/-/ngx-translate-testing-5.2.0.tgz#460324553570ac2215588c1990861652a28def73"
+  integrity sha512-n+ncSf67nh6tGaCAdTHwgRF9SAEd8mezhGEFcbrxDvAjrDrJwyHDMLthz/cjwSblrYJ6aSryl3KeWj3AG2UpnA==
   dependencies:
     tslib "^2.0.0"
 
@@ -17957,12 +17957,12 @@ tsconfig-paths@^3.4.0, tsconfig-paths@^3.9.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@2.1.0, tslib@^2.0.0, tslib@^2.0.3:
+tslib@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
-tslib@2.2.0, tslib@^2.1.0:
+tslib@2.2.0, tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
