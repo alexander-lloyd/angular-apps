@@ -3175,6 +3175,17 @@
     strip-json-comments "^3.1.1"
     tslib "^2.0.0"
 
+"@nrwl/devkit@12.5.9":
+  version "12.5.9"
+  resolved "https://registry.yarnpkg.com/@nrwl/devkit/-/devkit-12.5.9.tgz#48e773cebc13b3c55db4f0d21a9575cabe0bfa11"
+  integrity sha512-Oduvfevr2TKxNCc52EgcAmC9JvPyMlyKIlM2KA6uDfDZc0h3YONG4kNZq8YCvH3TbVaFPy1mTu48Grqwvg5tGA==
+  dependencies:
+    "@nrwl/tao" "12.5.9"
+    ejs "^3.1.5"
+    ignore "^5.0.4"
+    semver "7.3.4"
+    tslib "^2.0.0"
+
 "@nrwl/eslint-plugin-nx@12.3.3":
   version "12.3.3"
   resolved "https://registry.yarnpkg.com/@nrwl/eslint-plugin-nx/-/eslint-plugin-nx-12.3.3.tgz#ae10dc135afc63f1b45ba0a5fe35911f87e6ab32"
@@ -3194,6 +3205,16 @@
     jest-resolve "^26.6.2"
     rxjs "^6.5.4"
     strip-json-comments "^3.1.1"
+    tslib "^2.0.0"
+
+"@nrwl/jest@12.5.9":
+  version "12.5.9"
+  resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-12.5.9.tgz#f53a913f20e80c37ec6b2991c9cf2af45c3dced9"
+  integrity sha512-IIzGlo3p7T44j6goTEvG87Runo38qfZWMKQ4GkW+kcor57WUa659ZYrhKponCMHEbHvMJXFOIb2UQdskC0rqmw==
+  dependencies:
+    "@nrwl/devkit" "12.5.9"
+    jest-resolve "^26.6.2"
+    rxjs "^6.5.4"
     tslib "^2.0.0"
 
 "@nrwl/linter@12.3.3":
@@ -3233,6 +3254,22 @@
     rxjs-for-await "0.0.2"
     semver "7.3.4"
     strip-json-comments "^3.1.1"
+    tmp "~0.2.1"
+    tslib "^2.0.0"
+    yargs-parser "20.0.0"
+
+"@nrwl/tao@12.5.9":
+  version "12.5.9"
+  resolved "https://registry.yarnpkg.com/@nrwl/tao/-/tao-12.5.9.tgz#0ab4eae3f3ca6fabbeabeded83de26b92be61ef2"
+  integrity sha512-k3DJ9NZ+GTXHjV7xf4dEF+oFAmPofTgbmUyq4kuvuM5AhJdStk/Tpud4jpvu4/u85zCORzgJHLyd51BDYtbBWw==
+  dependencies:
+    chalk "4.1.0"
+    enquirer "~2.3.6"
+    fs-extra "^9.1.0"
+    jsonc-parser "3.0.0"
+    rxjs "^6.5.4"
+    rxjs-for-await "0.0.2"
+    semver "7.3.4"
     tmp "~0.2.1"
     tslib "^2.0.0"
     yargs-parser "20.0.0"
@@ -16331,14 +16368,14 @@ rxjs@6.4.0:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@6.6.3, rxjs@^6.3.3, rxjs@^6.5.0, rxjs@^6.5.4, rxjs@^6.6.0, rxjs@~6.6.2:
+rxjs@6.6.3:
   version "6.6.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.3.tgz#8ca84635c4daa900c0d3967a6ee7ac60271ee552"
   integrity sha512-trsQc+xYYXZ3urjOiJOuCOa5N3jAZ3eiSpQB5hIT8zGlL2QfnHLJ2r7GMkBGuIausdJN1OneaI6gQlsqNHHmZQ==
   dependencies:
     tslib "^1.9.0"
 
-rxjs@6.6.7, rxjs@^6.6.6:
+rxjs@6.6.7, rxjs@^6.3.3, rxjs@^6.5.0, rxjs@^6.5.4, rxjs@^6.6.0, rxjs@^6.6.6, rxjs@~6.6.2:
   version "6.6.7"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
   integrity sha512-hTdwr+7yYNIT5n4AMYp85KA6yw2Va0FLa3Rguvbpa4W3I5xynaBZo41cM3XM+4Q6fRMj3sBYIR1VAmZMXYJvRQ==
@@ -17957,12 +17994,12 @@ tsconfig-paths@^3.4.0, tsconfig-paths@^3.9.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@2.1.0, tslib@^2.0.0, tslib@^2.0.3:
+tslib@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
   integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
-tslib@2.2.0, tslib@^2.1.0:
+tslib@2.2.0, tslib@^2.0.0, tslib@^2.0.3, tslib@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
