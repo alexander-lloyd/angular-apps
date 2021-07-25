@@ -5,12 +5,12 @@ import {ButtonModule} from '@al/button-component';
 
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {DashboardContentComponent} from './dashboard-content/dashboard-content.component';
+import {DashboardFooterComponent} from './dashboard-footer/dashboard-footer.component';
+import {DashboardFooterItemComponent} from './dashboard-footer-item/dashboard-footer-item.component';
 import {DashboardHeaderComponent} from './dashboard-header/dashboard-header.component';
 import {DashboardHeaderLogoComponent} from './dashboard-header-logo/dashboard-header-logo.component';
 import {DashboardSidebarComponent} from './dashboard-sidebar/dashboard-sidebar.component';
 import {DashboardSidebarItemComponent} from './dashboard-sidebar-item/dashboard-sidebar-item.component';
-
-
 
 /**
  * Dashboard Module.
@@ -22,6 +22,8 @@ import {DashboardSidebarItemComponent} from './dashboard-sidebar-item/dashboard-
   ],
   declarations: [
     DashboardComponent,
+    DashboardFooterComponent,
+    DashboardFooterItemComponent,
     DashboardContentComponent,
     DashboardHeaderComponent,
     DashboardHeaderLogoComponent,
@@ -31,6 +33,8 @@ import {DashboardSidebarItemComponent} from './dashboard-sidebar-item/dashboard-
   exports: [
     DashboardComponent,
     DashboardContentComponent,
+    DashboardFooterComponent,
+    DashboardFooterItemComponent,
     DashboardHeaderComponent,
     DashboardHeaderLogoComponent,
     DashboardSidebarComponent,
