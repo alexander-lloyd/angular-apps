@@ -1,0 +1,30 @@
+.al-bookmark-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.al-bookmark-item-link {
+  color: initial;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.al-bookmark-item-icon {
+  width: 40px;
+  height: 40px;
+
+  margin-right: 20px;
+}
+
+.al-bookmark-item-title {
+  font-family: 'Roboto';
+  font-size: 30px;
+}
+
+.al-bookmark-item-url {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: lighter;
+}

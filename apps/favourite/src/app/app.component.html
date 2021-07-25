@@ -3,12 +3,18 @@
     <al-dashboard-header-logo>
       <h1>Bookmarks</h1>
     </al-dashboard-header-logo>
+    <input class="al-favourite-search" />
   </al-dashboard-header>
   <al-dashboard-sidebar>
     <al-dashboard-sidebar-item>Hello</al-dashboard-sidebar-item>
     <al-dashboard-sidebar-item>Sidebar Item1</al-dashboard-sidebar-item>
   </al-dashboard-sidebar>
   <al-dashboard-content>
-    Bookmarks
+    <al-bookmark-list [bookmarks$]="bookmarks$"></al-bookmark-list>
   </al-dashboard-content>
+  <al-dashboard-footer>
+    <al-dashboard-footer-item>
+      <p>Made with ♥ by Alexander Lloyd</p>
+    </al-dashboard-footer-item>
+  </al-dashboard-footer>
 </al-dashboard>
