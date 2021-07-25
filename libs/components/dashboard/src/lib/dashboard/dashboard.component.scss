@@ -6,7 +6,7 @@
 /**
  * Grid
  */
- .al-dashboard {
+.al-dashboard {
   display: grid;
   grid-template-columns: 1fr; /* Hide sidenav in module */
   grid-template-rows: 50px 1fr 50px;
@@ -27,7 +27,7 @@
   .al-dashboard-sidebar {
     grid-area: sidebar;
     transform: translateX(-245px);
-    transition: all .6s ease-in-out;
+    transition: all 0.6s ease-in-out;
     height: calc(100% - 50px);
     width: 240px;
     display: flex;
@@ -76,7 +76,6 @@
     transform: translateX(0);
   }
 }
-
 
 /**
  * Header Burger Flex box.

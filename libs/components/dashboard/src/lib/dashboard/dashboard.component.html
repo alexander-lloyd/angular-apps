@@ -1,11 +1,20 @@
 <div class="al-dashboard">
   <header class="al-dashboard-header">
-    <al-button disable="false" [type]="'primary'" class="al-dashboard-burger" (click)="toggleSidebar()" #sidebarToggle
+    <al-button
+      disable="false"
+      [type]="'primary'"
+      class="al-dashboard-burger"
+      (click)="toggleSidebar()"
+      #sidebarToggle
       >☰</al-button
     >
     <ng-content select="al-dashboard-header"></ng-content>
   </header>
-  <aside class="al-dashboard-sidebar" [ngClass]="{'al-dashboard-sidebar-show': (sidebarOpen$ | async)}" #sidebar>
+  <aside
+    class="al-dashboard-sidebar"
+    [ngClass]="{ 'al-dashboard-sidebar-show': (sidebarOpen$ | async) }"
+    #sidebar
+  >
     <ng-content select="al-dashboard-sidebar"></ng-content>
   </aside>
   <main class="al-dashboard-content">
