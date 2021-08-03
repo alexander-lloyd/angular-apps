@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
 /**
@@ -11,7 +11,7 @@ import {catchError, map} from 'rxjs/operators';
  */
 @Injectable()
 export class FaviconService {
-  private readonly ERROR_ICON = '/favicon.ico';
+  private readonly ERROR_ICON: string = '/favicon.ico';
   private readonly ICON_TYPE_PREFERENCE = [
     'image/svg+xml',
     'image/png',
@@ -50,7 +50,7 @@ export class FaviconService {
         });
         return icons[0].src;
       }),
-      catchError(() => this.ERROR_ICON)
+      catchError(() => of(this.ERROR_ICON))
     );
   }
 

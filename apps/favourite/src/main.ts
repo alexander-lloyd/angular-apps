@@ -4,9 +4,12 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 import {AppModule} from './app/app.module';
 import {environment} from './environments/environment';
+import {polyfillChromeBookmarks} from './app/chrome-bookmarks-polyfill';
 
 if (environment.production) {
   enableProdMode();
+} else {
+  polyfillChromeBookmarks();
 }
 
 platformBrowserDynamic()

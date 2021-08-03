@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
+import {Component, ViewEncapsulation, ChangeDetectionStrategy, Input} from '@angular/core';
 import {Bookmark} from '../../models/bookmark.model';
 
 /**

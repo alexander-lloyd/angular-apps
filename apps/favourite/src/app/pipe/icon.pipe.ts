@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {FaviconService} from '../services/favicon.service';
 
 /**
@@ -24,17 +24,16 @@ export class IconPipe implements PipeTransform {
    * Get the Url of a domain.
    *
    * @param {string} value The full domain.
-   * @return {string} The Url of the icon.
+   * @returns {string} The Url of the icon.
    */
   public transform(value: string): Observable<string> {
     const matches = this.URL_REGEX.exec(value);
 
     if (matches) {
       const domain = matches[3];
-      console.log(domain);
       return this.iconService.getFavicon(domain);
     }
 
-    return this.iconService.getFavicon('');
+    return of('/favicon.ico');
   }
 }

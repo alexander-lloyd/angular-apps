@@ -6,3 +6,11 @@
   align-items: stretch;
   align-content: baseline;
 }
+
+.al-bookmark-list-bookmark {
+  border-radius: 25px;
+  width: calc(100% - 60px);
+  background-color: #c5c5c5;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
