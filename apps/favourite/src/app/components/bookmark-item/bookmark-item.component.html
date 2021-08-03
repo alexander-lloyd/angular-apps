@@ -13,6 +13,8 @@
 
 <ng-container *ngIf="bookmark.tags?.length">
   <ul class="al-bookmark-item-tags">
-    <li class="al-bookmark-item-tag" *ngFor="let tag of bookmark.tags">{{ tag }}</li>
+    <li class="al-bookmark-item-tag" *ngFor="let tag of bookmark.tags">
+      {{ tag }}
+    </li>
   </ul>
 </ng-container>
