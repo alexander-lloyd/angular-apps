@@ -722,7 +722,8 @@
     "@schematics/angular:component": {
       "style": "scss",
       "changeDetection": "OnPush",
-      "prefix": "al"
+      "prefix": "al",
+      "viewEncapsulation": "ShadowDom"
     },
     "@nrwl/angular:component": {
       "style": "scss"

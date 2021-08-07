@@ -14,19 +14,7 @@ p {
   padding-right: 10px;
 }
 
-.al-favourite-search {
-  width: 300px;
-  height: 2.5vh;
-  min-height: 24px;
-  border-radius: 2px;
-  background-color: transparent;
-  border-bottom: 1px solid;
-  border-color: #c5c5c5;
-  font-size: 18px;
-}
-
-.al-favourite-search::placeholder {
-  font-size: 18px;
-  font-weight: 100;
-  padding-left: 4px;
+.al-favourite-search-padding {
+  flex-grow: 1;
+  flex-shrink: 1;
 }

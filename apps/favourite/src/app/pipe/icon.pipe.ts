@@ -6,7 +6,8 @@ import {FaviconService} from '../services/favicon.service';
  * Icon Pipe. Get the Icon Url of a domain.
  */
 @Pipe({
-  name: 'icon'
+  name: 'icon',
+  pure: true
 })
 export class IconPipe implements PipeTransform {
   private readonly URL_REGEX = /(?<protocol>https?):\/\/(?<www>www\.)?(?<domain>[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6})\b(?<path>[-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/giu;
