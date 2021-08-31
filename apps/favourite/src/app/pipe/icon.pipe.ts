@@ -10,7 +10,7 @@ import {FaviconService} from '../services/favicon.service';
   pure: true
 })
 export class IconPipe implements PipeTransform {
-  private readonly URL_REGEX = /(?<protocol>https?):\/\/(?<www>www\.)?(?<domain>[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6})\b(?<path>[-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)/giu;
+  private readonly URL_REGEX = /(?<protocol>https?):\/\/(?<www>www\.)?(?<domain>[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6})\b(?<path>[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/giu;
 
   /**
    * Constructor.
@@ -31,7 +31,7 @@ export class IconPipe implements PipeTransform {
     const matches = this.URL_REGEX.exec(value);
 
     if (matches) {
-      const domain = matches[3];
+      const {domain} = matches.groups;
       return this.iconService.getFavicon(domain);
     }
 
