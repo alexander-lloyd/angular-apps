@@ -1,13 +1,13 @@
 <a
   class="al-bookmark-item al-bookmark-item-link"
-  [href]="bookmark.url"
+  [href]="bookmark.url | urlformat"
   external="external nofollow noopener noreferrer"
   target="_blank"
 >
   <img class="al-bookmark-item-icon" [src]="bookmark.url | icon | async" />
   <div>
     <div class="al-bookmark-item-title">{{ bookmark.title }}</div>
-    <div class="al-bookmark-item-url">{{ bookmark.url }}</div>
+    <div class="al-bookmark-item-url">{{ bookmark.url | urlformat }}</div>
   </div>
 </a>
 

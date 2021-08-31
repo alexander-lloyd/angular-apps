@@ -12,6 +12,7 @@ import {BookmarkSearchComponent} from './components/bookmark-search/bookmark-sea
 import {BookmarkService} from './services/bookmark.service';
 import {FaviconService} from './services/favicon.service';
 import {IconPipe} from './pipe/icon.pipe';
+import {UrlFormatPipe} from './pipe/urlformat.pipe';
 
 /**
  * AppModule.
@@ -22,7 +23,8 @@ import {IconPipe} from './pipe/icon.pipe';
     BookmarkListComponent,
     BookmarkItemComponent,
     BookmarkSearchComponent,
-    IconPipe
+    IconPipe,
+    UrlFormatPipe
   ],
   imports: [
     BrowserModule,
