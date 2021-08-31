@@ -1,0 +1,9 @@
+<ul>
+  <li
+    *ngFor="let bookmark of bookmarks$ | async; trackBy: trackByBookmarkId"
+    class="al-bookmark-list-bookmark"
+    [attr.data-bookmark-id]="bookmark.id"
+  >
+    <al-bookmark-item [bookmark]="bookmark"></al-bookmark-item>
+  </li>
+</ul>

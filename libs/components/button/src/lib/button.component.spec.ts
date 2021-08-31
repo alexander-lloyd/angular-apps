@@ -68,4 +68,38 @@ describe('ButtonComponent', () => {
     expect(buttonDebugElement.nativeElement.classList).toContain('button-secondary');
     expect(buttonDebugElement.nativeElement.disabled).toBe(true);
   });
+
+  it('should emit click when button is clicked', async () => {
+    expect.assertions(1);
+    component.type = 'primary'
+    component.disabled = false;
+
+    await new Promise<void>((resolve) => {
+      (fixture.nativeElement as HTMLElement).addEventListener('click', (e) => {
+        expect(e).toBeDefined();
+        resolve();
+      });
+
+      (buttonDebugElement.nativeElement as HTMLButtonElement)
+        .dispatchEvent(new Event('click', {bubbles: true}));
+    });
+  });
+
+  it('should emit mouseup when mouse is lifted', async () => {
+    expect.assertions(1);
+    component.type = 'primary'
+    component.disabled = false;
+
+    await new Promise<void>((resolve) => {
+      (fixture.nativeElement as HTMLElement).addEventListener('mouseup', (e) => {
+        expect(e).toBeDefined();
+        resolve();
+      });
+
+      (buttonDebugElement.nativeElement as HTMLButtonElement)
+        .dispatchEvent(new Event('mouseup', {
+          bubbles: true
+        }));
+    });
+  });
 });

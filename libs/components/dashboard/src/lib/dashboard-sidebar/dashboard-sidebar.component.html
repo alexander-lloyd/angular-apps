@@ -1,0 +1,8 @@
+<ul class="al-dashboard-sidebar-list">
+  <li
+    *ngFor="let listItem of sidebarItems; let i = index"
+    class="al-dashboard-sidebar-list-item"
+  >
+    <ng-container *ngTemplateOutlet="listItem.template"></ng-container>
+  </li>
+</ul>

@@ -1,0 +1,20 @@
+<a
+  class="al-bookmark-item al-bookmark-item-link"
+  [href]="bookmark.url | urlformat"
+  external="external nofollow noopener noreferrer"
+  target="_blank"
+>
+  <img class="al-bookmark-item-icon" [src]="bookmark.url | icon | async" />
+  <div>
+    <div class="al-bookmark-item-title">{{ bookmark.title }}</div>
+    <div class="al-bookmark-item-url">{{ bookmark.url | urlformat }}</div>
+  </div>
+</a>
+
+<ng-container *ngIf="bookmark.tags?.length">
+  <ul class="al-bookmark-item-tags">
+    <li class="al-bookmark-item-tag" *ngFor="let tag of bookmark.tags">
+      {{ tag }}
+    </li>
+  </ul>
+</ng-container>

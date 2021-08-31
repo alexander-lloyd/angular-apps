@@ -1,0 +1,86 @@
+:host {
+  --background: #ffffff;
+  --text-color: #414856;
+  --primary-color: #4F29F0;
+  --border-radius: 10px;
+  --width: 500px;
+  --height: 55px;
+
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(#414856, .05);
+
+  .al-bookmark-search {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    font: 400 16px 'Roboto', sans-serif;
+    color: var(--text-color);
+    border: 0;
+    box-sizing: border-box;
+    outline: none;
+    padding: 0 0 0 40px;
+    transition: width .6s ease;
+    cursor: pointer;
+    z-index: 0;
+    opacity: 1;
+
+
+    ~ .symbol {
+      &::before {
+        width: 0%;
+      }
+      &:after {
+        clip-path: inset(0% 0% 0% 100%);
+      }
+      .lens {
+        top: 20px;
+        left: 15px;
+      }
+    }
+  }
+  .symbol {
+    height: 100%;
+    // width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    &:before {
+      content:"";
+      position: absolute;
+      background: var(--primary-color);
+      transition: width .6s ease;
+    }
+    &:after {
+      content:"";
+      position: absolute;
+      top: 21px;
+      left: 21px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      clip-path: inset(0% 0% 0% 0%);
+      transition: clip-path .04s linear .225s;
+    }
+    .lens {
+      position: absolute;
+      fill: var(--primary-color);
+      stroke: none;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      z-index: 2;
+      transition: top .3s ease, left .3s ease, fill .2s ease .2s;
+    }
+  }
+}

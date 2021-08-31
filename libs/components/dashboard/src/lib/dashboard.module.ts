@@ -1,0 +1,44 @@
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+
+import {ButtonModule} from '@al/button-component';
+
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {DashboardContentComponent} from './dashboard-content/dashboard-content.component';
+import {DashboardFooterComponent} from './dashboard-footer/dashboard-footer.component';
+import {DashboardFooterItemComponent} from './dashboard-footer-item/dashboard-footer-item.component';
+import {DashboardHeaderComponent} from './dashboard-header/dashboard-header.component';
+import {DashboardHeaderLogoComponent} from './dashboard-header-logo/dashboard-header-logo.component';
+import {DashboardSidebarComponent} from './dashboard-sidebar/dashboard-sidebar.component';
+import {DashboardSidebarItemComponent} from './dashboard-sidebar-item/dashboard-sidebar-item.component';
+
+/**
+ * Dashboard Module.
+ */
+@NgModule({
+  imports: [
+    ButtonModule,
+    CommonModule
+  ],
+  declarations: [
+    DashboardComponent,
+    DashboardFooterComponent,
+    DashboardFooterItemComponent,
+    DashboardContentComponent,
+    DashboardHeaderComponent,
+    DashboardHeaderLogoComponent,
+    DashboardSidebarComponent,
+    DashboardSidebarItemComponent
+  ],
+  exports: [
+    DashboardComponent,
+    DashboardContentComponent,
+    DashboardFooterComponent,
+    DashboardFooterItemComponent,
+    DashboardHeaderComponent,
+    DashboardHeaderLogoComponent,
+    DashboardSidebarComponent,
+    DashboardSidebarItemComponent
+  ]
+})
+export class DashboardModule {}

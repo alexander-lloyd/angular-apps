@@ -4,11 +4,6 @@
   "projects": {
     "todo": {
       "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "apps/todo",
       "sourceRoot": "apps/todo/src",
       "prefix": "al",
@@ -130,13 +125,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/todo/src/main.ts",
-              "apps/todo/src/polyfills.ts",
-              "apps/todo/**/*.spec.ts",
-              "apps/todo/**/*.d.ts",
-              "apps/todo/src/test-setup.ts"
-            ]
+            "lintFilePatterns": ["apps/todo/src/**/*.ts"]
           }
         },
         "test": {
@@ -187,6 +176,120 @@
               "apps/todo-e2e/**/*.ts",
               "apps/todo-e2e/**/*.js"
             ]
+          }
+        }
+      }
+    },
+    "favourite": {
+      "projectType": "application",
+      "root": "apps/favourite",
+      "sourceRoot": "apps/favourite/src",
+      "prefix": "al",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/favourite",
+            "index": "apps/favourite/src/index.html",
+            "main": "apps/favourite/src/main.ts",
+            "polyfills": "apps/favourite/src/polyfills.ts",
+            "tsConfig": "apps/favourite/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/favourite/src/favicon.ico",
+              "apps/favourite/src/assets"
+            ],
+            "styles": ["apps/favourite/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/favourite/src/environments/environment.ts",
+                  "with": "apps/favourite/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "favourite:build:production"
+            },
+            "development": {
+              "browserTarget": "favourite:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "favourite:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/favourite/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/favourite"],
+          "options": {
+            "jestConfig": "apps/favourite/jest.config.js"
+          }
+        }
+      }
+    },
+    "favourite-e2e": {
+      "root": "apps/favourite-e2e",
+      "sourceRoot": "apps/favourite-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/favourite-e2e/cypress.json",
+            "tsConfig": "apps/favourite-e2e/tsconfig.e2e.json",
+            "devServerTarget": "favourite:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "favourite:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/favourite-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -324,13 +427,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/spotify-player/src/main.ts",
-              "apps/spotify-player/src/polyfills.ts",
-              "apps/spotify-player/**/*.spec.ts",
-              "apps/spotify-player/**/*.d.ts",
-              "apps/spotify-player/src/test-setup.ts"
-            ]
+            "lintFilePatterns": ["apps/spotify-player/src/**/*.ts"]
           }
         },
         "test": {
@@ -524,6 +621,44 @@
         }
       }
     },
+    "dashboard-components": {
+      "projectType": "library",
+      "root": "libs/components/dashboard",
+      "sourceRoot": "libs/components/dashboard/src",
+      "prefix": "al",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/components/dashboard/tsconfig.lib.json",
+            "project": "libs/components/dashboard/ng-package.json",
+            "buildableProjectDepsInPackageJsonType": "dependencies"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/components/dashboard/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/components/dashboard/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/dashboard"],
+          "options": {
+            "jestConfig": "libs/components/dashboard/jest.config.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/components/dashboard/src/**/*.ts"]
+          }
+        }
+      }
+    },
     "history": {
       "root": "libs/history",
       "sourceRoot": "libs/history/src",
@@ -572,11 +707,14 @@
   },
   "schematics": {
     "@nrwl/angular:application": {
+      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "e2eTestRunner": "cypress",
+      "strict": true
     },
     "@nrwl/angular:library": {
+      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
       "strict": true
@@ -584,7 +722,11 @@
     "@schematics/angular:component": {
       "style": "scss",
       "changeDetection": "OnPush",
-      "prefix": "al"
+      "prefix": "al",
+      "viewEncapsulation": "ShadowDom"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "todo"

@@ -1,0 +1,59 @@
+.al-bookmark-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.al-bookmark-item-link {
+  color: initial;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.al-bookmark-item-icon {
+  width: 40px;
+  height: 40px;
+
+  margin-right: 20px;
+}
+
+.al-bookmark-item-title {
+  font-family: 'Roboto';
+  font-size: 30px;
+}
+
+.al-bookmark-item-url {
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.al-bookmark-item-tags {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding-inline-start: 0;
+  font-family: 'Roboto';
+}
+
+.al-bookmark-item-tag {
+  border-radius: 10px;
+  background-color: rgb(33, 180, 33);
+  color: white;
+  padding: 6px;
+  margin-left: 10px;
+}
+
+.al-bookmark-item-tag:first-child {
+  margin-left: 50px;
+}
+
+.al-bookmark-item-tag::before {
+  content: '#';
+  margin-right: 4px;
+  vertical-align: text-bottom;
+}
