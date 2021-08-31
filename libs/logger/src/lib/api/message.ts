@@ -2,24 +2,54 @@
 import {LogLevel} from './level';
 
 /**
- * Log message.
+ * Tags.
  */
-export interface LogMessage {
+export interface Tags {
+  [key: string]: string;
+}
+
+interface BaseMessage {
   /**
-   * Log level
+   * Unique Id.
    */
-  level: LogLevel;
+  id: string;
+
   /**
-   * Logger name this message orinated from.
+   * Logger name this message originated from.
    */
   loggerName: string;
-  /**
-   * Log messages.
-   */
-  messages: any[];
 
   /**
    * Unix Timestamp.
    */
   timestamp: number;
+
+  /**
+   * Tags
+   */
+  tags: Tags;
+}
+
+/**
+ * Log message.
+ */
+export interface LogMessage extends BaseMessage {
+  /**
+   * Log level
+   */
+  level: LogLevel;
+  /**
+   * Log messages.
+   */
+  messages: any[];
+}
+
+/**
+ * Error Message.
+ */
+export interface ErrorMessage extends BaseMessage {
+  /**
+   * Error.
+   */
+  error: Error
 }

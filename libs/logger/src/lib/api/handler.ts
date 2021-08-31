@@ -1,4 +1,4 @@
-import {LogMessage} from './message';
+import {ErrorMessage, LogMessage} from './message';
 
 /**
  * Handle log messages.
@@ -10,4 +10,11 @@ export interface LogHandler {
    * @param message Log Message.
    */
   onMessage(message: LogMessage): void;
+
+  /**
+   * Handle an error message.
+   *
+   * @param message Log Message.
+   */
+  onError(message: ErrorMessage): void;
 }
